@@ -1,0 +1,656 @@
+# {{hookName}} Hook
+
+## Overview
+
+The `{{hookName}}` hook is a custom React hook in the **{{category}}** category that {{description}}.
+
+{{#if (eq category 'state')}}
+This hook provides advanced state management capabilities with built-in persistence, validation, and utility methods for common state operations.
+{{/if}}
+{{#if (eq category 'effects')}}
+This hook manages side effects with configurable timing, lifecycle control, and cleanup handling for optimal performance.
+{{/if}}
+{{#if (eq category 'performance')}}
+This hook optimizes component performance through memoization, debouncing, throttling, and render tracking capabilities.
+{{/if}}
+{{#if (eq category 'ui')}}
+This hook handles UI interactions including element visibility, dimensions tracking, and event management with proper cleanup.
+{{/if}}
+{{#if (eq category 'data')}}
+This hook manages data fetching operations with loading states, error handling, caching, and retry mechanisms.
+{{/if}}
+{{#if (eq category 'utilities')}}
+This hook provides utility functions for common operations including validation, transformation, and data processing.
+{{/if}}
+
+## Installation
+
+```bash
+npm install @your-org/component-library
+```
+
+## Basic Usage
+
+```tsx
+import { {{hookName}} } from '@your-org/component-library';
+
+function MyComponent() {
+  const { {{#if (eq category 'state')}}value, setValue, reset{{/if}}{{#if (eq category 'effects')}}isActive, start, stop{{/if}}{{#if (eq category 'data')}}data, loading, error, fetch{{/if}}{{#if (eq category 'utilities')}}processedValue, isValid, validate{{/if}} } = {{hookName}}();
+
+  return (
+    <div>
+      {{#if (eq category 'state')}}
+      <p>Current value: {value}</p>
+      <button onClick={() => setValue('new value')}>Update</button>
+      <button onClick={reset}>Reset</button>
+      {{/if}}
+      {{#if (eq category 'effects')}}
+      <p>Effect is {isActive ? 'active' : 'inactive'}</p>
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
+      {{/if}}
+      {{#if (eq category 'data')}}
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && <pre>{JSON.stringify(data, null, 2)}</pre>}
+      <button onClick={fetch}>Fetch Data</button>
+      {{/if}}
+      {{#if (eq category 'utilities')}}
+      <p>Processed: {processedValue}</p>
+      <p>Valid: {isValid ? 'Yes' : 'No'}</p>
+      <button onClick={validate}>Validate</button>
+      {{/if}}
+    </div>
+  );
+}
+```
+
+## API Reference
+
+### Parameters
+
+The hook accepts an options object with the following properties:
+
+| Option | Type | Default | Description |
+|--------|------|---------|-------------|
+{{#if (eq category 'state')}}
+| `initialValue` | `any` | `null` | Initial value for the state |
+| `persist` | `boolean` | `false` | Enable localStorage persistence |
+| `storageKey` | `string` | `'{{dashCase hookName}}'` | Key for localStorage |
+{{/if}}
+{{#if (eq category 'effects')}}
+| `delay` | `number` | `1000` | Delay between effect executions (ms) |
+| `immediate` | `boolean` | `false` | Start effect immediately |
+| `deps` | `DependencyList` | `[]` | Effect dependencies |
+{{/if}}
+{{#if (eq category 'performance')}}
+| `debounceDelay` | `number` | `300` | Debounce delay in milliseconds |
+| `throttleDelay` | `number` | `100` | Throttle delay in milliseconds |
+| `memoize` | `boolean` | `true` | Enable memoization |
+{{/if}}
+{{#if (eq category 'ui')}}
+| `selector` | `string` | - | Element selector for targeting |
+| `passive` | `boolean` | `true` | Use passive event listeners |
+| `threshold` | `number` | `0.1` | Intersection threshold |
+{{/if}}
+{{#if (eq category 'data')}}
+| `url` | `string` | - | API endpoint URL |
+| `options` | `RequestInit` | - | Fetch request options |
+| `autoFetch` | `boolean` | `true` | Auto-fetch on mount |
+{{/if}}
+{{#if (eq category 'utilities')}}
+| `validate` | `boolean` | `true` | Enable validation |
+| `validator` | `Function` | - | Custom validator function |
+| `errorMessage` | `string` | `'Validation failed'` | Error message |
+{{/if}}
+
+### Return Value
+
+The hook returns an object with the following properties:
+
+{{#if (eq category 'state')}}
+| Property | Type | Description |
+|----------|------|-------------|
+| `value` | `any` | Current state value |
+| `setValue` | `Function` | Update state value |
+| `reset` | `Function` | Reset to initial value |
+| `clear` | `Function` | Clear state (set to null) |
+{{/if}}
+{{#if (eq category 'effects')}}
+| Property | Type | Description |
+|----------|------|-------------|
+| `isActive` | `boolean` | Whether effect is active |
+| `start` | `Function` | Start the effect |
+| `stop` | `Function` | Stop the effect |
+| `restart` | `Function` | Restart the effect |
+{{/if}}
+{{#if (eq category 'data')}}
+| Property | Type | Description |
+|----------|------|-------------|
+| `data` | `any` | Fetched data |
+| `loading` | `boolean` | Loading state |
+| `error` | `Error \| null` | Error state |
+| `fetch` | `Function` | Fetch data function |
+| `refetch` | `Function` | Refetch data function |
+{{/if}}
+{{#if (eq category 'utilities')}}
+| Property | Type | Description |
+|----------|------|-------------|
+| `processedValue` | `any` | Processed value |
+| `isValid` | `boolean` | Validation result |
+| `error` | `string \| null` | Validation error |
+| `validate` | `Function` | Validate function |
+{{/if}}
+
+## Examples
+
+{{#if (eq category 'state')}}
+### Basic State Management
+
+```tsx
+function Counter() {
+  const { value, setValue, reset } = {{hookName}}({ initialValue: 0 });
+
+  return (
+    <div>
+      <p>Count: {value}</p>
+      <button onClick={() => setValue(value + 1)}>+</button>
+      <button onClick={() => setValue(value - 1)}>-</button>
+      <button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+```
+
+### Persistent State
+
+```tsx
+function PersistentInput() {
+  const { value, setValue } = {{hookName}}({
+    initialValue: '',
+    persist: true,
+    storageKey: 'user-input'
+  });
+
+  return (
+    <input
+      value={value || ''}
+      onChange={(e) => setValue(e.target.value)}
+      placeholder="This value persists across sessions"
+    />
+  );
+}
+```
+
+### Array State Management
+
+```tsx
+function TodoList() {
+  const { array: todos, push, remove, clear } = {{hookName}}Array([]);
+
+  const addTodo = (text) => {
+    push({ id: Date.now(), text, completed: false });
+  };
+
+  return (
+    <div>
+      {todos.map((todo, index) => (
+        <div key={todo.id}>
+          {todo.text}
+          <button onClick={() => remove(index)}>Remove</button>
+        </div>
+      ))}
+      <button onClick={() => addTodo('New todo')}>Add Todo</button>
+      <button onClick={clear}>Clear All</button>
+    </div>
+  );
+}
+```
+{{/if}}
+
+{{#if (eq category 'effects')}}
+### Interval Effect
+
+```tsx
+function Timer() {
+  const [count, setCount] = useState(0);
+  const { isActive, start, stop, restart } = {{hookName}}({
+    delay: 1000,
+    deps: []
+  });
+
+  useEffect(() => {
+    if (isActive) {
+      const interval = setInterval(() => {
+        setCount(c => c + 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [isActive]);
+
+  return (
+    <div>
+      <p>Timer: {count}</p>
+      <button onClick={start}>Start</button>
+      <button onClick={stop}>Stop</button>
+      <button onClick={restart}>Restart</button>
+    </div>
+  );
+}
+```
+
+### Auto-start Effect
+
+```tsx
+function AutoEffect() {
+  const { isActive, stop } = {{hookName}}({
+    delay: 2000,
+    immediate: true
+  });
+
+  return (
+    <div>
+      <p>Auto-started effect is {isActive ? 'running' : 'stopped'}</p>
+      <button onClick={stop}>Stop</button>
+    </div>
+  );
+}
+```
+{{/if}}
+
+{{#if (eq category 'data')}}
+### Data Fetching
+
+```tsx
+function UserProfile({ userId }) {
+  const { data, loading, error, refetch } = {{hookName}}({
+    url: `/api/users/${userId}`,
+    autoFetch: true
+  });
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <div>
+      <h1>{data?.name}</h1>
+      <p>{data?.email}</p>
+      <button onClick={refetch}>Refresh</button>
+    </div>
+  );
+}
+```
+
+### Manual Fetching
+
+```tsx
+function SearchComponent() {
+  const [query, setQuery] = useState('');
+  const { data, loading, fetch } = {{hookName}}({
+    autoFetch: false
+  });
+
+  const handleSearch = async () => {
+    await fetch({
+      url: `/api/search?q=${query}`,
+      options: { method: 'GET' }
+    });
+  };
+
+  return (
+    <div>
+      <input 
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search..."
+      />
+      <button onClick={handleSearch} disabled={loading}>
+        {loading ? 'Searching...' : 'Search'}
+      </button>
+      {data && (
+        <ul>
+          {data.results?.map(item => (
+            <li key={item.id}>{item.title}</li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+```
+
+### Error Handling
+
+```tsx
+function RobustFetcher() {
+  const { data, loading, error, fetch } = {{hookName}}({
+    url: '/api/data',
+    autoFetch: false
+  });
+
+  const handleRetry = () => {
+    fetch();
+  };
+
+  return (
+    <div>
+      <button onClick={fetch} disabled={loading}>
+        {loading ? 'Loading...' : 'Fetch Data'}
+      </button>
+      
+      {error && (
+        <div style={{ color: 'red' }}>
+          <p>Error: {error.message}</p>
+          <button onClick={handleRetry}>Retry</button>
+        </div>
+      )}
+      
+      {data && (
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      )}
+    </div>
+  );
+}
+```
+{{/if}}
+
+{{#if (eq category 'ui')}}
+### Visibility Tracking
+
+```tsx
+function LazyImage({ src, alt }) {
+  const { isVisible, ref } = {{hookName}}({
+    threshold: 0.1
+  });
+
+  return (
+    <div ref={ref} style={{ minHeight: '200px' }}>
+      {isVisible ? (
+        <img src={src} alt={alt} />
+      ) : (
+        <div>Loading when visible...</div>
+      )}
+    </div>
+  );
+}
+```
+
+### Dimension Tracking
+
+```tsx
+function ResponsiveComponent() {
+  const { ref, dimensions } = {{hookName}}();
+
+  return (
+    <div ref={ref} style={{ border: '1px solid #ccc', padding: '20px' }}>
+      <p>Width: {dimensions.width}px</p>
+      <p>Height: {dimensions.height}px</p>
+      <p>Resize me to see dimensions change!</p>
+    </div>
+  );
+}
+```
+{{/if}}
+
+{{#if (eq category 'utilities')}}
+### Validation
+
+```tsx
+function ValidatedInput() {
+  const [input, setInput] = useState('');
+  const { isValid, error, validate } = {{hookName}}({
+    validate: true,
+    validator: (value) => value.length >= 3,
+    errorMessage: 'Must be at least 3 characters'
+  });
+
+  const handleChange = (e) => {
+    setInput(e.target.value);
+    validate(e.target.value);
+  };
+
+  return (
+    <div>
+      <input
+        value={input}
+        onChange={handleChange}
+        style={{ borderColor: isValid ? 'green' : 'red' }}
+      />
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <p>Valid: {isValid ? '✓' : '✗'}</p>
+    </div>
+  );
+}
+```
+
+### Custom Processing
+
+```tsx
+function DataProcessor() {
+  const { processedValue, validate } = {{hookName}}({
+    validate: true,
+    validator: (data) => Array.isArray(data) && data.length > 0
+  });
+
+  return (
+    <div>
+      <p>Processed: {JSON.stringify(processedValue)}</p>
+      <button onClick={() => validate()}>Validate</button>
+    </div>
+  );
+}
+```
+{{/if}}
+
+## Advanced Usage
+
+### TypeScript Integration
+
+```tsx
+import { {{hookName}} } from '@your-org/component-library';
+import type { {{name}}Options, {{name}}Return } from '@your-org/component-library';
+
+interface CustomOptions extends {{name}}Options {
+  customProperty?: string;
+}
+
+function TypedComponent() {
+  const options: CustomOptions = {
+    {{#if (eq category 'state')}}
+    initialValue: 'typed value',
+    persist: true,
+    {{/if}}
+    {{#if (eq category 'effects')}}
+    delay: 1000,
+    immediate: false,
+    {{/if}}
+    customProperty: 'custom'
+  };
+
+  const result: {{name}}Return = {{hookName}}(options);
+
+  return <div>Typed hook usage</div>;
+}
+```
+
+### Performance Optimization
+
+```tsx
+function OptimizedComponent() {
+  const memoizedOptions = useMemo(() => ({
+    {{#if (eq category 'state')}}
+    initialValue: computeInitialValue(),
+    persist: true,
+    {{/if}}
+    {{#if (eq category 'effects')}}
+    delay: 1000,
+    deps: [dependency1, dependency2],
+    {{/if}}
+  }), [dependency1, dependency2]);
+
+  const result = {{hookName}}(memoizedOptions);
+
+  return <div>Optimized usage</div>;
+}
+```
+
+### Error Boundaries
+
+```tsx
+class {{name}}ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('{{hookName}} error:', error, errorInfo);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div>Something went wrong with {{hookName}}</div>;
+    }
+
+    return this.props.children;
+  }
+}
+
+function SafeComponent() {
+  return (
+    <{{name}}ErrorBoundary>
+      <ComponentUsing{{name}} />
+    </{{name}}ErrorBoundary>
+  );
+}
+```
+
+## Testing
+
+### Unit Testing
+
+```tsx
+import { renderHook, act } from '@testing-library/react';
+import { {{hookName}} } from './{{hookName}}';
+
+describe('{{hookName}}', () => {
+  it('should work correctly', () => {
+    const { result } = renderHook(() => {{hookName}}());
+    
+    expect(result.current).toBeDefined();
+    
+    {{#if (eq category 'state')}}
+    act(() => {
+      result.current.setValue('test');
+    });
+    
+    expect(result.current.value).toBe('test');
+    {{/if}}
+  });
+});
+```
+
+### Integration Testing
+
+```tsx
+function TestComponent() {
+  const hookResult = {{hookName}}();
+  return <div data-testid="hook-result">{JSON.stringify(hookResult)}</div>;
+}
+
+test('{{hookName}} integration', () => {
+  render(<TestComponent />);
+  
+  const result = screen.getByTestId('hook-result');
+  expect(result).toBeInTheDocument();
+});
+```
+
+## Best Practices
+
+### Do's ✅
+
+1. **Memoize options** when they depend on props or state
+2. **Handle cleanup** properly in components using the hook
+3. **Use TypeScript** for better type safety
+4. **Test edge cases** including error conditions
+5. **Follow React Rules of Hooks** (don't call conditionally)
+
+### Don'ts ❌
+
+1. **Don't call conditionally** - always call hooks at the top level
+2. **Don't mutate returned objects** - treat them as immutable
+3. **Don't ignore errors** - handle error states appropriately
+4. **Don't overuse** - consider if built-in hooks suffice
+5. **Don't forget cleanup** - prevent memory leaks
+
+### Performance Tips
+
+1. Use `useMemo` for expensive option calculations
+2. Use `useCallback` for event handlers passed to the hook
+3. Consider debouncing frequent operations
+4. Monitor re-renders with React DevTools
+
+## Troubleshooting
+
+### Common Issues
+
+1. **Hook not updating**: Check dependencies and options
+2. **Memory leaks**: Ensure proper cleanup on unmount
+3. **Stale closures**: Use functional updates when needed
+4. **TypeScript errors**: Verify types and interfaces
+
+### Debug Mode
+
+```tsx
+function DebugComponent() {
+  const result = {{hookName}}({
+    // ... options
+  });
+
+  // Debug logging
+  useEffect(() => {
+    console.log('Hook result:', result);
+  }, [result]);
+
+  return <div>Debug component</div>;
+}
+```
+
+## Related Hooks
+
+- [`useState`](https://react.dev/reference/react/useState) - React's built-in state hook
+- [`useEffect`](https://react.dev/reference/react/useEffect) - React's built-in effect hook
+{{#if (eq category 'state')}}
+- [`useReducer`](https://react.dev/reference/react/useReducer) - For complex state logic
+- [`useContext`](https://react.dev/reference/react/useContext) - For global state sharing
+{{/if}}
+{{#if (eq category 'data')}}
+- [`useSWR`](https://swr.vercel.app/) - Alternative data fetching library
+- [`useQuery`](https://tanstack.com/query/latest) - React Query data fetching
+{{/if}}
+
+## Changelog
+
+### v2.1.0
+- Added TypeScript strict mode support
+- Improved error handling
+- Performance optimizations
+
+### v2.0.0
+- Complete rewrite with hooks
+- Breaking changes to API
+- Added comprehensive testing
+
+### v1.5.0
+- Added persistence support
+- Bug fixes and improvements
+- Enhanced documentation
+
+---
+
+For more information, see the [API documentation](../api/hooks.md) or [contribute on GitHub](https://github.com/your-org/component-library).

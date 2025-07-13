@@ -1,0 +1,499 @@
+/**
+ * @fileoverview {{name}} Component Stories
+ * @author AI Generated Stories
+ */
+
+import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { within, userEvent, expect } from '@storybook/test';
+import { {{name}} } from './{{name}}';
+import type { {{name}}Props } from './{{name}}.types';
+
+const meta: Meta<typeof {{name}}> = {
+  title: '{{capitalize category}}/{{name}}',
+  component: {{name}},
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component: `
+The {{name}} component is a {{complexity}} {{category}} component that provides 
+{{#if (eq category 'core')}}
+versatile functionality with consistent styling and behavior across the application.
+{{/if}}
+{{#if (eq category 'forms')}}
+seamless form integration with validation, accessibility, and user experience optimizations.
+{{/if}}
+{{#if (eq category 'layout')}}
+flexible layout options with responsive design patterns.
+{{/if}}
+{{#if (eq category 'feedback')}}
+clear feedback communication with appropriate visual and accessible patterns.
+{{/if}}
+{{#if (eq category 'navigation')}}
+intuitive navigation with keyboard support and clear visual hierarchy.
+{{/if}}
+{{#if (eq category 'data-display')}}
+optimized data presentation with performance and accessibility features.
+{{/if}}
+{{#if (eq category 'surfaces')}}
+elevated content areas with depth and proper contrast ratios.
+{{/if}}
+
+## Features
+
+{{#each features}}
+- ✅ {{capitalize this}}
+{{/each}}
+
+## Usage
+
+\`\`\`tsx
+import { {{name}} } from '@/components/{{category}}/{{name}}';
+
+const Example = () => (
+  <{{name}} variant="primary" size="medium">
+    Click me
+  </{{name}}>
+);
+\`\`\`
+        `,
+      },
+    },
+    a11y: {
+      config: {
+        rules: [
+          {
+            id: 'color-contrast',
+            enabled: true,
+          },
+          {
+            id: 'keyboard-navigation',
+            enabled: true,
+          },
+        ],
+      },
+    },
+  },
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: [
+        'primary',
+        'secondary',
+        'outlined',
+        'text',
+        {{#if (eq category 'feedback')}}
+        'success',
+        'warning',
+        'error',
+        'info',
+        {{/if}}
+      ],
+      description: 'The variant of the component',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'primary' },
+      },
+    },
+    size: {
+      control: { type: 'select' },
+      options: ['small', 'medium', 'large'],
+      description: 'The size of the component',
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'medium' },
+      },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+      description: 'If true, the component is disabled',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    {{#if (includes features 'loading')}}
+    loading: {
+      control: { type: 'boolean' },
+      description: 'If true, the component shows loading state',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    {{/if}}
+    children: {
+      control: { type: 'text' },
+      description: 'The content of the component',
+      table: {
+        type: { summary: 'ReactNode' },
+      },
+    },
+    onClick: {
+      action: 'clicked',
+      description: 'Callback fired when the component is clicked',
+      table: {
+        type: { summary: '(event: MouseEvent) => void' },
+      },
+    },
+    sx: {
+      control: { type: 'object' },
+      description: 'System prop to customize css style',
+      table: {
+        type: { summary: 'SxProps<Theme>' },
+      },
+    },
+  },
+  args: {
+    children: '{{name}} Component',
+    onClick: action('clicked'),
+  },
+  tags: ['autodocs'],
+};
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+// Default story
+export const Default: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'The default {{name}} component with standard styling.',
+      },
+    },
+  },
+};
+
+// Variant stories
+export const Variants: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Different visual variants of the {{name}} component.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <{{name}} variant="primary">Primary</{{name}}>
+      <{{name}} variant="secondary">Secondary</{{name}}>
+      <{{name}} variant="outlined">Outlined</{{name}}>
+      <{{name}} variant="text">Text</{{name}}>
+      {{#if (eq category 'feedback')}}
+      <{{name}} variant="success">Success</{{name}}>
+      <{{name}} variant="warning">Warning</{{name}}>
+      <{{name}} variant="error">Error</{{name}}>
+      <{{name}} variant="info">Info</{{name}}>
+      {{/if}}
+    </div>
+  ),
+};
+
+// Size stories
+export const Sizes: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Different sizes of the {{name}} component.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <{{name}} size="small">Small</{{name}}>
+      <{{name}} size="medium">Medium</{{name}}>
+      <{{name}} size="large">Large</{{name}}>
+    </div>
+  ),
+};
+
+// State stories
+export const States: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Different states of the {{name}} component.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <{{name}}>Default</{{name}}>
+      <{{name}} disabled>Disabled</{{name}}>
+      {{#if (includes features 'loading')}}
+      <{{name}} loading>Loading</{{name}}>
+      {{/if}}
+      <{{name}} active>Active</{{name}}>
+      <{{name}} selected>Selected</{{name}}>
+    </div>
+  ),
+};
+
+{{#if (includes features 'icons')}}
+// Icon stories
+export const WithIcons: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '{{name}} component with icons.',
+      },
+    },
+  },
+  render: () => {
+    const StarIcon = () => (
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+      </svg>
+    );
+
+    return (
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+        <{{name}} startIcon={<StarIcon />}>Start Icon</{{name}}>
+        <{{name}} endIcon={<StarIcon />}>End Icon</{{name}}>
+        <{{name}} startIcon={<StarIcon />} endIcon={<StarIcon />}>
+          Both Icons
+        </{{name}}>
+      </div>
+    );
+  },
+};
+{{/if}}
+
+{{#if (includes features 'forms')}}
+// Form integration stories
+export const FormIntegration: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '{{name}} component integrated with forms.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <{{name}} name="field1" value="value1">
+        Form Field
+      </{{name}}>
+      <{{name}} error errorText="This field is required">
+        Error State
+      </{{name}}>
+      <{{name}} helperText="This is helper text">
+        With Helper
+      </{{name}}>
+      <{{name}} required>
+        Required Field
+      </{{name}}>
+    </div>
+  ),
+};
+{{/if}}
+
+// Interactive story
+export const Interactive: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive {{name}} component for testing user interactions.',
+      },
+    },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByRole('button');
+
+    // Test click interaction
+    await userEvent.click(button);
+    await expect(button).toHaveFocus();
+
+    // Test keyboard interaction
+    await userEvent.keyboard('{Enter}');
+    await userEvent.keyboard(' ');
+  },
+};
+
+// Accessibility story
+export const Accessibility: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '{{name}} component with comprehensive accessibility features.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <{{name}} aria-label="Accessible button with label">
+        Aria Label
+      </{{name}}>
+      <{{name}} aria-describedby="description">
+        Aria Description
+      </{{name}}>
+      <p id="description">This button has a description</p>
+      <{{name}} role="button" tabIndex={0}>
+        Custom Role
+      </{{name}}>
+    </div>
+  ),
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const buttons = canvas.getAllByRole('button');
+
+    // Test keyboard navigation
+    for (const button of buttons) {
+      await userEvent.tab();
+      if (document.activeElement === button) {
+        await expect(button).toHaveFocus();
+      }
+    }
+  },
+};
+
+// Dark theme story
+export const DarkTheme: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '{{name}} component in dark theme.',
+      },
+    },
+    backgrounds: {
+      default: 'dark',
+      values: [
+        { name: 'dark', value: '#121212' },
+      ],
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <{{name}} variant="primary">Primary Dark</{{name}}>
+      <{{name}} variant="secondary">Secondary Dark</{{name}}>
+      <{{name}} variant="outlined">Outlined Dark</{{name}}>
+      <{{name}} variant="text">Text Dark</{{name}}>
+    </div>
+  ),
+};
+
+// Custom styling story
+export const CustomStyling: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '{{name}} component with custom styling using sx prop.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <{{name}}
+        sx={{
+          borderRadius: '20px',
+          background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+          boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        }}
+      >
+        Gradient
+      </{{name}}>
+      <{{name}}
+        sx={{
+          backgroundColor: 'transparent',
+          border: '2px dashed',
+          borderColor: 'primary.main',
+          '&:hover': {
+            backgroundColor: 'primary.light',
+            borderStyle: 'solid',
+          },
+        }}
+      >
+        Dashed Border
+      </{{name}}>
+      <{{name}}
+        sx={{
+          borderRadius: 0,
+          textTransform: 'none',
+          fontSize: '1.2rem',
+          fontWeight: 'bold',
+        }}
+      >
+        Custom Typography
+      </{{name}}>
+    </div>
+  ),
+};
+
+{{#if (eq complexity 'complex')}}
+// Complex configuration story
+export const ComplexConfiguration: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: '{{name}} component with complex configuration options.',
+      },
+    },
+  },
+  args: {
+    variant: 'primary',
+    size: 'large',
+    {{#if (includes features 'animation')}}
+    animate: true,
+    {{/if}}
+    {{#if (includes features 'responsive')}}
+    responsive: {
+      xs: { size: 'small' },
+      md: { variant: 'outlined' },
+      lg: { size: 'large' },
+    },
+    {{/if}}
+    {{#if (includes features 'loading')}}
+    loading: false,
+    {{/if}}
+    children: 'Complex {{name}}',
+  },
+};
+{{/if}}
+
+// Performance story
+export const Performance: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Multiple {{name}} components to test performance.',
+      },
+    },
+  },
+  render: () => (
+    <div style={{ 
+      display: 'grid', 
+      gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))', 
+      gap: '8px',
+      maxWidth: '800px',
+    }}>
+      {Array.from({ length: 50 }, (_, i) => (
+        <{{name}} key={i} variant={i % 2 === 0 ? 'primary' : 'secondary'}>
+          {{name}} {i + 1}
+        </{{name}}>
+      ))}
+    </div>
+  ),
+};
+
+// Playground story
+export const Playground: Story = {
+  parameters: {
+    docs: {
+      description: {
+        story: 'Interactive playground for testing different prop combinations.',
+      },
+    },
+  },
+  args: {
+    variant: 'primary',
+    size: 'medium',
+    disabled: false,
+    {{#if (includes features 'loading')}}
+    loading: false,
+    {{/if}}
+    children: 'Playground {{name}}',
+  },
+};

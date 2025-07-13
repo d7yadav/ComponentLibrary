@@ -1,0 +1,939 @@
+# 📖 {{name}} Component Examples
+
+This document provides comprehensive examples for the {{name}} component, demonstrating real-world usage patterns and best practices.
+
+## Table of Contents
+
+1. [Basic Usage](#basic-usage)
+2. [Variants](#variants)
+3. [Sizes](#sizes)
+4. [States](#states)
+{{#if (includes features 'icons')}}
+5. [With Icons](#with-icons)
+{{/if}}
+{{#if (includes features 'forms')}}
+6. [Form Integration](#form-integration)
+{{/if}}
+7. [Custom Styling](#custom-styling)
+8. [Advanced Examples](#advanced-examples)
+9. [Performance Examples](#performance-examples)
+10. [Accessibility Examples](#accessibility-examples)
+11. [Edge Cases](#edge-cases)
+
+## Basic Usage
+
+### Simple {{name}}
+```tsx
+import { {{name}} } from '@/components/{{category}}/{{name}}';
+
+const BasicExample = () => {
+  return (
+    <{{name}}>
+      Click me
+    </{{name}}>
+  );
+};
+```
+
+### With Click Handler
+```tsx
+const ClickableExample = () => {
+  const handleClick = () => {
+    console.log('{{name}} clicked!');
+  };
+
+  return (
+    <{{name}} onClick={handleClick}>
+      Clickable {{name}}
+    </{{name}}>
+  );
+};
+```
+
+### With TypeScript
+```tsx
+import type { {{name}}Props } from '@/components/{{category}}/{{name}}';
+
+const TypedExample: React.FC = () => {
+  const buttonProps: {{name}}Props = {
+    variant: 'primary',
+    size: 'medium',
+    onClick: (event) => {
+      console.log('Event:', event);
+    },
+  };
+
+  return (
+    <{{name}} {...buttonProps}>
+      Typed {{name}}
+    </{{name}}>
+  );
+};
+```
+
+## Variants
+
+### All Available Variants
+```tsx
+const VariantsExample = () => {
+  return (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+      <{{name}} variant="primary">Primary</{{name}}>
+      <{{name}} variant="secondary">Secondary</{{name}}>
+      <{{name}} variant="outlined">Outlined</{{name}}>
+      <{{name}} variant="text">Text</{{name}}>
+      {{#if (eq category 'feedback')}}
+      <{{name}} variant="success">Success</{{name}}>
+      <{{name}} variant="warning">Warning</{{name}}>
+      <{{name}} variant="error">Error</{{name}}>
+      <{{name}} variant="info">Info</{{name}}>
+      {{/if}}
+    </div>
+  );
+};
+```
+
+### Contextual Usage
+```tsx
+const ContextualExample = () => {
+  return (
+    <div>
+      {/* Primary actions */}
+      <{{name}} variant="primary">Save</{{name}}>
+      <{{name}} variant="primary">Submit</{{name}}>
+      
+      {/* Secondary actions */}
+      <{{name}} variant="secondary">Cancel</{{name}}>
+      <{{name}} variant="outlined">Edit</{{name}}>
+      
+      {/* Text actions */}
+      <{{name}} variant="text">Learn More</{{name}}>
+      
+      {{#if (eq category 'feedback')}}
+      {/* Feedback actions */}
+      <{{name}} variant="success">Confirm</{{name}}>
+      <{{name}} variant="error">Delete</{{name}}>
+      {{/if}}
+    </div>
+  );
+};
+```
+
+## Sizes
+
+### Size Comparison
+```tsx
+const SizesExample = () => {
+  return (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <{{name}} size="small">Small</{{name}}>
+      <{{name}} size="medium">Medium</{{name}}>
+      <{{name}} size="large">Large</{{name}}>
+    </div>
+  );
+};
+```
+
+### Responsive Sizes
+```tsx
+const ResponsiveSizesExample = () => {
+  return (
+    <{{name}}
+      sx={{
+        fontSize: {
+          xs: '0.75rem',   // Small screens
+          sm: '0.875rem',  // Medium screens
+          md: '1rem',      // Large screens
+        },
+        padding: {
+          xs: '4px 8px',
+          sm: '6px 16px',
+          md: '8px 24px',
+        },
+      }}
+    >
+      Responsive Size
+    </{{name}}>
+  );
+};
+```
+
+## States
+
+### Disabled State
+```tsx
+const DisabledExample = () => {
+  return (
+    <div style={{ display: 'flex', gap: '16px' }}>
+      <{{name}} disabled>Disabled {{name}}</{{name}}>
+      <{{name}} disabled variant="outlined">Disabled Outlined</{{name}}>
+    </div>
+  );
+};
+```
+
+{{#if (includes features 'loading')}}
+### Loading State
+```tsx
+const LoadingExample = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = async () => {
+    setLoading(true);
+    
+    // Simulate async operation
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    
+    setLoading(false);
+  };
+
+  return (
+    <{{name}} loading={loading} onClick={handleClick}>
+      {loading ? 'Loading...' : 'Click to Load'}
+    </{{name}}>
+  );
+};
+```
+
+### Loading with Custom Indicator
+```tsx
+const CustomLoadingExample = () => {
+  const [loading, setLoading] = useState(false);
+
+  return (
+    <{{name}}
+      loading={loading}
+      loadingIndicator={<CustomSpinner />}
+      onClick={() => setLoading(!loading)}
+    >
+      Custom Loading
+    </{{name}}>
+  );
+};
+```
+{{/if}}
+
+### Active and Selected States
+```tsx
+const StateExample = () => {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  return (
+    <div style={{ display: 'flex', gap: '8px' }}>
+      {['Option 1', 'Option 2', 'Option 3'].map((option) => (
+        <{{name}}
+          key={option}
+          variant={selected === option ? 'primary' : 'outlined'}
+          active={selected === option}
+          onClick={() => setSelected(option)}
+        >
+          {option}
+        </{{name}}>
+      ))}
+    </div>
+  );
+};
+```
+
+{{#if (includes features 'icons')}}
+## With Icons
+
+### Start and End Icons
+```tsx
+import { SaveIcon, ArrowRightIcon } from '@/icons';
+
+const IconExample = () => {
+  return (
+    <div style={{ display: 'flex', gap: '16px', flexDirection: 'column' }}>
+      <{{name}} startIcon={<SaveIcon />}>
+        Save Document
+      </{{name}}>
+      
+      <{{name}} endIcon={<ArrowRightIcon />}>
+        Continue
+      </{{name}}>
+      
+      <{{name}} 
+        startIcon={<SaveIcon />} 
+        endIcon={<ArrowRightIcon />}
+      >
+        Save and Continue
+      </{{name}}>
+    </div>
+  );
+};
+```
+
+### Icon-Only Buttons
+```tsx
+const IconOnlyExample = () => {
+  return (
+    <div style={{ display: 'flex', gap: '8px' }}>
+      <{{name}}
+        aria-label="Save"
+        startIcon={<SaveIcon />}
+        size="small"
+      />
+      
+      <{{name}}
+        aria-label="Delete"
+        startIcon={<DeleteIcon />}
+        variant="error"
+        size="small"
+      />
+    </div>
+  );
+};
+```
+
+### Dynamic Icons
+```tsx
+const DynamicIconExample = () => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  return (
+    <{{name}}
+      startIcon={isPlaying ? <PauseIcon /> : <PlayIcon />}
+      onClick={() => setIsPlaying(!isPlaying)}
+    >
+      {isPlaying ? 'Pause' : 'Play'}
+    </{{name}}>
+  );
+};
+```
+{{/if}}
+
+{{#if (includes features 'forms')}}
+## Form Integration
+
+### React Hook Form
+```tsx
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+
+const schema = z.object({
+  email: z.string().email('Invalid email'),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
+});
+
+const FormExample = () => {
+  const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
+    resolver: zodResolver(schema),
+  });
+
+  const onSubmit = async (data: any) => {
+    // Submit logic
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <{{name}}
+        {...register('email')}
+        type="email"
+        placeholder="Email"
+        error={!!errors.email}
+        helperText={errors.email?.message}
+      />
+      
+      <{{name}}
+        {...register('password')}
+        type="password"
+        placeholder="Password"
+        error={!!errors.password}
+        helperText={errors.password?.message}
+      />
+      
+      <{{name}}
+        type="submit"
+        loading={isSubmitting}
+        disabled={isSubmitting}
+      >
+        Submit
+      </{{name}}>
+    </form>
+  );
+};
+```
+
+### Formik Integration
+```tsx
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
+
+const validationSchema = Yup.object({
+  username: Yup.string().required('Username is required'),
+});
+
+const FormikExample = () => {
+  return (
+    <Formik
+      initialValues={{ username: '' }}
+      validationSchema={validationSchema}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          console.log(values);
+          setSubmitting(false);
+        }, 1000);
+      }}
+    >
+      {({ errors, touched, isSubmitting }) => (
+        <Form>
+          <Field
+            as={{name}}
+            name="username"
+            placeholder="Username"
+            error={errors.username && touched.username}
+            helperText={errors.username}
+          />
+          
+          <{{name}} type="submit" loading={isSubmitting}>
+            Submit
+          </{{name}}>
+        </Form>
+      )}
+    </Formik>
+  );
+};
+```
+
+### Controlled Components
+```tsx
+const ControlledExample = () => {
+  const [value, setValue] = useState('');
+  const [error, setError] = useState('');
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    setValue(newValue);
+    
+    // Validation
+    if (newValue.length < 3) {
+      setError('Must be at least 3 characters');
+    } else {
+      setError('');
+    }
+  };
+
+  return (
+    <{{name}}
+      value={value}
+      onChange={handleChange}
+      error={!!error}
+      helperText={error}
+      placeholder="Enter text"
+    />
+  );
+};
+```
+{{/if}}
+
+## Custom Styling
+
+### Theme-Based Styling
+```tsx
+const ThemedExample = () => {
+  return (
+    <{{name}}
+      sx={{
+        backgroundColor: 'primary.main',
+        color: 'primary.contrastText',
+        '&:hover': {
+          backgroundColor: 'primary.dark',
+        },
+        borderRadius: 2,
+        textTransform: 'none',
+      }}
+    >
+      Theme Styled
+    </{{name}}>
+  );
+};
+```
+
+### Gradient Background
+```tsx
+const GradientExample = () => {
+  return (
+    <{{name}}
+      sx={{
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        border: 0,
+        borderRadius: 3,
+        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        color: 'white',
+        height: 48,
+        padding: '0 30px',
+      }}
+    >
+      Gradient {{name}}
+    </{{name}}>
+  );
+};
+```
+
+### Custom Animation
+```tsx
+const AnimatedExample = () => {
+  return (
+    <{{name}}
+      sx={{
+        transition: 'all 0.3s ease-in-out',
+        '&:hover': {
+          transform: 'scale(1.05) translateY(-2px)',
+          boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
+        },
+        '&:active': {
+          transform: 'scale(0.95)',
+        },
+      }}
+    >
+      Animated {{name}}
+    </{{name}}>
+  );
+};
+```
+
+### Dark Mode Support
+```tsx
+const DarkModeExample = () => {
+  return (
+    <{{name}}
+      sx={{
+        backgroundColor: theme => theme.palette.mode === 'dark' 
+          ? 'grey.800' 
+          : 'grey.100',
+        color: theme => theme.palette.mode === 'dark' 
+          ? 'common.white' 
+          : 'common.black',
+        '&:hover': {
+          backgroundColor: theme => theme.palette.mode === 'dark' 
+            ? 'grey.700' 
+            : 'grey.200',
+        },
+      }}
+    >
+      Dark Mode Aware
+    </{{name}}>
+  );
+};
+```
+
+## Advanced Examples
+
+### Debounced Click Handler
+```tsx
+import { useMemo } from 'react';
+import { debounce } from 'lodash-es';
+
+const DebouncedExample = () => {
+  const debouncedClick = useMemo(
+    () => debounce((message: string) => {
+      console.log(message);
+    }, 300),
+    []
+  );
+
+  return (
+    <{{name}} onClick={() => debouncedClick('Debounced click!')}>
+      Debounced Click
+    </{{name}}>
+  );
+};
+```
+
+### Confirmation Dialog
+```tsx
+const ConfirmationExample = () => {
+  const [showDialog, setShowDialog] = useState(false);
+
+  const handleDelete = () => {
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      console.log('Item deleted');
+    }
+  };
+
+  return (
+    <{{name}} 
+      variant="error" 
+      onClick={handleDelete}
+    >
+      Delete Item
+    </{{name}}>
+  );
+};
+```
+
+### Long Press Handler
+```tsx
+const LongPressExample = () => {
+  const [isLongPress, setIsLongPress] = useState(false);
+  
+  const pressTimer = useRef<NodeJS.Timeout>();
+
+  const handleMouseDown = () => {
+    pressTimer.current = setTimeout(() => {
+      setIsLongPress(true);
+      console.log('Long press detected');
+    }, 1000);
+  };
+
+  const handleMouseUp = () => {
+    clearTimeout(pressTimer.current);
+    if (!isLongPress) {
+      console.log('Regular click');
+    }
+    setIsLongPress(false);
+  };
+
+  return (
+    <{{name}}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseLeave={handleMouseUp}
+    >
+      Long Press Me
+    </{{name}}>
+  );
+};
+```
+
+{{#if (includes features 'responsive')}}
+### Responsive Behavior
+```tsx
+const ResponsiveExample = () => {
+  return (
+    <{{name}}
+      responsive={{
+        xs: { 
+          size: 'small', 
+          variant: 'text',
+          sx: { width: '100%' }
+        },
+        sm: { 
+          size: 'medium', 
+          variant: 'outlined' 
+        },
+        md: { 
+          size: 'large', 
+          variant: 'primary' 
+        },
+      }}
+    >
+      Responsive {{name}}
+    </{{name}}>
+  );
+};
+```
+{{/if}}
+
+## Performance Examples
+
+### Memoized Component
+```tsx
+const MemoizedButton = React.memo<{{name}}Props>(({ 
+  children, 
+  onClick, 
+  ...props 
+}) => {
+  const memoizedHandler = useCallback((event: React.MouseEvent) => {
+    onClick?.(event);
+  }, [onClick]);
+
+  return (
+    <{{name}} onClick={memoizedHandler} {...props}>
+      {children}
+    </{{name}}>
+  );
+});
+```
+
+### Virtual List Integration
+```tsx
+import { FixedSizeList as List } from 'react-window';
+
+const VirtualListExample = () => {
+  const items = Array.from({ length: 1000 }, (_, i) => `Item ${i + 1}`);
+
+  const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => (
+    <div style={style}>
+      <{{name}} 
+        variant="outlined" 
+        size="small"
+        onClick={() => console.log(`Clicked item ${index + 1}`)}
+      >
+        {items[index]}
+      </{{name}}>
+    </div>
+  );
+
+  return (
+    <List
+      height={400}
+      itemCount={items.length}
+      itemSize={50}
+      width="100%"
+    >
+      {Row}
+    </List>
+  );
+};
+```
+
+### Lazy Loading
+```tsx
+const LazyButtonExample = React.lazy(() => 
+  import('./ExpensiveButtonComponent').then(module => ({
+    default: module.ExpensiveButtonComponent
+  }))
+);
+
+const LazyExample = () => {
+  const [showExpensive, setShowExpensive] = useState(false);
+
+  return (
+    <div>
+      <{{name}} onClick={() => setShowExpensive(true)}>
+        Load Expensive Component
+      </{{name}}>
+      
+      {showExpensive && (
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyButtonExample />
+        </Suspense>
+      )}
+    </div>
+  );
+};
+```
+
+## Accessibility Examples
+
+### Screen Reader Optimized
+```tsx
+const ScreenReaderExample = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    <{{name}}
+      onClick={() => setCount(count + 1)}
+      aria-label={`Increment counter. Current count is ${count}`}
+      aria-describedby="counter-description"
+    >
+      Count: {count}
+      <span id="counter-description" className="sr-only">
+        Click this button to increment the counter
+      </span>
+    </{{name}}>
+  );
+};
+```
+
+### Keyboard Navigation
+```tsx
+const KeyboardExample = () => {
+  const [focused, setFocused] = useState(false);
+
+  const handleKeyDown = (event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case 'Enter':
+      case ' ':
+        event.preventDefault();
+        console.log('Activated via keyboard');
+        break;
+      case 'Escape':
+        (event.target as HTMLElement).blur();
+        break;
+    }
+  };
+
+  return (
+    <{{name}}
+      onKeyDown={handleKeyDown}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+      sx={{
+        outline: focused ? '2px solid blue' : 'none',
+        outlineOffset: '2px',
+      }}
+    >
+      Keyboard Accessible
+    </{{name}}>
+  );
+};
+```
+
+### High Contrast Mode
+```tsx
+const HighContrastExample = () => {
+  return (
+    <{{name}}
+      sx={{
+        '@media (prefers-contrast: high)': {
+          border: '2px solid',
+          borderColor: 'text.primary',
+          backgroundColor: 'background.paper',
+          color: 'text.primary',
+          '&:hover': {
+            backgroundColor: 'text.primary',
+            color: 'background.paper',
+          },
+        },
+      }}
+    >
+      High Contrast Support
+    </{{name}}>
+  );
+};
+```
+
+### Focus Management
+```tsx
+const FocusExample = () => {
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handlePreviousClick = () => {
+    // Focus the next button programmatically
+    buttonRef.current?.focus();
+  };
+
+  return (
+    <div>
+      <{{name}} onClick={handlePreviousClick}>
+        Focus Next Button
+      </{{name}}>
+      
+      <{{name}} 
+        ref={buttonRef}
+        tabIndex={-1}
+        onClick={() => console.log('Focused button clicked')}
+      >
+        Focusable Target
+      </{{name}}>
+    </div>
+  );
+};
+```
+
+## Edge Cases
+
+### Empty Children
+```tsx
+const EmptyChildrenExample = () => {
+  return (
+    <div>
+      <{{name}} />
+      <{{name}}>{null}</{{name}}>
+      <{{name}}>{undefined}</{{name}}>
+      <{{name}}>{false}</{{name}}>
+    </div>
+  );
+};
+```
+
+### Very Long Text
+```tsx
+const LongTextExample = () => {
+  const longText = "This is a very long button text that might overflow the container and cause layout issues if not handled properly";
+
+  return (
+    <div style={{ width: '200px' }}>
+      <{{name}}
+        sx={{
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        }}
+        title={longText}
+      >
+        {longText}
+      </{{name}}>
+    </div>
+  );
+};
+```
+
+### Error Boundaries
+```tsx
+class ButtonErrorBoundary extends React.Component {
+  constructor(props: any) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: any) {
+    return { hasError: true };
+  }
+
+  render() {
+    if ((this.state as any).hasError) {
+      return <{{name}} variant="error">Something went wrong</{{name}}>;
+    }
+
+    return this.props.children;
+  }
+}
+
+const ErrorBoundaryExample = () => {
+  return (
+    <ButtonErrorBoundary>
+      <{{name}} onClick={() => { throw new Error('Test error'); }}>
+        Throw Error
+      </{{name}}>
+    </ButtonErrorBoundary>
+  );
+};
+```
+
+### Network Error Handling
+```tsx
+const NetworkExample = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const handleApiCall = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/data');
+      if (!response.ok) {
+        throw new Error('Network error');
+      }
+      const data = await response.json();
+      console.log(data);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Unknown error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div>
+      <{{name}}
+        onClick={handleApiCall}
+        {{#if (includes features 'loading')}}
+        loading={loading}
+        {{/if}}
+        disabled={loading}
+        variant={error ? 'error' : 'primary'}
+      >
+        {error ? 'Retry' : 'Load Data'}
+      </{{name}}>
+      
+      {error && (
+        <div style={{ color: 'red', fontSize: '0.875rem' }}>
+          Error: {error}
+        </div>
+      )}
+    </div>
+  );
+};
+```
+
+---
+
+*These examples demonstrate comprehensive usage patterns for the {{name}} component. For more advanced use cases, refer to the component documentation and API reference.*

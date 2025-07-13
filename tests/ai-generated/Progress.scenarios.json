@@ -1,0 +1,27 @@
+{
+  "component": "Progress",
+  "generated": "2025-07-12T04:38:47.224Z",
+  "scenarios": [
+    {
+      "id": "Progress-smoke",
+      "name": "Progress Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Progress",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Progress-interaction",
+      "name": "Progress Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Progress",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Progress-accessibility",
+      "name": "Progress Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Progress",
+      "estimatedDuration": 1200
+    }
+  ]
+}

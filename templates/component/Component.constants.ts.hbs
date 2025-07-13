@@ -1,0 +1,406 @@
+/**
+ * @fileoverview {{name}} Component Constants
+ * @author AI Generated Constants
+ */
+
+import type { {{name}}Props } from './{{name}}.types';
+
+/**
+ * {{name}} default configuration
+ */
+export const {{constantCase name}}_CONSTANTS = {
+  /**
+   * Default component variant
+   */
+  DEFAULT_VARIANT: 'primary' as const,
+
+  /**
+   * Default component size
+   */
+  DEFAULT_SIZE: 'medium' as const,
+
+  /**
+   * Default disabled state
+   */
+  DEFAULT_DISABLED: false,
+
+  {{#if (includes features 'loading')}}
+  /**
+   * Default loading state
+   */
+  DEFAULT_LOADING: false,
+
+  /**
+   * Loading timeout (ms)
+   */
+  LOADING_TIMEOUT: 30000,
+  {{/if}}
+
+  {{#if (includes features 'animation')}}
+  /**
+   * Default animation enabled state
+   */
+  DEFAULT_ANIMATE: true,
+
+  /**
+   * Animation duration (ms)
+   */
+  ANIMATION_DURATION: 200,
+
+  /**
+   * Animation easing
+   */
+  ANIMATION_EASING: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  {{/if}}
+
+  /**
+   * Component display name
+   */
+  DISPLAY_NAME: 'Mui{{name}}',
+
+  /**
+   * Component slot names
+   */
+  SLOTS: {
+    ROOT: 'Root',
+    {{#if (includes features 'icons')}}
+    START_ICON: 'StartIcon',
+    END_ICON: 'EndIcon',
+    {{/if}}
+    {{#if (includes features 'loading')}}
+    LOADING_INDICATOR: 'LoadingIndicator',
+    {{/if}}
+  } as const,
+
+  /**
+   * CSS class names
+   */
+  CLASS_NAMES: {
+    ROOT: 'Mui{{name}}-root',
+    DISABLED: 'Mui{{name}}-disabled',
+    LOADING: 'Mui{{name}}-loading',
+    {{#if (includes features 'variants')}}
+    PRIMARY: 'Mui{{name}}-primary',
+    SECONDARY: 'Mui{{name}}-secondary',
+    OUTLINED: 'Mui{{name}}-outlined',
+    TEXT: 'Mui{{name}}-text',
+    {{#if (eq category 'feedback')}}
+    SUCCESS: 'Mui{{name}}-success',
+    WARNING: 'Mui{{name}}-warning',
+    ERROR: 'Mui{{name}}-error',
+    INFO: 'Mui{{name}}-info',
+    {{/if}}
+    {{/if}}
+    SIZE_SMALL: 'Mui{{name}}-sizeSmall',
+    SIZE_MEDIUM: 'Mui{{name}}-sizeMedium',
+    SIZE_LARGE: 'Mui{{name}}-sizeLarge',
+  } as const,
+
+  /**
+   * Data attributes
+   */
+  DATA_ATTRIBUTES: {
+    TESTID: 'data-testid',
+    VARIANT: 'data-variant',
+    SIZE: 'data-size',
+    DISABLED: 'data-disabled',
+    {{#if (includes features 'loading')}}
+    LOADING: 'data-loading',
+    {{/if}}
+  } as const,
+
+  /**
+   * ARIA attributes
+   */
+  ARIA: {
+    ROLE: 'button',
+    DISABLED: 'aria-disabled',
+    PRESSED: 'aria-pressed',
+    EXPANDED: 'aria-expanded',
+    CONTROLS: 'aria-controls',
+    LABEL: 'aria-label',
+    LABELLEDBY: 'aria-labelledby',
+    DESCRIBEDBY: 'aria-describedby',
+    {{#if (includes features 'loading')}}
+    BUSY: 'aria-busy',
+    {{/if}}
+  } as const,
+
+  /**
+   * Keyboard navigation
+   */
+  KEYBOARD: {
+    ENTER: 'Enter',
+    SPACE: ' ',
+    ARROW_UP: 'ArrowUp',
+    ARROW_DOWN: 'ArrowDown',
+    ARROW_LEFT: 'ArrowLeft',
+    ARROW_RIGHT: 'ArrowRight',
+    ESCAPE: 'Escape',
+    TAB: 'Tab',
+  } as const,
+
+  /**
+   * Component variants
+   */
+  VARIANTS: {
+    PRIMARY: 'primary',
+    SECONDARY: 'secondary',
+    OUTLINED: 'outlined',
+    TEXT: 'text',
+    {{#if (eq category 'feedback')}}
+    SUCCESS: 'success',
+    WARNING: 'warning',
+    ERROR: 'error',
+    INFO: 'info',
+    {{/if}}
+    {{#if (eq category 'core')}}
+    CONTAINED: 'contained',
+    ELEVATED: 'elevated',
+    {{/if}}
+  } as const,
+
+  /**
+   * Component sizes
+   */
+  SIZES: {
+    SMALL: 'small',
+    MEDIUM: 'medium',
+    LARGE: 'large',
+  } as const,
+
+  {{#if (includes features 'responsive')}}
+  /**
+   * Responsive breakpoints
+   */
+  BREAKPOINTS: {
+    XS: 'xs',
+    SM: 'sm',
+    MD: 'md',
+    LG: 'lg',
+    XL: 'xl',
+  } as const,
+  {{/if}}
+
+  {{#if (eq category 'forms')}}
+  /**
+   * Form validation states
+   */
+  VALIDATION_STATES: {
+    VALID: 'valid',
+    INVALID: 'invalid',
+    PENDING: 'pending',
+  } as const,
+  {{/if}}
+
+  /**
+   * Performance settings
+   */
+  PERFORMANCE: {
+    {{#if (eq complexity 'complex')}}
+    VIRTUAL_SCROLLING_THRESHOLD: 100,
+    DEBOUNCE_DELAY: 300,
+    THROTTLE_DELAY: 100,
+    {{/if}}
+    {{#if (includes features 'animation')}}
+    REDUCED_MOTION_QUERY: '(prefers-reduced-motion: reduce)',
+    {{/if}}
+    HIGH_CONTRAST_QUERY: '(prefers-contrast: high)',
+    DARK_MODE_QUERY: '(prefers-color-scheme: dark)',
+  } as const,
+
+  /**
+   * Theme configuration
+   */
+  THEME: {
+    BORDER_RADIUS: 4,
+    ELEVATION_LEVELS: {
+      NONE: 0,
+      LOW: 1,
+      MEDIUM: 4,
+      HIGH: 8,
+      MAXIMUM: 24,
+    },
+    OPACITY_LEVELS: {
+      DISABLED: 0.38,
+      SECONDARY: 0.6,
+      HINT: 0.38,
+      DIVIDER: 0.12,
+      FOCUS: 0.12,
+      HOVER: 0.04,
+      SELECTED: 0.08,
+    },
+  } as const,
+
+  /**
+   * Validation rules
+   */
+  VALIDATION: {
+    MIN_WIDTH: 64,
+    MIN_HEIGHT: 32,
+    MAX_WIDTH: 1200,
+    MAX_HEIGHT: 600,
+    {{#if (includes features 'forms')}}
+    MIN_CHARS: 1,
+    MAX_CHARS: 1000,
+    {{/if}}
+  } as const,
+
+  /**
+   * Event types
+   */
+  EVENTS: {
+    CLICK: 'click',
+    KEY_DOWN: 'keydown',
+    KEY_UP: 'keyup',
+    MOUSE_ENTER: 'mouseenter',
+    MOUSE_LEAVE: 'mouseleave',
+    FOCUS: 'focus',
+    BLUR: 'blur',
+    {{#if (includes features 'forms')}}
+    CHANGE: 'change',
+    INPUT: 'input',
+    {{/if}}
+  } as const,
+
+  /**
+   * Error messages
+   */
+  ERRORS: {
+    INVALID_VARIANT: 'Invalid variant provided to {{name}} component',
+    INVALID_SIZE: 'Invalid size provided to {{name}} component',
+    MISSING_CHILDREN: 'Children prop is required for {{name}} component',
+    {{#if (includes features 'forms')}}
+    VALIDATION_FAILED: 'Validation failed for {{name}} component',
+    {{/if}}
+    {{#if (includes features 'loading')}}
+    LOADING_TIMEOUT: 'Loading timeout exceeded for {{name}} component',
+    {{/if}}
+  } as const,
+
+  /**
+   * Warning messages
+   */
+  WARNINGS: {
+    DEPRECATED_PROP: 'Deprecated prop used in {{name}} component',
+    PERFORMANCE_IMPACT: 'Performance impact detected in {{name}} component',
+    ACCESSIBILITY_ISSUE: 'Accessibility issue detected in {{name}} component',
+  } as const,
+
+  /**
+   * Development mode configuration
+   */
+  DEV: {
+    ENABLE_WARNINGS: process.env.NODE_ENV === 'development',
+    ENABLE_PERFORMANCE_MONITORING: process.env.NODE_ENV === 'development',
+    ENABLE_ACCESSIBILITY_CHECKS: process.env.NODE_ENV === 'development',
+  } as const,
+} as const;
+
+/**
+ * {{name}} default props
+ */
+export const {{constantCase name}}_DEFAULT_PROPS: Required<Pick<{{name}}Props, 
+  'variant' | 'size' | 'disabled'
+  {{#if (includes features 'loading')}} | 'loading'{{/if}}
+  {{#if (includes features 'animation')}} | 'animate'{{/if}}
+>> = {
+  variant: {{constantCase name}}_CONSTANTS.DEFAULT_VARIANT,
+  size: {{constantCase name}}_CONSTANTS.DEFAULT_SIZE,
+  disabled: {{constantCase name}}_CONSTANTS.DEFAULT_DISABLED,
+  {{#if (includes features 'loading')}}
+  loading: {{constantCase name}}_CONSTANTS.DEFAULT_LOADING,
+  {{/if}}
+  {{#if (includes features 'animation')}}
+  animate: {{constantCase name}}_CONSTANTS.DEFAULT_ANIMATE,
+  {{/if}}
+};
+
+/**
+ * Type guards for {{name}} props
+ */
+export const {{constantCase name}}_TYPE_GUARDS = {
+  isValidVariant: (variant: any): variant is {{name}}Props['variant'] => {
+    return Object.values({{constantCase name}}_CONSTANTS.VARIANTS).includes(variant);
+  },
+
+  isValidSize: (size: any): size is {{name}}Props['size'] => {
+    return Object.values({{constantCase name}}_CONSTANTS.SIZES).includes(size);
+  },
+
+  {{#if (eq category 'forms')}}
+  isValidValidationState: (state: any): state is {{name}}Props['validationState'] => {
+    return Object.values({{constantCase name}}_CONSTANTS.VALIDATION_STATES).includes(state);
+  },
+  {{/if}}
+} as const;
+
+/**
+ * {{name}} utility functions
+ */
+export const {{constantCase name}}_UTILS = {
+  /**
+   * Generate component test ID
+   */
+  generateTestId: (base: string, variant?: string, size?: string) => {
+    const parts = [base];
+    if (variant) parts.push(variant);
+    if (size) parts.push(size);
+    return parts.join('-').toLowerCase();
+  },
+
+  /**
+   * Get component class names
+   */
+  getClassNames: (props: Partial<{{name}}Props>) => {
+    const classNames = [{{constantCase name}}_CONSTANTS.CLASS_NAMES.ROOT];
+    
+    if (props.variant) {
+      classNames.push(`${{{constantCase name}}_CONSTANTS.CLASS_NAMES.ROOT}-${props.variant}`);
+    }
+    
+    if (props.size) {
+      classNames.push({{constantCase name}}_CONSTANTS.CLASS_NAMES[`SIZE_${props.size.toUpperCase()}` as keyof typeof {{constantCase name}}_CONSTANTS.CLASS_NAMES]);
+    }
+    
+    if (props.disabled) {
+      classNames.push({{constantCase name}}_CONSTANTS.CLASS_NAMES.DISABLED);
+    }
+    
+    {{#if (includes features 'loading')}}
+    if (props.loading) {
+      classNames.push({{constantCase name}}_CONSTANTS.CLASS_NAMES.LOADING);
+    }
+    {{/if}}
+    
+    return classNames.filter(Boolean).join(' ');
+  },
+
+  /**
+   * Validate component props
+   */
+  validateProps: (props: Partial<{{name}}Props>) => {
+    const errors: string[] = [];
+    
+    if (props.variant && !{{constantCase name}}_TYPE_GUARDS.isValidVariant(props.variant)) {
+      errors.push({{constantCase name}}_CONSTANTS.ERRORS.INVALID_VARIANT);
+    }
+    
+    if (props.size && !{{constantCase name}}_TYPE_GUARDS.isValidSize(props.size)) {
+      errors.push({{constantCase name}}_CONSTANTS.ERRORS.INVALID_SIZE);
+    }
+    
+    {{#if (includes features 'forms')}}
+    if (props.validationState && !{{constantCase name}}_TYPE_GUARDS.isValidValidationState(props.validationState)) {
+      errors.push({{constantCase name}}_CONSTANTS.ERRORS.VALIDATION_FAILED);
+    }
+    {{/if}}
+    
+    return errors;
+  },
+} as const;
+
+/**
+ * Export type for constants
+ */
+export type {{name}}Constants = typeof {{constantCase name}}_CONSTANTS;

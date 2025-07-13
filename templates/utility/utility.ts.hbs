@@ -1,0 +1,661 @@
+/**
+ * @fileoverview {{name}} Utility Function
+ * @author AI Generated Utility
+ * @category {{category}}
+ * 
+ * {{description}}
+ */
+
+{{#if (eq category 'string')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param input - The input string to process
+ * @param options - Optional configuration
+ * @returns Processed string result
+ * 
+ * @example
+ * ```typescript
+ * const result = {{name}}('hello world');
+ * console.log(result); // 'Hello World'
+ * ```
+ */
+export function {{name}}(
+  input: string,
+  options: {
+    /** Preserve original casing */
+    preserveCase?: boolean;
+    /** Custom separator */
+    separator?: string;
+    /** Trim whitespace */
+    trim?: boolean;
+  } = {}
+): string {
+  const { preserveCase = false, separator = ' ', trim = true } = options;
+  
+  if (typeof input !== 'string') {
+    throw new Error(`Expected string input, received ${typeof input}`);
+  }
+  
+  let result = trim ? input.trim() : input;
+  
+  if (!preserveCase) {
+    // String processing logic here
+    result = result
+      .split(separator)
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(separator);
+  }
+  
+  return result;
+}
+{{/if}}
+
+{{#if (eq category 'array')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param array - The input array to process
+ * @param options - Optional configuration
+ * @returns Processed array result
+ * 
+ * @example
+ * ```typescript
+ * const result = {{name}}([1, 2, 3, 2, 1]);
+ * console.log(result); // [1, 2, 3]
+ * ```
+ */
+export function {{name}}<T>(
+  array: T[],
+  options: {
+    /** Compare function for complex objects */
+    compareBy?: keyof T | ((item: T) => any);
+    /** Preserve order */
+    preserveOrder?: boolean;
+    /** Remove falsy values */
+    removeFalsy?: boolean;
+  } = {}
+): T[] {
+  const { compareBy, preserveOrder = true, removeFalsy = false } = options;
+  
+  if (!Array.isArray(array)) {
+    throw new Error(`Expected array input, received ${typeof array}`);
+  }
+  
+  let result = [...array];
+  
+  if (removeFalsy) {
+    result = result.filter(Boolean);
+  }
+  
+  // Array processing logic here
+  if (compareBy) {
+    const seen = new Set();
+    result = result.filter(item => {
+      const key = typeof compareBy === 'function' 
+        ? compareBy(item) 
+        : item[compareBy];
+      
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  } else {
+    result = [...new Set(result)];
+  }
+  
+  return result;
+}
+{{/if}}
+
+{{#if (eq category 'object')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param obj - The input object to process
+ * @param options - Optional configuration
+ * @returns Processed object result
+ * 
+ * @example
+ * ```typescript
+ * const result = {{name}}({ a: 1, b: null, c: 3 });
+ * console.log(result); // { a: 1, c: 3 }
+ * ```
+ */
+export function {{name}}<T extends Record<string, any>>(
+  obj: T,
+  options: {
+    /** Remove null values */
+    removeNull?: boolean;
+    /** Remove undefined values */
+    removeUndefined?: boolean;
+    /** Remove empty strings */
+    removeEmptyStrings?: boolean;
+    /** Deep processing */
+    deep?: boolean;
+  } = {}
+): Partial<T> {
+  const { 
+    removeNull = true, 
+    removeUndefined = true, 
+    removeEmptyStrings = false,
+    deep = false 
+  } = options;
+  
+  if (typeof obj !== 'object' || obj === null) {
+    throw new Error(`Expected object input, received ${typeof obj}`);
+  }
+  
+  const result: Partial<T> = {};
+  
+  for (const [key, value] of Object.entries(obj)) {
+    let shouldInclude = true;
+    
+    if (removeNull && value === null) {
+      shouldInclude = false;
+    }
+    
+    if (removeUndefined && value === undefined) {
+      shouldInclude = false;
+    }
+    
+    if (removeEmptyStrings && value === '') {
+      shouldInclude = false;
+    }
+    
+    if (shouldInclude) {
+      if (deep && typeof value === 'object' && value !== null && !Array.isArray(value)) {
+        result[key as keyof T] = {{name}}(value, options) as T[keyof T];
+      } else {
+        result[key as keyof T] = value;
+      }
+    }
+  }
+  
+  return result;
+}
+{{/if}}
+
+{{#if (eq category 'date')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param date - The input date to process
+ * @param options - Optional configuration
+ * @returns Processed date result
+ * 
+ * @example
+ * ```typescript
+ * const result = {{name}}(new Date('2023-12-25'));
+ * console.log(result); // '2023-12-25T00:00:00.000Z'
+ * ```
+ */
+export function {{name}}(
+  date: Date | string | number,
+  options: {
+    /** Output format */
+    format?: 'iso' | 'locale' | 'timestamp' | 'custom';
+    /** Custom format string */
+    customFormat?: string;
+    /** Timezone */
+    timezone?: string;
+    /** Locale */
+    locale?: string;
+  } = {}
+): string | number {
+  const { format = 'iso', customFormat, timezone, locale = 'en-US' } = options;
+  
+  let dateObj: Date;
+  
+  try {
+    dateObj = new Date(date);
+    
+    if (isNaN(dateObj.getTime())) {
+      throw new Error('Invalid date');
+    }
+  } catch (error) {
+    throw new Error(`Invalid date input: ${date}`);
+  }
+  
+  switch (format) {
+    case 'iso':
+      return dateObj.toISOString();
+    
+    case 'locale':
+      return dateObj.toLocaleDateString(locale);
+    
+    case 'timestamp':
+      return dateObj.getTime();
+    
+    case 'custom':
+      if (!customFormat) {
+        throw new Error('Custom format string is required');
+      }
+      // Custom formatting logic would go here
+      return dateObj.toISOString();
+    
+    default:
+      return dateObj.toISOString();
+  }
+}
+{{/if}}
+
+{{#if (eq category 'validation')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param value - The value to validate
+ * @param rules - Validation rules
+ * @returns Validation result
+ * 
+ * @example
+ * ```typescript
+ * const result = {{name}}('test@example.com', { type: 'email' });
+ * console.log(result); // { isValid: true, errors: [] }
+ * ```
+ */
+export function {{name}}(
+  value: any,
+  rules: {
+    /** Value type */
+    type?: 'string' | 'number' | 'email' | 'url' | 'phone';
+    /** Required field */
+    required?: boolean;
+    /** Minimum length/value */
+    min?: number;
+    /** Maximum length/value */
+    max?: number;
+    /** Pattern to match */
+    pattern?: RegExp;
+    /** Custom validator */
+    custom?: (value: any) => boolean | string;
+  } = {}
+): ValidationResult {
+  const { type, required = false, min, max, pattern, custom } = rules;
+  const errors: string[] = [];
+  
+  // Required check
+  if (required && (value === null || value === undefined || value === '')) {
+    errors.push('This field is required');
+    return { isValid: false, errors };
+  }
+  
+  // Skip other validations if not required and empty
+  if (!required && (value === null || value === undefined || value === '')) {
+    return { isValid: true, errors: [] };
+  }
+  
+  // Type validation
+  if (type) {
+    switch (type) {
+      case 'string':
+        if (typeof value !== 'string') {
+          errors.push('Must be a string');
+        }
+        break;
+        
+      case 'number':
+        if (typeof value !== 'number' || isNaN(value)) {
+          errors.push('Must be a valid number');
+        }
+        break;
+        
+      case 'email':
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(String(value))) {
+          errors.push('Must be a valid email address');
+        }
+        break;
+        
+      case 'url':
+        try {
+          new URL(String(value));
+        } catch {
+          errors.push('Must be a valid URL');
+        }
+        break;
+        
+      case 'phone':
+        const phoneRegex = /^\+?[\d\s\-\(\)]+$/;
+        if (!phoneRegex.test(String(value))) {
+          errors.push('Must be a valid phone number');
+        }
+        break;
+    }
+  }
+  
+  // Length/value validation
+  if (min !== undefined) {
+    if (typeof value === 'string' && value.length < min) {
+      errors.push(`Must be at least ${min} characters long`);
+    } else if (typeof value === 'number' && value < min) {
+      errors.push(`Must be at least ${min}`);
+    }
+  }
+  
+  if (max !== undefined) {
+    if (typeof value === 'string' && value.length > max) {
+      errors.push(`Must be no more than ${max} characters long`);
+    } else if (typeof value === 'number' && value > max) {
+      errors.push(`Must be no more than ${max}`);
+    }
+  }
+  
+  // Pattern validation
+  if (pattern && !pattern.test(String(value))) {
+    errors.push('Does not match required pattern');
+  }
+  
+  // Custom validation
+  if (custom) {
+    const customResult = custom(value);
+    if (customResult === false) {
+      errors.push('Custom validation failed');
+    } else if (typeof customResult === 'string') {
+      errors.push(customResult);
+    }
+  }
+  
+  return {
+    isValid: errors.length === 0,
+    errors
+  };
+}
+
+/**
+ * Validation result interface
+ */
+export interface ValidationResult {
+  isValid: boolean;
+  errors: string[];
+}
+{{/if}}
+
+{{#if (eq category 'performance')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param fn - Function to optimize
+ * @param options - Optimization options
+ * @returns Optimized function
+ * 
+ * @example
+ * ```typescript
+ * const optimized = {{name}}(expensiveFunction, { delay: 300 });
+ * optimized('input'); // Debounced execution
+ * ```
+ */
+export function {{name}}<T extends (...args: any[]) => any>(
+  fn: T,
+  options: {
+    /** Debounce delay in milliseconds */
+    debounce?: number;
+    /** Throttle delay in milliseconds */
+    throttle?: number;
+    /** Enable memoization */
+    memoize?: boolean;
+    /** Cache size limit for memoization */
+    cacheSize?: number;
+  } = {}
+): T {
+  const { debounce, throttle, memoize = false, cacheSize = 100 } = options;
+  
+  let cache = new Map();
+  let timeoutId: NodeJS.Timeout | null = null;
+  let lastExecution = 0;
+  
+  const optimizedFn = (...args: Parameters<T>): ReturnType<T> => {
+    // Memoization
+    if (memoize) {
+      const key = JSON.stringify(args);
+      
+      if (cache.has(key)) {
+        return cache.get(key);
+      }
+      
+      // Limit cache size
+      if (cache.size >= cacheSize) {
+        const firstKey = cache.keys().next().value;
+        cache.delete(firstKey);
+      }
+    }
+    
+    const execute = () => {
+      const result = fn(...args);
+      
+      if (memoize) {
+        const key = JSON.stringify(args);
+        cache.set(key, result);
+      }
+      
+      return result;
+    };
+    
+    // Debouncing
+    if (debounce) {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+      
+      return new Promise((resolve) => {
+        timeoutId = setTimeout(() => {
+          resolve(execute());
+        }, debounce);
+      }) as ReturnType<T>;
+    }
+    
+    // Throttling
+    if (throttle) {
+      const now = Date.now();
+      
+      if (now - lastExecution < throttle) {
+        return cache.get('lastResult') as ReturnType<T>;
+      }
+      
+      lastExecution = now;
+      const result = execute();
+      cache.set('lastResult', result);
+      return result;
+    }
+    
+    return execute();
+  };
+  
+  return optimizedFn as T;
+}
+{{/if}}
+
+{{#if (eq category 'accessibility')}}
+/**
+ * {{name}} - {{description}}
+ * 
+ * @param element - DOM element or selector
+ * @param options - Accessibility options
+ * @returns Accessibility enhancement result
+ * 
+ * @example
+ * ```typescript
+ * const result = {{name}}('#my-button', { 
+ *   ariaLabel: 'Click to submit',
+ *   role: 'button'
+ * });
+ * ```
+ */
+export function {{name}}(
+  element: HTMLElement | string,
+  options: {
+    /** ARIA label */
+    ariaLabel?: string;
+    /** ARIA role */
+    role?: string;
+    /** ARIA describedby */
+    ariaDescribedBy?: string;
+    /** Tab index */
+    tabIndex?: number;
+    /** Focus management */
+    manageFocus?: boolean;
+    /** Keyboard navigation */
+    keyboardNav?: boolean;
+  } = {}
+): AccessibilityResult {
+  const {
+    ariaLabel,
+    role,
+    ariaDescribedBy,
+    tabIndex,
+    manageFocus = false,
+    keyboardNav = false
+  } = options;
+  
+  let targetElement: HTMLElement;
+  
+  if (typeof element === 'string') {
+    const found = document.querySelector(element) as HTMLElement;
+    if (!found) {
+      throw new Error(`Element not found: ${element}`);
+    }
+    targetElement = found;
+  } else {
+    targetElement = element;
+  }
+  
+  const applied: string[] = [];
+  
+  // Apply ARIA attributes
+  if (ariaLabel) {
+    targetElement.setAttribute('aria-label', ariaLabel);
+    applied.push('aria-label');
+  }
+  
+  if (role) {
+    targetElement.setAttribute('role', role);
+    applied.push('role');
+  }
+  
+  if (ariaDescribedBy) {
+    targetElement.setAttribute('aria-describedby', ariaDescribedBy);
+    applied.push('aria-describedby');
+  }
+  
+  if (tabIndex !== undefined) {
+    targetElement.setAttribute('tabindex', String(tabIndex));
+    applied.push('tabindex');
+  }
+  
+  // Focus management
+  if (manageFocus) {
+    const focusHandler = () => {
+      targetElement.style.outline = '2px solid #007acc';
+      targetElement.style.outlineOffset = '2px';
+    };
+    
+    const blurHandler = () => {
+      targetElement.style.outline = '';
+      targetElement.style.outlineOffset = '';
+    };
+    
+    targetElement.addEventListener('focus', focusHandler);
+    targetElement.addEventListener('blur', blurHandler);
+    applied.push('focus-management');
+  }
+  
+  // Keyboard navigation
+  if (keyboardNav) {
+    const keyHandler = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        targetElement.click();
+      }
+    };
+    
+    targetElement.addEventListener('keydown', keyHandler);
+    applied.push('keyboard-navigation');
+  }
+  
+  return {
+    element: targetElement,
+    applied,
+    isAccessible: applied.length > 0
+  };
+}
+
+/**
+ * Accessibility result interface
+ */
+export interface AccessibilityResult {
+  element: HTMLElement;
+  applied: string[];
+  isAccessible: boolean;
+}
+{{/if}}
+
+/**
+ * Type guard to check if value is valid for this utility
+ */
+export function is{{capitalize name}}Valid(value: any): boolean {
+  {{#if (eq category 'string')}}
+  return typeof value === 'string';
+  {{/if}}
+  {{#if (eq category 'array')}}
+  return Array.isArray(value);
+  {{/if}}
+  {{#if (eq category 'object')}}
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+  {{/if}}
+  {{#if (eq category 'date')}}
+  return value instanceof Date || typeof value === 'string' || typeof value === 'number';
+  {{/if}}
+  {{#if (eq category 'validation')}}
+  return true; // Can validate any value
+  {{/if}}
+  {{#if (eq category 'performance')}}
+  return typeof value === 'function';
+  {{/if}}
+  {{#if (eq category 'accessibility')}}
+  return value instanceof HTMLElement || typeof value === 'string';
+  {{/if}}
+}
+
+/**
+ * Utility constants
+ */
+export const {{constantCase name}}_CONSTANTS = {
+  DEFAULT_OPTIONS: {
+    {{#if (eq category 'string')}}
+    preserveCase: false,
+    separator: ' ',
+    trim: true,
+    {{/if}}
+    {{#if (eq category 'array')}}
+    preserveOrder: true,
+    removeFalsy: false,
+    {{/if}}
+    {{#if (eq category 'object')}}
+    removeNull: true,
+    removeUndefined: true,
+    removeEmptyStrings: false,
+    deep: false,
+    {{/if}}
+    {{#if (eq category 'date')}}
+    format: 'iso' as const,
+    locale: 'en-US',
+    {{/if}}
+    {{#if (eq category 'validation')}}
+    required: false,
+    {{/if}}
+    {{#if (eq category 'performance')}}
+    memoize: false,
+    cacheSize: 100,
+    {{/if}}
+    {{#if (eq category 'accessibility')}}
+    manageFocus: false,
+    keyboardNav: false,
+    {{/if}}
+  },
+  VERSION: '1.0.0',
+  CATEGORY: '{{category}}',
+} as const;
+
+export default {{name}};

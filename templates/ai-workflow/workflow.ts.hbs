@@ -1,0 +1,533 @@
+/**
+ * @fileoverview {{dashCase name}} AI Workflow
+ * @author AI Generated Workflow
+ * @type {{type}}
+ * 
+ * {{description}}
+ */
+
+import type { 
+  AIWorkflowContext, 
+  AIWorkflowStep, 
+  ComponentAnalysisResult,
+  QualityValidationResult 
+} from '../ai-context/AIComponentContext';
+import { WorkflowManager } from '../ai-workflow/WorkflowManager';
+import { TaskAnalyzer } from '../ai-workflow/TaskAnalyzer';
+import { QualityValidator } from '../ai-workflow/QualityValidator';
+
+/**
+ * {{dashCase name}} workflow configuration
+ */
+export const {{camelCase name}}WorkflowConfig: AIWorkflowContext = {
+  id: '{{dashCase name}}',
+  name: '{{name}}',
+  description: '{{description}}',
+  steps: [
+    {{#if (eq type 'component-analysis')}}
+    {
+      id: 'analyze-component',
+      name: 'Analyze Component',
+      type: 'analysis',
+      description: 'Analyze component structure and patterns',
+      inputs: ['componentPath', 'componentCode'],
+      outputs: ['analysisResult', 'recommendations'],
+      aiEngine: 'TaskAnalyzer',
+      configuration: {
+        depth: 'comprehensive',
+        includePerformance: true,
+        includeAccessibility: true,
+      },
+      validation: ['componentExists', 'validTypeScript'],
+    },
+    {
+      id: 'extract-patterns',
+      name: 'Extract Patterns',
+      type: 'analysis',
+      description: 'Extract reusable patterns from component',
+      inputs: ['analysisResult'],
+      outputs: ['patterns', 'antiPatterns'],
+      aiEngine: 'PatternExtractor',
+      configuration: {
+        patternTypes: ['design', 'implementation', 'testing'],
+        confidenceThreshold: 0.8,
+      },
+      validation: ['patternsValid'],
+    },
+    {{/if}}
+    {{#if (eq type 'code-generation')}}
+    {
+      id: 'generate-component',
+      name: 'Generate Component',
+      type: 'generation',
+      description: 'Generate component code from specification',
+      inputs: ['specification', 'templateOptions'],
+      outputs: ['componentCode', 'typeDefinitions'],
+      aiEngine: 'CodeGenerator',
+      configuration: {
+        framework: 'react',
+        typescript: true,
+        testing: true,
+        accessibility: true,
+      },
+      validation: ['syntaxValid', 'typeCheckPasses'],
+    },
+    {
+      id: 'generate-tests',
+      name: 'Generate Tests',
+      type: 'generation',
+      description: 'Generate comprehensive test suite',
+      inputs: ['componentCode', 'typeDefinitions'],
+      outputs: ['testCode', 'coverageReport'],
+      aiEngine: 'TestGenerator',
+      configuration: {
+        testTypes: ['unit', 'integration', 'accessibility'],
+        coverage: 95,
+        mockStrategy: 'minimal',
+      },
+      validation: ['testsCompile', 'coverageTargetMet'],
+    },
+    {{/if}}
+    {{#if (eq type 'quality-validation')}}
+    {
+      id: 'validate-code',
+      name: 'Validate Code Quality',
+      type: 'validation',
+      description: 'Validate code against quality standards',
+      inputs: ['sourceCode', 'qualityRules'],
+      outputs: ['validationResult', 'qualityScore'],
+      aiEngine: 'QualityValidator',
+      configuration: {
+        strictMode: true,
+        accessibility: true,
+        performance: true,
+        security: true,
+      },
+      validation: ['rulesApplied', 'scoreCalculated'],
+    },
+    {
+      id: 'suggest-improvements',
+      name: 'Suggest Improvements',
+      type: 'optimization',
+      description: 'Generate improvement suggestions',
+      inputs: ['validationResult'],
+      outputs: ['improvements', 'refactoringPlan'],
+      aiEngine: 'ImprovementEngine',
+      configuration: {
+        priority: 'high',
+        includeExamples: true,
+        includeMetrics: true,
+      },
+      validation: ['improvementsValid'],
+    },
+    {{/if}}
+    {{#if (eq type 'documentation')}}
+    {
+      id: 'analyze-component',
+      name: 'Analyze Component',
+      type: 'analysis',
+      description: 'Analyze component for documentation',
+      inputs: ['componentPath'],
+      outputs: ['componentMetadata', 'apiDefinition'],
+      aiEngine: 'ComponentAnalyzer',
+      configuration: {
+        extractProps: true,
+        extractMethods: true,
+        extractExamples: true,
+      },
+      validation: ['metadataComplete'],
+    },
+    {
+      id: 'generate-docs',
+      name: 'Generate Documentation',
+      type: 'generation',
+      description: 'Generate comprehensive documentation',
+      inputs: ['componentMetadata', 'apiDefinition'],
+      outputs: ['documentation', 'examples', 'apiReference'],
+      aiEngine: 'DocumentationGenerator',
+      configuration: {
+        format: 'markdown',
+        includeExamples: true,
+        includeAPI: true,
+        includeAccessibility: true,
+      },
+      validation: ['docsComplete', 'examplesValid'],
+    },
+    {{/if}}
+    {{#if (eq type 'performance')}}
+    {
+      id: 'analyze-performance',
+      name: 'Analyze Performance',
+      type: 'analysis',
+      description: 'Analyze component performance characteristics',
+      inputs: ['componentCode', 'usagePatterns'],
+      outputs: ['performanceMetrics', 'bottlenecks'],
+      aiEngine: 'PerformanceAnalyzer',
+      configuration: {
+        includeBundle: true,
+        includeRuntime: true,
+        includeMemory: true,
+      },
+      validation: ['metricsCalculated'],
+    },
+    {
+      id: 'optimize-performance',
+      name: 'Optimize Performance',
+      type: 'optimization',
+      description: 'Generate performance optimizations',
+      inputs: ['performanceMetrics', 'bottlenecks'],
+      outputs: ['optimizations', 'optimizedCode'],
+      aiEngine: 'PerformanceOptimizer',
+      configuration: {
+        targetMetrics: {
+          bundleSize: 50000,
+          renderTime: 16,
+          memoryUsage: 5000000,
+        },
+        preserveFunctionality: true,
+      },
+      validation: ['optimizationsValid', 'functionalityPreserved'],
+    },
+    {{/if}}
+  ],
+  triggers: [
+    'component-created',
+    'component-updated',
+    'quality-check-requested',
+    'documentation-needed',
+  ],
+  conditions: [
+    'typescript-enabled',
+    'testing-enabled',
+    'ai-workflow-enabled',
+  ],
+  outputs: [
+    'workflow-result',
+    'execution-metrics',
+    'recommendations',
+  ],
+  metrics: {
+    efficiency: 0.95,
+    accuracy: 0.90,
+    confidence: 0.85,
+  },
+};
+
+/**
+ * {{name}} workflow implementation
+ */
+export class {{pascalCase name}}Workflow {
+  private workflowManager: WorkflowManager;
+  private taskAnalyzer: TaskAnalyzer;
+  private qualityValidator: QualityValidator;
+
+  constructor() {
+    this.workflowManager = new WorkflowManager();
+    this.taskAnalyzer = new TaskAnalyzer();
+    this.qualityValidator = new QualityValidator();
+  }
+
+  /**
+   * Execute the {{dashCase name}} workflow
+   */
+  async execute(input: {{pascalCase name}}Input): Promise<{{pascalCase name}}Result> {
+    const executionContext = {
+      workflowId: {{camelCase name}}WorkflowConfig.id,
+      input,
+      timestamp: new Date().toISOString(),
+      metadata: {
+        type: '{{type}}',
+        version: '1.0.0',
+      },
+    };
+
+    try {
+      const result = await this.workflowManager.executeWorkflow(
+        {{camelCase name}}WorkflowConfig,
+        executionContext
+      );
+
+      return this.processResult(result);
+    } catch (error) {
+      throw new Error(`{{name}} workflow failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
+  /**
+   * Validate workflow input
+   */
+  validateInput(input: {{pascalCase name}}Input): ValidationResult {
+    const errors: string[] = [];
+
+    {{#if (eq type 'component-analysis')}}
+    if (!input.componentPath) {
+      errors.push('Component path is required');
+    }
+
+    if (!input.componentCode && !input.componentPath) {
+      errors.push('Either component code or path must be provided');
+    }
+    {{/if}}
+
+    {{#if (eq type 'code-generation')}}
+    if (!input.specification) {
+      errors.push('Component specification is required');
+    }
+
+    if (!input.specification?.name) {
+      errors.push('Component name is required in specification');
+    }
+    {{/if}}
+
+    {{#if (eq type 'quality-validation')}}
+    if (!input.sourceCode) {
+      errors.push('Source code is required');
+    }
+    {{/if}}
+
+    {{#if (eq type 'documentation')}}
+    if (!input.componentPath) {
+      errors.push('Component path is required');
+    }
+    {{/if}}
+
+    {{#if (eq type 'performance')}}
+    if (!input.componentCode) {
+      errors.push('Component code is required');
+    }
+    {{/if}}
+
+    return {
+      isValid: errors.length === 0,
+      errors,
+    };
+  }
+
+  /**
+   * Process workflow result
+   */
+  private processResult(rawResult: any): {{pascalCase name}}Result {
+    return {
+      success: rawResult.success,
+      {{#if (eq type 'component-analysis')}}
+      analysis: rawResult.analysis,
+      patterns: rawResult.patterns,
+      recommendations: rawResult.recommendations,
+      {{/if}}
+      {{#if (eq type 'code-generation')}}
+      generatedCode: rawResult.componentCode,
+      testCode: rawResult.testCode,
+      typeDefinitions: rawResult.typeDefinitions,
+      {{/if}}
+      {{#if (eq type 'quality-validation')}}
+      qualityScore: rawResult.qualityScore,
+      validationResult: rawResult.validationResult,
+      improvements: rawResult.improvements,
+      {{/if}}
+      {{#if (eq type 'documentation')}}
+      documentation: rawResult.documentation,
+      examples: rawResult.examples,
+      apiReference: rawResult.apiReference,
+      {{/if}}
+      {{#if (eq type 'performance')}}
+      performanceMetrics: rawResult.performanceMetrics,
+      optimizations: rawResult.optimizations,
+      optimizedCode: rawResult.optimizedCode,
+      {{/if}}
+      metadata: {
+        executionTime: rawResult.executionTime,
+        workflowVersion: '1.0.0',
+        timestamp: new Date().toISOString(),
+      },
+    };
+  }
+
+  /**
+   * Get workflow status
+   */
+  getStatus(): WorkflowStatus {
+    return {
+      id: {{camelCase name}}WorkflowConfig.id,
+      name: {{camelCase name}}WorkflowConfig.name,
+      description: {{camelCase name}}WorkflowConfig.description,
+      isActive: true,
+      lastExecution: null, // Would be tracked in real implementation
+      metrics: {{camelCase name}}WorkflowConfig.metrics,
+    };
+  }
+
+  /**
+   * Get workflow configuration
+   */
+  getConfiguration(): AIWorkflowContext {
+    return {{camelCase name}}WorkflowConfig;
+  }
+}
+
+/**
+ * Input interface for {{name}} workflow
+ */
+export interface {{pascalCase name}}Input {
+  {{#if (eq type 'component-analysis')}}
+  /** Path to component file */
+  componentPath?: string;
+  /** Component source code */
+  componentCode?: string;
+  /** Analysis options */
+  options?: {
+    depth?: 'basic' | 'comprehensive';
+    includeTests?: boolean;
+    includeStories?: boolean;
+  };
+  {{/if}}
+  {{#if (eq type 'code-generation')}}
+  /** Component specification */
+  specification: {
+    name: string;
+    category: string;
+    complexity: string;
+    features: string[];
+    props?: Record<string, any>;
+  };
+  /** Template options */
+  templateOptions?: {
+    typescript?: boolean;
+    testing?: boolean;
+    storybook?: boolean;
+  };
+  {{/if}}
+  {{#if (eq type 'quality-validation')}}
+  /** Source code to validate */
+  sourceCode: string;
+  /** Quality rules */
+  qualityRules?: {
+    typescript?: boolean;
+    accessibility?: boolean;
+    performance?: boolean;
+    security?: boolean;
+  };
+  {{/if}}
+  {{#if (eq type 'documentation')}}
+  /** Path to component */
+  componentPath: string;
+  /** Documentation options */
+  options?: {
+    format?: 'markdown' | 'html';
+    includeExamples?: boolean;
+    includeAPI?: boolean;
+  };
+  {{/if}}
+  {{#if (eq type 'performance')}}
+  /** Component code */
+  componentCode: string;
+  /** Usage patterns */
+  usagePatterns?: string[];
+  /** Performance targets */
+  targets?: {
+    bundleSize?: number;
+    renderTime?: number;
+    memoryUsage?: number;
+  };
+  {{/if}}
+}
+
+/**
+ * Result interface for {{name}} workflow
+ */
+export interface {{pascalCase name}}Result {
+  /** Success status */
+  success: boolean;
+  {{#if (eq type 'component-analysis')}}
+  /** Component analysis result */
+  analysis?: ComponentAnalysisResult;
+  /** Extracted patterns */
+  patterns?: any[];
+  /** Recommendations */
+  recommendations?: string[];
+  {{/if}}
+  {{#if (eq type 'code-generation')}}
+  /** Generated component code */
+  generatedCode?: string;
+  /** Generated test code */
+  testCode?: string;
+  /** Type definitions */
+  typeDefinitions?: string;
+  {{/if}}
+  {{#if (eq type 'quality-validation')}}
+  /** Quality score */
+  qualityScore?: number;
+  /** Validation result */
+  validationResult?: QualityValidationResult;
+  /** Improvement suggestions */
+  improvements?: string[];
+  {{/if}}
+  {{#if (eq type 'documentation')}}
+  /** Generated documentation */
+  documentation?: string;
+  /** Code examples */
+  examples?: string[];
+  /** API reference */
+  apiReference?: string;
+  {{/if}}
+  {{#if (eq type 'performance')}}
+  /** Performance metrics */
+  performanceMetrics?: any;
+  /** Optimization suggestions */
+  optimizations?: string[];
+  /** Optimized code */
+  optimizedCode?: string;
+  {{/if}}
+  /** Execution metadata */
+  metadata: {
+    executionTime: number;
+    workflowVersion: string;
+    timestamp: string;
+  };
+}
+
+/**
+ * Validation result interface
+ */
+export interface ValidationResult {
+  isValid: boolean;
+  errors: string[];
+}
+
+/**
+ * Workflow status interface
+ */
+export interface WorkflowStatus {
+  id: string;
+  name: string;
+  description: string;
+  isActive: boolean;
+  lastExecution: string | null;
+  metrics: {
+    efficiency: number;
+    accuracy: number;
+    confidence: number;
+  };
+}
+
+/**
+ * Create and return workflow instance
+ */
+export function create{{pascalCase name}}Workflow(): {{pascalCase name}}Workflow {
+  return new {{pascalCase name}}Workflow();
+}
+
+/**
+ * Execute workflow with input
+ */
+export async function execute{{pascalCase name}}(input: {{pascalCase name}}Input): Promise<{{pascalCase name}}Result> {
+  const workflow = create{{pascalCase name}}Workflow();
+  
+  const validation = workflow.validateInput(input);
+  if (!validation.isValid) {
+    throw new Error(`Invalid input: ${validation.errors.join(', ')}`);
+  }
+  
+  return workflow.execute(input);
+}
+
+export default {{pascalCase name}}Workflow;

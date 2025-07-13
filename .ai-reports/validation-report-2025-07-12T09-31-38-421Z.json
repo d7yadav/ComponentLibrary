@@ -1,0 +1,160 @@
+{
+  "timestamp": "2025-07-12T09:31:38.421Z",
+  "metrics": {
+    "totalFiles": 6,
+    "validatedFiles": 6,
+    "errors": 4,
+    "warnings": 3,
+    "suggestions": 5,
+    "score": 89
+  },
+  "results": [
+    {
+      "path": "src/components/navigation/Tabs/Tabs.ai-guide.md",
+      "size": 8752,
+      "lines": 306,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/navigation/Tabs/Tabs.constants.ts",
+      "size": 4613,
+      "lines": 203,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/navigation/Tabs/Tabs.stories.tsx",
+      "size": 11238,
+      "lines": 451,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Tabs.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface Tabs.storiesProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 76
+    },
+    {
+      "path": "src/components/navigation/Tabs/Tabs.tsx",
+      "size": 8195,
+      "lines": 319,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Tabs }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface TabsProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Found 2 'any' type(s). Use explicit types for AI comprehension",
+          "line": 161,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Components that can throw errors should be wrapped with ErrorBoundary",
+          "line": 155,
+          "type": "error-boundary",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 68
+    },
+    {
+      "path": "src/components/navigation/Tabs/Tabs.types.ts",
+      "size": 3760,
+      "lines": 161,
+      "issues": [
+        {
+          "message": "Found 6 'any' type(s). Use explicit types for AI comprehension",
+          "line": 35,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/navigation/Tabs/index.ts",
+      "size": 780,
+      "lines": 35,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 89,
+    "totalIssues": 12
+  }
+}

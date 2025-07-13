@@ -1,0 +1,27 @@
+{
+  "component": "Card",
+  "generated": "2025-07-12T04:38:47.223Z",
+  "scenarios": [
+    {
+      "id": "Card-smoke",
+      "name": "Card Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Card",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Card-interaction",
+      "name": "Card Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Card",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Card-accessibility",
+      "name": "Card Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Card",
+      "estimatedDuration": 1200
+    }
+  ]
+}

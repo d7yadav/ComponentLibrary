@@ -1,0 +1,69 @@
+{
+  "timestamp": "2025-07-12T04:41:59.183Z",
+  "buildId": "mock-build-123",
+  "summary": {
+    "totalChanges": 3,
+    "riskLevel": "medium",
+    "confidence": 0.68,
+    "autoAcceptable": false
+  },
+  "analysis": {
+    "buildId": "mock-build-123",
+    "timestamp": "2025-07-12T04:41:59.182Z",
+    "totalChanges": 3,
+    "changeCategories": {
+      "layout": 2,
+      "color": 1,
+      "typography": 0,
+      "spacing": 0,
+      "animation": 0,
+      "content": 0
+    },
+    "riskLevel": "medium",
+    "confidence": 0.68,
+    "recommendations": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "color",
+        "severity": "low",
+        "message": "Color changes detected - check accessibility compliance",
+        "action": "Run color contrast validation"
+      }
+    ],
+    "autoAcceptable": false
+  },
+  "recommendations": {
+    "autoAcceptable": false,
+    "requiresReview": true,
+    "confidence": 0.68,
+    "actions": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "color",
+        "severity": "low",
+        "message": "Color changes detected - check accessibility compliance",
+        "action": "Run color contrast validation"
+      }
+    ],
+    "nextSteps": [
+      "Manual review required",
+      "Test in staging environment"
+    ]
+  },
+  "technicalDetails": {
+    "aiVersion": "1.0.0",
+    "analysisMethod": "pattern-recognition",
+    "confidenceThreshold": 0.85,
+    "autoAcceptThreshold": 0.95
+  }
+}

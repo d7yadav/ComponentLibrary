@@ -1,0 +1,86 @@
+/**
+ * @fileoverview {{name}} Component - Main Export
+ * @author AI Generated Export
+ */
+
+// Component
+export { {{name}} } from './{{name}}';
+export { default } from './{{name}}';
+
+// Types
+export type {
+  {{name}}Props,
+  {{name}}Ref,
+  {{name}}Component,
+  {{name}}Variant,
+  {{name}}Size,
+  {{name}}ThemeCustomization,
+  {{name}}EventHandlers,
+  {{name}}DefaultProps,
+  {{#if (includes features 'forms')}}
+  {{name}}FormProps,
+  {{name}}ValidationState,
+  {{/if}}
+  {{#if (includes features 'loading')}}
+  {{name}}LoadingProps,
+  {{/if}}
+  {{#if (includes features 'icons')}}
+  {{name}}IconProps,
+  {{/if}}
+  {{#if (includes features 'animation')}}
+  {{name}}AnimationProps,
+  {{/if}}
+  {{name}}AccessibilityProps,
+  {{name}}InteractionProps,
+  {{name}}StylingProps,
+  {{name}}StateProps,
+} from './{{name}}.types';
+
+// Styles
+export {
+  {{name}}Styles,
+  Styled{{name}},
+  {{#if (includes features 'icons')}}
+  Styled{{name}}Icon,
+  {{/if}}
+  {{#if (includes features 'loading')}}
+  Styled{{name}}LoadingIndicator,
+  {{/if}}
+} from './{{name}}.styles';
+
+// Constants
+export {
+  {{constantCase name}}_CONSTANTS,
+  {{constantCase name}}_DEFAULT_PROPS,
+  {{constantCase name}}_TYPE_GUARDS,
+  {{constantCase name}}_UTILS,
+} from './{{name}}.constants';
+
+// Re-export for convenience
+export {
+  {{name}} as {{capitalize name}},
+  {{name}} as {{capitalize name}}Component,
+};
+
+/**
+ * Component metadata for AI and tooling
+ */
+export const {{constantCase name}}_METADATA = {
+  name: '{{name}}',
+  category: '{{category}}',
+  complexity: '{{complexity}}',
+  features: [
+    {{#each features}}
+    '{{this}}',
+    {{/each}}
+  ],
+  version: '1.0.0',
+  status: 'stable',
+  lastUpdated: new Date().toISOString(),
+  aiGenerated: true,
+  documentation: {
+    hasStories: {{generateStories}},
+    hasTests: {{generateTests}},
+    hasDocs: {{generateDocs}},
+  },
+} as const;

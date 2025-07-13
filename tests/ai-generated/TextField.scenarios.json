@@ -1,0 +1,27 @@
+{
+  "component": "TextField",
+  "generated": "2025-07-12T04:38:47.224Z",
+  "scenarios": [
+    {
+      "id": "TextField-smoke",
+      "name": "TextField Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for TextField",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "TextField-interaction",
+      "name": "TextField Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for TextField",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "TextField-accessibility",
+      "name": "TextField Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for TextField",
+      "estimatedDuration": 1200
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "timestamp": "2025-07-12T09:41:26.359Z",
+  "metrics": {
+    "totalFiles": 7,
+    "validatedFiles": 7,
+    "errors": 4,
+    "warnings": 1,
+    "suggestions": 6,
+    "score": 92
+  },
+  "results": [
+    {
+      "path": "src/components/navigation/Breadcrumbs/Breadcrumbs.ai-guide.md",
+      "size": 7212,
+      "lines": 225,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/navigation/Breadcrumbs/Breadcrumbs.constants.ts",
+      "size": 4384,
+      "lines": 191,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 96
+    },
+    {
+      "path": "src/components/navigation/Breadcrumbs/Breadcrumbs.stories.tsx",
+      "size": 9121,
+      "lines": 357,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Breadcrumbs.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface Breadcrumbs.storiesProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 66
+    },
+    {
+      "path": "src/components/navigation/Breadcrumbs/Breadcrumbs.styles.ts",
+      "size": 7152,
+      "lines": 237,
+      "issues": [
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/navigation/Breadcrumbs/Breadcrumbs.tsx",
+      "size": 8966,
+      "lines": 316,
+      "issues": [
+        {
+          "message": "Component should define interface BreadcrumbsProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Found 1 'any' type(s). Use explicit types for AI comprehension",
+          "line": 74,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        }
+      ],
+      "score": 85
+    },
+    {
+      "path": "src/components/navigation/Breadcrumbs/Breadcrumbs.types.ts",
+      "size": 2999,
+      "lines": 116,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/navigation/Breadcrumbs/index.ts",
+      "size": 876,
+      "lines": 35,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 92,
+    "totalIssues": 11
+  }
+}

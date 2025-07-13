@@ -1,0 +1,166 @@
+{
+  "timestamp": "2025-07-12T09:36:54.312Z",
+  "metrics": {
+    "totalFiles": 9,
+    "validatedFiles": 9,
+    "errors": 3,
+    "warnings": 2,
+    "suggestions": 5,
+    "score": 94
+  },
+  "results": [
+    {
+      "path": "src/components/forms/TextField/README.md",
+      "size": 1486,
+      "lines": 63,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.ai-guide.md",
+      "size": 4735,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.constants.ts",
+      "size": 4902,
+      "lines": 224,
+      "issues": [
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.examples.md",
+      "size": 3070,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.stories.tsx",
+      "size": 17493,
+      "lines": 815,
+      "issues": [
+        {
+          "message": "Component should export named export: export { TextField.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 88
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.styles.ts",
+      "size": 8902,
+      "lines": 298,
+      "issues": [
+        {
+          "message": "Found 5 'any' type(s). Use explicit types for AI comprehension",
+          "line": 19,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.tsx",
+      "size": 11250,
+      "lines": 399,
+      "issues": [
+        {
+          "message": "Component should export named export: export { TextField }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface TextFieldProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 78
+    },
+    {
+      "path": "src/components/forms/TextField/TextField.types.ts",
+      "size": 5601,
+      "lines": 293,
+      "issues": [
+        {
+          "message": "Found 2 'any' type(s). Use explicit types for AI comprehension",
+          "line": 282,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/forms/TextField/index.ts",
+      "size": 766,
+      "lines": 32,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 94,
+    "totalIssues": 10
+  }
+}

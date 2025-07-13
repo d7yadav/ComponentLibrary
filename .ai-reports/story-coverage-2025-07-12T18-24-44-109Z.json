@@ -1,0 +1,4070 @@
+{
+  "timestamp": "2025-07-12T18:24:44.109Z",
+  "summary": {
+    "totalComponents": 11,
+    "averageScore": 71,
+    "distribution": {
+      "excellent": 2,
+      "good": 3,
+      "needsWork": 6
+    }
+  },
+  "components": {
+    "Button": {
+      "componentName": "Button",
+      "totalStories": 34,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "variant": "primary",
+                "size": "medium",
+                "color": "primary"
+              },
+              "category": "default"
+            },
+            {
+              "name": "Primary",
+              "args": {
+                "variant": "primary",
+                "children": "Primary Button"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Secondary",
+              "args": {
+                "variant": "secondary",
+                "children": "Secondary Button"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "PrimaryColor",
+              "args": {
+                "color": "primary",
+                "children": "Primary Color"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "SecondaryColor",
+              "args": {
+                "color": "secondary",
+                "children": "Secondary Color"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "AllVariants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Small",
+              "args": {
+                "size": "small",
+                "children": "Small Button"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "Large",
+              "args": {
+                "size": "large",
+                "children": "Large Button"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "AllSizes",
+              "args": {},
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [
+            {
+              "name": "TertiaryColor",
+              "args": {
+                "color": "tertiary",
+                "children": "Tertiary Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "QuaternaryColor",
+              "args": {
+                "color": "quaternary",
+                "children": "Quaternary Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "SuccessColor",
+              "args": {
+                "color": "success",
+                "children": "Success Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "WarningColor",
+              "args": {
+                "color": "warning",
+                "children": "Warning Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "ErrorColor",
+              "args": {
+                "color": "error",
+                "children": "Error Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "InfoColor",
+              "args": {
+                "color": "info",
+                "children": "Info Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "AllColors",
+              "args": {},
+              "category": "colors"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Loading",
+              "args": {
+                "loading": "true",
+                "children": "Loading Button"
+              },
+              "category": "states"
+            },
+            {
+              "name": "Disabled",
+              "args": {
+                "disabled": "true",
+                "children": "Disabled Button"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingDisabled",
+              "args": {
+                "loading": "true",
+                "disabled": "true",
+                "children": "Loading & Disabled"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingWithIcon",
+              "args": {
+                "loading": "true",
+                "startIcon": "<Favorite />",
+                "children": "Loading with Icon"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityDemo",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ThemeVariations",
+              "args": {},
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Tertiary",
+              "args": {
+                "variant": "tertiary",
+                "children": "Tertiary Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Quaternary",
+              "args": {
+                "variant": "quaternary",
+                "children": "Quaternary Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Gradient",
+              "args": {
+                "variant": "gradient",
+                "children": "Gradient Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Glass",
+              "args": {
+                "variant": "glass",
+                "children": "Glass Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Outline",
+              "args": {
+                "variant": "outline",
+                "children": "Outline Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Text",
+              "args": {
+                "variant": "text",
+                "children": "Text Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Medium",
+              "args": {
+                "size": "medium",
+                "children": "Medium Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FullWidth",
+              "args": {
+                "fullWidth": "true",
+                "children": "Full Width Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithStartIcon",
+              "args": {
+                "startIcon": "<Add />",
+                "children": "Add Item"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithEndIcon",
+              "args": {
+                "endIcon": "<Send />",
+                "children": "Send Message"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithBothIcons",
+              "args": {
+                "startIcon": "<Download />",
+                "endIcon": "<Star />",
+                "children": "Download & Star"
+              },
+              "category": "other"
+            },
+            {
+              "name": "InteractiveStates",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 8,
+          "covered": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+            "gradient",
+            "glass",
+            "outline",
+            "text"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "colors": {
+          "total": 8,
+          "covered": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+            "success",
+            "warning",
+            "error",
+            "info"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 5,
+          "covered": [],
+          "missing": [
+            "loading",
+            "disabled",
+            "fullWidth",
+            "hasStartIcon",
+            "hasEndIcon"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "loading",
+            "disabled",
+            "fullWidth",
+            "hasStartIcon",
+            "hasEndIcon"
+          ],
+          "description": "Missing stories for booleanProps: loading, disabled, fullWidth, hasStartIcon, hasEndIcon"
+        }
+      ],
+      "coverageScore": 90,
+      "recommendations": [
+        "Improve booleanProps coverage: add stories for loading, disabled, fullWidth, hasStartIcon, hasEndIcon"
+      ]
+    },
+    "Card": {
+      "componentName": "Card",
+      "totalStories": 29,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "variant": "elevated",
+                "elevation": "1",
+                "size": "comfortable",
+                "children": "("
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AllVariants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "CompactSize",
+              "args": {
+                "size": "compact",
+                "children": "("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "ComfortableSize",
+              "args": {
+                "size": "comfortable",
+                "children": "("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "SpaciousSize",
+              "args": {
+                "size": "spacious",
+                "children": "("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "AllSizes",
+              "args": {},
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DisabledState",
+              "args": {
+                "disabled": "true",
+                "children": "("
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityDemo",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Elevated",
+              "args": {
+                "variant": "elevated",
+                "elevation": "3",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Outlined",
+              "args": {
+                "variant": "outlined",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Filled",
+              "args": {
+                "variant": "filled",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Glass",
+              "args": {
+                "variant": "glass",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Gradient",
+              "args": {
+                "variant": "gradient",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Interactive",
+              "args": {
+                "variant": "interactive",
+                "onClick": "fn()",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel0",
+              "args": {
+                "elevation": "0",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel1",
+              "args": {
+                "elevation": "1",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel4",
+              "args": {
+                "elevation": "4",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel8",
+              "args": {
+                "elevation": "8",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel16",
+              "args": {
+                "elevation": "16",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel24",
+              "args": {
+                "elevation": "24",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "VerticalOrientation",
+              "args": {
+                "orientation": "vertical",
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "HorizontalOrientation",
+              "args": {
+                "orientation": "horizontal",
+                "style": "{ maxWidth: 400"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SelectedState",
+              "args": {
+                "selected": "true",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "InteractiveHover",
+              "args": {
+                "interactive": "true",
+                "onClick": "fn()",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithHeader",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithMedia",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithActions",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "CompleteCard",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "AllElevations",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 6,
+          "covered": [
+            "elevated",
+            "outlined",
+            "filled",
+            "glass",
+            "gradient",
+            "interactive"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "compact",
+            "comfortable",
+            "spacious"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        }
+      ],
+      "coverageScore": 93,
+      "recommendations": [
+        "Add themes stories to cover essential use cases"
+      ]
+    },
+    "Typography": {
+      "componentName": "Typography",
+      "totalStories": 20,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "variant": "body1",
+                "children": "This is the default typography component with body1 variant."
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AllVariants",
+              "args": {},
+              "category": "variants"
+            },
+            {
+              "name": "HeadingVariants",
+              "args": {},
+              "category": "variants"
+            },
+            {
+              "name": "BodyVariants",
+              "args": {},
+              "category": "variants"
+            },
+            {
+              "name": "UtilityVariants",
+              "args": {},
+              "category": "variants"
+            },
+            {
+              "name": "ColorVariants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "colors": {
+          "required": false,
+          "stories": [
+            {
+              "name": "SemanticColors",
+              "args": {},
+              "category": "colors"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityFeatures",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ResponsiveTypography",
+              "args": {},
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ThemeIntegration",
+              "args": {},
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "TextAlignment",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "TextTransformations",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "FontWeights",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "InteractiveText",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "GradientText",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "TextTruncation",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "SpecializedComponents",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "ArticleLayout",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "UserInterface",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PerformanceOptimized",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 13,
+          "covered": [
+            "body1"
+          ],
+          "missing": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "body2",
+            "button",
+            "caption",
+            "overline",
+            "subtitle1",
+            "subtitle2"
+          ],
+          "coveragePercentage": 8
+        },
+        "colors": {
+          "total": 12,
+          "covered": [],
+          "missing": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+            "success",
+            "warning",
+            "error",
+            "info",
+            "text.primary",
+            "text.secondary",
+            "text.disabled",
+            "inherit"
+          ],
+          "coveragePercentage": 0
+        },
+        "booleanProps": {
+          "total": 4,
+          "covered": [],
+          "missing": [
+            "noWrap",
+            "paragraph",
+            "gutterBottom",
+            "responsive"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 3,
+          "covered": [],
+          "missing": [
+            "fontSize",
+            "lineHeight",
+            "letterSpacing"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "sizes",
+          "description": "Missing sizes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "category",
+          "category": "states",
+          "description": "Missing states stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "variants",
+          "missing": [
+            "h1",
+            "h2",
+            "h3",
+            "h4",
+            "h5",
+            "h6",
+            "body2",
+            "button",
+            "caption",
+            "overline",
+            "subtitle1",
+            "subtitle2"
+          ],
+          "description": "Missing stories for variants: h1, h2, h3, h4, h5, h6, body2, button, caption, overline, subtitle1, subtitle2"
+        },
+        {
+          "type": "props",
+          "propType": "colors",
+          "missing": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+            "success",
+            "warning",
+            "error",
+            "info",
+            "text.primary",
+            "text.secondary",
+            "text.disabled",
+            "inherit"
+          ],
+          "description": "Missing stories for colors: primary, secondary, tertiary, quaternary, success, warning, error, info, text.primary, text.secondary, text.disabled, inherit"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "noWrap",
+            "paragraph",
+            "gutterBottom",
+            "responsive"
+          ],
+          "description": "Missing stories for booleanProps: noWrap, paragraph, gutterBottom, responsive"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "fontSize",
+            "lineHeight",
+            "letterSpacing"
+          ],
+          "description": "Missing stories for complexProps: fontSize, lineHeight, letterSpacing"
+        }
+      ],
+      "coverageScore": 47,
+      "recommendations": [
+        "Add sizes stories to cover essential use cases",
+        "Add states stories to cover essential use cases",
+        "Improve variants coverage: add stories for h1, h2, h3, h4, h5, h6, body2, button, caption, overline, subtitle1, subtitle2",
+        "Improve colors coverage: add stories for primary, secondary, tertiary, quaternary, success, warning, error, info, text.primary, text.secondary, text.disabled, inherit",
+        "Improve booleanProps coverage: add stories for noWrap, paragraph, gutterBottom, responsive",
+        "Improve complexProps coverage: add stories for fontSize, lineHeight, letterSpacing"
+      ]
+    },
+    "TextField": {
+      "componentName": "TextField",
+      "totalStories": 38,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "label": "Default TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SmallSize",
+              "args": {
+                "size": "small",
+                "label": "Small TextField",
+                "placeholder": "Small input..."
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "MediumSize",
+              "args": {
+                "size": "medium",
+                "label": "Medium TextField",
+                "placeholder": "Medium input..."
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "MultilineAutoResize",
+              "args": {
+                "multiline": "true",
+                "label": "Notes",
+                "placeholder": "Start typing...",
+                "minRows": "2",
+                "maxRows": "8",
+                "helperText": "Field will auto-resize as you type"
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ErrorState",
+              "args": {
+                "validationState": "error",
+                "label": "Email Address",
+                "value": "invalid-email",
+                "errorText": "Please enter a valid email address",
+                "startIcon": "<Email />"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingState",
+              "args": {
+                "loading": "true",
+                "label": "Checking availability...",
+                "value": "username123",
+                "helperText": "Verifying if username is available"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingWithValidation",
+              "args": {
+                "loading": "true",
+                "validationState": "success",
+                "label": "Username",
+                "value": "available_user",
+                "successText": "Username is available!"
+              },
+              "category": "states"
+            },
+            {
+              "name": "DisabledField",
+              "args": {
+                "disabled": "true",
+                "label": "Account ID",
+                "value": "ACC-123456",
+                "helperText": "This field cannot be modified"
+              },
+              "category": "states"
+            },
+            {
+              "name": "CharacterCountError",
+              "args": {
+                "label": "Tweet",
+                "value": "This is a very long tweet that exceeds the maximum character limit and should show an error state when the user types too much text",
+                "maxLength": "120",
+                "showCharacterCount": "true",
+                "errorText": "Tweet is too long"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityExample",
+              "args": {
+                "label": "Accessible Field",
+                "placeholder": "This field has proper ARIA attributes",
+                "helperText": "This field demonstrates accessibility features",
+                "required": "true"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ComplexForm",
+              "args": {},
+              "category": "edge-cases"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DarkThemeCompatible",
+              "args": {
+                "label": "Dark Theme Field",
+                "placeholder": "Works well in dark theme",
+                "helperText": "This component is optimized for dark themes",
+                "startIcon": "<Search />"
+              },
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Filled",
+              "args": {
+                "variant": "filled",
+                "label": "Filled TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "other"
+            },
+            {
+              "name": "Outlined",
+              "args": {
+                "variant": "outlined",
+                "label": "Outlined TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "other"
+            },
+            {
+              "name": "Standard",
+              "args": {
+                "variant": "standard",
+                "label": "Standard TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "other"
+            },
+            {
+              "name": "EmailType",
+              "args": {
+                "type": "email",
+                "label": "Email Address",
+                "placeholder": "user@example.com",
+                "startIcon": "<Email />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "PasswordType",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PhoneType",
+              "args": {
+                "type": "tel",
+                "label": "Phone Number",
+                "placeholder": "+1 (555) 123-4567",
+                "startIcon": "<Phone />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SearchType",
+              "args": {
+                "type": "search",
+                "label": "Search",
+                "placeholder": "Search for items...",
+                "startIcon": "<Search />",
+                "endAction": "<Clear style={{ cursor: pointer"
+              },
+              "category": "other"
+            },
+            {
+              "name": "NumberType",
+              "args": {
+                "type": "number",
+                "label": "Age",
+                "placeholder": "25"
+              },
+              "category": "other"
+            },
+            {
+              "name": "DateType",
+              "args": {
+                "type": "date",
+                "label": "Date of Birth",
+                "startIcon": "<CalendarToday />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "UrlType",
+              "args": {
+                "type": "url",
+                "label": "Website URL",
+                "placeholder": "https://example.com"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SuccessState",
+              "args": {
+                "validationState": "success",
+                "label": "Valid Email",
+                "value": "user@example.com",
+                "successText": "Email format is correct!",
+                "startIcon": "<Email />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WarningState",
+              "args": {
+                "validationState": "warning",
+                "label": "Password",
+                "value": "weak123",
+                "warningText": "Password is weak. Consider adding special characters.",
+                "startIcon": "<Lock />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "RequiredField",
+              "args": {
+                "required": "true",
+                "label": "Full Name",
+                "placeholder": "Enter your full name",
+                "helperText": "This field is required",
+                "startIcon": "<Person />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "ReadOnlyField",
+              "args": {
+                "readOnly": "true",
+                "label": "User ID",
+                "value": "USR-789012",
+                "helperText": "Read-only field"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithCharacterCount",
+              "args": {
+                "label": "Bio",
+                "placeholder": "Tell us about yourself...",
+                "maxLength": "100",
+                "showCharacterCount": "true",
+                "helperText": "Share a brief description about yourself"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CharacterCountWarning",
+              "args": {
+                "label": "Short Description",
+                "value": "This is a long description that is approaching the maximum character limit for this field",
+                "maxLength": "100",
+                "showCharacterCount": "true",
+                "helperText": "Keep it concise"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MultilineBasic",
+              "args": {
+                "multiline": "true",
+                "label": "Comments",
+                "placeholder": "Enter your comments here...",
+                "rows": "4",
+                "helperText": "Please provide detailed feedback"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MultilineWithCharacterCount",
+              "args": {
+                "multiline": "true",
+                "label": "Product Review",
+                "placeholder": "Write your review...",
+                "rows": "5",
+                "maxLength": "500",
+                "showCharacterCount": "true",
+                "helperText": "Share your experience with this product"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithStartIcon",
+              "args": {
+                "label": "Search Products",
+                "placeholder": "Search for products...",
+                "startIcon": "<Search />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithEndIcon",
+              "args": {
+                "label": "Valid Email",
+                "value": "user@example.com",
+                "validationState": "success",
+                "endIcon": "<CheckCircle />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithEndAction",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "WithBothIcons",
+              "args": {
+                "label": "Secure Search",
+                "placeholder": "Search securely...",
+                "startIcon": "<Search />",
+                "endIcon": "<Lock />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "EmailValidation",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PasswordStrengthValidation",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "FullWidth",
+              "args": {
+                "fullWidth": "true",
+                "label": "Full Width Field",
+                "placeholder": "This field takes the full width of its container"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomValidation",
+              "args": {
+                "label": "Username",
+                "placeholder": "Enter username (min 3 chars)",
+                "validate": "(value: string) => {"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 3,
+          "covered": [
+            "filled",
+            "outlined",
+            "standard"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 2,
+          "covered": [
+            "small",
+            "medium"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 10,
+          "covered": [],
+          "missing": [
+            "loading",
+            "disabled",
+            "readOnly",
+            "fullWidth",
+            "multiline",
+            "hasStartIcon",
+            "hasEndIcon",
+            "hasEndAction",
+            "showCharacterCount",
+            "focused"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "variants",
+          "description": "Missing variants stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "loading",
+            "disabled",
+            "readOnly",
+            "fullWidth",
+            "multiline",
+            "hasStartIcon",
+            "hasEndIcon",
+            "hasEndAction",
+            "showCharacterCount",
+            "focused"
+          ],
+          "description": "Missing stories for booleanProps: loading, disabled, readOnly, fullWidth, multiline, hasStartIcon, hasEndIcon, hasEndAction, showCharacterCount, focused"
+        }
+      ],
+      "coverageScore": 80,
+      "recommendations": [
+        "Add variants stories to cover essential use cases",
+        "Improve booleanProps coverage: add stories for loading, disabled, readOnly, fullWidth, multiline, hasStartIcon, hasEndIcon, hasEndAction, showCharacterCount, focused"
+      ]
+    },
+    "Breadcrumbs": {
+      "componentName": "Breadcrumbs",
+      "totalStories": 23,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "items": "basicItems"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "StandardVariant",
+              "args": {
+                "items": "basicItems",
+                "variant": "standard"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "TextVariant",
+              "args": {
+                "items": "basicItems",
+                "variant": "text"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "ContainedVariant",
+              "args": {
+                "items": "basicItems",
+                "variant": "contained"
+              },
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SmallSize",
+              "args": {
+                "items": "basicItems",
+                "size": "small"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "MediumSize",
+              "args": {
+                "items": "basicItems",
+                "size": "medium"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "LargeSize",
+              "args": {
+                "items": "basicItems",
+                "size": "large"
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DisabledBreadcrumbs",
+              "args": {
+                "items": "basicItems",
+                "disabled": "true"
+              },
+              "category": "states"
+            },
+            {
+              "name": "WithDisabledItems",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityExample",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ResponsiveBreadcrumbs",
+              "args": {
+                "items": "longItems",
+                "maxItems": "3",
+                "itemsBeforeCollapse": "1",
+                "itemsAfterCollapse": "1"
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "WithChevronSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "chevron"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithArrowSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "arrow"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithDotSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "dot"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CollapsedBreadcrumbs",
+              "args": {
+                "items": "longItems",
+                "maxItems": "4",
+                "itemsBeforeCollapse": "1",
+                "itemsAfterCollapse": "1",
+                "expandOnClick": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "AlwaysExpanded",
+              "args": {
+                "items": "longItems",
+                "expandOnClick": "false"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomCollapseConfig",
+              "args": {
+                "items": "longItems",
+                "maxItems": "5",
+                "itemsBeforeCollapse": "2",
+                "itemsAfterCollapse": "2",
+                "expandOnClick": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithClickHandlers",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "onClick": "action(Navigate to Home)",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MixedLinksAndButtons",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FileSystemNavigation",
+              "args": {
+                "items": "[",
+                "label": "Root",
+                "href": "/",
+                "icon": "<Folder fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "EcommerceCatalog",
+              "args": {
+                "items": "[",
+                "label": "Store",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "EducationalPlatform",
+              "args": {
+                "items": "[",
+                "label": "Learning Platform",
+                "href": "/",
+                "icon": "<School fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "<span style={{ margin: 0 8px",
+                "color": "#666"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 3,
+          "covered": [
+            "standard",
+            "text",
+            "contained"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "expandOnClick",
+            "disabled"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "items",
+            "separator"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "expandOnClick",
+            "disabled"
+          ],
+          "description": "Missing stories for booleanProps: expandOnClick, disabled"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "items",
+            "separator"
+          ],
+          "description": "Missing stories for complexProps: items, separator"
+        }
+      ],
+      "coverageScore": 73,
+      "recommendations": [
+        "Add themes stories to cover essential use cases",
+        "Improve booleanProps coverage: add stories for expandOnClick, disabled",
+        "Improve complexProps coverage: add stories for items, separator"
+      ]
+    },
+    "Tabs": {
+      "componentName": "Tabs",
+      "totalStories": 14,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "tabs": "basicTabs"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SecondaryColor",
+              "args": {
+                "tabs": "iconTabs",
+                "indicatorColor": "secondary",
+                "textColor": "secondary"
+              },
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "WithDisabled",
+              "args": {
+                "tabs": "[",
+                "id": "disabled",
+                "label": "Disabled",
+                "disabled": "true",
+                "content": "<SampleContent title=Disabled description=This tab is disabled and cannot be selected. />"
+              },
+              "category": "states"
+            },
+            {
+              "name": "Loading",
+              "args": {
+                "tabs": "basicTabs",
+                "loading": "true"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Accessibility",
+              "args": {
+                "tabs": "iconTabs.map(tab => ({"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Responsive",
+              "args": {
+                "tabs": "manyTabs.slice(0",
+                "variant": "scrollable",
+                "allowScrollButtonsMobile": "true"
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ComplexContent",
+              "args": {
+                "tabs": "[",
+                "label": "Overview",
+                "content": "("
+              },
+              "category": "edge-cases"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "WithIcons",
+              "args": {
+                "tabs": "iconTabs"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Vertical",
+              "args": {
+                "tabs": "iconTabs",
+                "orientation": "vertical"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Scrollable",
+              "args": {
+                "tabs": "manyTabs",
+                "variant": "scrollable",
+                "scrollButtons": "auto"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FullWidth",
+              "args": {
+                "tabs": "basicTabs",
+                "variant": "fullWidth"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Centered",
+              "args": {
+                "tabs": "basicTabs",
+                "centered": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "NavigationOnly",
+              "args": {
+                "tabs": "basicTabs",
+                "showPanels": "false"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Controlled",
+              "args": {
+                "tabs": "basicTabs",
+                "value": "search"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 3,
+          "covered": [
+            "scrollable",
+            "fullWidth"
+          ],
+          "missing": [
+            "standard"
+          ],
+          "coveragePercentage": 67
+        },
+        "colors": {
+          "total": 2,
+          "covered": [
+            "secondary"
+          ],
+          "missing": [
+            "primary"
+          ],
+          "coveragePercentage": 50
+        },
+        "complexProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "value",
+            "index"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "sizes",
+          "description": "Missing sizes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "variants",
+          "missing": [
+            "standard"
+          ],
+          "description": "Missing stories for variants: standard"
+        },
+        {
+          "type": "props",
+          "propType": "colors",
+          "missing": [
+            "primary"
+          ],
+          "description": "Missing stories for colors: primary"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "value",
+            "index"
+          ],
+          "description": "Missing stories for complexProps: value, index"
+        }
+      ],
+      "coverageScore": 62,
+      "recommendations": [
+        "Add sizes stories to cover essential use cases",
+        "Add themes stories to cover essential use cases",
+        "Improve variants coverage: add stories for standard",
+        "Improve colors coverage: add stories for primary",
+        "Improve complexProps coverage: add stories for value, index"
+      ]
+    },
+    "Accordion": {
+      "componentName": "Accordion",
+      "totalStories": 38,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "summary": "Default Accordion",
+                "children": "This is the default accordion content. It demonstrates the basic functionality with standard styling."
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "StandardVariant",
+              "args": {
+                "variant": "standard",
+                "summary": "Standard Variant",
+                "children": "Standard variant with minimal styling and border separators."
+              },
+              "category": "variants"
+            },
+            {
+              "name": "OutlinedVariant",
+              "args": {
+                "variant": "outlined",
+                "summary": "Outlined Variant",
+                "children": "Outlined variant with visible borders and hover effects."
+              },
+              "category": "variants"
+            },
+            {
+              "name": "ElevatedVariant",
+              "args": {
+                "variant": "elevated",
+                "summary": "Elevated Variant",
+                "children": "Elevated variant with shadow effects and hover animations."
+              },
+              "category": "variants"
+            },
+            {
+              "name": "FlatVariant",
+              "args": {
+                "variant": "flat",
+                "summary": "Flat Variant",
+                "children": "Flat variant with subtle background colors."
+              },
+              "category": "variants"
+            },
+            {
+              "name": "CardVariant",
+              "args": {
+                "variant": "card",
+                "summary": "Card Variant",
+                "children": "Card variant with rounded corners"
+              },
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "CompactSize",
+              "args": {
+                "size": "compact",
+                "variant": "outlined",
+                "summary": "Compact Size",
+                "children": "Compact size with reduced padding and smaller text."
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "ComfortableSize",
+              "args": {
+                "size": "comfortable",
+                "variant": "outlined",
+                "summary": "Comfortable Size (Default)",
+                "children": "Comfortable size with balanced padding and text size."
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "SpaciousSize",
+              "args": {
+                "size": "spacious",
+                "variant": "outlined",
+                "summary": "Spacious Size",
+                "children": "Spacious size with generous padding and larger text."
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Disabled",
+              "args": {
+                "summary": "Disabled Accordion",
+                "disabled": "true",
+                "children": "This accordion is disabled and cannot be interacted with."
+              },
+              "category": "states"
+            },
+            {
+              "name": "ErrorContent",
+              "args": {
+                "variant": "outlined",
+                "summary": "Error Status",
+                "startIcon": "<Error color=error />",
+                "children": "("
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityDemo",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "LightTheme",
+              "args": {
+                "variant": "outlined",
+                "summary": "Light Theme Accordion",
+                "subtitle": "Default light theme styling",
+                "children": "This accordion demonstrates the light theme styling with proper contrast and colors."
+              },
+              "category": "themes"
+            },
+            {
+              "name": "DarkTheme",
+              "args": {
+                "variant": "outlined",
+                "summary": "Dark Theme Accordion",
+                "subtitle": "Dark theme with enhanced contrast",
+                "children": "This accordion demonstrates the dark theme styling with enhanced contrast for OLED displays."
+              },
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Expanded",
+              "args": {
+                "summary": "Expanded Accordion",
+                "expanded": "true",
+                "children": "This accordion starts in an expanded state."
+              },
+              "category": "other"
+            },
+            {
+              "name": "IconStart",
+              "args": {
+                "iconPosition": "start",
+                "variant": "outlined",
+                "summary": "Icon at Start",
+                "children": "Expand icon positioned at the start of the summary."
+              },
+              "category": "other"
+            },
+            {
+              "name": "IconEnd",
+              "args": {
+                "iconPosition": "end",
+                "variant": "outlined",
+                "summary": "Icon at End (Default)",
+                "children": "Expand icon positioned at the end of the summary."
+              },
+              "category": "other"
+            },
+            {
+              "name": "IconBoth",
+              "args": {
+                "iconPosition": "both",
+                "variant": "outlined",
+                "summary": "Icons at Both Ends",
+                "startIcon": "<ChevronRight />",
+                "endIcon": "<ExpandMore />",
+                "children": "Different icons at both start and end positions."
+              },
+              "category": "other"
+            },
+            {
+              "name": "NoIcon",
+              "args": {
+                "iconPosition": "none",
+                "variant": "outlined",
+                "summary": "No Icons",
+                "children": "Accordion without any expand/collapse icons."
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomExpandIcon",
+              "args": {
+                "variant": "outlined",
+                "summary": "Custom Expand Icon",
+                "expandIcon": "<Settings />",
+                "children": "Accordion with a custom expand icon."
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomStartEndIcons",
+              "args": {
+                "variant": "outlined",
+                "iconPosition": "both",
+                "summary": "Custom Start & End Icons",
+                "startIcon": "<Info />",
+                "endIcon": "<Help />",
+                "children": "Accordion with custom icons at both ends."
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithSubtitle",
+              "args": {
+                "variant": "outlined",
+                "summary": "Accordion with Subtitle",
+                "subtitle": "This is a helpful subtitle that provides additional context",
+                "children": "Content area with subtitle in the summary."
+              },
+              "category": "other"
+            },
+            {
+              "name": "SubtitleAndIcons",
+              "args": {
+                "variant": "card",
+                "iconPosition": "both",
+                "summary": "Main Title",
+                "subtitle": "Subtitle with custom icons",
+                "startIcon": "<Settings />",
+                "endIcon": "<ExpandMore />",
+                "children": "Combination of subtitle and custom icons."
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithActions",
+              "args": {
+                "variant": "outlined",
+                "summary": "Accordion with Actions",
+                "children": "This accordion includes action buttons in the footer.",
+                "actions": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ActionsOnly",
+              "args": {
+                "variant": "card",
+                "summary": "Actions Only",
+                "children": "Content with footer actions but no other special features.",
+                "actions": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "DenseLayout",
+              "args": {
+                "variant": "outlined",
+                "dense": "true",
+                "summary": "Dense Layout",
+                "subtitle": "Reduced padding for compact display",
+                "children": "Dense layout reduces the summary padding for more compact display."
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithDivider",
+              "args": {
+                "variant": "standard",
+                "summary": "Accordion with Divider",
+                "showDivider": "true",
+                "expanded": "true",
+                "children": "A divider separates the summary from the details when expanded."
+              },
+              "category": "other"
+            },
+            {
+              "name": "FastTransition",
+              "args": {
+                "variant": "outlined",
+                "transition": "fast",
+                "summary": "Fast Transition",
+                "children": "This accordion uses a fast transition animation."
+              },
+              "category": "other"
+            },
+            {
+              "name": "SlowTransition",
+              "args": {
+                "variant": "outlined",
+                "transition": "slow",
+                "summary": "Slow Transition",
+                "children": "This accordion uses a slow transition animation."
+              },
+              "category": "other"
+            },
+            {
+              "name": "NoTransition",
+              "args": {
+                "variant": "outlined",
+                "transition": "none",
+                "summary": "No Transition",
+                "children": "This accordion has no transition animation."
+              },
+              "category": "other"
+            },
+            {
+              "name": "RichContent",
+              "args": {
+                "variant": "card",
+                "summary": "Rich Content Example",
+                "subtitle": "Demonstrates complex content formatting",
+                "children": "(",
+                "mt": "2"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FormContent",
+              "args": {
+                "variant": "outlined",
+                "summary": "Form Content",
+                "subtitle": "Interactive form elements inside accordion",
+                "expanded": "true",
+                "children": "(",
+                "flexDirection": "column",
+                "gap": "2"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SuccessContent",
+              "args": {
+                "variant": "outlined",
+                "summary": "Success Status",
+                "startIcon": "<CheckCircle color=success />",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "WarningContent",
+              "args": {
+                "variant": "outlined",
+                "summary": "Warning Status",
+                "startIcon": "<Warning color=warning />",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ControlledGroup",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "MultipleExpandGroup",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "FAQExample",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PerformanceDemo",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 5,
+          "covered": [
+            "standard",
+            "outlined",
+            "elevated",
+            "flat",
+            "card"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "compact",
+            "comfortable",
+            "spacious"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "complexProps": {
+          "total": 3,
+          "covered": [],
+          "missing": [
+            "onChange",
+            "defaultExpanded",
+            "expanded"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "onChange",
+            "defaultExpanded",
+            "expanded"
+          ],
+          "description": "Missing stories for complexProps: onChange, defaultExpanded, expanded"
+        }
+      ],
+      "coverageScore": 87,
+      "recommendations": [
+        "Improve complexProps coverage: add stories for onChange, defaultExpanded, expanded"
+      ]
+    },
+    "Dialog": {
+      "componentName": "Dialog",
+      "totalStories": 22,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "title": "Default Dialog",
+                "subtitle": "This is a subtitle",
+                "type": "info",
+                "variant": "simple",
+                "size": "medium",
+                "actions": "createDialogActions.okCancel("
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SmallDialog",
+              "args": {
+                "title": "Quick Confirm",
+                "type": "question",
+                "size": "small",
+                "actions": "createDialogActions.okCancel("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "LargeDialog",
+              "args": {
+                "title": "Advanced Configuration",
+                "subtitle": "Configure advanced settings and preferences",
+                "type": "info",
+                "size": "large",
+                "dividers": "true",
+                "actions": "createDialogActions.saveCancel("
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ErrorDialog",
+              "args": {
+                "title": "Save Failed",
+                "type": "primary",
+                "variant": "alert",
+                "actions": "[",
+                "onClick": "action(Retry clicked)"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingDialog",
+              "args": {
+                "title": "Process Data",
+                "subtitle": "This will take a few moments",
+                "type": "info",
+                "loadingMessage": "Processing your data..."
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityFocused",
+              "args": {
+                "title": "Accessibility Features",
+                "subtitle": "WCAG 2.1 AA compliant dialog",
+                "type": "secondary",
+                "dividers": "true",
+                "actions": "[",
+                "onClick": "action(Learn more)"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "MobileResponsive",
+              "args": {
+                "title": "Mobile Optimized",
+                "subtitle": "Responsive design for all screen sizes",
+                "type": "secondary",
+                "actions": "createDialogActions.custom([",
+                "onClick": "action(Option 1)"
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "WithoutActions",
+              "args": {
+                "title": "Information Dialog",
+                "type": "info",
+                "variant": "simple",
+                "content": "This is a dialog without actions."
+              },
+              "category": "other"
+            },
+            {
+              "name": "ConfirmationDialog",
+              "args": {
+                "title": "Confirm Deletion",
+                "type": "warning",
+                "variant": "confirmation",
+                "size": "small",
+                "actions": "createDialogActions.deleteCancel("
+              },
+              "category": "other"
+            },
+            {
+              "name": "AlertDialog",
+              "args": {
+                "title": "Session Expired",
+                "type": "primary",
+                "variant": "alert",
+                "size": "small",
+                "actions": "[",
+                "onClick": "action(OK clicked)",
+                "autoFocus": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FormDialog",
+              "args": {
+                "title": "Edit Profile",
+                "subtitle": "Update your profile information",
+                "type": "info",
+                "variant": "form",
+                "size": "medium",
+                "actions": "createDialogActions.saveCancel("
+              },
+              "category": "other"
+            },
+            {
+              "name": "FullscreenDialog",
+              "args": {
+                "title": "Terms and Conditions",
+                "subtitle": "Please review our terms and conditions",
+                "variant": "fullscreen",
+                "type": "cancel",
+                "scrollable": "true",
+                "actions": "[",
+                "onClick": "action(Terms declined)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "InfoDialog",
+              "args": {
+                "title": "Backup Complete",
+                "type": "primary",
+                "variant": "alert",
+                "actions": "[{ label: OK",
+                "onClick": "action(OK clicked)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SuccessDialog",
+              "args": {
+                "title": "Account Created",
+                "type": "primary",
+                "variant": "alert",
+                "actions": "[{ label: Get Started",
+                "onClick": "action(Get started)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WarningDialog",
+              "args": {
+                "title": "Unsaved Changes",
+                "type": "warning",
+                "variant": "confirmation",
+                "actions": "createDialogActions.yesNo("
+              },
+              "category": "other"
+            },
+            {
+              "name": "QuestionDialog",
+              "args": {
+                "title": "Enable Auto-Updates?",
+                "type": "question",
+                "variant": "confirmation",
+                "actions": "createDialogActions.yesNo("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ScrollableDialog",
+              "args": {
+                "title": "Long Content",
+                "subtitle": "This dialog demonstrates scrollable content",
+                "type": "primary",
+                "scrollable": "true",
+                "maxContentHeight": "400px",
+                "actions": "[{ label: Close",
+                "onClick": "action(Closed)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "DraggableDialog",
+              "args": {
+                "title": "Draggable Dialog",
+                "subtitle": "Click and drag the title bar to move",
+                "type": "primary",
+                "draggable": "true",
+                "dividers": "true",
+                "actions": "[{ label: Close",
+                "onClick": "action(Closed)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomActions",
+              "args": {
+                "title": "Custom Actions",
+                "type": "secondary",
+                "actions": "[",
+                "icon": "<Download />",
+                "onClick": "action(Download clicked)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "DestructiveAction",
+              "args": {
+                "title": "Delete Account",
+                "subtitle": "This action cannot be undone",
+                "type": "cancel",
+                "variant": "confirmation",
+                "actions": "[",
+                "onClick": "action(Cancelled)"
+              },
+              "category": "other"
+            },
+            {
+              "name": "NestedContent",
+              "args": {
+                "title": "Application Settings",
+                "subtitle": "Configure your application preferences",
+                "type": "info",
+                "variant": "form",
+                "size": "medium",
+                "dividers": "true",
+                "scrollable": "true",
+                "actions": "createDialogActions.saveCancel("
+              },
+              "category": "other"
+            },
+            {
+              "name": "AllFeatures",
+              "args": {
+                "title": "Feature Showcase",
+                "subtitle": "Demonstrating all dialog capabilities",
+                "type": "secondary",
+                "variant": "custom",
+                "size": "large",
+                "draggable": "true",
+                "dividers": "true",
+                "scrollable": "true",
+                "maxContentHeight": "300px",
+                "actions": "[",
+                "icon": "<Download />",
+                "onClick": "action(Download)"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 6,
+          "covered": [
+            "confirmation",
+            "alert",
+            "form",
+            "custom",
+            "fullscreen",
+            "simple"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 5,
+          "covered": [
+            "small",
+            "medium",
+            "large",
+            "fullscreen"
+          ],
+          "missing": [
+            "auto"
+          ],
+          "coveragePercentage": 80
+        },
+        "booleanProps": {
+          "total": 6,
+          "covered": [],
+          "missing": [
+            "scrollable",
+            "draggable",
+            "dividers",
+            "showIcon",
+            "loading",
+            "elevation"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "maxContentHeight",
+            "minWidth"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "variants",
+          "description": "Missing variants stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "sizes",
+          "missing": [
+            "auto"
+          ],
+          "description": "Missing stories for sizes: auto"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "scrollable",
+            "draggable",
+            "dividers",
+            "showIcon",
+            "loading",
+            "elevation"
+          ],
+          "description": "Missing stories for booleanProps: scrollable, draggable, dividers, showIcon, loading, elevation"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "maxContentHeight",
+            "minWidth"
+          ],
+          "description": "Missing stories for complexProps: maxContentHeight, minWidth"
+        }
+      ],
+      "coverageScore": 65,
+      "recommendations": [
+        "Add variants stories to cover essential use cases",
+        "Add themes stories to cover essential use cases",
+        "Improve booleanProps coverage: add stories for scrollable, draggable, dividers, showIcon, loading, elevation",
+        "Improve complexProps coverage: add stories for maxContentHeight, minWidth"
+      ]
+    },
+    "Drawer": {
+      "componentName": "Drawer",
+      "totalStories": 23,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "variant": "temporary",
+                "anchor": "left",
+                "size": "standard",
+                "open": "false"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SizeCompact",
+              "args": {
+                "size": "compact",
+                "open": "true"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "SizeStandard",
+              "args": {
+                "size": "standard",
+                "open": "true"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "SizeWide",
+              "args": {
+                "size": "wide",
+                "open": "true"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "SizeAuto",
+              "args": {
+                "size": "auto",
+                "open": "true"
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityFeatures",
+              "args": {
+                "variant": "temporary",
+                "anchor": "left",
+                "size": "standard",
+                "open": "false"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ResponsiveDrawer",
+              "args": {
+                "variant": "persistent",
+                "anchor": "left",
+                "size": "standard",
+                "open": "true",
+                "responsive": "true",
+                "responsiveBreakpoint": "md",
+                "mobileVariant": "temporary"
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ComplexDrawer",
+              "args": {
+                "variant": "temporary",
+                "anchor": "left",
+                "size": "standard",
+                "open": "false"
+              },
+              "category": "edge-cases"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DarkMode",
+              "args": {
+                "variant": "persistent",
+                "anchor": "left",
+                "size": "standard",
+                "open": "true"
+              },
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "TemporaryLeft",
+              "args": {
+                "variant": "temporary",
+                "anchor": "left",
+                "size": "standard",
+                "open": "false"
+              },
+              "category": "other"
+            },
+            {
+              "name": "TemporaryRight",
+              "args": {
+                "anchor": "right"
+              },
+              "category": "other"
+            },
+            {
+              "name": "TemporaryTop",
+              "args": {
+                "anchor": "top",
+                "size": "compact"
+              },
+              "category": "other"
+            },
+            {
+              "name": "TemporaryBottom",
+              "args": {
+                "anchor": "bottom",
+                "size": "compact"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Persistent",
+              "args": {
+                "variant": "persistent",
+                "anchor": "left",
+                "size": "standard",
+                "open": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Permanent",
+              "args": {
+                "variant": "permanent",
+                "anchor": "left",
+                "size": "standard",
+                "open": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Mini",
+              "args": {
+                "variant": "mini",
+                "anchor": "left",
+                "size": "standard",
+                "open": "true",
+                "showToggleButton": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "AnimationSlide",
+              "args": {
+                "animation": "slide",
+                "open": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "AnimationFade",
+              "args": {
+                "animation": "fade",
+                "open": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "AnimationScale",
+              "args": {
+                "animation": "scale",
+                "open": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "AnimationNone",
+              "args": {
+                "animation": "none",
+                "open": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MailDrawer",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "SwipeGestures",
+              "args": {
+                "variant": "temporary",
+                "anchor": "left",
+                "size": "standard",
+                "open": "false",
+                "swipeEnabled": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FixedHeaderFooter",
+              "args": {
+                "variant": "persistent",
+                "anchor": "left",
+                "size": "standard",
+                "open": "true",
+                "fixedHeader": "true",
+                "fixedFooter": "true",
+                "header": "(",
+                "alignItems": "center",
+                "gap": "2"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 4,
+          "covered": [
+            "temporary",
+            "persistent",
+            "permanent",
+            "mini"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 4,
+          "covered": [
+            "compact",
+            "standard",
+            "wide",
+            "auto"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 5,
+          "covered": [],
+          "missing": [
+            "open",
+            "collapsed",
+            "backdrop",
+            "elevation",
+            "responsive"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 3,
+          "covered": [],
+          "missing": [
+            "width",
+            "height",
+            "miniWidth"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "variants",
+          "description": "Missing variants stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "category",
+          "category": "states",
+          "description": "Missing states stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "open",
+            "collapsed",
+            "backdrop",
+            "elevation",
+            "responsive"
+          ],
+          "description": "Missing stories for booleanProps: open, collapsed, backdrop, elevation, responsive"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "width",
+            "height",
+            "miniWidth"
+          ],
+          "description": "Missing stories for complexProps: width, height, miniWidth"
+        }
+      ],
+      "coverageScore": 67,
+      "recommendations": [
+        "Add variants stories to cover essential use cases",
+        "Add states stories to cover essential use cases",
+        "Improve booleanProps coverage: add stories for open, collapsed, backdrop, elevation, responsive",
+        "Improve complexProps coverage: add stories for width, height, miniWidth"
+      ]
+    },
+    "Modal": {
+      "componentName": "Modal",
+      "totalStories": 19,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "title": "Default Modal",
+                "variant": "basic",
+                "size": "md"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Variants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Sizes",
+              "args": {},
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityFeatures",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "MobileResponsive",
+              "args": {},
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DarkTheme",
+              "args": {
+                "title": "Dark Theme Modal",
+                "variant": "centered",
+                "backdrop": "blur"
+              },
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Positions",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "CustomPosition",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "BackdropStyles",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "Animations",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "WithHeaderAndFooter",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "CustomHeader",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "FormModal",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "ConfirmationDialog",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "AlertModal",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "DrawerModal",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "GalleryModal",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "NoCloseOptions",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PerformanceTest",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 5,
+          "covered": [
+            "basic",
+            "centered"
+          ],
+          "missing": [
+            "fullscreen",
+            "drawer",
+            "popover"
+          ],
+          "coveragePercentage": 40
+        },
+        "sizes": {
+          "total": 6,
+          "covered": [
+            "md"
+          ],
+          "missing": [
+            "xs",
+            "sm",
+            "lg",
+            "xl",
+            "fullscreen"
+          ],
+          "coveragePercentage": 17
+        },
+        "booleanProps": {
+          "total": 3,
+          "covered": [],
+          "missing": [
+            "open",
+            "mobileFullscreen",
+            "elevation"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "maxWidth",
+            "maxHeight"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "states",
+          "description": "Missing states stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "variants",
+          "missing": [
+            "fullscreen",
+            "drawer",
+            "popover"
+          ],
+          "description": "Missing stories for variants: fullscreen, drawer, popover"
+        },
+        {
+          "type": "props",
+          "propType": "sizes",
+          "missing": [
+            "xs",
+            "sm",
+            "lg",
+            "xl",
+            "fullscreen"
+          ],
+          "description": "Missing stories for sizes: xs, sm, lg, xl, fullscreen"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "open",
+            "mobileFullscreen",
+            "elevation"
+          ],
+          "description": "Missing stories for booleanProps: open, mobileFullscreen, elevation"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "maxWidth",
+            "maxHeight"
+          ],
+          "description": "Missing stories for complexProps: maxWidth, maxHeight"
+        }
+      ],
+      "coverageScore": 59,
+      "recommendations": [
+        "Add states stories to cover essential use cases",
+        "Improve variants coverage: add stories for fullscreen, drawer, popover",
+        "Improve sizes coverage: add stories for xs, sm, lg, xl, fullscreen",
+        "Improve booleanProps coverage: add stories for open, mobileFullscreen, elevation",
+        "Improve complexProps coverage: add stories for maxWidth, maxHeight"
+      ]
+    },
+    "Paper": {
+      "componentName": "Paper",
+      "totalStories": 20,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "children": "("
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ElevationVariant",
+              "args": {
+                "variant": "elevation",
+                "elevation": "4",
+                "children": "("
+              },
+              "category": "variants"
+            },
+            {
+              "name": "OutlinedVariant",
+              "args": {
+                "variant": "outlined",
+                "children": "("
+              },
+              "category": "variants"
+            },
+            {
+              "name": "FilledVariant",
+              "args": {
+                "variant": "filled",
+                "children": "("
+              },
+              "category": "variants"
+            },
+            {
+              "name": "GlassVariant",
+              "args": {
+                "variant": "glass",
+                "glassMorphism": "true",
+                "children": "("
+              },
+              "category": "variants"
+            },
+            {
+              "name": "GradientVariant",
+              "args": {
+                "variant": "gradient",
+                "gradient": "primary",
+                "elevation": "2",
+                "children": "("
+              },
+              "category": "variants"
+            },
+            {
+              "name": "SizeVariants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "colors": {
+          "required": false,
+          "stories": [
+            {
+              "name": "GradientColors",
+              "args": {},
+              "category": "colors"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityDemo",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ResponsiveBehavior",
+              "args": {
+                "responsive": "true",
+                "elevation": "2",
+                "children": "("
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DarkThemeOptimized",
+              "args": {
+                "elevation": "0",
+                "children": "("
+              },
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ElevationLevels",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "CornerStyles",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "SurfaceTreatments",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "Interactive",
+              "args": {
+                "interactive": "true",
+                "elevation": "2",
+                "hoverElevation": "6",
+                "pressedElevation": "1",
+                "onClick": "() => alert(Paper clicked!)",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "GlassMorphismExamples",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "ContentCard",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "FormContainer",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PrintOptimized",
+              "args": {
+                "printFriendly": "true",
+                "variant": "gradient",
+                "gradient": "primary",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomStyling",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 5,
+          "covered": [
+            "elevation",
+            "outlined",
+            "filled",
+            "glass",
+            "gradient"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [],
+          "missing": [
+            "compact",
+            "comfortable",
+            "spacious"
+          ],
+          "coveragePercentage": 0
+        },
+        "booleanProps": {
+          "total": 5,
+          "covered": [],
+          "missing": [
+            "interactive",
+            "glassMorphism",
+            "responsive",
+            "printFriendly",
+            "transitions"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 7,
+          "covered": [],
+          "missing": [
+            "borderWidth",
+            "padding",
+            "margin",
+            "maxWidth",
+            "maxHeight",
+            "minWidth",
+            "minHeight"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "sizes",
+          "description": "Missing sizes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "category",
+          "category": "states",
+          "description": "Missing states stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "sizes",
+          "missing": [
+            "compact",
+            "comfortable",
+            "spacious"
+          ],
+          "description": "Missing stories for sizes: compact, comfortable, spacious"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "interactive",
+            "glassMorphism",
+            "responsive",
+            "printFriendly",
+            "transitions"
+          ],
+          "description": "Missing stories for booleanProps: interactive, glassMorphism, responsive, printFriendly, transitions"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "borderWidth",
+            "padding",
+            "margin",
+            "maxWidth",
+            "maxHeight",
+            "minWidth",
+            "minHeight"
+          ],
+          "description": "Missing stories for complexProps: borderWidth, padding, margin, maxWidth, maxHeight, minWidth, minHeight"
+        }
+      ],
+      "coverageScore": 57,
+      "recommendations": [
+        "Add sizes stories to cover essential use cases",
+        "Add states stories to cover essential use cases",
+        "Improve sizes coverage: add stories for compact, comfortable, spacious",
+        "Improve booleanProps coverage: add stories for interactive, glassMorphism, responsive, printFriendly, transitions",
+        "Improve complexProps coverage: add stories for borderWidth, padding, margin, maxWidth, maxHeight, minWidth, minHeight"
+      ]
+    }
+  },
+  "recommendations": [
+    "Improve booleanProps coverage (affects 8 components)",
+    "Improve complexProps coverage (affects 8 components)",
+    "Add themes stories to cover essential use cases (affects 4 components)",
+    "Add states stories to cover essential use cases (affects 4 components)",
+    "Add sizes stories to cover essential use cases (affects 3 components)"
+  ]
+}

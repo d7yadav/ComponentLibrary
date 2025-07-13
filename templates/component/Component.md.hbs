@@ -1,0 +1,449 @@
+# {{name}} Component
+
+## Overview
+
+The {{name}} component is a {{complexity}} {{category}} component that provides 
+{{#if (eq category 'core')}}
+versatile functionality with consistent styling and behavior across the application. It supports multiple variants, sizes, and states to accommodate various use cases.
+{{/if}}
+{{#if (eq category 'forms')}}
+seamless form integration with validation, accessibility, and user experience optimizations. It includes built-in form handling, validation states, and error messaging.
+{{/if}}
+{{#if (eq category 'layout')}}
+flexible layout options with responsive design patterns. It helps structure page content with grid systems, spacing utilities, and breakpoint-aware configurations.
+{{/if}}
+{{#if (eq category 'feedback')}}
+clear feedback communication with appropriate visual and accessible patterns. It includes success, warning, error, and info states with proper color coding and accessibility.
+{{/if}}
+{{#if (eq category 'navigation')}}
+intuitive navigation with keyboard support and clear visual hierarchy. It includes focus management, ARIA navigation patterns, and responsive behavior.
+{{/if}}
+{{#if (eq category 'data-display')}}
+optimized data presentation with performance and accessibility features. It includes sorting, filtering, pagination, and virtual scrolling capabilities.
+{{/if}}
+{{#if (eq category 'surfaces')}}
+elevated content areas with depth and proper contrast ratios. It includes different elevation levels, shadow systems, and surface color management.
+{{/if}}
+
+## Features
+
+{{#each features}}
+- ✅ **{{capitalize this}}**: Advanced {{this}} support with optimized performance
+{{/each}}
+- ✅ **TypeScript Support**: Full TypeScript definitions with strict typing
+- ✅ **Accessibility**: WCAG 2.1 AA compliant with comprehensive ARIA support
+- ✅ **Theme Integration**: Deep integration with Material-UI theme system
+- ✅ **Performance**: Optimized rendering with React.memo and efficient re-renders
+- ✅ **Testing**: Comprehensive test coverage with accessibility testing
+- ✅ **Documentation**: Complete Storybook documentation with interactive examples
+
+## Installation
+
+The {{name}} component is part of the component library and can be imported directly:
+
+```bash
+npm install @your-org/component-library
+```
+
+## Quick Start
+
+```tsx
+import { {{name}} } from '@your-org/component-library';
+
+function App() {
+  return (
+    <{{name}} variant="primary" size="medium">
+      Hello World
+    </{{name}}>
+  );
+}
+```
+
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `{{name}}Variant` | `'primary'` | The visual variant of the component |
+| `size` | `{{name}}Size` | `'medium'` | The size of the component |
+| `disabled` | `boolean` | `false` | If true, the component is disabled |
+| `children` | `ReactNode` | - | The content of the component |
+| `onClick` | `function` | - | Callback fired when component is clicked |
+| `sx` | `SxProps<Theme>` | - | System prop for custom styling |
+{{#if (includes features 'loading')}}
+| `loading` | `boolean` | `false` | If true, shows loading state |
+| `loadingText` | `string` | - | Text to display during loading |
+{{/if}}
+{{#if (includes features 'icons')}}
+| `startIcon` | `ReactNode` | - | Icon to display at the start |
+| `endIcon` | `ReactNode` | - | Icon to display at the end |
+{{/if}}
+{{#if (includes features 'forms')}}
+| `name` | `string` | - | Name attribute for form integration |
+| `value` | `any` | - | Value for controlled components |
+| `error` | `boolean` | `false` | If true, shows error state |
+| `helperText` | `string` | - | Helper text to display |
+{{/if}}
+
+### Variants
+
+{{#if (includes features 'variants')}}
+- **`primary`**: Primary action button with brand colors
+- **`secondary`**: Secondary action with muted colors
+- **`outlined`**: Outlined button with border
+- **`text`**: Text-only button without background
+{{#if (eq category 'feedback')}}
+- **`success`**: Success state with green colors
+- **`warning`**: Warning state with orange colors
+- **`error`**: Error state with red colors
+- **`info`**: Info state with blue colors
+{{/if}}
+{{else}}
+- **`primary`**: Default primary variant
+- **`secondary`**: Secondary variant
+{{/if}}
+
+### Sizes
+
+- **`small`**: Compact size for tight spaces (32px height)
+- **`medium`**: Standard size for most use cases (36px height)
+- **`large`**: Prominent size for important actions (42px height)
+
+## Examples
+
+### Basic Usage
+
+```tsx
+import { {{name}} } from '@your-org/component-library';
+
+// Basic usage
+<{{name}}>Click me</{{name}}>
+
+// With variant and size
+<{{name}} variant="secondary" size="large">
+  Large Secondary {{name}}
+</{{name}}>
+```
+
+### Advanced Usage
+
+```tsx
+// With custom styling
+<{{name}}
+  variant="primary"
+  size="medium"
+  sx={{
+    borderRadius: 2,
+    '&:hover': {
+      transform: 'translateY(-2px)',
+    },
+  }}
+>
+  Custom Styled
+</{{name}}>
+
+{{#if (includes features 'icons')}}
+// With icons
+<{{name}} 
+  startIcon={<StarIcon />}
+  endIcon={<ArrowIcon />}
+>
+  With Icons
+</{{name}}>
+{{/if}}
+
+{{#if (includes features 'loading')}}
+// Loading state
+<{{name}} loading loadingText="Processing...">
+  Submit
+</{{name}}>
+{{/if}}
+```
+
+{{#if (includes features 'forms')}}
+### Form Integration
+
+```tsx
+import { useForm } from 'react-hook-form';
+
+function MyForm() {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <{{name}}
+        {...register('field', { required: 'This field is required' })}
+        error={!!errors.field}
+        helperText={errors.field?.message}
+      >
+        Form Field
+      </{{name}}>
+    </form>
+  );
+}
+```
+{{/if}}
+
+### Accessibility Example
+
+```tsx
+// Comprehensive accessibility
+<{{name}}
+  aria-label="Save document"
+  aria-describedby="save-description"
+  role="button"
+  tabIndex={0}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      handleSave();
+    }
+  }}
+>
+  Save
+</{{name}}>
+<div id="save-description">
+  Saves the current document to your account
+</div>
+```
+
+{{#if (includes features 'responsive')}}
+### Responsive Design
+
+```tsx
+// Responsive behavior
+<{{name}}
+  responsive={{
+    xs: { size: 'small', variant: 'text' },
+    sm: { size: 'medium', variant: 'outlined' },
+    md: { size: 'large', variant: 'primary' },
+  }}
+>
+  Responsive {{name}}
+</{{name}}>
+```
+{{/if}}
+
+## Styling and Customization
+
+### Theme Customization
+
+```tsx
+// In your theme configuration
+const theme = createTheme({
+  components: {
+    Mui{{name}}: {
+      defaultProps: {
+        variant: 'outlined',
+        size: 'medium',
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+        },
+        primary: {
+          background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        },
+      },
+      variants: [
+        {
+          props: { variant: 'gradient' },
+          style: {
+            background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+            color: 'white',
+          },
+        },
+      ],
+    },
+  },
+});
+```
+
+### Custom Variants
+
+```tsx
+// Add custom variants to theme
+declare module '@mui/material/styles' {
+  interface {{name}}PropsVariantOverrides {
+    gradient: true;
+  }
+}
+```
+
+### SX Prop Examples
+
+```tsx
+// Custom styling with sx prop
+<{{name}}
+  sx={{
+    // Custom colors
+    backgroundColor: 'primary.main',
+    color: 'primary.contrastText',
+    
+    // Custom hover effects
+    '&:hover': {
+      backgroundColor: 'primary.dark',
+      transform: 'scale(1.05)',
+    },
+    
+    // Responsive styling
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.75rem',
+    },
+    
+    // Dark mode specific
+    [theme.palette.mode === 'dark' && {
+      boxShadow: '0 0 20px rgba(255, 255, 255, 0.1)',
+    }],
+  }}
+>
+  Custom Styled
+</{{name}}>
+```
+
+## Accessibility
+
+The {{name}} component follows WCAG 2.1 AA guidelines and includes:
+
+### Keyboard Navigation
+- **Tab**: Navigate to the component
+- **Enter/Space**: Activate the component
+- **Escape**: Cancel action (context-dependent)
+
+### Screen Reader Support
+- Proper ARIA roles and attributes
+- Descriptive labels and descriptions
+- State announcements for loading, disabled, etc.
+
+### Focus Management
+- Visible focus indicators
+- Logical tab order
+- Focus trapping (when applicable)
+
+### Color and Contrast
+- Minimum 4.5:1 contrast ratio for normal text
+- Minimum 3:1 contrast ratio for large text
+- Color is not the only means of conveying information
+
+## Performance
+
+### Optimization Features
+- **React.memo**: Prevents unnecessary re-renders
+{{#if (includes features 'loading')}}
+- **Lazy Loading**: Components are loaded on demand
+{{/if}}
+- **Tree Shaking**: Only used code is included in bundles
+- **CSS-in-JS**: Optimized runtime styling with emotion
+
+### Performance Tips
+
+```tsx
+// Use React.memo for lists
+const OptimizedList = React.memo(() => (
+  <div>
+    {items.map(item => (
+      <{{name}} key={item.id} onClick={() => handleClick(item.id)}>
+        {item.label}
+      </{{name}}>
+    ))}
+  </div>
+));
+
+// Debounce expensive operations
+const debouncedHandler = useMemo(
+  () => debounce(expensiveOperation, 300),
+  [expensiveOperation]
+);
+```
+
+## Testing
+
+### Unit Testing
+
+```tsx
+import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { {{name}} } from './{{name}}';
+
+test('handles click events', async () => {
+  const user = userEvent.setup();
+  const handleClick = vi.fn();
+  
+  render(<{{name}} onClick={handleClick}>Test</{{name}}>);
+  
+  await user.click(screen.getByRole('button'));
+  expect(handleClick).toHaveBeenCalledTimes(1);
+});
+```
+
+### Accessibility Testing
+
+```tsx
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
+
+test('meets accessibility guidelines', async () => {
+  const { container } = render(<{{name}}>Test</{{name}}>);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+```
+
+## Migration Guide
+
+### From v1.x to v2.x
+
+```tsx
+// Old API (v1.x)
+<{{name}} type="primary" large>Click me</{{name}}>
+
+// New API (v2.x)
+<{{name}} variant="primary" size="large">Click me</{{name}}>
+```
+
+### Breaking Changes
+- `type` prop renamed to `variant`
+- `large`, `small` props replaced with `size` prop
+- Removed deprecated `color` prop - use `variant` instead
+
+## Related Components
+
+- [Button](../Button/Button.md) - For basic interactive actions
+- [IconButton](../IconButton/IconButton.md) - For icon-only actions
+{{#if (eq category 'forms')}}
+- [TextField](../../forms/TextField/TextField.md) - For text input
+- [Select](../../forms/Select/Select.md) - For dropdown selection
+{{/if}}
+{{#if (eq category 'feedback')}}
+- [Alert](../Alert/Alert.md) - For alert messages
+- [Snackbar](../Snackbar/Snackbar.md) - For brief notifications
+{{/if}}
+
+## Changelog
+
+### v2.1.0
+- Added responsive design support
+- Improved accessibility with better ARIA attributes
+- Performance optimizations with React.memo
+
+### v2.0.0
+- Complete rewrite with TypeScript
+- New variant system
+- Breaking changes to prop API
+
+### v1.5.0
+- Added loading state support
+- Improved theme integration
+- Bug fixes for edge cases
+
+---
+
+## Contributing
+
+Found a bug or have a feature request? Please file an issue on our [GitHub repository](https://github.com/your-org/component-library).
+
+## License
+
+MIT License - see the [LICENSE](../../LICENSE) file for details.

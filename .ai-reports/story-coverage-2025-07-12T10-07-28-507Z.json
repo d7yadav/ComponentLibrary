@@ -1,0 +1,1867 @@
+{
+  "timestamp": "2025-07-12T10:07:28.507Z",
+  "summary": {
+    "totalComponents": 5,
+    "averageScore": 80,
+    "distribution": {
+      "excellent": 2,
+      "good": 2,
+      "needsWork": 1
+    }
+  },
+  "components": {
+    "Button": {
+      "componentName": "Button",
+      "totalStories": 34,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "variant": "primary",
+                "size": "medium",
+                "color": "primary"
+              },
+              "category": "default"
+            },
+            {
+              "name": "Primary",
+              "args": {
+                "variant": "primary",
+                "children": "Primary Button"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Secondary",
+              "args": {
+                "variant": "secondary",
+                "children": "Secondary Button"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "PrimaryColor",
+              "args": {
+                "color": "primary",
+                "children": "Primary Color"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "SecondaryColor",
+              "args": {
+                "color": "secondary",
+                "children": "Secondary Color"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "AllVariants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Small",
+              "args": {
+                "size": "small",
+                "children": "Small Button"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "Large",
+              "args": {
+                "size": "large",
+                "children": "Large Button"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "AllSizes",
+              "args": {},
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [
+            {
+              "name": "TertiaryColor",
+              "args": {
+                "color": "tertiary",
+                "children": "Tertiary Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "QuaternaryColor",
+              "args": {
+                "color": "quaternary",
+                "children": "Quaternary Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "SuccessColor",
+              "args": {
+                "color": "success",
+                "children": "Success Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "WarningColor",
+              "args": {
+                "color": "warning",
+                "children": "Warning Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "ErrorColor",
+              "args": {
+                "color": "error",
+                "children": "Error Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "InfoColor",
+              "args": {
+                "color": "info",
+                "children": "Info Color"
+              },
+              "category": "colors"
+            },
+            {
+              "name": "AllColors",
+              "args": {},
+              "category": "colors"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Loading",
+              "args": {
+                "loading": "true",
+                "children": "Loading Button"
+              },
+              "category": "states"
+            },
+            {
+              "name": "Disabled",
+              "args": {
+                "disabled": "true",
+                "children": "Disabled Button"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingDisabled",
+              "args": {
+                "loading": "true",
+                "disabled": "true",
+                "children": "Loading & Disabled"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingWithIcon",
+              "args": {
+                "loading": "true",
+                "startIcon": "<Favorite />",
+                "children": "Loading with Icon"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityDemo",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ThemeVariations",
+              "args": {},
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Tertiary",
+              "args": {
+                "variant": "tertiary",
+                "children": "Tertiary Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Quaternary",
+              "args": {
+                "variant": "quaternary",
+                "children": "Quaternary Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Gradient",
+              "args": {
+                "variant": "gradient",
+                "children": "Gradient Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Glass",
+              "args": {
+                "variant": "glass",
+                "children": "Glass Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Outline",
+              "args": {
+                "variant": "outline",
+                "children": "Outline Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Text",
+              "args": {
+                "variant": "text",
+                "children": "Text Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Medium",
+              "args": {
+                "size": "medium",
+                "children": "Medium Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FullWidth",
+              "args": {
+                "fullWidth": "true",
+                "children": "Full Width Button"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithStartIcon",
+              "args": {
+                "startIcon": "<Add />",
+                "children": "Add Item"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithEndIcon",
+              "args": {
+                "endIcon": "<Send />",
+                "children": "Send Message"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithBothIcons",
+              "args": {
+                "startIcon": "<Download />",
+                "endIcon": "<Star />",
+                "children": "Download & Star"
+              },
+              "category": "other"
+            },
+            {
+              "name": "InteractiveStates",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 8,
+          "covered": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+            "gradient",
+            "glass",
+            "outline",
+            "text"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "colors": {
+          "total": 8,
+          "covered": [
+            "primary",
+            "secondary",
+            "tertiary",
+            "quaternary",
+            "success",
+            "warning",
+            "error",
+            "info"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 5,
+          "covered": [],
+          "missing": [
+            "loading",
+            "disabled",
+            "fullWidth",
+            "hasStartIcon",
+            "hasEndIcon"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "loading",
+            "disabled",
+            "fullWidth",
+            "hasStartIcon",
+            "hasEndIcon"
+          ],
+          "description": "Missing stories for booleanProps: loading, disabled, fullWidth, hasStartIcon, hasEndIcon"
+        }
+      ],
+      "coverageScore": 90,
+      "recommendations": [
+        "Improve booleanProps coverage: add stories for loading, disabled, fullWidth, hasStartIcon, hasEndIcon"
+      ]
+    },
+    "Card": {
+      "componentName": "Card",
+      "totalStories": 29,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "variant": "elevated",
+                "elevation": "1",
+                "size": "comfortable",
+                "children": "("
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AllVariants",
+              "args": {},
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "CompactSize",
+              "args": {
+                "size": "compact",
+                "children": "("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "ComfortableSize",
+              "args": {
+                "size": "comfortable",
+                "children": "("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "SpaciousSize",
+              "args": {
+                "size": "spacious",
+                "children": "("
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "AllSizes",
+              "args": {},
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DisabledState",
+              "args": {
+                "disabled": "true",
+                "children": "("
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityDemo",
+              "args": {},
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Elevated",
+              "args": {
+                "variant": "elevated",
+                "elevation": "3",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Outlined",
+              "args": {
+                "variant": "outlined",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Filled",
+              "args": {
+                "variant": "filled",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Glass",
+              "args": {
+                "variant": "glass",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Gradient",
+              "args": {
+                "variant": "gradient",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "Interactive",
+              "args": {
+                "variant": "interactive",
+                "onClick": "fn()",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel0",
+              "args": {
+                "elevation": "0",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel1",
+              "args": {
+                "elevation": "1",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel4",
+              "args": {
+                "elevation": "4",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel8",
+              "args": {
+                "elevation": "8",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel16",
+              "args": {
+                "elevation": "16",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "ElevationLevel24",
+              "args": {
+                "elevation": "24",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "VerticalOrientation",
+              "args": {
+                "orientation": "vertical",
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "HorizontalOrientation",
+              "args": {
+                "orientation": "horizontal",
+                "style": "{ maxWidth: 400"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SelectedState",
+              "args": {
+                "selected": "true",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "InteractiveHover",
+              "args": {
+                "interactive": "true",
+                "onClick": "fn()",
+                "children": "("
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithHeader",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithMedia",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithActions",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "CompleteCard",
+              "args": {
+                "children": "["
+              },
+              "category": "other"
+            },
+            {
+              "name": "AllElevations",
+              "args": {},
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 6,
+          "covered": [
+            "elevated",
+            "outlined",
+            "filled",
+            "glass",
+            "gradient",
+            "interactive"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "compact",
+            "comfortable",
+            "spacious"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        }
+      ],
+      "coverageScore": 93,
+      "recommendations": [
+        "Add themes stories to cover essential use cases"
+      ]
+    },
+    "TextField": {
+      "componentName": "TextField",
+      "totalStories": 38,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "label": "Default TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SmallSize",
+              "args": {
+                "size": "small",
+                "label": "Small TextField",
+                "placeholder": "Small input..."
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "MediumSize",
+              "args": {
+                "size": "medium",
+                "label": "Medium TextField",
+                "placeholder": "Medium input..."
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "MultilineAutoResize",
+              "args": {
+                "multiline": "true",
+                "label": "Notes",
+                "placeholder": "Start typing...",
+                "minRows": "2",
+                "maxRows": "8",
+                "helperText": "Field will auto-resize as you type"
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "ErrorState",
+              "args": {
+                "validationState": "error",
+                "label": "Email Address",
+                "value": "invalid-email",
+                "errorText": "Please enter a valid email address",
+                "startIcon": "<Email />"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingState",
+              "args": {
+                "loading": "true",
+                "label": "Checking availability...",
+                "value": "username123",
+                "helperText": "Verifying if username is available"
+              },
+              "category": "states"
+            },
+            {
+              "name": "LoadingWithValidation",
+              "args": {
+                "loading": "true",
+                "validationState": "success",
+                "label": "Username",
+                "value": "available_user",
+                "successText": "Username is available!"
+              },
+              "category": "states"
+            },
+            {
+              "name": "DisabledField",
+              "args": {
+                "disabled": "true",
+                "label": "Account ID",
+                "value": "ACC-123456",
+                "helperText": "This field cannot be modified"
+              },
+              "category": "states"
+            },
+            {
+              "name": "CharacterCountError",
+              "args": {
+                "label": "Tweet",
+                "value": "This is a very long tweet that exceeds the maximum character limit and should show an error state when the user types too much text",
+                "maxLength": "120",
+                "showCharacterCount": "true",
+                "errorText": "Tweet is too long"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityExample",
+              "args": {
+                "label": "Accessible Field",
+                "placeholder": "This field has proper ARIA attributes",
+                "helperText": "This field demonstrates accessibility features",
+                "required": "true"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ComplexForm",
+              "args": {},
+              "category": "edge-cases"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DarkThemeCompatible",
+              "args": {
+                "label": "Dark Theme Field",
+                "placeholder": "Works well in dark theme",
+                "helperText": "This component is optimized for dark themes",
+                "startIcon": "<Search />"
+              },
+              "category": "themes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Filled",
+              "args": {
+                "variant": "filled",
+                "label": "Filled TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "other"
+            },
+            {
+              "name": "Outlined",
+              "args": {
+                "variant": "outlined",
+                "label": "Outlined TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "other"
+            },
+            {
+              "name": "Standard",
+              "args": {
+                "variant": "standard",
+                "label": "Standard TextField",
+                "placeholder": "Enter text here..."
+              },
+              "category": "other"
+            },
+            {
+              "name": "EmailType",
+              "args": {
+                "type": "email",
+                "label": "Email Address",
+                "placeholder": "user@example.com",
+                "startIcon": "<Email />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "PasswordType",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PhoneType",
+              "args": {
+                "type": "tel",
+                "label": "Phone Number",
+                "placeholder": "+1 (555) 123-4567",
+                "startIcon": "<Phone />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SearchType",
+              "args": {
+                "type": "search",
+                "label": "Search",
+                "placeholder": "Search for items...",
+                "startIcon": "<Search />",
+                "endAction": "<Clear style={{ cursor: pointer"
+              },
+              "category": "other"
+            },
+            {
+              "name": "NumberType",
+              "args": {
+                "type": "number",
+                "label": "Age",
+                "placeholder": "25"
+              },
+              "category": "other"
+            },
+            {
+              "name": "DateType",
+              "args": {
+                "type": "date",
+                "label": "Date of Birth",
+                "startIcon": "<CalendarToday />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "UrlType",
+              "args": {
+                "type": "url",
+                "label": "Website URL",
+                "placeholder": "https://example.com"
+              },
+              "category": "other"
+            },
+            {
+              "name": "SuccessState",
+              "args": {
+                "validationState": "success",
+                "label": "Valid Email",
+                "value": "user@example.com",
+                "successText": "Email format is correct!",
+                "startIcon": "<Email />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WarningState",
+              "args": {
+                "validationState": "warning",
+                "label": "Password",
+                "value": "weak123",
+                "warningText": "Password is weak. Consider adding special characters.",
+                "startIcon": "<Lock />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "RequiredField",
+              "args": {
+                "required": "true",
+                "label": "Full Name",
+                "placeholder": "Enter your full name",
+                "helperText": "This field is required",
+                "startIcon": "<Person />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "ReadOnlyField",
+              "args": {
+                "readOnly": "true",
+                "label": "User ID",
+                "value": "USR-789012",
+                "helperText": "Read-only field"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithCharacterCount",
+              "args": {
+                "label": "Bio",
+                "placeholder": "Tell us about yourself...",
+                "maxLength": "100",
+                "showCharacterCount": "true",
+                "helperText": "Share a brief description about yourself"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CharacterCountWarning",
+              "args": {
+                "label": "Short Description",
+                "value": "This is a long description that is approaching the maximum character limit for this field",
+                "maxLength": "100",
+                "showCharacterCount": "true",
+                "helperText": "Keep it concise"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MultilineBasic",
+              "args": {
+                "multiline": "true",
+                "label": "Comments",
+                "placeholder": "Enter your comments here...",
+                "rows": "4",
+                "helperText": "Please provide detailed feedback"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MultilineWithCharacterCount",
+              "args": {
+                "multiline": "true",
+                "label": "Product Review",
+                "placeholder": "Write your review...",
+                "rows": "5",
+                "maxLength": "500",
+                "showCharacterCount": "true",
+                "helperText": "Share your experience with this product"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithStartIcon",
+              "args": {
+                "label": "Search Products",
+                "placeholder": "Search for products...",
+                "startIcon": "<Search />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithEndIcon",
+              "args": {
+                "label": "Valid Email",
+                "value": "user@example.com",
+                "validationState": "success",
+                "endIcon": "<CheckCircle />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithEndAction",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "WithBothIcons",
+              "args": {
+                "label": "Secure Search",
+                "placeholder": "Search securely...",
+                "startIcon": "<Search />",
+                "endIcon": "<Lock />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "EmailValidation",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "PasswordStrengthValidation",
+              "args": {},
+              "category": "other"
+            },
+            {
+              "name": "FullWidth",
+              "args": {
+                "fullWidth": "true",
+                "label": "Full Width Field",
+                "placeholder": "This field takes the full width of its container"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomValidation",
+              "args": {
+                "label": "Username",
+                "placeholder": "Enter username (min 3 chars)",
+                "validate": "(value: string) => {"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 3,
+          "covered": [
+            "filled",
+            "outlined",
+            "standard"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 2,
+          "covered": [
+            "small",
+            "medium"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 10,
+          "covered": [],
+          "missing": [
+            "loading",
+            "disabled",
+            "readOnly",
+            "fullWidth",
+            "multiline",
+            "hasStartIcon",
+            "hasEndIcon",
+            "hasEndAction",
+            "showCharacterCount",
+            "focused"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "variants",
+          "description": "Missing variants stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "loading",
+            "disabled",
+            "readOnly",
+            "fullWidth",
+            "multiline",
+            "hasStartIcon",
+            "hasEndIcon",
+            "hasEndAction",
+            "showCharacterCount",
+            "focused"
+          ],
+          "description": "Missing stories for booleanProps: loading, disabled, readOnly, fullWidth, multiline, hasStartIcon, hasEndIcon, hasEndAction, showCharacterCount, focused"
+        }
+      ],
+      "coverageScore": 80,
+      "recommendations": [
+        "Add variants stories to cover essential use cases",
+        "Improve booleanProps coverage: add stories for loading, disabled, readOnly, fullWidth, multiline, hasStartIcon, hasEndIcon, hasEndAction, showCharacterCount, focused"
+      ]
+    },
+    "Breadcrumbs": {
+      "componentName": "Breadcrumbs",
+      "totalStories": 23,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "items": "basicItems"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "StandardVariant",
+              "args": {
+                "items": "basicItems",
+                "variant": "standard"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "TextVariant",
+              "args": {
+                "items": "basicItems",
+                "variant": "text"
+              },
+              "category": "variants"
+            },
+            {
+              "name": "ContainedVariant",
+              "args": {
+                "items": "basicItems",
+                "variant": "contained"
+              },
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SmallSize",
+              "args": {
+                "items": "basicItems",
+                "size": "small"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "MediumSize",
+              "args": {
+                "items": "basicItems",
+                "size": "medium"
+              },
+              "category": "sizes"
+            },
+            {
+              "name": "LargeSize",
+              "args": {
+                "items": "basicItems",
+                "size": "large"
+              },
+              "category": "sizes"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "DisabledBreadcrumbs",
+              "args": {
+                "items": "basicItems",
+                "disabled": "true"
+              },
+              "category": "states"
+            },
+            {
+              "name": "WithDisabledItems",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "AccessibilityExample",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ResponsiveBreadcrumbs",
+              "args": {
+                "items": "longItems",
+                "maxItems": "3",
+                "itemsBeforeCollapse": "1",
+                "itemsAfterCollapse": "1"
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "WithChevronSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "chevron"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithArrowSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "arrow"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithDotSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "dot"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CollapsedBreadcrumbs",
+              "args": {
+                "items": "longItems",
+                "maxItems": "4",
+                "itemsBeforeCollapse": "1",
+                "itemsAfterCollapse": "1",
+                "expandOnClick": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "AlwaysExpanded",
+              "args": {
+                "items": "longItems",
+                "expandOnClick": "false"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomCollapseConfig",
+              "args": {
+                "items": "longItems",
+                "maxItems": "5",
+                "itemsBeforeCollapse": "2",
+                "itemsAfterCollapse": "2",
+                "expandOnClick": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "WithClickHandlers",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "onClick": "action(Navigate to Home)",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "MixedLinksAndButtons",
+              "args": {
+                "items": "[",
+                "label": "Home",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FileSystemNavigation",
+              "args": {
+                "items": "[",
+                "label": "Root",
+                "href": "/",
+                "icon": "<Folder fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "EcommerceCatalog",
+              "args": {
+                "items": "[",
+                "label": "Store",
+                "href": "/",
+                "icon": "<Home fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "EducationalPlatform",
+              "args": {
+                "items": "[",
+                "label": "Learning Platform",
+                "href": "/",
+                "icon": "<School fontSize=small />"
+              },
+              "category": "other"
+            },
+            {
+              "name": "CustomSeparator",
+              "args": {
+                "items": "basicItems",
+                "separator": "<span style={{ margin: 0 8px",
+                "color": "#666"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 3,
+          "covered": [
+            "standard",
+            "text",
+            "contained"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "sizes": {
+          "total": 3,
+          "covered": [
+            "small",
+            "medium",
+            "large"
+          ],
+          "missing": [],
+          "coveragePercentage": 100
+        },
+        "booleanProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "expandOnClick",
+            "disabled"
+          ],
+          "coveragePercentage": 0
+        },
+        "complexProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "items",
+            "separator"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "booleanProps",
+          "missing": [
+            "expandOnClick",
+            "disabled"
+          ],
+          "description": "Missing stories for booleanProps: expandOnClick, disabled"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "items",
+            "separator"
+          ],
+          "description": "Missing stories for complexProps: items, separator"
+        }
+      ],
+      "coverageScore": 73,
+      "recommendations": [
+        "Add themes stories to cover essential use cases",
+        "Improve booleanProps coverage: add stories for expandOnClick, disabled",
+        "Improve complexProps coverage: add stories for items, separator"
+      ]
+    },
+    "Tabs": {
+      "componentName": "Tabs",
+      "totalStories": 14,
+      "categories": {
+        "default": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Default",
+              "args": {
+                "tabs": "basicTabs"
+              },
+              "category": "default"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "variants": {
+          "required": true,
+          "stories": [
+            {
+              "name": "SecondaryColor",
+              "args": {
+                "tabs": "iconTabs",
+                "indicatorColor": "secondary",
+                "textColor": "secondary"
+              },
+              "category": "variants"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "sizes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "colors": {
+          "required": false,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": false
+        },
+        "states": {
+          "required": true,
+          "stories": [
+            {
+              "name": "WithDisabled",
+              "args": {
+                "tabs": "[",
+                "id": "disabled",
+                "label": "Disabled",
+                "disabled": "true",
+                "content": "<SampleContent title=Disabled description=This tab is disabled and cannot be selected. />"
+              },
+              "category": "states"
+            },
+            {
+              "name": "Loading",
+              "args": {
+                "tabs": "basicTabs",
+                "loading": "true"
+              },
+              "category": "states"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "accessibility": {
+          "required": true,
+          "stories": [
+            {
+              "name": "Accessibility",
+              "args": {
+                "tabs": "iconTabs.map(tab => ({"
+              },
+              "category": "accessibility"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "responsive": {
+          "required": false,
+          "stories": [
+            {
+              "name": "Responsive",
+              "args": {
+                "tabs": "manyTabs.slice(0",
+                "variant": "scrollable",
+                "allowScrollButtonsMobile": "true"
+              },
+              "category": "responsive"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "edge-cases": {
+          "required": false,
+          "stories": [
+            {
+              "name": "ComplexContent",
+              "args": {
+                "tabs": "[",
+                "label": "Overview",
+                "content": "("
+              },
+              "category": "edge-cases"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        },
+        "themes": {
+          "required": true,
+          "stories": [],
+          "isComplete": false,
+          "isMissing": true
+        },
+        "other": {
+          "required": false,
+          "stories": [
+            {
+              "name": "WithIcons",
+              "args": {
+                "tabs": "iconTabs"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Vertical",
+              "args": {
+                "tabs": "iconTabs",
+                "orientation": "vertical"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Scrollable",
+              "args": {
+                "tabs": "manyTabs",
+                "variant": "scrollable",
+                "scrollButtons": "auto"
+              },
+              "category": "other"
+            },
+            {
+              "name": "FullWidth",
+              "args": {
+                "tabs": "basicTabs",
+                "variant": "fullWidth"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Centered",
+              "args": {
+                "tabs": "basicTabs",
+                "centered": "true"
+              },
+              "category": "other"
+            },
+            {
+              "name": "NavigationOnly",
+              "args": {
+                "tabs": "basicTabs",
+                "showPanels": "false"
+              },
+              "category": "other"
+            },
+            {
+              "name": "Controlled",
+              "args": {
+                "tabs": "basicTabs",
+                "value": "search"
+              },
+              "category": "other"
+            }
+          ],
+          "isComplete": true,
+          "isMissing": false
+        }
+      },
+      "propCoverage": {
+        "variants": {
+          "total": 3,
+          "covered": [
+            "scrollable",
+            "fullWidth"
+          ],
+          "missing": [
+            "standard"
+          ],
+          "coveragePercentage": 67
+        },
+        "colors": {
+          "total": 2,
+          "covered": [
+            "secondary"
+          ],
+          "missing": [
+            "primary"
+          ],
+          "coveragePercentage": 50
+        },
+        "complexProps": {
+          "total": 2,
+          "covered": [],
+          "missing": [
+            "value",
+            "index"
+          ],
+          "coveragePercentage": 0
+        }
+      },
+      "missingScenarios": [
+        {
+          "type": "category",
+          "category": "sizes",
+          "description": "Missing sizes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "category",
+          "category": "themes",
+          "description": "Missing themes stories - this is required for comprehensive coverage"
+        },
+        {
+          "type": "props",
+          "propType": "variants",
+          "missing": [
+            "standard"
+          ],
+          "description": "Missing stories for variants: standard"
+        },
+        {
+          "type": "props",
+          "propType": "colors",
+          "missing": [
+            "primary"
+          ],
+          "description": "Missing stories for colors: primary"
+        },
+        {
+          "type": "props",
+          "propType": "complexProps",
+          "missing": [
+            "value",
+            "index"
+          ],
+          "description": "Missing stories for complexProps: value, index"
+        }
+      ],
+      "coverageScore": 62,
+      "recommendations": [
+        "Add sizes stories to cover essential use cases",
+        "Add themes stories to cover essential use cases",
+        "Improve variants coverage: add stories for standard",
+        "Improve colors coverage: add stories for primary",
+        "Improve complexProps coverage: add stories for value, index"
+      ]
+    }
+  },
+  "recommendations": [
+    "Improve booleanProps coverage (affects 3 components)",
+    "Add themes stories to cover essential use cases (affects 3 components)",
+    "Improve complexProps coverage (affects 2 components)",
+    "Add variants stories to cover essential use cases (affects 1 components)",
+    "Add sizes stories to cover essential use cases (affects 1 components)"
+  ]
+}

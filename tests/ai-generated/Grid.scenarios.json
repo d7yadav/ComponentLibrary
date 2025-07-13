@@ -1,0 +1,27 @@
+{
+  "component": "Grid",
+  "generated": "2025-07-12T04:38:47.225Z",
+  "scenarios": [
+    {
+      "id": "Grid-smoke",
+      "name": "Grid Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Grid",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Grid-interaction",
+      "name": "Grid Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Grid",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Grid-accessibility",
+      "name": "Grid Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Grid",
+      "estimatedDuration": 1200
+    }
+  ]
+}

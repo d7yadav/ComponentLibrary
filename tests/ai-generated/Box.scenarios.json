@@ -1,0 +1,27 @@
+{
+  "component": "Box",
+  "generated": "2025-07-12T04:38:47.224Z",
+  "scenarios": [
+    {
+      "id": "Box-smoke",
+      "name": "Box Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Box",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Box-interaction",
+      "name": "Box Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Box",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Box-accessibility",
+      "name": "Box Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Box",
+      "estimatedDuration": 1200
+    }
+  ]
+}

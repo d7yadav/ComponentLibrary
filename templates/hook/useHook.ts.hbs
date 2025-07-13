@@ -1,0 +1,484 @@
+/**
+ * @fileoverview {{hookName}} - Custom React Hook
+ * @author AI Generated Hook
+ * @category {{category}}
+ * 
+ * {{description}}
+ */
+
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+
+/**
+ * Options for {{hookName}} hook
+ */
+export interface {{name}}Options {
+  {{#if (eq category 'state')}}
+  /** Initial value */
+  initialValue?: any;
+  /** Enable persistence */
+  persist?: boolean;
+  /** Storage key for persistence */
+  storageKey?: string;
+  {{/if}}
+  {{#if (eq category 'effects')}}
+  /** Delay in milliseconds */
+  delay?: number;
+  /** Enable immediate execution */
+  immediate?: boolean;
+  /** Dependencies array */
+  deps?: React.DependencyList;
+  {{/if}}
+  {{#if (eq category 'performance')}}
+  /** Debounce delay */
+  debounceDelay?: number;
+  /** Throttle delay */
+  throttleDelay?: number;
+  /** Enable memoization */
+  memoize?: boolean;
+  {{/if}}
+  {{#if (eq category 'ui')}}
+  /** Element selector */
+  selector?: string;
+  /** Enable passive listeners */
+  passive?: boolean;
+  /** Threshold value */
+  threshold?: number;
+  {{/if}}
+  {{#if (eq category 'data')}}
+  /** API endpoint */
+  url?: string;
+  /** Request options */
+  options?: RequestInit;
+  /** Auto-fetch on mount */
+  autoFetch?: boolean;
+  {{/if}}
+  {{#if (eq category 'utilities')}}
+  /** Enable validation */
+  validate?: boolean;
+  /** Custom validator function */
+  validator?: (value: any) => boolean;
+  /** Error message */
+  errorMessage?: string;
+  {{/if}}
+}
+
+/**
+ * Return type for {{hookName}} hook
+ */
+export interface {{name}}Return {
+  {{#if (eq category 'state')}}
+  /** Current value */
+  value: any;
+  /** Set value function */
+  setValue: (value: any) => void;
+  /** Reset to initial value */
+  reset: () => void;
+  /** Clear value */
+  clear: () => void;
+  {{/if}}
+  {{#if (eq category 'effects')}}
+  /** Effect status */
+  isActive: boolean;
+  /** Start effect */
+  start: () => void;
+  /** Stop effect */
+  stop: () => void;
+  /** Restart effect */
+  restart: () => void;
+  {{/if}}
+  {{#if (eq category 'performance')}}
+  /** Optimized value */
+  optimizedValue: any;
+  /** Performance metrics */
+  metrics: {
+    renderCount: number;
+    lastRenderTime: number;
+  };
+  {{/if}}
+  {{#if (eq category 'ui')}}
+  /** UI state */
+  isVisible: boolean;
+  /** Element reference */
+  ref: React.RefObject<HTMLElement>;
+  /** Measurements */
+  dimensions: {
+    width: number;
+    height: number;
+  };
+  {{/if}}
+  {{#if (eq category 'data')}}
+  /** Data state */
+  data: any;
+  /** Loading state */
+  loading: boolean;
+  /** Error state */
+  error: Error | null;
+  /** Fetch function */
+  fetch: () => Promise<void>;
+  /** Refetch function */
+  refetch: () => Promise<void>;
+  {{/if}}
+  {{#if (eq category 'utilities')}}
+  /** Processed value */
+  processedValue: any;
+  /** Validation result */
+  isValid: boolean;
+  /** Error message */
+  error: string | null;
+  /** Validate function */
+  validate: () => boolean;
+  {{/if}}
+}
+
+/**
+ * {{hookName}} - {{description}}
+ * 
+ * @example
+ * ```tsx
+ * const { {{#if (eq category 'state')}}value, setValue{{/if}}{{#if (eq category 'effects')}}isActive, start, stop{{/if}}{{#if (eq category 'data')}}data, loading, error{{/if}} } = {{hookName}}({{#if (eq category 'state')}}{ initialValue: 'default' }{{/if}}{{#if (eq category 'effects')}}{ delay: 1000 }{{/if}}{{#if (eq category 'data')}}{ url: '/api/data' }{{/if}});
+ * ```
+ */
+export const {{hookName}} = (options: {{name}}Options = {}): {{name}}Return => {
+  {{#if (eq category 'state')}}
+  const {
+    initialValue = null,
+    persist = false,
+    storageKey = '{{dashCase hookName}}',
+  } = options;
+
+  // Initialize state with persistence support
+  const [value, setValue] = useState(() => {
+    if (persist && typeof window !== 'undefined') {
+      try {
+        const stored = localStorage.getItem(storageKey);
+        return stored ? JSON.parse(stored) : initialValue;
+      } catch {
+        return initialValue;
+      }
+    }
+    return initialValue;
+  });
+
+  // Persist value changes
+  useEffect(() => {
+    if (persist && typeof window !== 'undefined') {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(value));
+      } catch (error) {
+        console.warn('Failed to persist value:', error);
+      }
+    }
+  }, [value, persist, storageKey]);
+
+  const reset = useCallback(() => {
+    setValue(initialValue);
+  }, [initialValue]);
+
+  const clear = useCallback(() => {
+    setValue(null);
+  }, []);
+
+  return {
+    value,
+    setValue,
+    reset,
+    clear,
+  };
+  {{/if}}
+
+  {{#if (eq category 'effects')}}
+  const {
+    delay = 1000,
+    immediate = false,
+    deps = [],
+  } = options;
+
+  const [isActive, setIsActive] = useState(immediate);
+  const intervalRef = useRef<NodeJS.Timeout>();
+
+  const start = useCallback(() => {
+    setIsActive(true);
+  }, []);
+
+  const stop = useCallback(() => {
+    setIsActive(false);
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  }, []);
+
+  const restart = useCallback(() => {
+    stop();
+    start();
+  }, [start, stop]);
+
+  useEffect(() => {
+    if (isActive) {
+      intervalRef.current = setInterval(() => {
+        // Effect logic here
+        console.log('{{hookName}} effect executed');
+      }, delay);
+    }
+
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [isActive, delay, ...deps]);
+
+  return {
+    isActive,
+    start,
+    stop,
+    restart,
+  };
+  {{/if}}
+
+  {{#if (eq category 'performance')}}
+  const {
+    debounceDelay = 300,
+    throttleDelay = 100,
+    memoize = true,
+  } = options;
+
+  const [optimizedValue, setOptimizedValue] = useState<any>(null);
+  const [metrics, setMetrics] = useState({
+    renderCount: 0,
+    lastRenderTime: Date.now(),
+  });
+
+  const renderCountRef = useRef(0);
+
+  // Update render metrics
+  useEffect(() => {
+    renderCountRef.current += 1;
+    setMetrics({
+      renderCount: renderCountRef.current,
+      lastRenderTime: Date.now(),
+    });
+  });
+
+  // Memoized processing function
+  const processValue = useMemo(() => {
+    if (!memoize) return (value: any) => value;
+    
+    return (value: any) => {
+      // Processing logic here
+      return value;
+    };
+  }, [memoize]);
+
+  return {
+    optimizedValue,
+    metrics,
+  };
+  {{/if}}
+
+  {{#if (eq category 'ui')}}
+  const {
+    selector,
+    passive = true,
+    threshold = 0.1,
+  } = options;
+
+  const [isVisible, setIsVisible] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+  const ref = useRef<HTMLElement>(null);
+
+  // Intersection Observer for visibility
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      { threshold }
+    );
+
+    observer.observe(element);
+
+    return () => observer.disconnect();
+  }, [threshold]);
+
+  // Resize Observer for dimensions
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const resizeObserver = new ResizeObserver((entries) => {
+      const entry = entries[0];
+      if (entry) {
+        setDimensions({
+          width: entry.contentRect.width,
+          height: entry.contentRect.height,
+        });
+      }
+    });
+
+    resizeObserver.observe(element);
+
+    return () => resizeObserver.disconnect();
+  }, []);
+
+  return {
+    isVisible,
+    ref,
+    dimensions,
+  };
+  {{/if}}
+
+  {{#if (eq category 'data')}}
+  const {
+    url,
+    options: fetchOptions,
+    autoFetch = true,
+  } = options;
+
+  const [data, setData] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<Error | null>(null);
+
+  const fetchData = useCallback(async () => {
+    if (!url) return;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(url, fetchOptions);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      setData(result);
+    } catch (err) {
+      setError(err instanceof Error ? err : new Error('Unknown error'));
+    } finally {
+      setLoading(false);
+    }
+  }, [url, fetchOptions]);
+
+  const refetch = useCallback(() => {
+    return fetchData();
+  }, [fetchData]);
+
+  // Auto-fetch on mount
+  useEffect(() => {
+    if (autoFetch) {
+      fetchData();
+    }
+  }, [autoFetch, fetchData]);
+
+  return {
+    data,
+    loading,
+    error,
+    fetch: fetchData,
+    refetch,
+  };
+  {{/if}}
+
+  {{#if (eq category 'utilities')}}
+  const {
+    validate = true,
+    validator,
+    errorMessage = 'Validation failed',
+  } = options;
+
+  const [processedValue, setProcessedValue] = useState<any>(null);
+  const [isValid, setIsValid] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const validateValue = useCallback((value: any): boolean => {
+    if (!validate) return true;
+    
+    if (validator) {
+      return validator(value);
+    }
+    
+    // Default validation logic
+    return value != null && value !== '';
+  }, [validate, validator]);
+
+  const validateCurrent = useCallback(() => {
+    const valid = validateValue(processedValue);
+    setIsValid(valid);
+    setError(valid ? null : errorMessage);
+    return valid;
+  }, [processedValue, validateValue, errorMessage]);
+
+  // Validate on value change
+  useEffect(() => {
+    validateCurrent();
+  }, [validateCurrent]);
+
+  return {
+    processedValue,
+    isValid,
+    error,
+    validate: validateCurrent,
+  };
+  {{/if}}
+};
+
+{{#if (eq category 'state')}}
+/**
+ * Hook for managing boolean state with toggle functionality
+ */
+export const {{hookName}}Boolean = (initialValue = false) => {
+  const [value, setValue] = useState(initialValue);
+  
+  const toggle = useCallback(() => setValue(prev => !prev), []);
+  const setTrue = useCallback(() => setValue(true), []);
+  const setFalse = useCallback(() => setValue(false), []);
+  
+  return {
+    value,
+    setValue,
+    toggle,
+    setTrue,
+    setFalse,
+  };
+};
+
+/**
+ * Hook for managing array state with utility methods
+ */
+export const {{hookName}}Array = <T>(initialValue: T[] = []) => {
+  const [array, setArray] = useState<T[]>(initialValue);
+  
+  const push = useCallback((item: T) => {
+    setArray(prev => [...prev, item]);
+  }, []);
+  
+  const remove = useCallback((index: number) => {
+    setArray(prev => prev.filter((_, i) => i !== index));
+  }, []);
+  
+  const clear = useCallback(() => {
+    setArray([]);
+  }, []);
+  
+  const update = useCallback((index: number, item: T) => {
+    setArray(prev => prev.map((prevItem, i) => i === index ? item : prevItem));
+  }, []);
+  
+  return {
+    array,
+    setArray,
+    push,
+    remove,
+    clear,
+    update,
+    length: array.length,
+    isEmpty: array.length === 0,
+  };
+};
+{{/if}}
+
+export default {{hookName}};

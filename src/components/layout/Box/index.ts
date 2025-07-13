@@ -1,0 +1,60 @@
+/**
+ * @fileoverview Box component barrel export
+ * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
+ */
+
+export { Box } from './Box';
+export type { 
+  BoxProps, 
+  BoxDisplay, 
+  BoxPosition,
+  BoxOverflow,
+  BoxTextAlign,
+  BoxVerticalAlign,
+  BoxFlexDirection,
+  BoxFlexWrap,
+  BoxJustifyContent,
+  BoxAlignItems,
+  BoxAlignContent,
+  ResponsiveValue,
+  BoxStyleProps,
+  BoxBreakpoints
+} from './Box.types';
+export {
+  BOX_DISPLAYS,
+  BOX_POSITIONS,
+  BOX_OVERFLOWS,
+  BOX_TEXT_ALIGNS,
+  BOX_VERTICAL_ALIGNS,
+  BOX_FLEX_DIRECTIONS,
+  BOX_FLEX_WRAPS,
+  BOX_JUSTIFY_CONTENTS,
+  BOX_ALIGN_ITEMS,
+  BOX_ALIGN_CONTENTS,
+  BOX_BREAKPOINTS,
+  BOX_SPACING_VALUES,
+  BOX_BORDER_RADIUS,
+  BOX_SHADOW_VALUES,
+  ACCESSIBILITY_CONSTANTS,
+  COMMON_BOX_PATTERNS,
+  RESPONSIVE_PATTERNS,
+  DEFAULT_BOX_PROPS,
+} from './Box.constants';
+export {
+  FlexBox,
+  FlexCenterBox,
+  FlexBetweenBox,
+  FlexColumnBox,
+  GridBox,
+  GridCenterBox,
+  CardBox,
+  HeroBox,
+  SectionBox,
+  ContainerBox,
+  SidebarBox,
+  OverlayBox,
+  AspectRatioBox,
+  StickyBox,
+  ScrollableBox,
+  ClickableBox,
+} from './Box.styles';

@@ -1,0 +1,400 @@
+/**
+ * @fileoverview {{name}} Component Styles
+ * @author AI Generated Styles
+ */
+
+import { styled, alpha } from '@mui/material/styles';
+import { Box } from '@mui/material';
+import type { {{name}}Props } from './{{name}}.types';
+
+/**
+ * {{name}} style utilities
+ */
+export const {{name}}Styles = {
+  /**
+   * Get variant-specific styles
+   */
+  getVariantStyles: (theme: any, variant: {{name}}Props['variant']) => {
+    const styles = {
+      primary: {
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+        '&:hover': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+        '&:focus': {
+          backgroundColor: theme.palette.primary.dark,
+        },
+        '&:active': {
+          backgroundColor: theme.palette.primary.darker || theme.palette.primary.dark,
+        },
+      },
+      secondary: {
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.secondary.contrastText,
+        '&:hover': {
+          backgroundColor: theme.palette.secondary.dark,
+        },
+        '&:focus': {
+          backgroundColor: theme.palette.secondary.dark,
+        },
+        '&:active': {
+          backgroundColor: theme.palette.secondary.darker || theme.palette.secondary.dark,
+        },
+      },
+      outlined: {
+        backgroundColor: 'transparent',
+        color: theme.palette.primary.main,
+        border: `1px solid ${alpha(theme.palette.primary.main, 0.5)}`,
+        '&:hover': {
+          backgroundColor: alpha(theme.palette.primary.main, 0.04),
+          borderColor: theme.palette.primary.main,
+        },
+        '&:focus': {
+          backgroundColor: alpha(theme.palette.primary.main, 0.12),
+        },
+      },
+      text: {
+        backgroundColor: 'transparent',
+        color: theme.palette.primary.main,
+        '&:hover': {
+          backgroundColor: alpha(theme.palette.primary.main, 0.04),
+        },
+        '&:focus': {
+          backgroundColor: alpha(theme.palette.primary.main, 0.12),
+        },
+      },
+      {{#if (eq category 'feedback')}}
+      success: {
+        backgroundColor: theme.palette.success.main,
+        color: theme.palette.success.contrastText,
+        '&:hover': {
+          backgroundColor: theme.palette.success.dark,
+        },
+      },
+      warning: {
+        backgroundColor: theme.palette.warning.main,
+        color: theme.palette.warning.contrastText,
+        '&:hover': {
+          backgroundColor: theme.palette.warning.dark,
+        },
+      },
+      error: {
+        backgroundColor: theme.palette.error.main,
+        color: theme.palette.error.contrastText,
+        '&:hover': {
+          backgroundColor: theme.palette.error.dark,
+        },
+      },
+      info: {
+        backgroundColor: theme.palette.info.main,
+        color: theme.palette.info.contrastText,
+        '&:hover': {
+          backgroundColor: theme.palette.info.dark,
+        },
+      },
+      {{/if}}
+      {{#if (eq category 'core')}}
+      contained: {
+        backgroundColor: theme.palette.grey[100],
+        color: theme.palette.text.primary,
+        boxShadow: theme.shadows[1],
+        '&:hover': {
+          backgroundColor: theme.palette.grey[200],
+          boxShadow: theme.shadows[2],
+        },
+      },
+      elevated: {
+        backgroundColor: theme.palette.background.paper,
+        color: theme.palette.text.primary,
+        boxShadow: theme.shadows[4],
+        '&:hover': {
+          boxShadow: theme.shadows[6],
+        },
+      },
+      {{/if}}
+    };
+
+    return styles[variant as keyof typeof styles] || styles.primary;
+  },
+
+  /**
+   * Get size-specific styles
+   */
+  getSizeStyles: (size: {{name}}Props['size']) => {
+    const styles = {
+      small: {
+        minHeight: 32,
+        padding: '4px 10px',
+        fontSize: '0.8125rem',
+        lineHeight: 1.75,
+      },
+      medium: {
+        minHeight: 36,
+        padding: '6px 16px',
+        fontSize: '0.875rem',
+        lineHeight: 1.75,
+      },
+      large: {
+        minHeight: 42,
+        padding: '8px 22px',
+        fontSize: '0.9375rem',
+        lineHeight: 1.75,
+      },
+    };
+
+    return styles[size as keyof typeof styles] || styles.medium;
+  },
+
+  /**
+   * Get state-specific styles
+   */
+  getStateStyles: (theme: any, props: {{name}}Props) => {
+    const { disabled, loading, active, selected } = props;
+    
+    return {
+      ...(disabled && {
+        backgroundColor: theme.palette.action.disabledBackground,
+        color: theme.palette.action.disabled,
+        cursor: 'not-allowed',
+        boxShadow: 'none',
+        '&:hover': {
+          backgroundColor: theme.palette.action.disabledBackground,
+        },
+      }),
+      ...(loading && {
+        cursor: 'wait',
+        pointerEvents: 'none',
+      }),
+      ...(active && {
+        transform: 'scale(0.98)',
+      }),
+      ...(selected && {
+        backgroundColor: alpha(theme.palette.primary.main, 0.12),
+        color: theme.palette.primary.main,
+      }),
+    };
+  },
+
+  /**
+   * Get responsive styles
+   */
+  getResponsiveStyles: (theme: any, responsive?: {{name}}Props['responsive']) => {
+    if (!responsive) return {};
+
+    return {
+      ...(responsive.xs && {
+        [theme.breakpoints.only('xs')]: responsive.xs,
+      }),
+      ...(responsive.sm && {
+        [theme.breakpoints.only('sm')]: responsive.sm,
+      }),
+      ...(responsive.md && {
+        [theme.breakpoints.only('md')]: responsive.md,
+      }),
+      ...(responsive.lg && {
+        [theme.breakpoints.only('lg')]: responsive.lg,
+      }),
+      ...(responsive.xl && {
+        [theme.breakpoints.only('xl')]: responsive.xl,
+      }),
+    };
+  },
+
+  /**
+   * Get accessibility styles
+   */
+  getAccessibilityStyles: (theme: any) => ({
+    // Focus styles
+    '&:focus-visible': {
+      outline: `2px solid ${theme.palette.primary.main}`,
+      outlineOffset: 2,
+    },
+
+    // High contrast mode
+    '@media (prefers-contrast: high)': {
+      border: `2px solid ${theme.palette.text.primary}`,
+    },
+
+    // Reduced motion
+    '@media (prefers-reduced-motion: reduce)': {
+      transition: 'none',
+      animation: 'none',
+      transform: 'none !important',
+    },
+
+    // Dark mode optimizations
+    ...(theme.palette.mode === 'dark' && {
+      '&:hover': {
+        backgroundColor: alpha(theme.palette.primary.main, 0.08),
+      },
+    }),
+  }),
+
+  /**
+   * Get animation styles
+   */
+  getAnimationStyles: (theme: any, animate = true) => {
+    if (!animate) return {};
+
+    return {
+      transition: theme.transitions.create([
+        'background-color',
+        'box-shadow',
+        'border-color',
+        'color',
+        'transform',
+      ], {
+        duration: theme.transitions.duration.short,
+        easing: theme.transitions.easing.easeInOut,
+      }),
+
+      '&:hover': {
+        transform: 'translateY(-1px)',
+      },
+
+      '&:active': {
+        transform: 'translateY(0)',
+      },
+    };
+  },
+};
+
+/**
+ * Main styled component
+ */
+export const Styled{{name}} = styled(Box, {
+  name: 'Mui{{name}}',
+  slot: 'Root',
+  shouldForwardProp: (prop) => ![
+    'variant',
+    'size',
+    'disabled',
+    'loading',
+    'active',
+    'selected',
+    'animate',
+    'responsive',
+  ].includes(prop as string),
+})<{{name}}Props>(({ theme, ...props }) => {
+  const {
+    variant = 'primary',
+    size = 'medium',
+    animate = true,
+    responsive,
+  } = props;
+
+  return {
+    // Base styles
+    position: 'relative',
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    outline: 0,
+    border: 0,
+    margin: 0,
+    borderRadius: theme.shape.borderRadius,
+    cursor: 'pointer',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    textDecoration: 'none',
+    fontFamily: theme.typography.fontFamily,
+    fontWeight: theme.typography.fontWeightMedium,
+    textTransform: 'uppercase',
+    letterSpacing: '0.02857em',
+
+    // Apply variant styles
+    ...{{name}}Styles.getVariantStyles(theme, variant),
+
+    // Apply size styles
+    ...{{name}}Styles.getSizeStyles(size),
+
+    // Apply state styles
+    ...{{name}}Styles.getStateStyles(theme, props),
+
+    // Apply animation styles
+    ...{{name}}Styles.getAnimationStyles(theme, animate),
+
+    // Apply accessibility styles
+    ...{{name}}Styles.getAccessibilityStyles(theme),
+
+    // Apply responsive styles
+    ...{{name}}Styles.getResponsiveStyles(theme, responsive),
+  };
+});
+
+{{#if (includes features 'icons')}}
+/**
+ * Icon container styles
+ */
+export const Styled{{name}}Icon = styled('span', {
+  name: 'Mui{{name}}',
+  slot: 'Icon',
+})<{ position: 'start' | 'end'; size: {{name}}Props['size'] }>(({ theme, position, size }) => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: 'inherit',
+  
+  ...(position === 'start' && {
+    marginRight: size === 'small' ? theme.spacing(0.5) : theme.spacing(1),
+    marginLeft: size === 'small' ? theme.spacing(-0.25) : theme.spacing(-0.5),
+  }),
+  
+  ...(position === 'end' && {
+    marginLeft: size === 'small' ? theme.spacing(0.5) : theme.spacing(1),
+    marginRight: size === 'small' ? theme.spacing(-0.25) : theme.spacing(-0.5),
+  }),
+
+  '& > svg': {
+    fontSize: size === 'small' ? '1rem' : size === 'large' ? '1.25rem' : '1.125rem',
+  },
+}));
+{{/if}}
+
+{{#if (includes features 'loading')}}
+/**
+ * Loading indicator styles
+ */
+export const Styled{{name}}LoadingIndicator = styled('span', {
+  name: 'Mui{{name}}',
+  slot: 'LoadingIndicator',
+})(({ theme }) => ({
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  
+  '& > .MuiCircularProgress-root': {
+    color: 'inherit',
+  },
+}));
+{{/if}}
+
+/**
+ * Theme augmentation for {{name}} component
+ */
+declare module '@mui/material/styles' {
+  interface Components {
+    Mui{{name}}?: {
+      defaultProps?: Partial<{{name}}Props>;
+      styleOverrides?: {
+        root?: React.CSSProperties;
+        {{#if (includes features 'icons')}}
+        startIcon?: React.CSSProperties;
+        endIcon?: React.CSSProperties;
+        {{/if}}
+        {{#if (includes features 'loading')}}
+        loadingIndicator?: React.CSSProperties;
+        {{/if}}
+      };
+      variants?: Array<{
+        props: Partial<{{name}}Props>;
+        style: React.CSSProperties;
+      }>;
+    };
+  }
+}

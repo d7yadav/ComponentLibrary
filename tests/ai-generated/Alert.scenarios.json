@@ -1,0 +1,27 @@
+{
+  "component": "Alert",
+  "generated": "2025-07-12T04:38:47.224Z",
+  "scenarios": [
+    {
+      "id": "Alert-smoke",
+      "name": "Alert Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Alert",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Alert-interaction",
+      "name": "Alert Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Alert",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Alert-accessibility",
+      "name": "Alert Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Alert",
+      "estimatedDuration": 1200
+    }
+  ]
+}

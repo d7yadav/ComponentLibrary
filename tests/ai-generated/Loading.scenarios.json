@@ -1,0 +1,27 @@
+{
+  "component": "Loading",
+  "generated": "2025-07-12T04:38:47.224Z",
+  "scenarios": [
+    {
+      "id": "Loading-smoke",
+      "name": "Loading Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Loading",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Loading-interaction",
+      "name": "Loading Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Loading",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Loading-accessibility",
+      "name": "Loading Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Loading",
+      "estimatedDuration": 1200
+    }
+  ]
+}

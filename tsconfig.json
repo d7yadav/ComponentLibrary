@@ -1,0 +1,101 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "allowJs": false,
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+
+    /* Modules */
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": false,
+    "sourceMap": true,
+    "removeComments": false,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "noEmit": true,
+
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking - ENTERPRISE STRICT MODE */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true,
+    "alwaysStrict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+
+    /* Completeness */
+    "skipLibCheck": true,
+
+    /* Path Mapping for AI-Friendly Imports */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/components": ["src/components/index"],
+      "@/components/*": ["src/components/*"],
+      "@/components/core": ["src/components/core/index"],
+      "@/components/core/*": ["src/components/core/*"],
+      "@/components/forms": ["src/components/forms/index"],
+      "@/components/forms/*": ["src/components/forms/*"],
+      "@/components/layout": ["src/components/layout/index"],
+      "@/components/layout/*": ["src/components/layout/*"],
+      "@/components/feedback": ["src/components/feedback/index"],
+      "@/components/feedback/*": ["src/components/feedback/*"],
+      "@/components/navigation": ["src/components/navigation/index"],
+      "@/components/navigation/*": ["src/components/navigation/*"],
+      "@/components/data-display": ["src/components/data-display/index"],
+      "@/components/data-display/*": ["src/components/data-display/*"],
+      "@/components/surfaces": ["src/components/surfaces/index"],
+      "@/components/surfaces/*": ["src/components/surfaces/*"],
+      "@/theme": ["src/theme/index"],
+      "@/theme/*": ["src/theme/*"],
+      "@/hooks": ["src/hooks/index"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/utils": ["src/utils/index"],
+      "@/utils/*": ["src/utils/*"],
+      "@/types": ["src/types/index"],
+      "@/types/*": ["src/types/*"],
+      "@/providers": ["src/providers/index"],
+      "@/providers/*": ["src/providers/*"],
+      "@/constants": ["src/constants/index"],
+      "@/constants/*": ["src/constants/*"],
+      "@/ai-context": ["src/ai-context/index"],
+      "@/ai-context/*": ["src/ai-context/*"],
+      "@/ai-workflow": ["src/ai-workflow/index"],
+      "@/ai-workflow/*": ["src/ai-workflow/*"],
+      "@/test-utils": ["tests/test-utils"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "src/**/*.d.ts",
+    ".storybook/**/*",
+    "tests/**/*"
+  ],
+  "exclude": ["node_modules", "dist", "build", "coverage", "dist-storybook"]
+}

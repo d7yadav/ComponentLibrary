@@ -1,0 +1,404 @@
+# 🤖 AI Coding Guide: {{name}} Component
+
+## Component Overview
+
+**Category**: {{category}}  
+**Complexity**: {{complexity}}  
+**AI Suitability**: ⭐⭐⭐⭐⭐ Excellent - Highly optimized for AI development
+
+This {{name}} component is specifically designed for AI-assisted development with clear patterns, comprehensive types, and predictable behavior.
+
+## 🚀 Quick AI Reference
+
+### Essential Imports
+```typescript
+import { {{name}} } from '@/components/{{category}}/{{name}}';
+import type { {{name}}Props } from '@/components/{{category}}/{{name}}';
+```
+
+### Core Interface
+```typescript
+interface {{name}}Props {
+  variant?: {{#if (includes features 'variants')}}'primary' | 'secondary' | 'outlined' | 'text'{{#if (eq category 'feedback')}} | 'success' | 'warning' | 'error' | 'info'{{/if}}{{else}}'primary' | 'secondary'{{/if}};
+  size?: 'small' | 'medium' | 'large';
+  disabled?: boolean;
+  children?: React.ReactNode;
+  onClick?: (event: React.MouseEvent) => void;
+  {{#if (includes features 'loading')}}
+  loading?: boolean;
+  {{/if}}
+  {{#if (includes features 'icons')}}
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  {{/if}}
+  sx?: SxProps<Theme>;
+}
+```
+
+### Default Props Pattern
+```typescript
+const defaultProps: Partial<{{name}}Props> = {
+  variant: 'primary',
+  size: 'medium',
+  disabled: false,
+  {{#if (includes features 'loading')}}
+  loading: false,
+  {{/if}}
+};
+```
+
+## 🎯 AI Implementation Patterns
+
+### Pattern 1: Basic Implementation
+```typescript
+// ✅ CORRECT: Standard implementation
+const MyComponent = () => {
+  return (
+    <{{name}} variant="primary" size="medium">
+      Click me
+    </{{name}}>
+  );
+};
+```
+
+### Pattern 2: Event Handling
+```typescript
+// ✅ CORRECT: Proper event handling with TypeScript
+const InteractiveComponent = () => {
+  const handleClick = useCallback((event: React.MouseEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    // Handle click logic
+    console.log('{{name}} clicked');
+  }, []);
+
+  return (
+    <{{name}} onClick={handleClick}>
+      Interactive {{name}}
+    </{{name}}>
+  );
+};
+```
+
+### Pattern 3: State Management
+```typescript
+// ✅ CORRECT: State-driven component
+const StatefulComponent = () => {
+  const [loading, setLoading] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
+  const handleAction = async () => {
+    setLoading(true);
+    try {
+      await performAsyncAction();
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <{{name}}
+      variant="primary"
+      {{#if (includes features 'loading')}}
+      loading={loading}
+      {{/if}}
+      disabled={disabled}
+      onClick={handleAction}
+    >
+      {loading ? 'Processing...' : 'Submit'}
+    </{{name}}>
+  );
+};
+```
+
+{{#if (includes features 'forms')}}
+### Pattern 4: Form Integration
+```typescript
+// ✅ CORRECT: React Hook Form integration
+const FormComponent = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <{{name}}
+        {...register('fieldName', { required: 'This field is required' })}
+        error={!!errors.fieldName}
+        helperText={errors.fieldName?.message}
+        variant="outlined"
+      >
+        Form Field
+      </{{name}}>
+    </form>
+  );
+};
+```
+{{/if}}
+
+### Pattern 5: Custom Styling
+```typescript
+// ✅ CORRECT: Theme-aware custom styling
+const CustomStyledComponent = () => {
+  return (
+    <{{name}}
+      sx={{
+        borderRadius: 2,
+        backgroundColor: 'primary.main',
+        '&:hover': {
+          backgroundColor: 'primary.dark',
+          transform: 'translateY(-2px)',
+        },
+        // Responsive styling
+        [theme => theme.breakpoints.down('sm')]: {
+          fontSize: '0.75rem',
+        },
+      }}
+    >
+      Custom Styled
+    </{{name}}>
+  );
+};
+```
+
+{{#if (includes features 'responsive')}}
+### Pattern 6: Responsive Design
+```typescript
+// ✅ CORRECT: Responsive configuration
+const ResponsiveComponent = () => {
+  return (
+    <{{name}}
+      responsive={{
+        xs: { size: 'small', variant: 'text' },
+        sm: { size: 'medium', variant: 'outlined' },
+        md: { size: 'large', variant: 'primary' },
+      }}
+    >
+      Responsive {{name}}
+    </{{name}}>
+  );
+};
+```
+{{/if}}
+
+## ❌ Common AI Coding Mistakes
+
+### Mistake 1: Wrong Import Pattern
+```typescript
+// ❌ WRONG: Default import
+import {{name}} from '@/components/{{category}}/{{name}}';
+
+// ✅ CORRECT: Named import
+import { {{name}} } from '@/components/{{category}}/{{name}}';
+```
+
+### Mistake 2: Missing TypeScript Types
+```typescript
+// ❌ WRONG: Any type usage
+const handleClick = (event: any) => {
+  // Handler logic
+};
+
+// ✅ CORRECT: Proper typing
+const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  // Handler logic
+};
+```
+
+### Mistake 3: Inline Styles Over Theme
+```typescript
+// ❌ WRONG: Inline styles
+<{{name}} style={{ backgroundColor: 'red', color: 'white' }}>
+  Bad Styling
+</{{name}}>
+
+// ✅ CORRECT: Theme-based styling
+<{{name}} sx={{ backgroundColor: 'error.main', color: 'error.contrastText' }}>
+  Good Styling
+</{{name}}>
+```
+
+### Mistake 4: Missing Accessibility
+```typescript
+// ❌ WRONG: No accessibility consideration
+<{{name}} onClick={handler}>
+  Action
+</{{name}}>
+
+// ✅ CORRECT: Proper accessibility
+<{{name}}
+  onClick={handler}
+  aria-label="Perform action"
+  role="button"
+  tabIndex={0}
+>
+  Action
+</{{name}}>
+```
+
+{{#if (includes features 'loading')}}
+### Mistake 5: Improper Loading State
+```typescript
+// ❌ WRONG: Manual loading indication
+<{{name}} disabled={loading}>
+  {loading ? 'Loading...' : 'Submit'}
+</{{name}}>
+
+// ✅ CORRECT: Built-in loading support
+<{{name}} loading={loading}>
+  Submit
+</{{name}}>
+```
+{{/if}}
+
+## 🔍 AI Quality Checklist
+
+### Pre-Implementation Checklist
+- [ ] Component uses named exports (`export { {{name}} }`)
+- [ ] Props interface properly typed as `{{name}}Props`
+- [ ] Imports use absolute paths (`@/components/...`)
+- [ ] Theme integration implemented with `sx` prop
+- [ ] Accessibility attributes included (`aria-label`, `role`, etc.)
+- [ ] Event handlers properly typed
+- [ ] Default props defined and documented
+- [ ] Component wrapped with `React.forwardRef` if needed
+
+### Code Quality Checklist
+- [ ] No `any` types used anywhere
+- [ ] All props have proper TypeScript definitions
+- [ ] Error handling implemented for async operations
+- [ ] Loading states properly managed
+- [ ] Responsive design considerations addressed
+- [ ] Performance optimized (React.memo if needed)
+- [ ] Accessibility tested and verified
+- [ ] Component follows established naming conventions
+
+### Testing Checklist
+- [ ] Unit tests cover all props and variants
+- [ ] Interaction tests for click/keyboard events
+- [ ] Accessibility tests with jest-axe
+- [ ] Visual regression tests (if applicable)
+- [ ] Form integration tests (if form component)
+- [ ] Error boundary tests (if error handling)
+
+## 🧪 AI Testing Patterns
+
+### Pattern 1: Basic Component Tests
+```typescript
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { {{name}} } from './{{name}}';
+
+describe('{{name}} Component', () => {
+  it('renders with default props', () => {
+    render(<{{name}}>Test</{{name}}>);
+    expect(screen.getByRole('button')).toBeInTheDocument();
+  });
+
+  it('handles click events', async () => {
+    const user = userEvent.setup();
+    const handleClick = vi.fn();
+    
+    render(<{{name}} onClick={handleClick}>Test</{{name}}>);
+    await user.click(screen.getByRole('button'));
+    
+    expect(handleClick).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
+### Pattern 2: Props Testing
+```typescript
+describe('{{name}} Props', () => {
+  it('applies variant correctly', () => {
+    render(<{{name}} variant="secondary" data-testid="test">Test</{{name}}>);
+    expect(screen.getByTestId('test')).toHaveAttribute('data-variant', 'secondary');
+  });
+
+  it('handles disabled state', () => {
+    render(<{{name}} disabled>Test</{{name}}>);
+    const button = screen.getByRole('button');
+    expect(button).toHaveAttribute('aria-disabled', 'true');
+  });
+});
+```
+
+### Pattern 3: Accessibility Testing
+```typescript
+import { axe, toHaveNoViolations } from 'jest-axe';
+
+expect.extend(toHaveNoViolations);
+
+describe('{{name}} Accessibility', () => {
+  it('meets WCAG guidelines', async () => {
+    const { container } = render(<{{name}}>Test</{{name}}>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
+  });
+});
+```
+
+## 🚀 AI Performance Optimization
+
+### Optimization 1: Memoization
+```typescript
+// ✅ CORRECT: Memoized component for performance
+const OptimizedComponent = React.memo<{{name}}Props>(({ 
+  variant,
+  size,
+  children,
+  onClick,
+  ...props 
+}) => {
+  const memoizedHandler = useCallback((event: React.MouseEvent) => {
+    onClick?.(event);
+  }, [onClick]);
+
+  return (
+    <{{name}}
+      variant={variant}
+      size={size}
+      onClick={memoizedHandler}
+      {...props}
+    >
+      {children}
+    </{{name}}>
+  );
+});
+```
+
+### Optimization 2: Conditional Rendering
+```typescript
+// ✅ CORRECT: Efficient conditional rendering
+const ConditionalComponent = ({ showButton, ...props }: { showButton: boolean } & {{name}}Props) => {
+  if (!showButton) return null;
+  
+  return <{{name}} {...props} />;
+};
+```
+
+## 📋 AI Recommendations
+
+### 🔧 Implementation Priority
+1. **High Priority**: Type safety, accessibility, basic functionality
+2. **Medium Priority**: Performance optimization, responsive design
+3. **Low Priority**: Advanced animations, complex interactions
+
+### ⚡ Performance Tips
+- Use `React.memo` for components in lists or frequently re-rendered contexts
+- Implement `useCallback` for event handlers passed as props
+- Consider lazy loading for large component trees
+- Monitor bundle size impact when adding new features
+
+### ♿ Accessibility Guidelines
+- Always provide `aria-label` for buttons without descriptive text
+- Ensure keyboard navigation works (Tab, Enter, Space)
+- Test with screen readers (NVDA, JAWS, VoiceOver)
+- Maintain color contrast ratios (4.5:1 minimum)
+
+### 🎨 Styling Best Practices
+- Use theme tokens instead of hardcoded values
+- Implement responsive design with theme breakpoints
+- Support both light and dark themes
+- Consider reduced motion preferences
+
+---
+
+*This AI guide ensures consistent, high-quality implementation of the {{name}} component across all AI development workflows.*

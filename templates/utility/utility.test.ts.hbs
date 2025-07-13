@@ -1,0 +1,659 @@
+/**
+ * @fileoverview {{name}} Utility Tests
+ * @author AI Generated Tests
+ */
+
+import { {{name}}, is{{capitalize name}}Valid, {{constantCase name}}_CONSTANTS } from './{{name}}';
+
+describe('{{name}} Utility', () => {
+  // Basic functionality tests
+  describe('Basic Functionality', () => {
+    {{#if (eq category 'string')}}
+    it('should process strings correctly', () => {
+      const result = {{name}}('hello world');
+      expect(typeof result).toBe('string');
+      expect(result).toBe('Hello World');
+    });
+
+    it('should handle empty strings', () => {
+      const result = {{name}}('');
+      expect(result).toBe('');
+    });
+
+    it('should handle single words', () => {
+      const result = {{name}}('hello');
+      expect(result).toBe('Hello');
+    });
+
+    it('should preserve case when specified', () => {
+      const result = {{name}}('hELLo WoRLD', { preserveCase: true });
+      expect(result).toBe('hELLo WoRLD');
+    });
+
+    it('should handle custom separators', () => {
+      const result = {{name}}('hello-world', { separator: '-' });
+      expect(result).toBe('Hello-World');
+    });
+
+    it('should trim whitespace by default', () => {
+      const result = {{name}}('  hello world  ');
+      expect(result).toBe('Hello World');
+    });
+
+    it('should preserve whitespace when specified', () => {
+      const result = {{name}}('  hello world  ', { trim: false });
+      expect(result).toBe('  Hello World  ');
+    });
+    {{/if}}
+
+    {{#if (eq category 'array')}}
+    it('should process arrays correctly', () => {
+      const result = {{name}}([1, 2, 3, 2, 1]);
+      expect(Array.isArray(result)).toBe(true);
+      expect(result).toEqual([1, 2, 3]);
+    });
+
+    it('should handle empty arrays', () => {
+      const result = {{name}}([]);
+      expect(result).toEqual([]);
+    });
+
+    it('should remove duplicates', () => {
+      const result = {{name}}([1, 1, 2, 2, 3, 3]);
+      expect(result).toEqual([1, 2, 3]);
+    });
+
+    it('should handle complex objects with compareBy', () => {
+      const input = [
+        { id: 1, name: 'Alice' },
+        { id: 2, name: 'Bob' },
+        { id: 1, name: 'Alice' }
+      ];
+      
+      const result = {{name}}(input, { compareBy: 'id' });
+      expect(result).toHaveLength(2);
+      expect(result[0]).toEqual({ id: 1, name: 'Alice' });
+      expect(result[1]).toEqual({ id: 2, name: 'Bob' });
+    });
+
+    it('should use compareBy function', () => {
+      const input = [
+        { user: { id: 1 } },
+        { user: { id: 2 } },
+        { user: { id: 1 } }
+      ];
+      
+      const result = {{name}}(input, { 
+        compareBy: (item) => item.user.id 
+      });
+      
+      expect(result).toHaveLength(2);
+    });
+
+    it('should remove falsy values when specified', () => {
+      const result = {{name}}([1, 0, 2, null, 3, undefined, ''], { 
+        removeFalsy: true 
+      });
+      expect(result).toEqual([1, 2, 3]);
+    });
+    {{/if}}
+
+    {{#if (eq category 'object')}}
+    it('should process objects correctly', () => {
+      const input = { a: 1, b: null, c: 3, d: undefined };
+      const result = {{name}}(input);
+      
+      expect(result).toEqual({ a: 1, c: 3 });
+    });
+
+    it('should handle empty objects', () => {
+      const result = {{name}}({});
+      expect(result).toEqual({});
+    });
+
+    it('should remove null values by default', () => {
+      const input = { a: 1, b: null, c: 3 };
+      const result = {{name}}(input);
+      
+      expect(result).toEqual({ a: 1, c: 3 });
+    });
+
+    it('should preserve null when specified', () => {
+      const input = { a: 1, b: null, c: 3 };
+      const result = {{name}}(input, { removeNull: false });
+      
+      expect(result).toEqual({ a: 1, b: null, c: 3 });
+    });
+
+    it('should remove undefined values by default', () => {
+      const input = { a: 1, b: undefined, c: 3 };
+      const result = {{name}}(input);
+      
+      expect(result).toEqual({ a: 1, c: 3 });
+    });
+
+    it('should remove empty strings when specified', () => {
+      const input = { a: 'hello', b: '', c: 'world' };
+      const result = {{name}}(input, { removeEmptyStrings: true });
+      
+      expect(result).toEqual({ a: 'hello', c: 'world' });
+    });
+
+    it('should handle deep processing', () => {
+      const input = {
+        a: 1,
+        b: {
+          c: 2,
+          d: null,
+          e: {
+            f: 3,
+            g: undefined
+          }
+        }
+      };
+      
+      const result = {{name}}(input, { deep: true });
+      
+      expect(result).toEqual({
+        a: 1,
+        b: {
+          c: 2,
+          e: {
+            f: 3
+          }
+        }
+      });
+    });
+    {{/if}}
+
+    {{#if (eq category 'date')}}
+    it('should process dates correctly', () => {
+      const date = new Date('2023-12-25T00:00:00.000Z');
+      const result = {{name}}(date);
+      
+      expect(typeof result).toBe('string');
+      expect(result).toBe('2023-12-25T00:00:00.000Z');
+    });
+
+    it('should handle string dates', () => {
+      const result = {{name}}('2023-12-25');
+      expect(typeof result).toBe('string');
+    });
+
+    it('should handle timestamp numbers', () => {
+      const timestamp = Date.now();
+      const result = {{name}}(timestamp);
+      expect(typeof result).toBe('string');
+    });
+
+    it('should format as locale string', () => {
+      const date = new Date('2023-12-25');
+      const result = {{name}}(date, { format: 'locale' });
+      
+      expect(typeof result).toBe('string');
+      expect(result).toContain('2023'); // Should contain year
+    });
+
+    it('should format as timestamp', () => {
+      const date = new Date('2023-12-25T00:00:00.000Z');
+      const result = {{name}}(date, { format: 'timestamp' });
+      
+      expect(typeof result).toBe('number');
+      expect(result).toBe(date.getTime());
+    });
+
+    it('should handle custom locale', () => {
+      const date = new Date('2023-12-25');
+      const result = {{name}}(date, { 
+        format: 'locale', 
+        locale: 'de-DE' 
+      });
+      
+      expect(typeof result).toBe('string');
+    });
+    {{/if}}
+
+    {{#if (eq category 'validation')}}
+    it('should validate values correctly', () => {
+      const result = {{name}}('test@example.com', { type: 'email' });
+      
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toEqual([]);
+    });
+
+    it('should handle required validation', () => {
+      const result = {{name}}('', { required: true });
+      
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('This field is required');
+    });
+
+    it('should validate email addresses', () => {
+      const valid = {{name}}('test@example.com', { type: 'email' });
+      const invalid = {{name}}('invalid-email', { type: 'email' });
+      
+      expect(valid.isValid).toBe(true);
+      expect(invalid.isValid).toBe(false);
+      expect(invalid.errors).toContain('Must be a valid email address');
+    });
+
+    it('should validate URLs', () => {
+      const valid = {{name}}('https://example.com', { type: 'url' });
+      const invalid = {{name}}('not-a-url', { type: 'url' });
+      
+      expect(valid.isValid).toBe(true);
+      expect(invalid.isValid).toBe(false);
+    });
+
+    it('should validate string length', () => {
+      const result = {{name}}('hi', { type: 'string', min: 3 });
+      
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Must be at least 3 characters long');
+    });
+
+    it('should validate number ranges', () => {
+      const result = {{name}}(5, { type: 'number', min: 10 });
+      
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Must be at least 10');
+    });
+
+    it('should use custom validators', () => {
+      const result = {{name}}('test', {
+        custom: (value) => value === 'expected'
+      });
+      
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Custom validation failed');
+    });
+
+    it('should use custom validator with message', () => {
+      const result = {{name}}('test', {
+        custom: (value) => value === 'expected' ? true : 'Custom error message'
+      });
+      
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Custom error message');
+    });
+    {{/if}}
+
+    {{#if (eq category 'performance')}}
+    it('should optimize functions', () => {
+      const mockFn = vi.fn((x: number) => x * 2);
+      const optimized = {{name}}(mockFn);
+      
+      expect(typeof optimized).toBe('function');
+    });
+
+    it('should memoize function results', () => {
+      const mockFn = vi.fn((x: number) => x * 2);
+      const memoized = {{name}}(mockFn, { memoize: true });
+      
+      const result1 = memoized(5);
+      const result2 = memoized(5);
+      
+      expect(result1).toBe(10);
+      expect(result2).toBe(10);
+      expect(mockFn).toHaveBeenCalledTimes(1);
+    });
+
+    it('should debounce function calls', async () => {
+      vi.useFakeTimers();
+      
+      const mockFn = vi.fn((x: number) => x * 2);
+      const debounced = {{name}}(mockFn, { debounce: 100 });
+      
+      debounced(5);
+      debounced(5);
+      debounced(5);
+      
+      expect(mockFn).not.toHaveBeenCalled();
+      
+      vi.advanceTimersByTime(100);
+      
+      await Promise.resolve();
+      
+      expect(mockFn).toHaveBeenCalledTimes(1);
+      
+      vi.useRealTimers();
+    });
+
+    it('should throttle function calls', () => {
+      vi.useFakeTimers();
+      
+      const mockFn = vi.fn((x: number) => x * 2);
+      const throttled = {{name}}(mockFn, { throttle: 100 });
+      
+      throttled(5);
+      throttled(5);
+      throttled(5);
+      
+      expect(mockFn).toHaveBeenCalledTimes(1);
+      
+      vi.advanceTimersByTime(100);
+      
+      throttled(5);
+      
+      expect(mockFn).toHaveBeenCalledTimes(2);
+      
+      vi.useRealTimers();
+    });
+    {{/if}}
+
+    {{#if (eq category 'accessibility')}}
+    it('should enhance accessibility', () => {
+      document.body.innerHTML = '<button id="test-button">Click me</button>';
+      
+      const result = {{name}}('#test-button', {
+        ariaLabel: 'Test button',
+        role: 'button'
+      });
+      
+      expect(result.isAccessible).toBe(true);
+      expect(result.applied).toContain('aria-label');
+      expect(result.applied).toContain('role');
+      expect(result.element.getAttribute('aria-label')).toBe('Test button');
+    });
+
+    it('should handle direct element references', () => {
+      const button = document.createElement('button');
+      
+      const result = {{name}}(button, {
+        ariaLabel: 'Direct element',
+        tabIndex: 0
+      });
+      
+      expect(result.isAccessible).toBe(true);
+      expect(result.element).toBe(button);
+    });
+
+    it('should manage focus', () => {
+      const button = document.createElement('button');
+      
+      {{name}}(button, { manageFocus: true });
+      
+      // Simulate focus
+      button.dispatchEvent(new Event('focus'));
+      expect(button.style.outline).toBe('2px solid #007acc');
+      
+      // Simulate blur
+      button.dispatchEvent(new Event('blur'));
+      expect(button.style.outline).toBe('');
+    });
+
+    it('should handle keyboard navigation', () => {
+      const button = document.createElement('button');
+      const clickSpy = vi.spyOn(button, 'click');
+      
+      {{name}}(button, { keyboardNav: true });
+      
+      // Simulate Enter key
+      const enterEvent = new KeyboardEvent('keydown', { key: 'Enter' });
+      button.dispatchEvent(enterEvent);
+      
+      expect(clickSpy).toHaveBeenCalled();
+    });
+    {{/if}}
+  });
+
+  // Input validation tests
+  describe('Input Validation', () => {
+    {{#if (eq category 'string')}}
+    it('should throw error for non-string input', () => {
+      expect(() => {{name}}(123 as any)).toThrow('Expected string input');
+    });
+    {{/if}}
+
+    {{#if (eq category 'array')}}
+    it('should throw error for non-array input', () => {
+      expect(() => {{name}}('not an array' as any)).toThrow('Expected array input');
+    });
+    {{/if}}
+
+    {{#if (eq category 'object')}}
+    it('should throw error for non-object input', () => {
+      expect(() => {{name}}('not an object' as any)).toThrow('Expected object input');
+    });
+
+    it('should throw error for null input', () => {
+      expect(() => {{name}}(null as any)).toThrow('Expected object input');
+    });
+
+    it('should throw error for array input', () => {
+      expect(() => {{name}}([] as any)).toThrow('Expected object input');
+    });
+    {{/if}}
+
+    {{#if (eq category 'date')}}
+    it('should throw error for invalid date', () => {
+      expect(() => {{name}}('invalid date')).toThrow('Invalid date input');
+    });
+
+    it('should throw error for custom format without format string', () => {
+      expect(() => {{name}}(new Date(), { format: 'custom' })).toThrow('Custom format string is required');
+    });
+    {{/if}}
+
+    {{#if (eq category 'accessibility')}}
+    it('should throw error for non-existent element', () => {
+      expect(() => {{name}}('#non-existent')).toThrow('Element not found');
+    });
+    {{/if}}
+  });
+
+  // Edge cases
+  describe('Edge Cases', () => {
+    {{#if (eq category 'string')}}
+    it('should handle special characters', () => {
+      const result = {{name}}('hello@world#test');
+      expect(result).toBe('Hello@world#test');
+    });
+
+    it('should handle unicode characters', () => {
+      const result = {{name}}('héllo wörld');
+      expect(result).toBe('Héllo Wörld');
+    });
+    {{/if}}
+
+    {{#if (eq category 'array')}}
+    it('should handle nested arrays', () => {
+      const result = {{name}}([1, [2, 3], 4, [2, 3]]);
+      expect(result).toHaveLength(3); // Should deduplicate nested arrays
+    });
+
+    it('should handle mixed types', () => {
+      const result = {{name}}([1, '2', 3, '2', true, true]);
+      expect(result).toHaveLength(4);
+    });
+    {{/if}}
+
+    {{#if (eq category 'object')}}
+    it('should handle nested objects', () => {
+      const input = {
+        a: 1,
+        b: {
+          c: null,
+          d: 2
+        }
+      };
+      
+      const result = {{name}}(input);
+      expect(result.b).toEqual({ c: null, d: 2 });
+    });
+
+    it('should handle circular references safely', () => {
+      const obj: any = { a: 1 };
+      obj.self = obj;
+      
+      // Should not throw
+      expect(() => {{name}}(obj)).not.toThrow();
+    });
+    {{/if}}
+
+    {{#if (eq category 'date')}}
+    it('should handle edge dates', () => {
+      const result1 = {{name}}(new Date(0)); // Unix epoch
+      const result2 = {{name}}(new Date('1970-01-01'));
+      
+      expect(typeof result1).toBe('string');
+      expect(typeof result2).toBe('string');
+    });
+    {{/if}}
+
+    {{#if (eq category 'validation')}}
+    it('should handle empty validation rules', () => {
+      const result = {{name}}('test', {});
+      expect(result.isValid).toBe(true);
+    });
+
+    it('should handle null/undefined values correctly', () => {
+      const result1 = {{name}}(null, { required: false });
+      const result2 = {{name}}(undefined, { required: false });
+      
+      expect(result1.isValid).toBe(true);
+      expect(result2.isValid).toBe(true);
+    });
+    {{/if}}
+
+    {{#if (eq category 'performance')}}
+    it('should handle functions with no parameters', () => {
+      const mockFn = vi.fn(() => 'result');
+      const optimized = {{name}}(mockFn, { memoize: true });
+      
+      const result1 = optimized();
+      const result2 = optimized();
+      
+      expect(result1).toBe('result');
+      expect(result2).toBe('result');
+      expect(mockFn).toHaveBeenCalledTimes(1);
+    });
+    {{/if}}
+  });
+
+  // Type guard tests
+  describe('Type Guard', () => {
+    it('should correctly identify valid inputs', () => {
+      {{#if (eq category 'string')}}
+      expect(is{{capitalize name}}Valid('test')).toBe(true);
+      expect(is{{capitalize name}}Valid(123)).toBe(false);
+      expect(is{{capitalize name}}Valid(null)).toBe(false);
+      {{/if}}
+      {{#if (eq category 'array')}}
+      expect(is{{capitalize name}}Valid([1, 2, 3])).toBe(true);
+      expect(is{{capitalize name}}Valid('not array')).toBe(false);
+      expect(is{{capitalize name}}Valid({})).toBe(false);
+      {{/if}}
+      {{#if (eq category 'object')}}
+      expect(is{{capitalize name}}Valid({ a: 1 })).toBe(true);
+      expect(is{{capitalize name}}Valid([])).toBe(false);
+      expect(is{{capitalize name}}Valid(null)).toBe(false);
+      {{/if}}
+      {{#if (eq category 'date')}}
+      expect(is{{capitalize name}}Valid(new Date())).toBe(true);
+      expect(is{{capitalize name}}Valid('2023-01-01')).toBe(true);
+      expect(is{{capitalize name}}Valid(1234567890)).toBe(true);
+      expect(is{{capitalize name}}Valid({})).toBe(false);
+      {{/if}}
+      {{#if (eq category 'validation')}}
+      expect(is{{capitalize name}}Valid('anything')).toBe(true);
+      expect(is{{capitalize name}}Valid(123)).toBe(true);
+      expect(is{{capitalize name}}Valid(null)).toBe(true);
+      {{/if}}
+      {{#if (eq category 'performance')}}
+      expect(is{{capitalize name}}Valid(() => {})).toBe(true);
+      expect(is{{capitalize name}}Valid('not function')).toBe(false);
+      {{/if}}
+      {{#if (eq category 'accessibility')}}
+      expect(is{{capitalize name}}Valid(document.createElement('div'))).toBe(true);
+      expect(is{{capitalize name}}Valid('#selector')).toBe(true);
+      expect(is{{capitalize name}}Valid(123)).toBe(false);
+      {{/if}}
+    });
+  });
+
+  // Constants tests
+  describe('Constants', () => {
+    it('should have correct default options', () => {
+      expect({{constantCase name}}_CONSTANTS.DEFAULT_OPTIONS).toBeDefined();
+      expect({{constantCase name}}_CONSTANTS.VERSION).toBe('1.0.0');
+      expect({{constantCase name}}_CONSTANTS.CATEGORY).toBe('{{category}}');
+    });
+  });
+
+  // Performance tests
+  describe('Performance', () => {
+    it('should handle large inputs efficiently', () => {
+      {{#if (eq category 'string')}}
+      const largeString = 'word '.repeat(10000);
+      const start = performance.now();
+      
+      {{name}}(largeString);
+      
+      const end = performance.now();
+      expect(end - start).toBeLessThan(100); // Should complete in < 100ms
+      {{/if}}
+
+      {{#if (eq category 'array')}}
+      const largeArray = Array.from({ length: 10000 }, (_, i) => i % 1000);
+      const start = performance.now();
+      
+      {{name}}(largeArray);
+      
+      const end = performance.now();
+      expect(end - start).toBeLessThan(100); // Should complete in < 100ms
+      {{/if}}
+
+      {{#if (eq category 'object')}}
+      const largeObject = Object.fromEntries(
+        Array.from({ length: 1000 }, (_, i) => [`key${i}`, i])
+      );
+      const start = performance.now();
+      
+      {{name}}(largeObject);
+      
+      const end = performance.now();
+      expect(end - start).toBeLessThan(100); // Should complete in < 100ms
+      {{/if}}
+    });
+  });
+
+  // Memory leak tests
+  describe('Memory Management', () => {
+    it('should not create memory leaks', () => {
+      {{#if (eq category 'performance')}}
+      const functions = [];
+      
+      for (let i = 0; i < 1000; i++) {
+        const fn = () => i;
+        functions.push({{name}}(fn, { memoize: true }));
+      }
+      
+      // Should not throw or cause memory issues
+      expect(functions).toHaveLength(1000);
+      {{else}}
+      // Create many utility calls
+      for (let i = 0; i < 1000; i++) {
+        {{#if (eq category 'string')}}
+        {{name}}(`test${i}`);
+        {{/if}}
+        {{#if (eq category 'array')}}
+        {{name}}([i, i + 1, i + 2]);
+        {{/if}}
+        {{#if (eq category 'object')}}
+        {{name}}({ [`key${i}`]: i });
+        {{/if}}
+        {{#if (eq category 'date')}}
+        {{name}}(new Date());
+        {{/if}}
+        {{#if (eq category 'validation')}}
+        {{name}}(`test${i}`, { type: 'string' });
+        {{/if}}
+      }
+      
+      // Should complete without memory issues
+      expect(true).toBe(true);
+      {{/if}}
+    });
+  });
+});

@@ -1,0 +1,2303 @@
+{
+  "timestamp": "2025-07-13T02:18:29.660Z",
+  "summary": {
+    "totalComponents": 25,
+    "averageUXScore": 79,
+    "distribution": {
+      "excellent": 14,
+      "good": 4,
+      "needsWork": 7
+    }
+  },
+  "components": {
+    "Button": {
+      "componentName": "Button",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography"
+        ],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(${theme.palette.mode === 'dark' ? '255, 255, 255' : '0, 0, 0'}, ${GLASS_MORPHISM_CONFIG.backgroundOpacity})",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(${theme.palette.mode === 'dark' ? '255, 255, 255' : '0, 0, 0'}, ${GLASS_MORPHISM_CONFIG.borderOpacity})",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(${theme.palette.mode === 'dark' ? '255, 255, 255' : '0, 0, 0'}, ${GLASS_MORPHISM_CONFIG.backgroundOpacity * 1.5})",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.5)",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 140
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "missingStates": [],
+        "score": 100
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex"
+        ],
+        "missingFeatures": [
+          "keyboard navigation"
+        ],
+        "score": 67
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units"
+        ],
+        "missingFeatures": [],
+        "score": 33
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 15
+      },
+      "uxScore": 79,
+      "violations": [],
+      "recommendations": [
+        "Replace 4 hardcoded values with theme tokens",
+        "Improve accessibility with: keyboard navigation",
+        "Add performance optimizations: extract inline objects"
+      ]
+    },
+    "Card": {
+      "componentName": "Card",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(${theme.palette.mode === 'dark' ? '255, 255, 255' : '0, 0, 0'}, ${GLASS_MORPHISM_CARD_CONFIG.backgroundOpacity})",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(${theme.palette.mode === 'dark' ? '255, 255, 255' : '0, 0, 0'}, ${GLASS_MORPHISM_CARD_CONFIG.borderOpacity})",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 220
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "missingStates": [],
+        "score": 100
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "role",
+          "tabindex"
+        ],
+        "missingFeatures": [
+          "aria-describedby",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 98,
+      "violations": [],
+      "recommendations": [
+        "Replace 2 hardcoded values with theme tokens",
+        "Improve accessibility with: aria-describedby, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "CardActions": {
+      "componentName": "CardActions",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [],
+        "missingFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 0
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [],
+        "missingFeatures": [],
+        "score": 0
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 25,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-label, aria-describedby",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "CardContent": {
+      "componentName": "CardContent",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [],
+        "missingFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 0
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [],
+        "missingFeatures": [],
+        "score": 0
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 25,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-label, aria-describedby",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "CardHeader": {
+      "componentName": "CardHeader",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [],
+        "missingFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 0
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [],
+        "missingFeatures": [],
+        "score": 0
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 25,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-label, aria-describedby",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "CardMedia": {
+      "componentName": "CardMedia",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [],
+        "missingFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 0
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 35,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-label, aria-describedby",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "Typography": {
+      "componentName": "Typography",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [],
+        "score": 220
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "missingStates": [],
+        "score": 100
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage"
+        ],
+        "missingFeatures": [],
+        "score": 33
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 15
+      },
+      "uxScore": 95,
+      "violations": [],
+      "recommendations": [
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: extract inline objects"
+      ]
+    },
+    "Alert": {
+      "componentName": "Alert",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [],
+        "score": 210
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover"
+        ],
+        "missingStates": [
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 25
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 85,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: focus, active, disabled",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Loading": {
+      "componentName": "Loading",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography"
+        ],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.8)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, ${customOpacity})",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 170
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "disabled"
+        ],
+        "missingStates": [
+          "focus",
+          "active"
+        ],
+        "score": 50
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 75,
+      "violations": [],
+      "recommendations": [
+        "Replace 2 hardcoded values with theme tokens",
+        "Add missing interaction states: focus, active",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Skeleton": {
+      "componentName": "Skeleton",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "role"
+        ],
+        "missingFeatures": [
+          "aria-describedby",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 33
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [],
+        "missingFeatures": [],
+        "score": 0
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 33,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-describedby, tabindex",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "CircularProgress": {
+      "componentName": "CircularProgress",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 48,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "LinearProgress": {
+      "componentName": "LinearProgress",
+      "designTokenUsage": {
+        "colorsUsed": [],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 100
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 48,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Snackbar": {
+      "componentName": "Snackbar",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.8)",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 180
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "disabled"
+        ],
+        "missingStates": [
+          "focus",
+          "active"
+        ],
+        "score": 50
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 83,
+      "violations": [],
+      "recommendations": [
+        "Replace 7 hardcoded values with theme tokens",
+        "Add missing interaction states: focus, active",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "TextField": {
+      "componentName": "TextField",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [],
+        "score": 655
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "disabled"
+        ],
+        "missingStates": [
+          "active"
+        ],
+        "score": 75
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "tabindex"
+        ],
+        "missingFeatures": [
+          "role",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "useCallback"
+        ],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 5
+      },
+      "uxScore": 202,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: active",
+        "Improve accessibility with: role, keyboard navigation",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Box": {
+      "componentName": "Box",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.5)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.2)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.3)",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 205
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active"
+        ],
+        "missingStates": [
+          "disabled"
+        ],
+        "score": 75
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex"
+        ],
+        "missingFeatures": [
+          "keyboard navigation"
+        ],
+        "score": 67
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 98,
+      "violations": [],
+      "recommendations": [
+        "Replace 3 hardcoded values with theme tokens",
+        "Add missing interaction states: disabled",
+        "Improve accessibility with: keyboard navigation",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "Container": {
+      "componentName": "Container",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 285
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 99,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "Grid": {
+      "componentName": "Grid",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 150
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "role"
+        ],
+        "missingFeatures": [
+          "aria-describedby",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 33
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo"
+        ],
+        "score": 0
+      },
+      "uxScore": 61,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-describedby, tabindex",
+        "Add performance optimizations: React.memo"
+      ]
+    },
+    "Stack": {
+      "componentName": "Stack",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [],
+        "hardcodedValues": [],
+        "score": 235
+      },
+      "interactionStates": {
+        "statesImplemented": [],
+        "missingStates": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "score": 0
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "role"
+        ],
+        "missingFeatures": [
+          "aria-describedby",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 33
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 0
+      },
+      "uxScore": 82,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: hover, focus, active, disabled",
+        "Improve accessibility with: aria-describedby, tabindex",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Breadcrumbs": {
+      "componentName": "Breadcrumbs",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography"
+        ],
+        "hardcodedValues": [],
+        "score": 195
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "disabled"
+        ],
+        "missingStates": [
+          "active"
+        ],
+        "score": 75
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "missingFeatures": [
+          "aria-describedby"
+        ],
+        "score": 67
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "useCallback",
+          "useMemo"
+        ],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 30
+      },
+      "uxScore": 95,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: active",
+        "Improve accessibility with: aria-describedby",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Tabs": {
+      "componentName": "Tabs",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [],
+        "score": 190
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "disabled"
+        ],
+        "missingStates": [
+          "active"
+        ],
+        "score": 75
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "role",
+          "keyboard navigation"
+        ],
+        "missingFeatures": [
+          "aria-describedby",
+          "tabindex"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "useCallback",
+          "useMemo"
+        ],
+        "missingOptimizations": [
+          "React.memo",
+          "extract inline objects"
+        ],
+        "score": 30
+      },
+      "uxScore": 95,
+      "violations": [],
+      "recommendations": [
+        "Add missing interaction states: active",
+        "Improve accessibility with: aria-describedby, tabindex",
+        "Add performance optimizations: React.memo, extract inline objects"
+      ]
+    },
+    "Accordion": {
+      "componentName": "Accordion",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.08)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.04)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.12)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.08)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.05)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.02)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "spacing",
+            "value": "margin: '8px",
+            "suggestion": "Use theme.spacing() instead"
+          },
+          {
+            "type": "spacing",
+            "value": "margin: '12px",
+            "suggestion": "Use theme.spacing() instead"
+          }
+        ],
+        "score": 245
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "missingStates": [],
+        "score": 100
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role"
+        ],
+        "missingFeatures": [
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 50
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo",
+          "useCallback",
+          "useMemo"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 65
+      },
+      "uxScore": 114,
+      "violations": [],
+      "recommendations": [
+        "Replace 8 hardcoded values with theme tokens",
+        "Improve accessibility with: tabindex, keyboard navigation",
+        "Add performance optimizations: extract inline objects"
+      ]
+    },
+    "Dialog": {
+      "componentName": "Dialog",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [],
+        "score": 340
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active",
+          "disabled"
+        ],
+        "missingStates": [],
+        "score": 100
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby"
+        ],
+        "missingFeatures": [
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "score": 33
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo",
+          "useCallback",
+          "useMemo"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 65
+      },
+      "uxScore": 133,
+      "violations": [],
+      "recommendations": [
+        "Improve accessibility with: role, tabindex",
+        "Add performance optimizations: extract inline objects"
+      ]
+    },
+    "Drawer": {
+      "componentName": "Drawer",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.2)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.14)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.12)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.2)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.14)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.12)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.2)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.14)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.12)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.2)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.14)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0,0,0,0.12)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(18, 18, 18, 0.8)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.5)",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 145
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "disabled"
+        ],
+        "missingStates": [
+          "active"
+        ],
+        "score": 75
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "keyboard navigation"
+        ],
+        "missingFeatures": [
+          "tabindex"
+        ],
+        "score": 67
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo",
+          "useCallback"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 40
+      },
+      "uxScore": 89,
+      "violations": [],
+      "recommendations": [
+        "Replace 14 hardcoded values with theme tokens",
+        "Add missing interaction states: active",
+        "Improve accessibility with: tabindex",
+        "Add performance optimizations: extract inline objects"
+      ]
+    },
+    "Modal": {
+      "componentName": "Modal",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing",
+          "theme.spacing"
+        ],
+        "typographyUsed": [
+          "theme.typography",
+          "theme.typography"
+        ],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "rgba(18, 18, 18, 0.9)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.9)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.1)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.02)",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(0, 0, 0, 0.02)",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 155
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus"
+        ],
+        "missingStates": [
+          "active",
+          "disabled"
+        ],
+        "score": 50
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex",
+          "keyboard navigation"
+        ],
+        "missingFeatures": [],
+        "score": 83
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units",
+          "flexible layouts"
+        ],
+        "missingFeatures": [],
+        "score": 100
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo",
+          "useCallback"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 40
+      },
+      "uxScore": 91,
+      "violations": [],
+      "recommendations": [
+        "Replace 6 hardcoded values with theme tokens",
+        "Add missing interaction states: active, disabled",
+        "Add performance optimizations: extract inline objects"
+      ]
+    },
+    "Paper": {
+      "componentName": "Paper",
+      "designTokenUsage": {
+        "colorsUsed": [
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette",
+          "theme.palette"
+        ],
+        "spacingUsed": [],
+        "typographyUsed": [],
+        "hardcodedValues": [
+          {
+            "type": "color",
+            "value": "#1a1a1a",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#f0f0f0",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#2a2a2a",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#ffffff",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#2a2a2a",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#ffffff",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#1a1a1a",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#f0f0f0",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "#000000",
+            "suggestion": "Use theme color tokens instead"
+          },
+          {
+            "type": "color",
+            "value": "rgba(255, 255, 255, 0.4)",
+            "suggestion": "Use theme color tokens instead"
+          }
+        ],
+        "score": 65
+      },
+      "interactionStates": {
+        "statesImplemented": [
+          "hover",
+          "focus",
+          "active"
+        ],
+        "missingStates": [
+          "disabled"
+        ],
+        "score": 75
+      },
+      "accessibilityPatterns": {
+        "accessibilityFeatures": [
+          "aria-label",
+          "aria-describedby",
+          "role",
+          "tabindex"
+        ],
+        "missingFeatures": [
+          "keyboard navigation"
+        ],
+        "score": 67
+      },
+      "responsiveDesign": {
+        "responsiveFeatures": [
+          "breakpoint usage",
+          "responsive units"
+        ],
+        "missingFeatures": [],
+        "score": 67
+      },
+      "performancePatterns": {
+        "optimizations": [
+          "React.memo",
+          "useCallback"
+        ],
+        "missingOptimizations": [
+          "extract inline objects"
+        ],
+        "score": 40
+      },
+      "uxScore": 64,
+      "violations": [],
+      "recommendations": [
+        "Replace 10 hardcoded values with theme tokens",
+        "Add missing interaction states: disabled",
+        "Improve accessibility with: keyboard navigation",
+        "Add performance optimizations: extract inline objects"
+      ]
+    }
+  },
+  "globalRecommendations": [
+    "Add performance optimizations (25 components)",
+    "Improve accessibility with (24 components)",
+    "Add missing interaction (20 components)",
+    "Replace 2 hardcoded (2 components)",
+    "Replace 4 hardcoded (1 components)"
+  ]
+}

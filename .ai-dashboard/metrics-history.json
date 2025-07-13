@@ -1,0 +1,91 @@
+[
+  {
+    "timestamp": "2025-07-12T09:12:07.032Z",
+    "testMetrics": {
+      "totalTests": 163,
+      "passedTests": 142,
+      "failedTests": 8,
+      "successRate": 92.9806880007429,
+      "averageDuration": 2584.808571002687,
+      "flakiness": 1.5978928196797293,
+      "coverage": 86.59671373380623
+    },
+    "performanceMetrics": {
+      "bundleSize": 49212.555268206896,
+      "loadTime": 1022.6367518015935,
+      "renderTime": 100.12916840068054,
+      "interactionTime": 55.86063107342789,
+      "memoryUsage": 33.37734328987007,
+      "score": 90.46237350657326
+    },
+    "codeMetrics": {
+      "linesOfCode": 16211,
+      "complexity": 5.860062417762279,
+      "maintainability": 8.736316906436357,
+      "technicalDebt": 2.325309412236236,
+      "duplicateCode": 3.849500433757348
+    },
+    "componentHealth": [
+      [
+        "Button",
+        {
+          "testCoverage": 88.06778370982354,
+          "complexity": 3.538271950228207,
+          "performance": 88.47284890203753,
+          "accessibility": 99.40385613932985,
+          "overallHealth": 91.15178162481004
+        }
+      ],
+      [
+        "Card",
+        {
+          "testCoverage": 82.16001871875632,
+          "complexity": 3.3845985012554936,
+          "performance": 92.26269976081248,
+          "accessibility": 97.17221585247782,
+          "overallHealth": 87.66955593069687
+        }
+      ],
+      [
+        "TextField",
+        {
+          "testCoverage": 88.10302732174254,
+          "complexity": 4.751523242728733,
+          "performance": 90.17764121151887,
+          "accessibility": 91.11892662102285,
+          "overallHealth": 99.2886454738702
+        }
+      ],
+      [
+        "Alert",
+        {
+          "testCoverage": 86.8357651683591,
+          "complexity": 4.041157141176632,
+          "performance": 93.61517742057727,
+          "accessibility": 97.56049035426213,
+          "overallHealth": 85.73006755866291
+        }
+      ],
+      [
+        "Loading",
+        {
+          "testCoverage": 92.78843743990754,
+          "complexity": 3.9984889104531396,
+          "performance": 96.67196119700115,
+          "accessibility": 95.59575544194294,
+          "overallHealth": 96.96776720902832
+        }
+      ]
+    ],
+    "predictions": [
+      {
+        "type": "maintenance",
+        "message": "Component health stable. No major maintenance needed in next month.",
+        "confidence": 0.82,
+        "impact": "low",
+        "timeframe": "long-term"
+      }
+    ],
+    "alerts": []
+  }
+]

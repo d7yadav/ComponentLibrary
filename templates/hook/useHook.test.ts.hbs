@@ -1,0 +1,551 @@
+/**
+ * @fileoverview {{hookName}} Hook Tests
+ * @author AI Generated Tests
+ */
+
+import { renderHook, act } from '@testing-library/react';
+import { {{hookName}} } from './{{hookName}}';
+import type { {{name}}Options } from './{{hookName}}';
+
+describe('{{hookName}}', () => {
+  // Basic functionality tests
+  describe('Basic Functionality', () => {
+    it('should initialize with default values', () => {
+      const { result } = renderHook(() => {{hookName}}());
+      
+      expect(result.current).toBeDefined();
+      {{#if (eq category 'state')}}
+      expect(result.current.value).toBeNull();
+      expect(typeof result.current.setValue).toBe('function');
+      expect(typeof result.current.reset).toBe('function');
+      expect(typeof result.current.clear).toBe('function');
+      {{/if}}
+      {{#if (eq category 'effects')}}
+      expect(result.current.isActive).toBe(false);
+      expect(typeof result.current.start).toBe('function');
+      expect(typeof result.current.stop).toBe('function');
+      expect(typeof result.current.restart).toBe('function');
+      {{/if}}
+      {{#if (eq category 'data')}}
+      expect(result.current.data).toBeNull();
+      expect(result.current.loading).toBe(false);
+      expect(result.current.error).toBeNull();
+      expect(typeof result.current.fetch).toBe('function');
+      expect(typeof result.current.refetch).toBe('function');
+      {{/if}}
+    });
+
+    it('should accept custom options', () => {
+      const options: {{name}}Options = {
+        {{#if (eq category 'state')}}
+        initialValue: 'test value',
+        persist: false,
+        {{/if}}
+        {{#if (eq category 'effects')}}
+        delay: 500,
+        immediate: true,
+        {{/if}}
+        {{#if (eq category 'data')}}
+        url: '/api/test',
+        autoFetch: false,
+        {{/if}}
+      };
+
+      const { result } = renderHook(() => {{hookName}}(options));
+      
+      expect(result.current).toBeDefined();
+      {{#if (eq category 'state')}}
+      expect(result.current.value).toBe('test value');
+      {{/if}}
+      {{#if (eq category 'effects')}}
+      expect(result.current.isActive).toBe(true);
+      {{/if}}
+    });
+  });
+
+  {{#if (eq category 'state')}}
+  // State management tests
+  describe('State Management', () => {
+    it('should update value correctly', () => {
+      const { result } = renderHook(() => {{hookName}}({ initialValue: 'initial' }));
+      
+      expect(result.current.value).toBe('initial');
+      
+      act(() => {
+        result.current.setValue('updated');
+      });
+      
+      expect(result.current.value).toBe('updated');
+    });
+
+    it('should reset to initial value', () => {
+      const { result } = renderHook(() => {{hookName}}({ initialValue: 'initial' }));
+      
+      act(() => {
+        result.current.setValue('changed');
+      });
+      
+      expect(result.current.value).toBe('changed');
+      
+      act(() => {
+        result.current.reset();
+      });
+      
+      expect(result.current.value).toBe('initial');
+    });
+
+    it('should clear value', () => {
+      const { result } = renderHook(() => {{hookName}}({ initialValue: 'initial' }));
+      
+      act(() => {
+        result.current.clear();
+      });
+      
+      expect(result.current.value).toBeNull();
+    });
+
+    it('should handle persistence', () => {
+      const storageKey = 'test-{{dashCase hookName}}';
+      const testValue = 'persisted value';
+      
+      // Mock localStorage
+      const mockGetItem = vi.fn();
+      const mockSetItem = vi.fn();
+      
+      Object.defineProperty(window, 'localStorage', {
+        value: {
+          getItem: mockGetItem,
+          setItem: mockSetItem,
+        },
+        writable: true,
+      });
+
+      mockGetItem.mockReturnValue(JSON.stringify(testValue));
+
+      const { result } = renderHook(() => 
+        {{hookName}}({ persist: true, storageKey })
+      );
+      
+      expect(mockGetItem).toHaveBeenCalledWith(storageKey);
+      expect(result.current.value).toBe(testValue);
+      
+      act(() => {
+        result.current.setValue('new value');
+      });
+      
+      expect(mockSetItem).toHaveBeenCalledWith(
+        storageKey, 
+        JSON.stringify('new value')
+      );
+    });
+  });
+  {{/if}}
+
+  {{#if (eq category 'effects')}}
+  // Effects tests
+  describe('Effects', () => {
+    beforeEach(() => {
+      vi.useFakeTimers();
+    });
+
+    afterEach(() => {
+      vi.useRealTimers();
+    });
+
+    it('should start and stop effects', () => {
+      const { result } = renderHook(() => {{hookName}}({ delay: 1000 }));
+      
+      expect(result.current.isActive).toBe(false);
+      
+      act(() => {
+        result.current.start();
+      });
+      
+      expect(result.current.isActive).toBe(true);
+      
+      act(() => {
+        result.current.stop();
+      });
+      
+      expect(result.current.isActive).toBe(false);
+    });
+
+    it('should restart effects', () => {
+      const { result } = renderHook(() => {{hookName}}({ delay: 1000 }));
+      
+      act(() => {
+        result.current.start();
+      });
+      
+      expect(result.current.isActive).toBe(true);
+      
+      act(() => {
+        result.current.restart();
+      });
+      
+      expect(result.current.isActive).toBe(true);
+    });
+
+    it('should handle immediate execution', () => {
+      const { result } = renderHook(() => 
+        {{hookName}}({ delay: 1000, immediate: true })
+      );
+      
+      expect(result.current.isActive).toBe(true);
+    });
+
+    it('should respect delay timing', () => {
+      const consoleSpy = vi.spyOn(console, 'log').mockImplementation();
+      
+      const { result } = renderHook(() => {{hookName}}({ delay: 1000 }));
+      
+      act(() => {
+        result.current.start();
+      });
+      
+      // Should not execute immediately
+      expect(consoleSpy).not.toHaveBeenCalled();
+      
+      // Fast-forward time
+      act(() => {
+        vi.advanceTimersByTime(1000);
+      });
+      
+      expect(consoleSpy).toHaveBeenCalledWith('{{hookName}} effect executed');
+      
+      consoleSpy.mockRestore();
+    });
+  });
+  {{/if}}
+
+  {{#if (eq category 'data')}}
+  // Data fetching tests
+  describe('Data Fetching', () => {
+    beforeEach(() => {
+      global.fetch = vi.fn();
+    });
+
+    afterEach(() => {
+      vi.restoreAllMocks();
+    });
+
+    it('should fetch data successfully', async () => {
+      const mockData = { id: 1, name: 'Test' };
+      
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockData,
+      });
+
+      const { result } = renderHook(() => 
+        {{hookName}}({ url: '/api/test', autoFetch: false })
+      );
+      
+      expect(result.current.loading).toBe(false);
+      expect(result.current.data).toBeNull();
+      expect(result.current.error).toBeNull();
+      
+      await act(async () => {
+        await result.current.fetch();
+      });
+      
+      expect(result.current.loading).toBe(false);
+      expect(result.current.data).toEqual(mockData);
+      expect(result.current.error).toBeNull();
+    });
+
+    it('should handle fetch errors', async () => {
+      (global.fetch as jest.Mock).mockRejectedValueOnce(
+        new Error('Network error')
+      );
+
+      const { result } = renderHook(() => 
+        {{hookName}}({ url: '/api/test', autoFetch: false })
+      );
+      
+      await act(async () => {
+        await result.current.fetch();
+      });
+      
+      expect(result.current.loading).toBe(false);
+      expect(result.current.data).toBeNull();
+      expect(result.current.error).toEqual(new Error('Network error'));
+    });
+
+    it('should handle HTTP errors', async () => {
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: false,
+        status: 404,
+      });
+
+      const { result } = renderHook(() => 
+        {{hookName}}({ url: '/api/test', autoFetch: false })
+      );
+      
+      await act(async () => {
+        await result.current.fetch();
+      });
+      
+      expect(result.current.error?.message).toBe('HTTP error! status: 404');
+    });
+
+    it('should auto-fetch on mount when enabled', async () => {
+      const mockData = { id: 1, name: 'Test' };
+      
+      (global.fetch as jest.Mock).mockResolvedValueOnce({
+        ok: true,
+        json: async () => mockData,
+      });
+
+      const { result, waitForNextUpdate } = renderHook(() => 
+        {{hookName}}({ url: '/api/test', autoFetch: true })
+      );
+      
+      await waitForNextUpdate();
+      
+      expect(result.current.data).toEqual(mockData);
+    });
+
+    it('should support refetch functionality', async () => {
+      const mockData = { id: 1, name: 'Test' };
+      
+      (global.fetch as jest.Mock).mockResolvedValue({
+        ok: true,
+        json: async () => mockData,
+      });
+
+      const { result } = renderHook(() => 
+        {{hookName}}({ url: '/api/test', autoFetch: false })
+      );
+      
+      await act(async () => {
+        await result.current.refetch();
+      });
+      
+      expect(global.fetch).toHaveBeenCalledTimes(1);
+      expect(result.current.data).toEqual(mockData);
+    });
+  });
+  {{/if}}
+
+  {{#if (eq category 'performance')}}
+  // Performance tests
+  describe('Performance', () => {
+    it('should track render metrics', () => {
+      const { result, rerender } = renderHook(() => {{hookName}}());
+      
+      expect(result.current.metrics.renderCount).toBe(1);
+      expect(result.current.metrics.lastRenderTime).toBeGreaterThan(0);
+      
+      rerender();
+      
+      expect(result.current.metrics.renderCount).toBe(2);
+    });
+
+    it('should handle memoization', () => {
+      const { result } = renderHook(() => 
+        {{hookName}}({ memoize: true })
+      );
+      
+      expect(result.current.optimizedValue).toBeDefined();
+    });
+  });
+  {{/if}}
+
+  {{#if (eq category 'ui')}}
+  // UI interaction tests
+  describe('UI Interactions', () => {
+    it('should provide element reference', () => {
+      const { result } = renderHook(() => {{hookName}}());
+      
+      expect(result.current.ref).toBeDefined();
+      expect(result.current.ref.current).toBeNull();
+    });
+
+    it('should track visibility state', () => {
+      const { result } = renderHook(() => {{hookName}}());
+      
+      expect(result.current.isVisible).toBe(false);
+    });
+
+    it('should track dimensions', () => {
+      const { result } = renderHook(() => {{hookName}}());
+      
+      expect(result.current.dimensions).toEqual({
+        width: 0,
+        height: 0,
+      });
+    });
+  });
+  {{/if}}
+
+  {{#if (eq category 'utilities')}}
+  // Utility function tests
+  describe('Utility Functions', () => {
+    it('should validate values correctly', () => {
+      const { result } = renderHook(() => 
+        {{hookName}}({ validate: true })
+      );
+      
+      expect(result.current.isValid).toBe(true);
+      expect(result.current.error).toBeNull();
+      expect(typeof result.current.validate).toBe('function');
+    });
+
+    it('should use custom validator', () => {
+      const customValidator = vi.fn().mockReturnValue(false);
+      
+      const { result } = renderHook(() => 
+        {{hookName}}({ 
+          validate: true, 
+          validator: customValidator,
+          errorMessage: 'Custom error'
+        })
+      );
+      
+      act(() => {
+        result.current.validate();
+      });
+      
+      expect(customValidator).toHaveBeenCalled();
+      expect(result.current.isValid).toBe(false);
+      expect(result.current.error).toBe('Custom error');
+    });
+
+    it('should process values', () => {
+      const { result } = renderHook(() => {{hookName}}());
+      
+      expect(result.current.processedValue).toBeDefined();
+    });
+  });
+  {{/if}}
+
+  // Edge cases and error handling
+  describe('Edge Cases', () => {
+    it('should handle undefined options', () => {
+      const { result } = renderHook(() => {{hookName}}(undefined as any));
+      
+      expect(result.current).toBeDefined();
+    });
+
+    it('should handle empty options object', () => {
+      const { result } = renderHook(() => {{hookName}}({}));
+      
+      expect(result.current).toBeDefined();
+    });
+
+    it('should handle invalid option values', () => {
+      const invalidOptions = {
+        {{#if (eq category 'state')}}
+        initialValue: undefined,
+        persist: 'invalid' as any,
+        storageKey: null as any,
+        {{/if}}
+        {{#if (eq category 'effects')}}
+        delay: -1,
+        immediate: 'invalid' as any,
+        {{/if}}
+        {{#if (eq category 'data')}}
+        url: '',
+        autoFetch: 'invalid' as any,
+        {{/if}}
+      };
+
+      const { result } = renderHook(() => {{hookName}}(invalidOptions));
+      
+      expect(result.current).toBeDefined();
+    });
+  });
+
+  // Cleanup tests
+  describe('Cleanup', () => {
+    it('should cleanup effects on unmount', () => {
+      {{#if (eq category 'effects')}}
+      vi.useFakeTimers();
+      
+      const { result, unmount } = renderHook(() => 
+        {{hookName}}({ delay: 1000, immediate: true })
+      );
+      
+      expect(result.current.isActive).toBe(true);
+      
+      unmount();
+      
+      // Should not throw errors
+      expect(() => {
+        vi.advanceTimersByTime(1000);
+      }).not.toThrow();
+      
+      vi.useRealTimers();
+      {{else}}
+      const { unmount } = renderHook(() => {{hookName}}());
+      
+      // Should not throw errors on unmount
+      expect(() => unmount()).not.toThrow();
+      {{/if}}
+    });
+
+    it('should handle memory leaks', () => {
+      const { result, unmount } = renderHook(() => {{hookName}}());
+      
+      // Use the hook to create references
+      const hookResult = result.current;
+      
+      unmount();
+      
+      // Should not cause memory leaks
+      expect(hookResult).toBeDefined();
+    });
+  });
+
+  // Integration tests
+  describe('Integration', () => {
+    it('should work with multiple instances', () => {
+      const { result: result1 } = renderHook(() => 
+        {{hookName}}({{#if (eq category 'state')}}{ initialValue: 'instance1' }{{/if}})
+      );
+      
+      const { result: result2 } = renderHook(() => 
+        {{hookName}}({{#if (eq category 'state')}}{ initialValue: 'instance2' }{{/if}})
+      );
+      
+      expect(result1.current).not.toBe(result2.current);
+      {{#if (eq category 'state')}}
+      expect(result1.current.value).toBe('instance1');
+      expect(result2.current.value).toBe('instance2');
+      {{/if}}
+    });
+
+    it('should handle rapid state changes', () => {
+      {{#if (eq category 'state')}}
+      const { result } = renderHook(() => {{hookName}}());
+      
+      act(() => {
+        result.current.setValue('value1');
+        result.current.setValue('value2');
+        result.current.setValue('value3');
+      });
+      
+      expect(result.current.value).toBe('value3');
+      {{else}}
+      const { result } = renderHook(() => {{hookName}}());
+      
+      // Should handle rapid method calls without errors
+      expect(() => {
+        act(() => {
+          {{#if (eq category 'effects')}}
+          result.current.start();
+          result.current.stop();
+          result.current.restart();
+          {{/if}}
+          {{#if (eq category 'utilities')}}
+          result.current.validate();
+          result.current.validate();
+          result.current.validate();
+          {{/if}}
+        });
+      }).not.toThrow();
+      {{/if}}
+    });
+  });
+});

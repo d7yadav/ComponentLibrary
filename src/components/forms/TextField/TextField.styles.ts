@@ -1,0 +1,564 @@
+import { styled } from '@mui/material/styles';
+import { TextField as MuiTextField, FormHelperText, InputAdornment, Typography } from '@mui/material';
+import {
+  TEXTFIELD_SIZE_CONFIGS,
+  VALIDATION_STATE_COLORS,
+  TEXTFIELD_ANIMATION_DURATIONS,
+  TEXTFIELD_ANIMATION_EASINGS,
+  ACCESSIBILITY_CONSTANTS,
+  CHARACTER_COUNT_CONFIGS,
+} from './TextField.constants';
+
+/**
+ * StyledTextField component with improved UX consistency
+ * 
+ * @returns JSX element
+ */
+export const StyledTextField = styled(MuiTextField, {
+  shouldForwardProp: (prop) => !['customVariant', 'customSize', 'validationState', 'loading', 'hasStartIcon', 'hasEndIcon', 'hasEndAction', 'showCharacterCount', 'focused'].includes(prop as string),
+})<any>(({ theme, customVariant, customSize, validationState, loading, disabled, readOnly, hasStartIcon, hasEndIcon, hasEndAction, focused }: any) => {
+  const sizeConfig = TEXTFIELD_SIZE_CONFIGS[customSize as keyof typeof TEXTFIELD_SIZE_CONFIGS];
+  const validationColors = VALIDATION_STATE_COLORS[validationState as keyof typeof VALIDATION_STATE_COLORS];
+  
+  return {
+    // Root styling
+    width: '100%',
+    
+    '& .MuiInputBase-root': {
+      borderRadius: sizeConfig.borderRadius,
+      fontSize: sizeConfig.fontSize,
+      transition: `all ${TEXTFIELD_ANIMATION_DURATIONS.focus} ${TEXTFIELD_ANIMATION_EASINGS.spring}`,
+      fontFamily: theme.typography.fontFamily,
+      
+      // Size-specific styles with consistent height
+      ...(customSize === 'small' && {
+        minHeight: sizeConfig.height,
+        '& .MuiInputBase-input': {
+          padding: sizeConfig.padding,
+          height: 'auto',
+          fontSize: sizeConfig.fontSize,
+        },
+      }),
+      ...(customSize === 'medium' && {
+        minHeight: sizeConfig.height,
+        '& .MuiInputBase-input': {
+          padding: sizeConfig.padding,
+          height: 'auto',
+          fontSize: sizeConfig.fontSize,
+        },
+      }),
+      
+      // Base styling for all variants
+      '& .MuiInputBase-input': {
+        color: theme.palette.text.primary,
+        fontFamily: theme.typography.fontFamily,
+        fontSize: sizeConfig.fontSize,
+        '&::placeholder': {
+          color: theme.palette.text.disabled,
+          opacity: 0.7,
+        },
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+    },
+    
+    // Outlined variant specific styling
+    ...(customVariant === 'outlined' && {
+      '& .MuiOutlinedInput-root': {
+        borderRadius: sizeConfig.borderRadius,
+        backgroundColor: theme.palette.background.default,
+        
+        '& .MuiOutlinedInput-notchedOutline': {
+          borderColor: validationState !== 'none' 
+            ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+            : theme.palette.divider,
+          borderWidth: '1px',
+          transition: `border-color ${TEXTFIELD_ANIMATION_DURATIONS.focus} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+        },
+        
+        '&:hover:not(.Mui-disabled) .MuiOutlinedInput-notchedOutline': {
+          borderColor: validationState !== 'none'
+            ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+            : theme.palette.action.hover,
+        },
+        
+        '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+          borderColor: validationState !== 'none'
+            ? theme.palette[validationColors.focus.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.focus
+            : theme.palette.primary.main,
+          borderWidth: '2px',
+        },
+        
+        '&.Mui-error .MuiOutlinedInput-notchedOutline': {
+          borderColor: theme.palette.error.main,
+        },
+        
+        // Dark theme specific
+        ...(theme.palette.mode === 'dark' && {
+          backgroundColor: theme.palette.background.paper,
+          '& .MuiOutlinedInput-notchedOutline': {
+            borderColor: validationState !== 'none'
+              ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+              : theme.palette.grey[700],
+          },
+          '&:hover:not(.Mui-disabled) .MuiOutlinedInput-notchedOutline': {
+            borderColor: validationState !== 'none'
+              ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+              : theme.palette.grey[500],
+          },
+        }),
+      },
+    }),
+    
+    // Filled variant specific styling with improved icon handling
+    ...(customVariant === 'filled' && {
+      '& .MuiFilledInput-root': {
+        borderRadius: `${sizeConfig.borderRadius}px ${sizeConfig.borderRadius}px 0 0`,
+        backgroundColor: theme.palette.action.hover,
+        borderBottom: `2px solid ${validationState !== 'none' 
+          ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+          : theme.palette.divider}`,
+        transition: `all ${TEXTFIELD_ANIMATION_DURATIONS.focus} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+        position: 'relative',
+        
+        '& .MuiFilledInput-input': {
+          padding: sizeConfig.padding,
+          paddingTop: customSize === 'small' ? '20px' : '25px',
+          paddingBottom: customSize === 'small' ? '6px' : '8px',
+          
+          // Adjust padding when icons are present
+          ...(hasStartIcon && {
+            paddingLeft: theme.spacing(5),
+          }),
+          ...(hasEndIcon || hasEndAction && {
+            paddingRight: theme.spacing(5),
+          }),
+        },
+        
+        // Icon positioning
+        '& .MuiInputAdornment-positionStart': {
+          position: 'absolute',
+          left: theme.spacing(1.5),
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 1,
+        },
+        
+        '& .MuiInputAdornment-positionEnd': {
+          position: 'absolute',
+          right: theme.spacing(1.5),
+          top: '50%',
+          transform: 'translateY(-50%)',
+          zIndex: 1,
+        },
+        
+        '&:hover:not(.Mui-disabled)': {
+          backgroundColor: theme.palette.action.selected,
+        },
+        
+        '&.Mui-focused': {
+          backgroundColor: theme.palette.action.selected,
+          borderBottomColor: validationState !== 'none'
+            ? theme.palette[validationColors.focus.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.focus
+            : theme.palette.primary.main,
+          borderBottomWidth: '2px',
+        },
+        
+        '&:before': {
+          display: 'none',
+        },
+        '&:after': {
+          display: 'none',
+        },
+        
+        // Dark theme specific
+        ...(theme.palette.mode === 'dark' && {
+          backgroundColor: theme.palette.grey[800],
+          '&:hover:not(.Mui-disabled)': {
+            backgroundColor: theme.palette.grey[700],
+          },
+          '&.Mui-focused': {
+            backgroundColor: theme.palette.grey[700],
+          },
+        }),
+      },
+      
+      // Filled variant label positioning
+      '& .MuiInputLabel-filled': {
+        transform: hasStartIcon 
+          ? `translate(${theme.spacing(5)}, ${customSize === 'small' ? '20px' : '25px'}) scale(1)`
+          : `translate(${theme.spacing(1.5)}, ${customSize === 'small' ? '20px' : '25px'}) scale(1)`,
+        
+        '&.MuiInputLabel-shrink': {
+          transform: hasStartIcon
+            ? `translate(${theme.spacing(5)}, 10px) scale(0.75)`
+            : `translate(${theme.spacing(1.5)}, 10px) scale(0.75)`,
+        },
+      },
+    }),
+    
+    // Standard variant specific styling
+    ...(customVariant === 'standard' && {
+      '& .MuiInput-root': {
+        backgroundColor: 'transparent',
+        borderBottom: `1px solid ${validationState !== 'none' 
+          ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+          : theme.palette.divider}`,
+        
+        '&:hover:not(.Mui-disabled):before': {
+          borderBottomColor: validationState !== 'none'
+            ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+            : theme.palette.action.hover,
+        },
+        
+        '&.Mui-focused:after': {
+          borderBottomColor: validationState !== 'none'
+            ? theme.palette[validationColors.focus.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.focus
+            : theme.palette.primary.main,
+        },
+        
+        '&:before': {
+          borderBottomColor: validationState !== 'none' 
+            ? theme.palette[validationColors.border.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.border
+            : theme.palette.divider,
+        },
+      },
+    }),
+    
+    // Common states
+    '& .MuiInputBase-root': {
+      // Loading state
+      ...(loading && {
+        pointerEvents: 'none' as const,
+        opacity: 0.7,
+      }),
+      
+      // Read-only state
+      ...(readOnly && {
+        backgroundColor: theme.palette.action.disabledBackground,
+        '& .MuiInputBase-input': {
+          cursor: 'default',
+        },
+      }),
+      
+      // Disabled state
+      '&.Mui-disabled': {
+        opacity: 0.6,
+        backgroundColor: theme.palette.action.disabledBackground,
+        '& .MuiInputBase-input': {
+          color: theme.palette.text.disabled,
+        },
+      },
+      
+      // Icon spacing adjustments
+      ...(hasStartIcon && {
+        '& .MuiInputBase-input': {
+          paddingLeft: theme.spacing(1),
+        },
+      }),
+      ...(hasEndIcon || hasEndAction && {
+        '& .MuiInputBase-input': {
+          paddingRight: theme.spacing(1),
+        },
+      }),
+    },
+    
+    // Label styles with proper positioning and colors
+    '& .MuiInputLabel-root': {
+      fontSize: sizeConfig.fontSize,
+      fontFamily: theme.typography.fontFamily,
+      color: theme.palette.text.secondary,
+      transition: `color ${TEXTFIELD_ANIMATION_DURATIONS.focus} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+      
+      // Focused state
+      '&.Mui-focused': {
+        color: validationState !== 'none'
+          ? theme.palette[validationColors.focus.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.focus
+          : theme.palette.primary.main,
+      },
+      
+      // Error state
+      '&.Mui-error': {
+        color: theme.palette.error.main,
+      },
+      
+      // Disabled state
+      '&.Mui-disabled': {
+        color: theme.palette.text.disabled,
+      },
+      
+      // Dark theme adjustments
+      ...(theme.palette.mode === 'dark' && {
+        color: theme.palette.text.secondary,
+        '&.Mui-focused': {
+          color: validationState !== 'none'
+            ? theme.palette[validationColors.focus.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.focus
+            : theme.palette.primary.main,
+        },
+      }),
+      
+      // Size-specific positioning
+      ...(customSize === 'small' && {
+        transform: 'translate(14px, 12px) scale(1)',
+        '&.MuiInputLabel-shrink': {
+          transform: 'translate(14px, -9px) scale(0.75)',
+        },
+      }),
+      ...(customSize === 'medium' && {
+        transform: 'translate(14px, 16px) scale(1)',
+        '&.MuiInputLabel-shrink': {
+          transform: 'translate(14px, -9px) scale(0.75)',
+        },
+      }),
+    },
+    
+    // Built-in helper text styles (for consistency)
+    '& .MuiFormHelperText-root': {
+      ...theme.typography.caption,
+      marginTop: theme.spacing(0.5),
+      marginLeft: theme.spacing(1.75),
+      marginRight: theme.spacing(1.75),
+      color: theme.palette.text.secondary,
+      
+      // Validation state colors
+      '&.Mui-error': {
+        color: theme.palette.error.main,
+      },
+      
+      // Dark theme adjustments
+      ...(theme.palette.mode === 'dark' && {
+        color: theme.palette.text.secondary,
+      }),
+    },
+    
+    // Remove default browser focus styles
+    '& .MuiInputBase-root': {
+      '&:focus': {
+        outline: 'none',
+      },
+      '&:focus-visible': {
+        outline: 'none',
+      },
+    },
+  };
+});
+
+// Styled helper text component with validation state support using Typography
+/**
+ * StyledHelperText component - Uses internal Typography for consistency
+ * 
+ * @returns JSX element
+ */
+export const StyledHelperText = styled(Typography)<any>(({ theme, validationState }: any) => {
+  const validationColors = VALIDATION_STATE_COLORS[validationState as keyof typeof VALIDATION_STATE_COLORS];
+  
+  return {
+    ...theme.typography.caption,
+    marginTop: theme.spacing(0.5),
+    transition: `color ${TEXTFIELD_ANIMATION_DURATIONS.validation} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+    
+    // Default helper text color with theme awareness
+    color: theme.palette.text.secondary,
+    
+    // Dark theme specific adjustments
+    ...(theme.palette.mode === 'dark' && {
+      color: theme.palette.text.secondary,
+    }),
+    
+    ...(validationState !== 'none' && {
+      color: theme.palette[validationColors.helperText.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.helperText,
+    }),
+    
+    // Icon spacing for helper text with icons
+    '&.with-icon': {
+      display: 'flex',
+      alignItems: 'center',
+      gap: theme.spacing(0.5),
+      
+      '& .helper-icon': {
+        fontSize: '1rem',
+      },
+    },
+  };
+});
+
+// Character count component using Typography
+/**
+ * CharacterCount component - Uses internal Typography for consistency
+ * 
+ * @returns JSX element
+ */
+export const CharacterCount = styled(Typography, {
+  shouldForwardProp: (prop) => !['isWarning', 'isError', 'position'].includes(prop as string),
+})<{ 
+  isWarning?: boolean; 
+  isError?: boolean; 
+  position?: string;
+}>((props: any) => {
+  const { theme, isWarning = false, isError = false, position = CHARACTER_COUNT_CONFIGS.position } = props;
+  return {
+    ...theme.typography.caption,
+    fontSize: '0.625rem', // Smaller than caption for character count
+    color: isError ? theme.palette.error.main : isWarning ? theme.palette.warning.main : theme.palette.text.secondary,
+    transition: `color ${TEXTFIELD_ANIMATION_DURATIONS.validation} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+    
+    // Dark theme specific adjustments
+    ...(theme.palette.mode === 'dark' && !isError && !isWarning && {
+      color: theme.palette.text.disabled,
+    }),
+    
+    ...(position === 'bottom-right' && {
+      textAlign: 'right' as const,
+      marginTop: theme.spacing(0.5),
+    }),
+    
+    ...(position === 'inline' && {
+      display: 'inline-block',
+      marginLeft: theme.spacing(1),
+    }),
+  };
+});
+
+// Container for text field with character count
+/**
+ * TextFieldContainer component
+ * 
+ * @returns JSX element
+ */
+export const TextFieldContainer = styled('div', {
+  shouldForwardProp: (prop) => !['fullWidth'].includes(prop as string),
+})<{ fullWidth?: boolean }>((props: any) => {
+  const { fullWidth = false } = props;
+  return {
+    position: 'relative' as const,
+    display: fullWidth ? 'block' : 'inline-block',
+    width: fullWidth ? '100%' : 'auto',
+  };
+});
+
+// Loading indicator container
+/**
+ * LoadingContainer component
+ * 
+ * @returns JSX element
+ */
+export const LoadingContainer = styled(InputAdornment)<any>(() => ({
+  '& .loading-spinner': {
+    animation: `spin ${TEXTFIELD_ANIMATION_DURATIONS.loading} linear infinite`,
+  },
+  
+  '@keyframes spin': {
+    from: {
+      transform: 'rotate(0deg)',
+    },
+    to: {
+      transform: 'rotate(360deg)',
+    },
+  },
+}));
+
+// Success/Warning/Error icon container
+/**
+ * ValidationIconContainer component
+ * 
+ * @returns JSX element
+ */
+export const ValidationIconContainer = styled('div', {
+  shouldForwardProp: (prop) => !['validationState'].includes(prop as string),
+})<{ validationState?: string }>((props: any) => {
+  const { theme, validationState } = props;
+  const getColor = () => {
+    switch (validationState) {
+      case 'success':
+        return theme.palette.success.main;
+      case 'warning':
+        return theme.palette.warning.main;
+      case 'error':
+        return theme.palette.error.main;
+      default:
+        return theme.palette.text.secondary;
+    }
+  };
+  
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    color: getColor(),
+    
+    '& .validation-icon': {
+      fontSize: '1rem',
+      transition: `color ${TEXTFIELD_ANIMATION_DURATIONS.validation} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+    },
+  };
+});
+
+// Required indicator styles
+/**
+ * RequiredIndicator component
+ * 
+ * @returns JSX element
+ */
+export const RequiredIndicator = styled('span')<any>(({ theme }) => ({
+  color: theme.palette.error.main,
+  marginLeft: theme.spacing(0.25),
+  fontSize: '1rem',
+  lineHeight: 1,
+}));
+
+// Separate label component for 'above' positioning
+/**
+ * StyledLabel component - For separate label positioning
+ * 
+ * @returns JSX element
+ */
+export const StyledLabel = styled(Typography)<any>(({ theme, validationState }: any) => {
+  const validationColors = VALIDATION_STATE_COLORS[validationState as keyof typeof VALIDATION_STATE_COLORS];
+  
+  return {
+    ...theme.typography.body2,
+    fontWeight: 500,
+    marginBottom: theme.spacing(0.75),
+    color: validationState !== 'none' && validationState !== 'success'
+      ? theme.palette[validationColors.helperText.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.helperText
+      : theme.palette.text.primary,
+    display: 'block',
+    transition: `color ${TEXTFIELD_ANIMATION_DURATIONS.validation} ${TEXTFIELD_ANIMATION_EASINGS.smooth}`,
+    
+    // Dark theme adjustments
+    ...(theme.palette.mode === 'dark' && {
+      color: validationState !== 'none' && validationState !== 'success'
+        ? theme.palette[validationColors.helperText.split('.')[0] as keyof typeof theme.palette]?.main || validationColors.helperText
+        : theme.palette.text.primary,
+    }),
+    
+    '& .required-indicator': {
+      color: theme.palette.error.main,
+      marginLeft: theme.spacing(0.25),
+      fontSize: '1rem',
+    },
+  };
+});
+
+// Multiline character count positioned for textarea with Typography
+/**
+ * MultilineCharacterCount component - Uses Typography with dark theme support
+ * 
+ * @returns JSX element
+ */
+export const MultilineCharacterCount = styled(CharacterCount)<any>(({ theme }) => ({
+  position: 'absolute' as const,
+  bottom: theme.spacing(1),
+  right: theme.spacing(1),
+  backgroundColor: theme.palette.background.paper,
+  padding: theme.spacing(0.25, 0.5),
+  borderRadius: (theme.shape.borderRadius as number) / 2,
+  fontSize: '0.625rem',
+  zIndex: 1,
+  
+  // Dark theme specific styling
+  ...(theme.palette.mode === 'dark' && {
+    backgroundColor: theme.palette.background.default,
+    border: `1px solid ${theme.palette.divider}`,
+  }),
+}));

@@ -1,0 +1,316 @@
+/**
+ * @fileoverview {{name}} Component Types
+ * @author AI Generated Types
+ */
+
+import type { SxProps, Theme } from '@mui/material/styles';
+import type { BoxProps } from '@mui/material';
+
+/**
+ * {{name}} variant types
+ */
+{{#if (includes features 'variants')}}
+export type {{name}}Variant = 
+  | 'primary' 
+  | 'secondary' 
+  | 'outlined' 
+  | 'text'
+  {{#if (eq category 'feedback')}}
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'info'
+  {{/if}}
+  {{#if (eq category 'core')}}
+  | 'contained'
+  | 'elevated'
+  {{/if}};
+{{else}}
+export type {{name}}Variant = 'primary' | 'secondary';
+{{/if}}
+
+/**
+ * {{name}} size types
+ */
+export type {{name}}Size = 'small' | 'medium' | 'large';
+
+{{#if (includes features 'forms')}}
+/**
+ * {{name}} validation state
+ */
+export type {{name}}ValidationState = 'valid' | 'invalid' | 'pending';
+
+/**
+ * {{name}} form integration props
+ */
+export interface {{name}}FormProps {
+  /** Field name for form integration */
+  name?: string;
+  /** Field value */
+  value?: any;
+  /** Default value */
+  defaultValue?: any;
+  /** Change handler */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /** Blur handler */
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Focus handler */
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+  /** Validation state */
+  validationState?: {{name}}ValidationState;
+  /** Error message */
+  error?: boolean;
+  /** Error text */
+  errorText?: string;
+  /** Helper text */
+  helperText?: string;
+  /** Required field indicator */
+  required?: boolean;
+}
+{{/if}}
+
+{{#if (includes features 'loading')}}
+/**
+ * {{name}} loading state props
+ */
+export interface {{name}}LoadingProps {
+  /** Loading state */
+  loading?: boolean;
+  /** Loading text */
+  loadingText?: string;
+  /** Loading indicator component */
+  loadingIndicator?: React.ReactNode;
+}
+{{/if}}
+
+{{#if (includes features 'icons')}}
+/**
+ * {{name}} icon props
+ */
+export interface {{name}}IconProps {
+  /** Start icon */
+  startIcon?: React.ReactNode;
+  /** End icon */
+  endIcon?: React.ReactNode;
+  /** Icon size */
+  iconSize?: 'small' | 'medium' | 'large';
+}
+{{/if}}
+
+{{#if (includes features 'animation')}}
+/**
+ * {{name}} animation props
+ */
+export interface {{name}}AnimationProps {
+  /** Enable animations */
+  animate?: boolean;
+  /** Animation duration */
+  animationDuration?: number;
+  /** Animation easing */
+  animationEasing?: string;
+  /** Custom animation variants */
+  animationVariants?: Record<string, any>;
+}
+{{/if}}
+
+/**
+ * {{name}} accessibility props
+ */
+export interface {{name}}AccessibilityProps {
+  /** Accessible label */
+  'aria-label'?: string;
+  /** Accessible description */
+  'aria-describedby'?: string;
+  /** Accessible labelled by */
+  'aria-labelledby'?: string;
+  /** Role override */
+  role?: string;
+  /** Tab index override */
+  tabIndex?: number;
+  /** ARIA expanded state */
+  'aria-expanded'?: boolean;
+  /** ARIA controls */
+  'aria-controls'?: string;
+  /** ARIA pressed state */
+  'aria-pressed'?: boolean;
+}
+
+/**
+ * {{name}} interaction props
+ */
+export interface {{name}}InteractionProps {
+  /** Click handler */
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  /** Key down handler */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLDivElement>) => void;
+  /** Mouse enter handler */
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  /** Mouse leave handler */
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  /** Focus handler */
+  onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void;
+  /** Blur handler */
+  onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
+}
+
+/**
+ * {{name}} styling props
+ */
+export interface {{name}}StylingProps {
+  /** MUI sx prop for custom styling */
+  sx?: SxProps<Theme>;
+  /** CSS class name */
+  className?: string;
+  /** Inline styles */
+  style?: React.CSSProperties;
+  /** Component variant */
+  variant?: {{name}}Variant;
+  /** Component size */
+  size?: {{name}}Size;
+  /** Color override */
+  color?: 'primary' | 'secondary' | 'error' | 'warning' | 'info' | 'success';
+}
+
+/**
+ * {{name}} state props
+ */
+export interface {{name}}StateProps {
+  /** Disabled state */
+  disabled?: boolean;
+  /** Active state */
+  active?: boolean;
+  /** Selected state */
+  selected?: boolean;
+  /** Focused state */
+  focused?: boolean;
+  /** Hover state */
+  hovered?: boolean;
+}
+
+/**
+ * Main {{name}} component props interface
+ */
+export interface {{name}}Props 
+  extends Omit<BoxProps, 'color' | 'size' | 'onClick'>,
+          {{name}}StylingProps,
+          {{name}}StateProps,
+          {{name}}InteractionProps,
+          {{name}}AccessibilityProps
+          {{#if (includes features 'forms')}}, {{name}}FormProps{{/if}}
+          {{#if (includes features 'loading')}}, {{name}}LoadingProps{{/if}}
+          {{#if (includes features 'icons')}}, {{name}}IconProps{{/if}}
+          {{#if (includes features 'animation')}}, {{name}}AnimationProps{{/if}} {
+  /** Component children */
+  children?: React.ReactNode;
+  
+  /** Component ID */
+  id?: string;
+  
+  /** Data test ID for testing */
+  'data-testid'?: string;
+  
+  /** Custom component to render as */
+  component?: React.ElementType;
+  
+  {{#if (eq complexity 'complex')}}
+  /** Advanced configuration options */
+  advancedOptions?: {
+    /** Custom theme overrides */
+    themeOverrides?: Partial<Theme>;
+    /** Performance optimizations */
+    performanceMode?: 'standard' | 'optimized' | 'ultra';
+    /** Experimental features */
+    experimental?: {
+      /** Enable virtual scrolling */
+      virtualScrolling?: boolean;
+      /** Enable dynamic imports */
+      dynamicImports?: boolean;
+    };
+  };
+  {{/if}}
+  
+  {{#if (includes features 'responsive')}}
+  /** Responsive breakpoint overrides */
+  responsive?: {
+    xs?: Partial<{{name}}Props>;
+    sm?: Partial<{{name}}Props>;
+    md?: Partial<{{name}}Props>;
+    lg?: Partial<{{name}}Props>;
+    xl?: Partial<{{name}}Props>;
+  };
+  {{/if}}
+}
+
+/**
+ * {{name}} component reference type
+ */
+export type {{name}}Ref = HTMLDivElement;
+
+/**
+ * {{name}} component type with ref
+ */
+export type {{name}}Component = React.ForwardRefExoticComponent<
+  {{name}}Props & React.RefAttributes<{{name}}Ref>
+>;
+
+/**
+ * {{name}} theme customization interface
+ */
+export interface {{name}}ThemeCustomization {
+  /** Default props */
+  defaultProps?: Partial<{{name}}Props>;
+  /** Style overrides */
+  styleOverrides?: {
+    root?: React.CSSProperties | ((props: {theme: Theme} & {{name}}Props) => React.CSSProperties);
+    {{#if (includes features 'icons')}}
+    startIcon?: React.CSSProperties;
+    endIcon?: React.CSSProperties;
+    {{/if}}
+    {{#if (includes features 'loading')}}
+    loadingIndicator?: React.CSSProperties;
+    {{/if}}
+  };
+  /** Variant definitions */
+  variants?: Array<{
+    props: Partial<{{name}}Props>;
+    style: React.CSSProperties | ((props: {theme: Theme} & {{name}}Props) => React.CSSProperties);
+  }>;
+}
+
+/**
+ * {{name}} event handlers type
+ */
+export interface {{name}}EventHandlers {
+  onClick?: {{name}}Props['onClick'];
+  onKeyDown?: {{name}}Props['onKeyDown'];
+  onMouseEnter?: {{name}}Props['onMouseEnter'];
+  onMouseLeave?: {{name}}Props['onMouseLeave'];
+  onFocus?: {{name}}Props['onFocus'];
+  onBlur?: {{name}}Props['onBlur'];
+  {{#if (includes features 'forms')}}
+  onChange?: {{name}}Props['onChange'];
+  {{/if}}
+}
+
+/**
+ * {{name}} default props type
+ */
+export type {{name}}DefaultProps = Required<Pick<{{name}}Props, 
+  'variant' | 'size' | 'disabled'
+  {{#if (includes features 'loading')}} | 'loading'{{/if}}
+  {{#if (includes features 'animation')}} | 'animate'{{/if}}
+>>;
+
+/**
+ * Export all types for convenience
+ */
+export type {
+  {{name}}Props as Props,
+  {{name}}Ref as Ref,
+  {{name}}Component as Component,
+  {{name}}Variant as Variant,
+  {{name}}Size as Size,
+  {{name}}ThemeCustomization as ThemeCustomization,
+  {{name}}EventHandlers as EventHandlers,
+  {{name}}DefaultProps as DefaultProps,
+};

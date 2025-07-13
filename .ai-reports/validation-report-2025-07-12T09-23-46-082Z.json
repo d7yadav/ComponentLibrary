@@ -1,0 +1,158 @@
+{
+  "timestamp": "2025-07-12T09:23:46.082Z",
+  "metrics": {
+    "totalFiles": 9,
+    "validatedFiles": 9,
+    "errors": 4,
+    "warnings": 0,
+    "suggestions": 5,
+    "score": 94
+  },
+  "results": [
+    {
+      "path": "src/components/core/Button/Button.ai-guide.md",
+      "size": 4555,
+      "lines": 199,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/core/Button/Button.constants.ts",
+      "size": 2347,
+      "lines": 118,
+      "issues": [
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/core/Button/Button.examples.md",
+      "size": 2991,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/core/Button/Button.stories.tsx",
+      "size": 10296,
+      "lines": 457,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Button.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 78
+    },
+    {
+      "path": "src/components/core/Button/Button.styles.ts",
+      "size": 6835,
+      "lines": 217,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 96
+    },
+    {
+      "path": "src/components/core/Button/Button.tsx",
+      "size": 3405,
+      "lines": 117,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Button }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface ButtonProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 80
+    },
+    {
+      "path": "src/components/core/Button/Button.types.ts",
+      "size": 2097,
+      "lines": 117,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/core/Button/README.md",
+      "size": 1481,
+      "lines": 64,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/core/Button/index.ts",
+      "size": 474,
+      "lines": 23,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 94,
+    "totalIssues": 9
+  }
+}

@@ -1,0 +1,690 @@
+/**
+ * @fileoverview {{dashCase name}} Workflow Tests
+ * @author AI Generated Tests
+ */
+
+import { 
+  {{pascalCase name}}Workflow, 
+  create{{pascalCase name}}Workflow,
+  execute{{pascalCase name}},
+  {{camelCase name}}WorkflowConfig
+} from './{{dashCase name}}';
+import type { {{pascalCase name}}Input, {{pascalCase name}}Result } from './{{dashCase name}}';
+
+// Mock the AI workflow dependencies
+vi.mock('../ai-workflow/WorkflowManager');
+vi.mock('../ai-workflow/TaskAnalyzer');
+vi.mock('../ai-workflow/QualityValidator');
+
+describe('{{pascalCase name}}Workflow', () => {
+  let workflow: {{pascalCase name}}Workflow;
+
+  beforeEach(() => {
+    workflow = new {{pascalCase name}}Workflow();
+  });
+
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  // Configuration tests
+  describe('Configuration', () => {
+    it('should have valid workflow configuration', () => {
+      expect({{camelCase name}}WorkflowConfig).toBeDefined();
+      expect({{camelCase name}}WorkflowConfig.id).toBe('{{dashCase name}}');
+      expect({{camelCase name}}WorkflowConfig.name).toBe('{{name}}');
+      expect({{camelCase name}}WorkflowConfig.description).toBe('{{description}}');
+      expect({{camelCase name}}WorkflowConfig.steps).toBeInstanceOf(Array);
+      expect({{camelCase name}}WorkflowConfig.steps.length).toBeGreaterThan(0);
+    });
+
+    it('should have valid workflow steps', () => {
+      {{camelCase name}}WorkflowConfig.steps.forEach(step => {
+        expect(step.id).toBeDefined();
+        expect(step.name).toBeDefined();
+        expect(step.type).toBeDefined();
+        expect(step.description).toBeDefined();
+        expect(step.inputs).toBeInstanceOf(Array);
+        expect(step.outputs).toBeInstanceOf(Array);
+        expect(step.aiEngine).toBeDefined();
+        expect(step.configuration).toBeDefined();
+        expect(step.validation).toBeInstanceOf(Array);
+      });
+    });
+
+    it('should have valid metrics', () => {
+      expect({{camelCase name}}WorkflowConfig.metrics.efficiency).toBeGreaterThan(0);
+      expect({{camelCase name}}WorkflowConfig.metrics.efficiency).toBeLessThanOrEqual(1);
+      expect({{camelCase name}}WorkflowConfig.metrics.accuracy).toBeGreaterThan(0);
+      expect({{camelCase name}}WorkflowConfig.metrics.accuracy).toBeLessThanOrEqual(1);
+      expect({{camelCase name}}WorkflowConfig.metrics.confidence).toBeGreaterThan(0);
+      expect({{camelCase name}}WorkflowConfig.metrics.confidence).toBeLessThanOrEqual(1);
+    });
+  });
+
+  // Input validation tests
+  describe('Input Validation', () => {
+    {{#if (eq type 'component-analysis')}}
+    it('should validate component analysis input', () => {
+      const validInput: {{pascalCase name}}Input = {
+        componentPath: '/path/to/component.tsx',
+        options: { depth: 'comprehensive' }
+      };
+
+      const result = workflow.validateInput(validInput);
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should reject input without component path or code', () => {
+      const invalidInput: {{pascalCase name}}Input = {
+        options: { depth: 'basic' }
+      };
+
+      const result = workflow.validateInput(invalidInput);
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Either component code or path must be provided');
+    });
+
+    it('should accept input with component code', () => {
+      const validInput: {{pascalCase name}}Input = {
+        componentCode: 'const Component = () => <div>Test</div>;',
+        options: { depth: 'basic' }
+      };
+
+      const result = workflow.validateInput(validInput);
+      expect(result.isValid).toBe(true);
+    });
+    {{/if}}
+
+    {{#if (eq type 'code-generation')}}
+    it('should validate code generation input', () => {
+      const validInput: {{pascalCase name}}Input = {
+        specification: {
+          name: 'TestComponent',
+          category: 'core',
+          complexity: 'medium',
+          features: ['variants', 'loading']
+        },
+        templateOptions: { typescript: true }
+      };
+
+      const result = workflow.validateInput(validInput);
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should reject input without specification', () => {
+      const invalidInput: {{pascalCase name}}Input = {
+        templateOptions: { typescript: true }
+      } as any;
+
+      const result = workflow.validateInput(invalidInput);
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Component specification is required');
+    });
+
+    it('should reject specification without name', () => {
+      const invalidInput: {{pascalCase name}}Input = {
+        specification: {
+          category: 'core',
+          complexity: 'medium',
+          features: []
+        } as any
+      };
+
+      const result = workflow.validateInput(invalidInput);
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Component name is required in specification');
+    });
+    {{/if}}
+
+    {{#if (eq type 'quality-validation')}}
+    it('should validate quality validation input', () => {
+      const validInput: {{pascalCase name}}Input = {
+        sourceCode: 'const Component = () => <div>Test</div>;',
+        qualityRules: { typescript: true, accessibility: true }
+      };
+
+      const result = workflow.validateInput(validInput);
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should reject input without source code', () => {
+      const invalidInput: {{pascalCase name}}Input = {
+        qualityRules: { typescript: true }
+      } as any;
+
+      const result = workflow.validateInput(invalidInput);
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Source code is required');
+    });
+    {{/if}}
+
+    {{#if (eq type 'documentation')}}
+    it('should validate documentation input', () => {
+      const validInput: {{pascalCase name}}Input = {
+        componentPath: '/path/to/component.tsx',
+        options: { format: 'markdown', includeExamples: true }
+      };
+
+      const result = workflow.validateInput(validInput);
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should reject input without component path', () => {
+      const invalidInput: {{pascalCase name}}Input = {
+        options: { format: 'markdown' }
+      } as any;
+
+      const result = workflow.validateInput(invalidInput);
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Component path is required');
+    });
+    {{/if}}
+
+    {{#if (eq type 'performance')}}
+    it('should validate performance input', () => {
+      const validInput: {{pascalCase name}}Input = {
+        componentCode: 'const Component = () => <div>Test</div>;',
+        targets: { bundleSize: 50000 }
+      };
+
+      const result = workflow.validateInput(validInput);
+      expect(result.isValid).toBe(true);
+      expect(result.errors).toHaveLength(0);
+    });
+
+    it('should reject input without component code', () => {
+      const invalidInput: {{pascalCase name}}Input = {
+        targets: { bundleSize: 50000 }
+      } as any;
+
+      const result = workflow.validateInput(invalidInput);
+      expect(result.isValid).toBe(false);
+      expect(result.errors).toContain('Component code is required');
+    });
+    {{/if}}
+  });
+
+  // Execution tests
+  describe('Workflow Execution', () => {
+    beforeEach(() => {
+      // Mock WorkflowManager.executeWorkflow
+      const mockExecuteWorkflow = vi.fn().mockResolvedValue({
+        success: true,
+        {{#if (eq type 'component-analysis')}}
+        analysis: { complexity: { score: 75 } },
+        patterns: [{ name: 'React Component', confidence: 0.9 }],
+        recommendations: ['Add prop validation', 'Improve accessibility'],
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        componentCode: 'const TestComponent = () => <div>Generated</div>;',
+        testCode: 'describe("TestComponent", () => { /* tests */ });',
+        typeDefinitions: 'interface TestComponentProps { }',
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        qualityScore: 85,
+        validationResult: { overall: { score: 85 } },
+        improvements: ['Add error handling', 'Improve type safety'],
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        documentation: '# TestComponent\n\nA test component.',
+        examples: ['<TestComponent />'],
+        apiReference: '## Props\n\nNo props defined.',
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        performanceMetrics: { bundleSize: 45000, renderTime: 12 },
+        optimizations: ['Use React.memo', 'Optimize re-renders'],
+        optimizedCode: 'const OptimizedComponent = React.memo(() => <div>Optimized</div>);',
+        {{/if}}
+        executionTime: 1500,
+      });
+
+      // Access the mocked class
+      const { WorkflowManager } = require('../ai-workflow/WorkflowManager');
+      WorkflowManager.prototype.executeWorkflow = mockExecuteWorkflow;
+    });
+
+    it('should execute workflow successfully', async () => {
+      const input: {{pascalCase name}}Input = {
+        {{#if (eq type 'component-analysis')}}
+        componentPath: '/path/to/component.tsx',
+        options: { depth: 'comprehensive' }
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        specification: {
+          name: 'TestComponent',
+          category: 'core',
+          complexity: 'medium',
+          features: ['variants']
+        }
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        sourceCode: 'const Component = () => <div>Test</div>;',
+        qualityRules: { typescript: true }
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        componentPath: '/path/to/component.tsx',
+        options: { format: 'markdown' }
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        componentCode: 'const Component = () => <div>Test</div>;',
+        targets: { bundleSize: 50000 }
+        {{/if}}
+      };
+
+      const result = await workflow.execute(input);
+
+      expect(result.success).toBe(true);
+      expect(result.metadata).toBeDefined();
+      expect(result.metadata.executionTime).toBe(1500);
+      expect(result.metadata.workflowVersion).toBe('1.0.0');
+      expect(result.metadata.timestamp).toBeDefined();
+
+      {{#if (eq type 'component-analysis')}}
+      expect(result.analysis).toBeDefined();
+      expect(result.patterns).toBeDefined();
+      expect(result.recommendations).toBeDefined();
+      {{/if}}
+      {{#if (eq type 'code-generation')}}
+      expect(result.generatedCode).toBeDefined();
+      expect(result.testCode).toBeDefined();
+      expect(result.typeDefinitions).toBeDefined();
+      {{/if}}
+      {{#if (eq type 'quality-validation')}}
+      expect(result.qualityScore).toBe(85);
+      expect(result.validationResult).toBeDefined();
+      expect(result.improvements).toBeDefined();
+      {{/if}}
+      {{#if (eq type 'documentation')}}
+      expect(result.documentation).toBeDefined();
+      expect(result.examples).toBeDefined();
+      expect(result.apiReference).toBeDefined();
+      {{/if}}
+      {{#if (eq type 'performance')}}
+      expect(result.performanceMetrics).toBeDefined();
+      expect(result.optimizations).toBeDefined();
+      expect(result.optimizedCode).toBeDefined();
+      {{/if}}
+    });
+
+    it('should handle workflow execution errors', async () => {
+      // Mock failed execution
+      const { WorkflowManager } = require('../ai-workflow/WorkflowManager');
+      WorkflowManager.prototype.executeWorkflow = vi.fn().mockRejectedValue(
+        new Error('Workflow execution failed')
+      );
+
+      const input: {{pascalCase name}}Input = {
+        {{#if (eq type 'component-analysis')}}
+        componentPath: '/path/to/component.tsx'
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        specification: {
+          name: 'TestComponent',
+          category: 'core',
+          complexity: 'medium',
+          features: []
+        }
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        sourceCode: 'const Component = () => <div>Test</div>;'
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        componentPath: '/path/to/component.tsx'
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        componentCode: 'const Component = () => <div>Test</div>;'
+        {{/if}}
+      };
+
+      await expect(workflow.execute(input)).rejects.toThrow(
+        '{{name}} workflow failed: Workflow execution failed'
+      );
+    });
+  });
+
+  // Status and configuration tests
+  describe('Status and Configuration', () => {
+    it('should return workflow status', () => {
+      const status = workflow.getStatus();
+
+      expect(status.id).toBe('{{dashCase name}}');
+      expect(status.name).toBe('{{name}}');
+      expect(status.description).toBe('{{description}}');
+      expect(status.isActive).toBe(true);
+      expect(status.lastExecution).toBeNull();
+      expect(status.metrics).toBeDefined();
+    });
+
+    it('should return workflow configuration', () => {
+      const config = workflow.getConfiguration();
+
+      expect(config).toEqual({{camelCase name}}WorkflowConfig);
+    });
+  });
+
+  // Factory function tests
+  describe('Factory Functions', () => {
+    it('should create workflow instance', () => {
+      const workflowInstance = create{{pascalCase name}}Workflow();
+
+      expect(workflowInstance).toBeInstanceOf({{pascalCase name}}Workflow);
+    });
+
+    it('should execute workflow through factory function', async () => {
+      const input: {{pascalCase name}}Input = {
+        {{#if (eq type 'component-analysis')}}
+        componentPath: '/path/to/component.tsx'
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        specification: {
+          name: 'TestComponent',
+          category: 'core',
+          complexity: 'medium',
+          features: []
+        }
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        sourceCode: 'const Component = () => <div>Test</div>;'
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        componentPath: '/path/to/component.tsx'
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        componentCode: 'const Component = () => <div>Test</div>;'
+        {{/if}}
+      };
+
+      // Mock successful execution
+      const { WorkflowManager } = require('../ai-workflow/WorkflowManager');
+      WorkflowManager.prototype.executeWorkflow = vi.fn().mockResolvedValue({
+        success: true,
+        executionTime: 1000,
+      });
+
+      const result = await execute{{pascalCase name}}(input);
+
+      expect(result.success).toBe(true);
+    });
+
+    it('should validate input in factory function', async () => {
+      const invalidInput: {{pascalCase name}}Input = {} as any;
+
+      await expect(execute{{pascalCase name}}(invalidInput)).rejects.toThrow(
+        'Invalid input:'
+      );
+    });
+  });
+
+  // Integration tests
+  describe('Integration', () => {
+    it('should handle complex workflow scenarios', async () => {
+      const input: {{pascalCase name}}Input = {
+        {{#if (eq type 'component-analysis')}}
+        componentPath: '/complex/component.tsx',
+        componentCode: `
+          const ComplexComponent = ({ variant, children, ...props }) => {
+            const [state, setState] = useState();
+            useEffect(() => { /* effect */ }, []);
+            return <div {...props}>{children}</div>;
+          };
+        `,
+        options: {
+          depth: 'comprehensive',
+          includeTests: true,
+          includeStories: true
+        }
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        specification: {
+          name: 'ComplexComponent',
+          category: 'core',
+          complexity: 'complex',
+          features: ['variants', 'loading', 'icons', 'forms', 'animation'],
+          props: {
+            variant: 'string',
+            loading: 'boolean',
+            onClick: 'function'
+          }
+        },
+        templateOptions: {
+          typescript: true,
+          testing: true,
+          storybook: true
+        }
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        sourceCode: `
+          const ComplexComponent = ({ variant, children, ...props }) => {
+            const [state, setState] = useState();
+            return <div {...props}>{children}</div>;
+          };
+        `,
+        qualityRules: {
+          typescript: true,
+          accessibility: true,
+          performance: true,
+          security: true
+        }
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        componentPath: '/complex/component.tsx',
+        options: {
+          format: 'markdown',
+          includeExamples: true,
+          includeAPI: true
+        }
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        componentCode: `
+          const ComplexComponent = ({ items = [] }) => {
+            return (
+              <div>
+                {items.map(item => <div key={item.id}>{item.name}</div>)}
+              </div>
+            );
+          };
+        `,
+        usagePatterns: ['large-lists', 'frequent-updates'],
+        targets: {
+          bundleSize: 50000,
+          renderTime: 16,
+          memoryUsage: 5000000
+        }
+        {{/if}}
+      };
+
+      // Mock complex execution result
+      const { WorkflowManager } = require('../ai-workflow/WorkflowManager');
+      WorkflowManager.prototype.executeWorkflow = vi.fn().mockResolvedValue({
+        success: true,
+        {{#if (eq type 'component-analysis')}}
+        analysis: {
+          complexity: { score: 85, level: 'complex' },
+          patterns: { detected: 15, violations: 2 },
+          quality: { score: 78 },
+          performance: { score: 82 },
+          accessibility: { score: 90 }
+        },
+        patterns: [
+          { name: 'React Hooks', confidence: 0.95 },
+          { name: 'State Management', confidence: 0.88 },
+          { name: 'Effect Handling', confidence: 0.92 }
+        ],
+        recommendations: [
+          'Consider memoization for performance',
+          'Add prop validation',
+          'Improve error handling',
+          'Enhance accessibility attributes'
+        ]
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        componentCode: `// Generated complex component code`,
+        testCode: `// Generated comprehensive test suite`,
+        typeDefinitions: `// Generated TypeScript definitions`
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        qualityScore: 88,
+        validationResult: {
+          overall: { score: 88, grade: 'B+' },
+          categories: {
+            codePatterns: { score: 90 },
+            typeScript: { score: 95 },
+            accessibility: { score: 85 },
+            performance: { score: 80 }
+          }
+        },
+        improvements: [
+          'Add proper TypeScript generics',
+          'Implement lazy loading',
+          'Add ARIA attributes',
+          'Optimize render cycles'
+        ]
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        documentation: `# ComplexComponent\n\nComprehensive documentation...`,
+        examples: [
+          '<ComplexComponent variant="primary" />',
+          '<ComplexComponent loading={true} />'
+        ],
+        apiReference: `## Props\n\nDetailed API reference...`
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        performanceMetrics: {
+          bundleSize: 48000,
+          renderTime: 14,
+          memoryUsage: 4500000,
+          reRenders: 5
+        },
+        optimizations: [
+          'Implement React.memo',
+          'Use useMemo for expensive calculations',
+          'Add virtualization for large lists',
+          'Optimize prop drilling'
+        ],
+        optimizedCode: `// Optimized component code`
+        {{/if}},
+        executionTime: 2500
+      });
+
+      const result = await workflow.execute(input);
+
+      expect(result.success).toBe(true);
+      expect(result.metadata.executionTime).toBe(2500);
+
+      {{#if (eq type 'component-analysis')}}
+      expect(result.analysis?.complexity.score).toBe(85);
+      expect(result.patterns).toHaveLength(3);
+      expect(result.recommendations).toHaveLength(4);
+      {{/if}}
+      {{#if (eq type 'code-generation')}}
+      expect(result.generatedCode).toContain('Generated complex component');
+      expect(result.testCode).toContain('Generated comprehensive test');
+      expect(result.typeDefinitions).toContain('Generated TypeScript');
+      {{/if}}
+      {{#if (eq type 'quality-validation')}}
+      expect(result.qualityScore).toBe(88);
+      expect(result.validationResult?.overall.grade).toBe('B+');
+      expect(result.improvements).toHaveLength(4);
+      {{/if}}
+      {{#if (eq type 'documentation')}}
+      expect(result.documentation).toContain('ComplexComponent');
+      expect(result.examples).toHaveLength(2);
+      expect(result.apiReference).toContain('Props');
+      {{/if}}
+      {{#if (eq type 'performance')}}
+      expect(result.performanceMetrics?.bundleSize).toBe(48000);
+      expect(result.optimizations).toHaveLength(4);
+      expect(result.optimizedCode).toContain('Optimized component');
+      {{/if}}
+    });
+  });
+
+  // Performance tests
+  describe('Performance', () => {
+    it('should handle large inputs efficiently', async () => {
+      const largeInput: {{pascalCase name}}Input = {
+        {{#if (eq type 'component-analysis')}}
+        componentCode: 'const Component = () => <div>' + 'Large content '.repeat(1000) + '</div>;'
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        specification: {
+          name: 'LargeComponent',
+          category: 'core',
+          complexity: 'complex',
+          features: Array.from({ length: 20 }, (_, i) => `feature${i}`)
+        }
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        sourceCode: 'const Component = () => <div>' + 'Large content '.repeat(1000) + '</div>;'
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        componentPath: '/large/component.tsx'
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        componentCode: 'const Component = () => <div>' + 'Large content '.repeat(1000) + '</div>;'
+        {{/if}}
+      };
+
+      // Mock execution
+      const { WorkflowManager } = require('../ai-workflow/WorkflowManager');
+      WorkflowManager.prototype.executeWorkflow = vi.fn().mockResolvedValue({
+        success: true,
+        executionTime: 3000
+      });
+
+      const start = performance.now();
+      await workflow.execute(largeInput);
+      const end = performance.now();
+
+      // Should complete within reasonable time
+      expect(end - start).toBeLessThan(5000);
+    });
+  });
+
+  // Error handling tests
+  describe('Error Handling', () => {
+    it('should handle malformed input gracefully', async () => {
+      const malformedInput = {
+        invalidProperty: 'invalid'
+      } as any;
+
+      const validation = workflow.validateInput(malformedInput);
+      expect(validation.isValid).toBe(false);
+      expect(validation.errors.length).toBeGreaterThan(0);
+    });
+
+    it('should handle workflow manager failures', async () => {
+      const { WorkflowManager } = require('../ai-workflow/WorkflowManager');
+      WorkflowManager.prototype.executeWorkflow = vi.fn().mockRejectedValue(
+        new Error('Critical workflow failure')
+      );
+
+      const input: {{pascalCase name}}Input = {
+        {{#if (eq type 'component-analysis')}}
+        componentPath: '/path/to/component.tsx'
+        {{/if}}
+        {{#if (eq type 'code-generation')}}
+        specification: { name: 'Test', category: 'core', complexity: 'simple', features: [] }
+        {{/if}}
+        {{#if (eq type 'quality-validation')}}
+        sourceCode: 'const Component = () => <div>Test</div>;'
+        {{/if}}
+        {{#if (eq type 'documentation')}}
+        componentPath: '/path/to/component.tsx'
+        {{/if}}
+        {{#if (eq type 'performance')}}
+        componentCode: 'const Component = () => <div>Test</div>;'
+        {{/if}}
+      };
+
+      await expect(workflow.execute(input)).rejects.toThrow(
+        '{{name}} workflow failed: Critical workflow failure'
+      );
+    });
+  });
+});

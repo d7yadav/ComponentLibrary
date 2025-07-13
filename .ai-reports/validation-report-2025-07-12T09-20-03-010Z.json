@@ -1,0 +1,190 @@
+{
+  "timestamp": "2025-07-12T09:20:03.010Z",
+  "metrics": {
+    "totalFiles": 9,
+    "validatedFiles": 9,
+    "errors": 6,
+    "warnings": 2,
+    "suggestions": 5,
+    "score": 91
+  },
+  "results": [
+    {
+      "path": "src/components/core/Button/Button.ai-guide.md",
+      "size": 4555,
+      "lines": 199,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/core/Button/Button.constants.ts",
+      "size": 1808,
+      "lines": 78,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/core/Button/Button.examples.md",
+      "size": 2991,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/core/Button/Button.stories.tsx",
+      "size": 10300,
+      "lines": 457,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Button.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Components should use named exports only, no default exports",
+          "line": 69,
+          "type": "default-export",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 68
+    },
+    {
+      "path": "src/components/core/Button/Button.styles.ts",
+      "size": 6631,
+      "lines": 202,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 91
+    },
+    {
+      "path": "src/components/core/Button/Button.tsx",
+      "size": 3384,
+      "lines": 117,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Button }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface ButtonProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 70
+    },
+    {
+      "path": "src/components/core/Button/Button.types.ts",
+      "size": 2097,
+      "lines": 117,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/core/Button/README.md",
+      "size": 1481,
+      "lines": 64,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/core/Button/index.ts",
+      "size": 474,
+      "lines": 23,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 91,
+    "totalIssues": 13
+  }
+}

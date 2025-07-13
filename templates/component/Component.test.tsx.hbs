@@ -1,0 +1,497 @@
+/**
+ * @fileoverview {{name}} Component Tests
+ * @author AI Generated Tests
+ */
+
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { axe, toHaveNoViolations } from 'jest-axe';
+import { ThemeProvider } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
+import { {{name}} } from './{{name}}';
+import type { {{name}}Props } from './{{name}}.types';
+import { {{constantCase name}}_CONSTANTS } from './{{name}}.constants';
+
+// Add jest-axe matcher
+expect.extend(toHaveNoViolations);
+
+// Test theme
+const testTheme = createTheme();
+
+// Test wrapper component
+const TestWrapper = ({ children }: { children: React.ReactNode }) => (
+  <ThemeProvider theme={testTheme}>{children}</ThemeProvider>
+);
+
+// Helper function to render component with theme
+const renderWithTheme = (ui: React.ReactElement, options = {}) => {
+  return render(ui, { wrapper: TestWrapper, ...options });
+};
+
+describe('{{name}} Component', () => {
+  // Basic rendering tests
+  describe('Rendering', () => {
+    it('renders without crashing', () => {
+      renderWithTheme(<{{name}}>Test content</{{name}}>);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    it('renders children correctly', () => {
+      const testContent = 'Test {{name}} Content';
+      renderWithTheme(<{{name}}>{testContent}</{{name}}>);
+      expect(screen.getByText(testContent)).toBeInTheDocument();
+    });
+
+    it('renders with custom test id', () => {
+      const testId = 'custom-{{dashCase name}}';
+      renderWithTheme(
+        <{{name}} data-testid={testId}>Test</{{name}}>
+      );
+      expect(screen.getByTestId(testId)).toBeInTheDocument();
+    });
+
+    it('applies custom className', () => {
+      const customClass = 'custom-class';
+      renderWithTheme(
+        <{{name}} className={customClass}>Test</{{name}}>
+      );
+      expect(screen.getByRole('button')).toHaveClass(customClass);
+    });
+  });
+
+  // Props testing
+  describe('Props', () => {
+    describe('variant prop', () => {
+      const variants: {{name}}Props['variant'][] = [
+        'primary',
+        'secondary',
+        'outlined',
+        'text',
+        {{#if (eq category 'feedback')}}
+        'success',
+        'warning',
+        'error',
+        'info',
+        {{/if}}
+      ];
+
+      variants.forEach((variant) => {
+        it(`renders ${variant} variant correctly`, () => {
+          renderWithTheme(
+            <{{name}} variant={variant} data-testid="variant-test">
+              {variant} variant
+            </{{name}}>
+          );
+          const element = screen.getByTestId('variant-test');
+          expect(element).toBeInTheDocument();
+          expect(element).toHaveAttribute('data-variant', variant);
+        });
+      });
+    });
+
+    describe('size prop', () => {
+      const sizes: {{name}}Props['size'][] = ['small', 'medium', 'large'];
+
+      sizes.forEach((size) => {
+        it(`renders ${size} size correctly`, () => {
+          renderWithTheme(
+            <{{name}} size={size} data-testid="size-test">
+              {size} size
+            </{{name}}>
+          );
+          const element = screen.getByTestId('size-test');
+          expect(element).toBeInTheDocument();
+          expect(element).toHaveAttribute('data-size', size);
+        });
+      });
+    });
+
+    it('handles disabled state correctly', () => {
+      const handleClick = vi.fn();
+      renderWithTheme(
+        <{{name}} disabled onClick={handleClick}>
+          Disabled {{name}}
+        </{{name}}>
+      );
+      
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+      expect(button).toHaveAttribute('tabIndex', '-1');
+      
+      fireEvent.click(button);
+      expect(handleClick).not.toHaveBeenCalled();
+    });
+
+    {{#if (includes features 'loading')}}
+    it('handles loading state correctly', () => {
+      renderWithTheme(
+        <{{name}} loading>
+          Loading {{name}}
+        </{{name}}>
+      );
+      
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-busy', 'true');
+      expect(button).toHaveAttribute('aria-disabled', 'true');
+    });
+    {{/if}}
+  });
+
+  // Interaction testing
+  describe('Interactions', () => {
+    it('handles click events', async () => {
+      const user = userEvent.setup();
+      const handleClick = vi.fn();
+      
+      renderWithTheme(
+        <{{name}} onClick={handleClick}>
+          Clickable {{name}}
+        </{{name}}>
+      );
+      
+      await user.click(screen.getByRole('button'));
+      expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('handles keyboard navigation - Enter key', async () => {
+      const user = userEvent.setup();
+      const handleClick = vi.fn();
+      
+      renderWithTheme(
+        <{{name}} onClick={handleClick}>
+          Keyboard {{name}}
+        </{{name}}>
+      );
+      
+      const button = screen.getByRole('button');
+      button.focus();
+      await user.keyboard('{Enter}');
+      expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('handles keyboard navigation - Space key', async () => {
+      const user = userEvent.setup();
+      const handleClick = vi.fn();
+      
+      renderWithTheme(
+        <{{name}} onClick={handleClick}>
+          Keyboard {{name}}
+        </{{name}}>
+      );
+      
+      const button = screen.getByRole('button');
+      button.focus();
+      await user.keyboard(' ');
+      expect(handleClick).toHaveBeenCalledTimes(1);
+    });
+
+    it('prevents interaction when disabled', async () => {
+      const user = userEvent.setup();
+      const handleClick = vi.fn();
+      
+      renderWithTheme(
+        <{{name}} disabled onClick={handleClick}>
+          Disabled {{name}}
+        </{{name}}>
+      );
+      
+      await user.click(screen.getByRole('button'));
+      expect(handleClick).not.toHaveBeenCalled();
+    });
+
+    {{#if (includes features 'loading')}}
+    it('prevents interaction when loading', async () => {
+      const user = userEvent.setup();
+      const handleClick = vi.fn();
+      
+      renderWithTheme(
+        <{{name}} loading onClick={handleClick}>
+          Loading {{name}}
+        </{{name}}>
+      );
+      
+      await user.click(screen.getByRole('button'));
+      expect(handleClick).not.toHaveBeenCalled();
+    });
+    {{/if}}
+  });
+
+  {{#if (includes features 'forms')}}
+  // Form integration testing
+  describe('Form Integration', () => {
+    it('integrates with form libraries', () => {
+      const handleChange = vi.fn();
+      
+      renderWithTheme(
+        <{{name}} 
+          name="test-field"
+          value="test-value"
+          onChange={handleChange}
+        >
+          Form {{name}}
+        </{{name}}>
+      );
+      
+      const element = screen.getByRole('button');
+      expect(element).toHaveAttribute('name', 'test-field');
+    });
+
+    it('handles validation states', () => {
+      renderWithTheme(
+        <{{name}} 
+          error
+          errorText="Error message"
+          helperText="Helper text"
+        >
+          Validation {{name}}
+        </{{name}}>
+      );
+      
+      expect(screen.getByText('Error message')).toBeInTheDocument();
+      expect(screen.getByText('Helper text')).toBeInTheDocument();
+    });
+  });
+  {{/if}}
+
+  {{#if (includes features 'icons')}}
+  // Icon testing
+  describe('Icons', () => {
+    const TestIcon = () => <span data-testid="test-icon">Icon</span>;
+
+    it('renders start icon correctly', () => {
+      renderWithTheme(
+        <{{name}} startIcon={<TestIcon />}>
+          With Start Icon
+        </{{name}}>
+      );
+      
+      expect(screen.getByTestId('test-icon')).toBeInTheDocument();
+    });
+
+    it('renders end icon correctly', () => {
+      renderWithTheme(
+        <{{name}} endIcon={<TestIcon />}>
+          With End Icon
+        </{{name}}>
+      );
+      
+      expect(screen.getByTestId('test-icon')).toBeInTheDocument();
+    });
+  });
+  {{/if}}
+
+  // Accessibility testing
+  describe('Accessibility', () => {
+    it('meets WCAG accessibility guidelines', async () => {
+      const { container } = renderWithTheme(
+        <{{name}}>Accessible {{name}}</{{name}}>
+      );
+      
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
+    });
+
+    it('supports screen readers', () => {
+      const ariaLabel = 'Screen reader label';
+      renderWithTheme(
+        <{{name}} aria-label={ariaLabel}>
+          {{name}} for screen readers
+        </{{name}}>
+      );
+      
+      expect(screen.getByLabelText(ariaLabel)).toBeInTheDocument();
+    });
+
+    it('supports keyboard navigation', () => {
+      renderWithTheme(<{{name}}>Keyboard {{name}}</{{name}}>);
+      
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('tabIndex', '0');
+    });
+
+    it('provides proper ARIA attributes', () => {
+      renderWithTheme(
+        <{{name}} 
+          aria-describedby="description"
+          aria-controls="controlled-element"
+        >
+          ARIA {{name}}
+        </{{name}}>
+      );
+      
+      const button = screen.getByRole('button');
+      expect(button).toHaveAttribute('aria-describedby', 'description');
+      expect(button).toHaveAttribute('aria-controls', 'controlled-element');
+    });
+
+    it('handles focus management', () => {
+      renderWithTheme(<{{name}}>Focus {{name}}</{{name}}>);
+      
+      const button = screen.getByRole('button');
+      button.focus();
+      expect(button).toHaveFocus();
+    });
+  });
+
+  // Theme integration testing
+  describe('Theme Integration', () => {
+    it('respects theme customizations', () => {
+      const customTheme = createTheme({
+        components: {
+          Mui{{name}}: {
+            defaultProps: {
+              variant: 'secondary',
+            },
+            styleOverrides: {
+              root: {
+                backgroundColor: 'rgb(255, 0, 0)',
+              },
+            },
+          },
+        },
+      });
+
+      render(
+        <ThemeProvider theme={customTheme}>
+          <{{name}} data-testid="themed-{{dashCase name}}">
+            Themed {{name}}
+          </{{name}}>
+        </ThemeProvider>
+      );
+
+      const element = screen.getByTestId('themed-{{dashCase name}}');
+      expect(element).toBeInTheDocument();
+    });
+
+    it('supports dark mode', () => {
+      const darkTheme = createTheme({
+        palette: {
+          mode: 'dark',
+        },
+      });
+
+      render(
+        <ThemeProvider theme={darkTheme}>
+          <{{name}}>Dark Mode {{name}}</{{name}}>
+        </ThemeProvider>
+      );
+
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+  });
+
+  // Performance testing
+  describe('Performance', () => {
+    it('renders efficiently with many instances', () => {
+      const manyButtons = Array.from({ length: 100 }, (_, i) => (
+        <{{name}} key={i}>{{name}} {i}</{{name}}>
+      ));
+
+      const { container } = renderWithTheme(<div>{manyButtons}</div>);
+      expect(container.querySelectorAll('[role="button"]')).toHaveLength(100);
+    });
+
+    {{#if (includes features 'animation')}}
+    it('respects reduced motion preferences', () => {
+      // Mock prefers-reduced-motion
+      Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: vi.fn().mockImplementation((query) => ({
+          matches: query === '(prefers-reduced-motion: reduce)',
+          media: query,
+          onchange: null,
+          addListener: vi.fn(),
+          removeListener: vi.fn(),
+          addEventListener: vi.fn(),
+          removeEventListener: vi.fn(),
+          dispatchEvent: vi.fn(),
+        })),
+      });
+
+      renderWithTheme(
+        <{{name}} animate={false}>
+          No Animation {{name}}
+        </{{name}}>
+      );
+
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+    {{/if}}
+  });
+
+  // Edge cases and error handling
+  describe('Edge Cases', () => {
+    it('handles empty children gracefully', () => {
+      renderWithTheme(<{{name}} />);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    it('handles null children gracefully', () => {
+      renderWithTheme(<{{name}}>{null}</{{name}}>);
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    it('handles undefined props gracefully', () => {
+      renderWithTheme(
+        <{{name}} variant={undefined as any} size={undefined as any}>
+          Undefined Props
+        </{{name}}>
+      );
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    {{#if (eq complexity 'complex')}}
+    it('handles complex configurations', () => {
+      renderWithTheme(
+        <{{name}}
+          variant="primary"
+          size="large"
+          disabled={false}
+          {{#if (includes features 'loading')}}
+          loading={false}
+          {{/if}}
+          {{#if (includes features 'animation')}}
+          animate={true}
+          {{/if}}
+          {{#if (includes features 'responsive')}}
+          responsive={{
+            xs: { size: 'small' },
+            md: { variant: 'outlined' },
+          }}
+          {{/if}}
+        >
+          Complex {{name}}
+        </{{name}}>
+      );
+      
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+    {{/if}}
+  });
+
+  // Snapshot testing
+  describe('Snapshots', () => {
+    it('matches snapshot for default props', () => {
+      const { container } = renderWithTheme(
+        <{{name}}>Default {{name}}</{{name}}>
+      );
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('matches snapshot for all variants', () => {
+      const variants: {{name}}Props['variant'][] = [
+        'primary',
+        'secondary',
+        'outlined',
+        'text',
+      ];
+
+      variants.forEach((variant) => {
+        const { container } = renderWithTheme(
+          <{{name}} variant={variant}>{variant} {{name}}</{{name}}>
+        );
+        expect(container.firstChild).toMatchSnapshot(`variant-${variant}`);
+      });
+    });
+  });
+});

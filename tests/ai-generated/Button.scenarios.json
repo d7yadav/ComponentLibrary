@@ -1,0 +1,27 @@
+{
+  "component": "Button",
+  "generated": "2025-07-12T04:38:47.222Z",
+  "scenarios": [
+    {
+      "id": "Button-smoke",
+      "name": "Button Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Button",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Button-interaction",
+      "name": "Button Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Button",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Button-accessibility",
+      "name": "Button Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Button",
+      "estimatedDuration": 1200
+    }
+  ]
+}

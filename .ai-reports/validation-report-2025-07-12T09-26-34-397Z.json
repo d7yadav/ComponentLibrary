@@ -1,0 +1,326 @@
+{
+  "timestamp": "2025-07-12T09:26:34.397Z",
+  "metrics": {
+    "totalFiles": 21,
+    "validatedFiles": 21,
+    "errors": 12,
+    "warnings": 2,
+    "suggestions": 5,
+    "score": 93
+  },
+  "results": [
+    {
+      "path": "src/components/data-display/Card/Card.ai-guide.md",
+      "size": 4544,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/Card.constants.ts",
+      "size": 4039,
+      "lines": 189,
+      "issues": [
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/data-display/Card/Card.examples.md",
+      "size": 2956,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/Card.stories.tsx",
+      "size": 17840,
+      "lines": 683,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Card.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 78
+    },
+    {
+      "path": "src/components/data-display/Card/Card.styles.ts",
+      "size": 8626,
+      "lines": 278,
+      "issues": [
+        {
+          "message": "Found 5 'any' type(s). Use explicit types for AI comprehension",
+          "line": 20,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/data-display/Card/Card.tsx",
+      "size": 2528,
+      "lines": 91,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Card }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 78
+    },
+    {
+      "path": "src/components/data-display/Card/Card.types.ts",
+      "size": 4035,
+      "lines": 239,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/data-display/Card/CardActions.ai-guide.md",
+      "size": 4794,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardActions.examples.md",
+      "size": 3127,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardActions.tsx",
+      "size": 959,
+      "lines": 37,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardActions }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardActionsProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 80
+    },
+    {
+      "path": "src/components/data-display/Card/CardContent.ai-guide.md",
+      "size": 4794,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardContent.examples.md",
+      "size": 3127,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardContent.tsx",
+      "size": 815,
+      "lines": 32,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardContent }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardContentProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 80
+    },
+    {
+      "path": "src/components/data-display/Card/CardHeader.ai-guide.md",
+      "size": 4770,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardHeader.examples.md",
+      "size": 3102,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardHeader.tsx",
+      "size": 1714,
+      "lines": 72,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardHeader }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardHeaderProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 80
+    },
+    {
+      "path": "src/components/data-display/Card/CardMedia.ai-guide.md",
+      "size": 4747,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardMedia.examples.md",
+      "size": 3077,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardMedia.tsx",
+      "size": 2563,
+      "lines": 115,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardMedia }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardMediaProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Images should have alt text for accessibility",
+          "line": 93,
+          "type": "alt-text-missing",
+          "rule": "accessibility",
+          "category": "accessibility",
+          "severity": "warning"
+        }
+      ],
+      "score": 75
+    },
+    {
+      "path": "src/components/data-display/Card/README.md",
+      "size": 1495,
+      "lines": 63,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/index.ts",
+      "size": 838,
+      "lines": 38,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 93,
+    "totalIssues": 19
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "component": "Stack",
+  "generated": "2025-07-12T04:38:47.225Z",
+  "scenarios": [
+    {
+      "id": "Stack-smoke",
+      "name": "Stack Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Stack",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Stack-interaction",
+      "name": "Stack Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Stack",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Stack-accessibility",
+      "name": "Stack Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Stack",
+      "estimatedDuration": 1200
+    }
+  ]
+}

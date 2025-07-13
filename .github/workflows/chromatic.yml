@@ -1,0 +1,214 @@
+name: 'Chromatic AI Visual Regression Testing'
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - 'src/**'
+      - '.storybook/**'
+      - 'stories/**'
+      - 'package.json'
+      - 'yarn.lock'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - 'src/**'
+      - '.storybook/**'
+      - 'stories/**'
+      - 'package.json'
+      - 'yarn.lock'
+
+# Ensure only one Chromatic build runs at a time
+concurrency:
+  group: chromatic-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  chromatic:
+    name: AI-Enhanced Visual Regression Testing
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Required for Chromatic baseline comparison
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+          yarn playwright install chromium
+
+      - name: Build Storybook
+        run: |
+          yarn build:storybook
+        env:
+          NODE_ENV: production
+
+      - name: Run AI-Enhanced Chromatic
+        id: chromatic
+        run: |
+          yarn chromatic:upload
+        env:
+          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          CI: true
+        continue-on-error: true
+
+      - name: AI Analysis of Visual Changes
+        if: always()
+        run: |
+          yarn chromatic:analyze --verbose
+        env:
+          CI: true
+
+      - name: Upload AI Analysis Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chromatic-ai-analysis-${{ github.sha }}
+          path: |
+            chromatic-ai-analysis/reports/
+            test-results/
+          retention-days: 7
+
+      - name: Comment PR with AI Analysis
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            // Find the latest analysis report
+            const reportsDir = 'chromatic-ai-analysis/reports';
+            if (fs.existsSync(reportsDir)) {
+              const reports = fs.readdirSync(reportsDir)
+                .filter(file => file.endsWith('.json'))
+                .sort()
+                .reverse();
+              
+              if (reports.length > 0) {
+                const latestReport = JSON.parse(
+                  fs.readFileSync(path.join(reportsDir, reports[0]), 'utf8')
+                );
+                
+                const comment = `## 🎨 AI Visual Regression Analysis
+            
+            **Build ID:** ${latestReport.buildId || 'N/A'}
+            **Total Changes:** ${latestReport.summary.totalChanges}
+            **Risk Level:** ${latestReport.summary.riskLevel.toUpperCase()}
+            **AI Confidence:** ${Math.round(latestReport.summary.confidence * 100)}%
+            **Auto-Acceptable:** ${latestReport.summary.autoAcceptable ? '✅ YES' : '❌ NO'}
+            
+            ### 💡 AI Recommendations:
+            ${latestReport.recommendations.actions.map(action => 
+              `- **[${action.severity.toUpperCase()}]** ${action.message}\n  → ${action.action}`
+            ).join('\n')}
+            
+            ### 🚀 Next Steps:
+            ${latestReport.recommendations.nextSteps.map(step => `- ${step}`).join('\n')}
+            
+            ---
+            *Analysis powered by AI-Enhanced Chromatic Integration*`;
+                
+                github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: comment
+                });
+              }
+            }
+
+      - name: Set job status based on AI analysis
+        if: always()
+        run: |
+          # Check if there are critical issues that should fail the build
+          if [ -f "chromatic-ai-analysis/reports/analysis-*.json" ]; then
+            # Parse the latest report and check risk level
+            RISK_LEVEL=$(cat chromatic-ai-analysis/reports/analysis-*.json | jq -r '.summary.riskLevel // "unknown"' | tail -1)
+            CONFIDENCE=$(cat chromatic-ai-analysis/reports/analysis-*.json | jq -r '.summary.confidence // 0' | tail -1)
+            
+            echo "Risk Level: $RISK_LEVEL"
+            echo "Confidence: $CONFIDENCE"
+            
+            # Fail build only for high-risk changes with high confidence
+            if [ "$RISK_LEVEL" = "high" ] && [ "$(echo "$CONFIDENCE > 0.8" | bc)" -eq 1 ]; then
+              echo "❌ High-risk visual changes detected with high confidence"
+              echo "Manual review required before merge"
+              exit 1
+            fi
+          fi
+          
+          echo "✅ Visual regression analysis completed successfully"
+
+  notify-teams:
+    name: Notify Teams of Visual Changes
+    runs-on: ubuntu-latest
+    needs: chromatic
+    if: always() && github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Notify Teams Channel
+        if: needs.chromatic.result == 'failure'
+        uses: 8398a7/action-slack@v3
+        with:
+          status: failure
+          text: |
+            🎨 Visual regression testing detected significant changes in main branch
+            
+            Repository: ${{ github.repository }}
+            Commit: ${{ github.sha }}
+            Author: ${{ github.actor }}
+            
+            Please review the Chromatic build and AI analysis report.
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+
+  performance-budget:
+    name: Storybook Performance Budget
+    runs-on: ubuntu-latest
+    needs: chromatic
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Check Storybook Bundle Size
+        run: |
+          yarn build:storybook
+          
+          # Check if dist-storybook directory size is within budget
+          STORYBOOK_SIZE=$(du -sm dist-storybook | cut -f1)
+          BUDGET_MB=50  # 50MB budget for Storybook build
+          
+          echo "Storybook build size: ${STORYBOOK_SIZE}MB"
+          echo "Budget: ${BUDGET_MB}MB"
+          
+          if [ $STORYBOOK_SIZE -gt $BUDGET_MB ]; then
+            echo "❌ Storybook build exceeds performance budget!"
+            echo "Consider optimizing assets or splitting stories"
+            exit 1
+          else
+            echo "✅ Storybook build is within performance budget"
+          fi

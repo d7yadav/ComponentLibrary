@@ -1,0 +1,398 @@
+{
+  "timestamp": "2025-07-12T09:26:34.391Z",
+  "metrics": {
+    "totalFiles": 21,
+    "validatedFiles": 21,
+    "errors": 18,
+    "warnings": 4,
+    "suggestions": 6,
+    "score": 90
+  },
+  "results": [
+    {
+      "path": "src/components/data-display/Card/Card.ai-guide.md",
+      "size": 4544,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/Card.constants.ts",
+      "size": 3208,
+      "lines": 129,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/data-display/Card/Card.examples.md",
+      "size": 2956,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/Card.stories.tsx",
+      "size": 17844,
+      "lines": 683,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Card.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Components should use named exports only, no default exports",
+          "line": 94,
+          "type": "default-export",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 68
+    },
+    {
+      "path": "src/components/data-display/Card/Card.styles.ts",
+      "size": 8301,
+      "lines": 253,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Found 5 'any' type(s). Use explicit types for AI comprehension",
+          "line": 15,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 88
+    },
+    {
+      "path": "src/components/data-display/Card/Card.tsx",
+      "size": 2509,
+      "lines": 91,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Card }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 68
+    },
+    {
+      "path": "src/components/data-display/Card/Card.types.ts",
+      "size": 4035,
+      "lines": 239,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/data-display/Card/CardActions.ai-guide.md",
+      "size": 4794,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardActions.examples.md",
+      "size": 3127,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardActions.tsx",
+      "size": 933,
+      "lines": 37,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardActions }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardActionsProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 70
+    },
+    {
+      "path": "src/components/data-display/Card/CardContent.ai-guide.md",
+      "size": 4794,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardContent.examples.md",
+      "size": 3127,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardContent.tsx",
+      "size": 789,
+      "lines": 32,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardContent }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardContentProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 70
+    },
+    {
+      "path": "src/components/data-display/Card/CardHeader.ai-guide.md",
+      "size": 4770,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardHeader.examples.md",
+      "size": 3102,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardHeader.tsx",
+      "size": 1689,
+      "lines": 72,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardHeader }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardHeaderProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 70
+    },
+    {
+      "path": "src/components/data-display/Card/CardMedia.ai-guide.md",
+      "size": 4747,
+      "lines": 200,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardMedia.examples.md",
+      "size": 3077,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/CardMedia.tsx",
+      "size": 2509,
+      "lines": 115,
+      "issues": [
+        {
+          "message": "Component should export named export: export { CardMedia }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface CardMediaProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should include data-testid for testing",
+          "line": 1,
+          "type": "testid-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Images should have alt text for accessibility",
+          "line": 93,
+          "type": "alt-text-missing",
+          "rule": "accessibility",
+          "category": "accessibility",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 63
+    },
+    {
+      "path": "src/components/data-display/Card/README.md",
+      "size": 1495,
+      "lines": 63,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/data-display/Card/index.ts",
+      "size": 838,
+      "lines": 38,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 90,
+    "totalIssues": 28
+  }
+}
