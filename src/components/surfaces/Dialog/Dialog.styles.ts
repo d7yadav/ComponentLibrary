@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled, keyframes } from '@mui/material/styles';
-import { Box, Typography, Divider, CircularProgress, BoxProps, TypographyProps } from '@mui/material';
+import { Box, Typography, BoxProps, TypographyProps, Divider } from '@mui/material';
 import { Button } from '../../core/Button';
 import { 
   DialogStyleProps, 
@@ -55,7 +55,7 @@ export const dialogBounceKeyframes = keyframes`
  * 
  * @returns JSX element
  */
-export const StyledDialogContainer = styled(Box)<DialogStyleProps & BoxProps>(({ 
+export const StyledDialogContainer: React.ComponentType<any> = styled(Box)<DialogStyleProps & BoxProps>(({ 
   theme, 
   variant, 
   type, 
@@ -123,7 +123,7 @@ export const StyledDialogContainer = styled(Box)<DialogStyleProps & BoxProps>(({
   
   // Type-specific colors
   ...(type && {
-    borderTop: `4px solid ${theme.palette[DIALOG_TYPE_COLORS[type] as keyof typeof theme.palette].main}`,
+    borderTop: `4px solid ${(theme.palette as any)[DIALOG_TYPE_COLORS[type]]?.main || theme.palette.primary.main}`,
   }),
   
   // Loading state
@@ -169,7 +169,7 @@ export const StyledDialogContainer = styled(Box)<DialogStyleProps & BoxProps>(({
  * 
  * @returns JSX element
  */
-export const StyledDialogHeader = styled(Box)<DialogHeaderStyleProps & BoxProps>(({ 
+export const StyledDialogHeader: React.ComponentType<any> = styled(Box)<DialogHeaderStyleProps & BoxProps>(({ 
   theme, 
   variant, 
   type, 
@@ -209,7 +209,7 @@ export const StyledDialogHeader = styled(Box)<DialogHeaderStyleProps & BoxProps>
   
   // Type-specific background (subtle)
   ...(type && variant === 'alert' && {
-    backgroundColor: `${theme.palette[DIALOG_TYPE_COLORS[type] as keyof typeof theme.palette].main}08`,
+    backgroundColor: `${(theme.palette as any)[DIALOG_TYPE_COLORS[type]]?.main || theme.palette.primary.main}08`,
   }),
   
   className: DIALOG_CLASS_NAMES.header,
@@ -221,7 +221,7 @@ export const StyledDialogHeader = styled(Box)<DialogHeaderStyleProps & BoxProps>
  * 
  * @returns JSX element
  */
-export const StyledDialogTitle = styled(Typography)<TypographyProps>(({ theme }) => ({
+export const StyledDialogTitle: React.ComponentType<any> = styled(Typography)<TypographyProps>(({ theme }) => ({
   fontWeight: theme.typography.fontWeightMedium,
   fontSize: theme.typography.h6.fontSize,
   lineHeight: theme.typography.h6.lineHeight,
@@ -238,7 +238,7 @@ export const StyledDialogTitle = styled(Typography)<TypographyProps>(({ theme })
  * 
  * @returns JSX element
  */
-export const StyledDialogSubtitle = styled(Typography)<TypographyProps>(({ theme }) => ({
+export const StyledDialogSubtitle: React.ComponentType<any> = styled(Typography)<TypographyProps>(({ theme }) => ({
   fontWeight: theme.typography.fontWeightRegular,
   fontSize: theme.typography.body2.fontSize,
   lineHeight: theme.typography.body2.lineHeight,
@@ -254,7 +254,7 @@ export const StyledDialogSubtitle = styled(Typography)<TypographyProps>(({ theme
  * 
  * @returns JSX element
  */
-export const StyledDialogIcon = styled(Box)<{ dialogType: string } & BoxProps>(({ theme, dialogType }) => ({
+export const StyledDialogIcon: React.ComponentType<any> = styled(Box)<{ dialogType: string } & BoxProps>(({ theme, dialogType }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -265,11 +265,11 @@ export const StyledDialogIcon = styled(Box)<{ dialogType: string } & BoxProps>((
   
   '& .MuiSvgIcon-root': {
     fontSize: '28px',
-    color: theme.palette[DIALOG_TYPE_COLORS[dialogType as keyof typeof DIALOG_TYPE_COLORS] as keyof typeof theme.palette].main,
+    color: (theme.palette as any)[DIALOG_TYPE_COLORS[dialogType]]?.main || theme.palette.primary.main,
   },
   
   // Type-specific background
-  backgroundColor: `${theme.palette[DIALOG_TYPE_COLORS[dialogType as keyof typeof DIALOG_TYPE_COLORS] as keyof typeof theme.palette].main}12`,
+  backgroundColor: `${(theme.palette as any)[DIALOG_TYPE_COLORS[dialogType]]?.main || theme.palette.primary.main}12`,
   
   className: DIALOG_CLASS_NAMES.icon,
 }));
@@ -280,13 +280,10 @@ export const StyledDialogIcon = styled(Box)<{ dialogType: string } & BoxProps>((
  * 
  * @returns JSX element
  */
-export const StyledDialogContent = styled(Box)<DialogContentStyleProps & BoxProps>(({ 
+export const StyledDialogContent: React.ComponentType<any> = styled(Box)<DialogContentStyleProps & BoxProps>(({ 
   theme, 
   variant, 
-  size, 
   scrollable, 
-  hasIcon, 
-  hasActions,
   maxContentHeight 
 }) => ({
   flex: 1,
@@ -336,7 +333,7 @@ export const StyledDialogContent = styled(Box)<DialogContentStyleProps & BoxProp
  * 
  * @returns JSX element
  */
-export const StyledDialogFooter = styled(Box)<BoxProps>(({ theme }) => ({
+export const StyledDialogFooter: React.ComponentType<any> = styled(Box)<BoxProps>(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'flex-end',
@@ -364,7 +361,7 @@ export const StyledDialogFooter = styled(Box)<BoxProps>(({ theme }) => ({
  * 
  * @returns JSX element
  */
-export const StyledDialogAction = styled(Button)<{ destructive?: boolean }>(({ 
+export const StyledDialogAction: React.ComponentType<any> = styled(Button)<{ destructive?: boolean }>(({ 
   theme,
   destructive
 }) => ({
@@ -393,7 +390,7 @@ export const StyledDialogAction = styled(Button)<{ destructive?: boolean }>(({
  * 
  * @returns JSX element
  */
-export const StyledDialogLoadingOverlay = styled(Box)<BoxProps>(({ theme }) => ({
+export const StyledDialogLoadingOverlay: React.ComponentType<any> = styled(Box)<BoxProps>(({ theme }) => ({
   position: 'absolute',
   top: 0,
   left: 0,
@@ -420,7 +417,7 @@ export const StyledDialogLoadingOverlay = styled(Box)<BoxProps>(({ theme }) => (
  * 
  * @returns JSX element
  */
-export const StyledDialogDivider = styled(Divider)(({ theme }) => ({
+export const StyledDialogDivider: React.ComponentType<any> = styled(Divider)(({ theme }) => ({
   margin: theme.spacing(2, 0),
   
   className: DIALOG_CLASS_NAMES.divider,
@@ -432,7 +429,7 @@ export const StyledDialogDivider = styled(Divider)(({ theme }) => ({
  * 
  * @returns JSX element
  */
-export const StyledDialogCloseButton = styled(Button)(({ theme }) => ({
+export const StyledDialogCloseButton: React.ComponentType<any> = styled(Button)(({ theme }) => ({
   position: 'absolute',
   top: theme.spacing(1),
   right: theme.spacing(1),

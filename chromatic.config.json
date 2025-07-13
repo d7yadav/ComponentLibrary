@@ -1,35 +1,19 @@
 {
-  "projectId": "PROJECT_ID_PLACEHOLDER",
+  "projectToken": "chpt_208735c333f82e9",
   "buildScriptName": "build:storybook",
   "storybookBuildDir": "dist-storybook",
   "exitZeroOnChanges": true,
   "exitOnceUploaded": true,
-  "allowConsoleErrors": false,
-  "ignoreLastBuildOnBranch": "main",
   "skip": false,
-  "diagnostics": true,
   "fileHashing": true,
   "zip": true,
   "debug": false,
-  "logLevel": "info",
   "onlyChanged": true,
   "externals": [
     "public/**"
   ],
-  "threshold": 0.063,
-  "diffThreshold": 0.1,
-  "diffIncludeAntiAliasing": false,
   "traceChanged": "expanded",
   "uploadMetadata": true,
-  "branchName": "",
-  "forceRebuild": false,
-  "preserveMissingSpecs": false,
-  "ignoreLastBuildOnBranch": [
-    "main",
-    "master",
-    "develop"
-  ],
-  "only": "",
   "untraced": [
     "node_modules/**",
     "dist/**",
@@ -37,60 +21,5 @@
     ".next/**",
     "coverage/**",
     "test-results/**"
-  ],
-  "playwright": {
-    "enabled": true,
-    "browsers": [
-      "chromium",
-      "firefox",
-      "webkit"
-    ],
-    "viewports": [
-      {
-        "name": "mobile",
-        "width": 375,
-        "height": 667
-      },
-      {
-        "name": "tablet",
-        "width": 768,
-        "height": 1024
-      },
-      {
-        "name": "desktop",
-        "width": 1920,
-        "height": 1080
-      }
-    ]
-  },
-  "aiEnhanced": {
-    "enabled": true,
-    "intelligentBaselines": true,
-    "smartDiffAnalysis": true,
-    "autoAcceptMinorChanges": false,
-    "confidenceThreshold": 0.85,
-    "excludePatterns": [
-      "**/node_modules/**",
-      "**/dist/**",
-      "**/.git/**"
-    ],
-    "includePatterns": [
-      "**/src/components/**/*.stories.tsx",
-      "**/src/stories/**/*.stories.tsx"
-    ],
-    "aiAnalysis": {
-      "detectLayoutShifts": true,
-      "detectColorChanges": true,
-      "detectTypographyChanges": true,
-      "detectSpacingChanges": true,
-      "detectAnimationChanges": true,
-      "semanticDiffing": true
-    }
-  },
-  "storybook": {
-    "configDir": ".storybook",
-    "staticDir": "public",
-    "buildTimeout": 300000,
-    "startTimeout": 30000
-  }
+  ]
 }
