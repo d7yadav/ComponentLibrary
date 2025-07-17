@@ -31,6 +31,7 @@ export default defineConfig({
       "@/constants": resolve(__dirname, "src/constants"),
       "@/ai-context": resolve(__dirname, "src/ai-context"),
       "@/ai-workflow": resolve(__dirname, "src/ai-workflow"),
+      "@/forms": resolve(__dirname, "src/forms"),
     },
   },
   build: {

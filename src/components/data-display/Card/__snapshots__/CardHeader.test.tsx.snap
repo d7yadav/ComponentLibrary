@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardHeader Component > Snapshots > matches snapshot for all variants > variant-default 1`] = `
+<div
+  class="css-7j4ivt"
+  data-testid="cardheader"
+>
+  <div
+    class="card-header-content"
+  />
+</div>
+`;
+
+exports[`CardHeader Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  class="css-7j4ivt"
+  data-testid="cardheader"
+>
+  <div
+    class="card-header-content"
+  />
+</div>
+`;

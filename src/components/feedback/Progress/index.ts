@@ -1,8 +1,3 @@
-/**
- * @fileoverview Progress components barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { LinearProgress } from './LinearProgress';
 export { CircularProgress } from './CircularProgress';
 export type { 

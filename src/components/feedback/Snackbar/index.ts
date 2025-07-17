@@ -1,8 +1,3 @@
-/**
- * @fileoverview Snackbar component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Snackbar } from './Snackbar';
 export type { 
   SnackbarProps, 

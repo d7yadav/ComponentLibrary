@@ -1,8 +1,3 @@
-/**
- * @fileoverview Loading component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Loading } from './Loading';
 export { Skeleton } from './Skeleton';
 export type { 

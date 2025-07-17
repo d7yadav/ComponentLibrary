@@ -1,6 +1,15 @@
-import React, { forwardRef, memo, useCallback, useEffect, useRef } from 'react';
 import { Close } from '@mui/icons-material';
-import { ModalProps } from './Modal.types';
+import React, { forwardRef, memo, useCallback, useEffect, useRef } from 'react';
+
+import {
+  MODAL_VARIANTS,
+  MODAL_POSITIONS,
+  MODAL_BACKDROPS,
+  MODAL_ANIMATIONS,
+  MODAL_SIZES,
+  ANIMATION_DURATIONS,
+  ACCESSIBILITY_CONSTANTS,
+} from './Modal.constants';
 import {
   StyledModal,
   StyledModalContainer,
@@ -11,15 +20,7 @@ import {
   StyledCloseButton,
   loadingSpinKeyframes,
 } from './Modal.styles';
-import {
-  MODAL_VARIANTS,
-  MODAL_POSITIONS,
-  MODAL_BACKDROPS,
-  MODAL_ANIMATIONS,
-  MODAL_SIZES,
-  ANIMATION_DURATIONS,
-  ACCESSIBILITY_CONSTANTS,
-} from './Modal.constants';
+import type { ModalProps } from './Modal.types';
 
 /**
  * Enhanced Modal component with multiple variants, animations, and accessibility features
@@ -76,7 +77,7 @@ const ModalComponent = forwardRef<HTMLDivElement, ModalProps>(({
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Handle close with reason
-  const handleClose = useCallback((event?: {}, reason?: 'backdropClick' | 'escapeKeyDown') => {
+  const handleClose = useCallback((event?: unknown, reason?: 'backdropClick' | 'escapeKeyDown') => {
     if (reason === 'backdropClick' && !closeOnBackdropClick) return;
     if (reason === 'escapeKeyDown' && !closeOnEscape) return;
     onClose?.(event, reason);
@@ -141,6 +142,7 @@ const ModalComponent = forwardRef<HTMLDivElement, ModalProps>(({
       
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [open, disableAutoFocus]);
 
   // Keyboard event listeners
@@ -149,6 +151,7 @@ const ModalComponent = forwardRef<HTMLDivElement, ModalProps>(({
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
+    return undefined;
   }, [open, handleKeyDown]);
 
   // Handle animation callbacks
@@ -158,6 +161,7 @@ const ModalComponent = forwardRef<HTMLDivElement, ModalProps>(({
     } else {
       onExited?.();
     }
+    return undefined;
   }, [open, onEntered, onExited]);
 
   // Determine if we have header/footer
@@ -226,7 +230,7 @@ const ModalComponent = forwardRef<HTMLDivElement, ModalProps>(({
         >
           <StyledModalContent
             {...contentProps}
-            onClick={(e) => e.stopPropagation()} // Prevent backdrop click when clicking content
+            onClick={(e: React.MouseEvent) => e.stopPropagation()} // Prevent backdrop click when clicking content
             {...(contentClassName && { className: contentClassName })}
             {...(contentStyle && { style: contentStyle })}
           >

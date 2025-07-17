@@ -1,9 +1,14 @@
+import { Add, Download, Send, Favorite, Star } from '@mui/icons-material';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import React from 'react';
+
+import { Typography } from '@/components/data-display/Typography';
+import { Box } from '@/components/layout/Box';
+import { Stack } from '@/components/layout/Stack';
+
 import { Button } from './Button';
 import { BUTTON_VARIANTS, BUTTON_SIZES, BUTTON_COLORS } from './Button.constants';
-import { Add, Download, Send, Favorite, Star } from '@mui/icons-material';
-import { Stack, Typography, Box } from '@mui/material';
 
 /**
  * The Button component is a versatile, accessible button with 8 variants, multiple sizes,
@@ -247,6 +252,201 @@ export const FullWidth: Story = {
   },
 };
 
+// ===== BOOLEAN PROPS STORIES =====
+export const BooleanProps: Story = {
+  render: () => (
+    <Stack spacing={4}>
+      <Typography variant="h6" gutterBottom>
+        Boolean Properties Demonstration
+      </Typography>
+      
+      {/* Loading Property */}
+      <Box>
+        <Typography variant="subtitle2" gutterBottom>
+          loading Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Shows spinner and prevents interactions when true
+        </Typography>
+        <Box display="flex" gap={4} flexWrap="wrap">
+          <Box>
+            <Typography variant="caption" color="text.secondary">loading: false</Typography>
+            <Box mt={1}>
+              <Button variant="primary" loading={false}>
+                Normal Button
+              </Button>
+            </Box>
+          </Box>
+          <Box>
+            <Typography variant="caption" color="text.secondary">loading: true</Typography>
+            <Box mt={1}>
+              <Button variant="primary" loading={true}>
+                Loading Button
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      
+      {/* Disabled Property */}
+      <Box>
+        <Typography variant="subtitle2" gutterBottom>
+          disabled Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Prevents interactions and shows disabled styling when true
+        </Typography>
+        <Box display="flex" gap={4} flexWrap="wrap">
+          <Box>
+            <Typography variant="caption" color="text.secondary">disabled: false</Typography>
+            <Box mt={1}>
+              <Button variant="primary" disabled={false}>
+                Active Button
+              </Button>
+            </Box>
+          </Box>
+          <Box>
+            <Typography variant="caption" color="text.secondary">disabled: true</Typography>
+            <Box mt={1}>
+              <Button variant="primary" disabled={true}>
+                Disabled Button
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      
+      {/* FullWidth Property */}
+      <Box>
+        <Typography variant="subtitle2" gutterBottom>
+          fullWidth Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Makes button take full width of container when true
+        </Typography>
+        <Stack spacing={2}>
+          <Box>
+            <Typography variant="caption" color="text.secondary">fullWidth: false</Typography>
+            <Box mt={1} p={2} border="1px dashed" borderColor="divider">
+              <Button variant="primary" fullWidth={false}>
+                Normal Width
+              </Button>
+            </Box>
+          </Box>
+          <Box>
+            <Typography variant="caption" color="text.secondary">fullWidth: true</Typography>
+            <Box mt={1} p={2} border="1px dashed" borderColor="divider">
+              <Button variant="primary" fullWidth={true}>
+                Full Width Button
+              </Button>
+            </Box>
+          </Box>
+        </Stack>
+      </Box>
+      
+      {/* hasStartIcon Property */}
+      <Box>
+        <Typography variant="subtitle2" gutterBottom>
+          hasStartIcon Property (with startIcon)
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Automatically true when startIcon prop is provided
+        </Typography>
+        <Box display="flex" gap={4} flexWrap="wrap">
+          <Box>
+            <Typography variant="caption" color="text.secondary">No startIcon</Typography>
+            <Box mt={1}>
+              <Button variant="primary">
+                Button Only
+              </Button>
+            </Box>
+          </Box>
+          <Box>
+            <Typography variant="caption" color="text.secondary">With startIcon</Typography>
+            <Box mt={1}>
+              <Button variant="primary" startIcon={<Add />}>
+                With Start Icon
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      
+      {/* hasEndIcon Property */}
+      <Box>
+        <Typography variant="subtitle2" gutterBottom>
+          hasEndIcon Property (with endIcon)
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Automatically true when endIcon prop is provided
+        </Typography>
+        <Box display="flex" gap={4} flexWrap="wrap">
+          <Box>
+            <Typography variant="caption" color="text.secondary">No endIcon</Typography>
+            <Box mt={1}>
+              <Button variant="primary">
+                Button Only
+              </Button>
+            </Box>
+          </Box>
+          <Box>
+            <Typography variant="caption" color="text.secondary">With endIcon</Typography>
+            <Box mt={1}>
+              <Button variant="primary" endIcon={<Send />}>
+                With End Icon
+              </Button>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+      
+      {/* Combined Boolean Properties */}
+      <Box>
+        <Typography variant="subtitle2" gutterBottom>
+          Combined Boolean Properties
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Real-world scenarios with multiple boolean properties
+        </Typography>
+        <Stack spacing={2}>
+          <Box display="flex" gap={2} flexWrap="wrap">
+            <Button variant="outline">
+              Default State
+            </Button>
+            <Button variant="outline" disabled>
+              Just Disabled
+            </Button>
+            <Button variant="outline" loading>
+              Just Loading
+            </Button>
+            <Button variant="outline" loading disabled>
+              Loading + Disabled
+            </Button>
+          </Box>
+          <Box>
+            <Button variant="primary" fullWidth startIcon={<Download />} endIcon={<Star />}>
+              Full Width with Both Icons
+            </Button>
+          </Box>
+          <Box>
+            <Button variant="gradient" fullWidth loading disabled startIcon={<Favorite />}>
+              Full Width + Loading + Disabled + Icon
+            </Button>
+          </Box>
+        </Stack>
+      </Box>
+    </Stack>
+  ),
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        story: 'Demonstrates all boolean properties of the Button component with clear visual comparisons and practical examples.',
+      },
+    },
+  },
+};
+
 // ===== ICON STORIES =====
 export const WithStartIcon: Story = {
   args: {
@@ -286,7 +486,7 @@ export const AllVariants: Story = {
         All Button Variants
       </Typography>
       <Stack direction="row" spacing={2} flexWrap="wrap" justifyContent="center">
-        {Object.values(BUTTON_VARIANTS).map((variant) => (
+        {(Object.keys(BUTTON_VARIANTS) as Array<keyof typeof BUTTON_VARIANTS>).map((variant) => (
           <Button key={variant} variant={variant}>
             {variant.charAt(0).toUpperCase() + variant.slice(1)}
           </Button>
@@ -306,7 +506,7 @@ export const AllSizes: Story = {
         All Button Sizes
       </Typography>
       <Stack direction="row" spacing={2} alignItems="center">
-        {Object.values(BUTTON_SIZES).map((size) => (
+        {(Object.keys(BUTTON_SIZES) as Array<keyof typeof BUTTON_SIZES>).map((size) => (
           <Button key={size} size={size}>
             {size.charAt(0).toUpperCase() + size.slice(1)}
           </Button>
@@ -326,7 +526,7 @@ export const AllColors: Story = {
         All Button Colors
       </Typography>
       <Box display="grid" gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))" gap={2}>
-        {Object.values(BUTTON_COLORS).map((color) => (
+        {(Object.keys(BUTTON_COLORS) as Array<keyof typeof BUTTON_COLORS>).map((color) => (
           <Button key={color} color={color}>
             {color.charAt(0).toUpperCase() + color.slice(1)}
           </Button>

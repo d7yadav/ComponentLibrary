@@ -1,17 +1,6 @@
-/**
- * @fileoverview CSS Variables configuration for runtime theming
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
-/**
- * CSS Variable definitions for ultra-fast runtime theming
- * Leverages MUI v7's CSS Variables 2.0 system
- */
 export const cssVarPrefix = 'dilip-mui';
 
-/**
- * Custom CSS variables for advanced theming features
- */
 export const customCssVars = {
   // Gradient variables
   '--gradient-primary': 'linear-gradient(45deg, #1976d2 30%, #42a5f5 90%)',
@@ -41,5 +30,5 @@ export const customCssVars = {
   '--dark-elevation-2': 'rgba(255, 255, 255, 0.07)',
   '--dark-elevation-3': 'rgba(255, 255, 255, 0.08)',
   '--dark-elevation-4': 'rgba(255, 255, 255, 0.09)',
-  '--dark-elevation-5': 'rgba(255, 255, 255, 0.10)',
+  '--dark-elevation-5': 'rgba(255, 255, 255, 0.10)'
 };

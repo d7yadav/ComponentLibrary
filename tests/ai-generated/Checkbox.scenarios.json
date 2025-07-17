@@ -1,0 +1,27 @@
+{
+  "component": "Checkbox",
+  "generated": "2025-07-14T08:19:00.479Z",
+  "scenarios": [
+    {
+      "id": "Checkbox-smoke",
+      "name": "Checkbox Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Checkbox",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Checkbox-interaction",
+      "name": "Checkbox Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Checkbox",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Checkbox-accessibility",
+      "name": "Checkbox Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Checkbox",
+      "estimatedDuration": 1200
+    }
+  ]
+}

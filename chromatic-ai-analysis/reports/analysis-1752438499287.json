@@ -1,0 +1,140 @@
+{
+  "timestamp": "2025-07-13T20:28:19.287Z",
+  "buildId": "4",
+  "summary": {
+    "totalChanges": 46,
+    "newComponents": 0,
+    "newStories": 0,
+    "riskLevel": "high",
+    "confidence": 0.4,
+    "autoAcceptable": false
+  },
+  "analysis": {
+    "buildId": "4",
+    "timestamp": "2025-07-13T20:28:19.285Z",
+    "totalChanges": 46,
+    "newComponents": [],
+    "newStories": 0,
+    "changeCategories": {
+      "layout": 1,
+      "color": 0,
+      "typography": 0,
+      "spacing": 0,
+      "animation": 0,
+      "content": 0,
+      "newComponent": 0,
+      "themeSpecific": 45
+    },
+    "themeAnalysis": {
+      "lightThemeChanges": 18,
+      "darkThemeChanges": 27,
+      "themeConsistency": "poor",
+      "themeSpecificIssues": [
+        "Significant imbalance between light and dark theme changes",
+        "Dark theme appears to have more changes - check OLED optimizations"
+      ]
+    },
+    "riskLevel": "high",
+    "confidence": 0.4,
+    "recommendations": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "theme-consistency",
+        "severity": "high",
+        "message": "Poor theme consistency detected",
+        "action": "Review theme implementation and ensure consistent behavior across light/dark modes"
+      },
+      {
+        "type": "theme-specific",
+        "severity": "medium",
+        "message": "Significant imbalance between light and dark theme changes",
+        "action": "Review theme-specific implementation and test both light and dark modes"
+      },
+      {
+        "type": "theme-specific",
+        "severity": "medium",
+        "message": "Dark theme appears to have more changes - check OLED optimizations",
+        "action": "Review theme-specific implementation and test both light and dark modes"
+      },
+      {
+        "type": "theme-testing",
+        "severity": "info",
+        "message": "45 theme-specific changes detected",
+        "action": "Verify both light and dark theme variations in Storybook"
+      },
+      {
+        "type": "review",
+        "severity": "high",
+        "message": "Multiple significant changes detected",
+        "action": "Manual review recommended before acceptance"
+      }
+    ],
+    "autoAcceptable": false,
+    "newComponentDetected": false
+  },
+  "recommendations": {
+    "autoAcceptable": false,
+    "requiresReview": true,
+    "confidence": 0.4,
+    "actions": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "theme-consistency",
+        "severity": "high",
+        "message": "Poor theme consistency detected",
+        "action": "Review theme implementation and ensure consistent behavior across light/dark modes"
+      },
+      {
+        "type": "theme-specific",
+        "severity": "medium",
+        "message": "Significant imbalance between light and dark theme changes",
+        "action": "Review theme-specific implementation and test both light and dark modes"
+      },
+      {
+        "type": "theme-specific",
+        "severity": "medium",
+        "message": "Dark theme appears to have more changes - check OLED optimizations",
+        "action": "Review theme-specific implementation and test both light and dark modes"
+      },
+      {
+        "type": "theme-testing",
+        "severity": "info",
+        "message": "45 theme-specific changes detected",
+        "action": "Verify both light and dark theme variations in Storybook"
+      },
+      {
+        "type": "review",
+        "severity": "high",
+        "message": "Multiple significant changes detected",
+        "action": "Manual review recommended before acceptance"
+      }
+    ],
+    "nextSteps": [
+      "Manual review required",
+      "Test in staging environment"
+    ],
+    "newComponentStrategy": null
+  },
+  "newComponentHandling": {
+    "detected": false,
+    "components": [],
+    "strategy": null
+  },
+  "technicalDetails": {
+    "aiVersion": "2.0.0",
+    "analysisMethod": "pattern-recognition-with-new-component-awareness",
+    "confidenceThreshold": 0.85,
+    "autoAcceptThreshold": 0.95,
+    "gracefulMode": false
+  }
+}

@@ -1,13 +1,13 @@
+import { Box, Backdrop, type BackdropProps } from '@mui/material';
 import { styled, keyframes } from '@mui/material/styles';
-import { Box, Backdrop } from '@mui/material';
-import { 
-  LOADING_SIZE_CONFIGS, 
+import React from 'react';
+
+import {
+  LOADING_SIZE_CONFIGS,
   LOADING_ANIMATION_DURATIONS,
   LOADING_ANIMATION_EASINGS,
-  LOADING_DOT_COUNTS,
-  SKELETON_DEFAULTS 
+  SKELETON_DEFAULTS
 } from './Loading.constants';
-
 // Animation keyframes
 const spin = keyframes`
   0% {
@@ -106,16 +106,27 @@ const skeletonWave = keyframes`
   }
 `;
 
-// Main loading container
 /**
- * LoadingContainer component
- * 
- * @returns JSX element
+ * Custom props for LoadingContainer, extending Box props.
  */
-export const LoadingContainer = styled(Box, {
+export interface LoadingContainerProps {
+  customVariant?: string;
+  customCentered?: boolean;
+  customFullWidth?: boolean;
+  customFullHeight?: boolean;
+  customMinHeight?: number | string;
+  customZIndex?: number;
+}
+
+/**
+ * Main loading container styled component.
+ * Applies layout and variant-specific styles for loading overlays, inline spinners, etc.
+ * @author dilip.yadav@shorelineiot.com
+ */
+export const LoadingContainer: React.ComponentType<LoadingContainerProps> = styled(Box, {
   shouldForwardProp: (prop) => !['customVariant', 'customCentered', 'customFullWidth', 'customFullHeight', 'customMinHeight', 'customZIndex'].includes(prop as string),
-})<any>((props: any) => {
-  const { 
+})<LoadingContainerProps>((props) => {
+  const {
     customVariant = 'default',
     customCentered,
     customFullWidth,
@@ -126,411 +137,416 @@ export const LoadingContainer = styled(Box, {
   
   return {
     // Base styling
-    display: 'flex',
-    alignItems: customCentered ? 'center' : 'flex-start',
-    justifyContent: customCentered ? 'center' : 'flex-start',
-    flexDirection: 'column',
+    'display': 'flex',
+    'alignItems': customCentered ? 'center' : 'flex-start',
+    'justifyContent': customCentered ? 'center' : 'flex-start',
+    'flexDirection': 'column',
     gap: 8,
     
     // Size constraints
     ...(customFullWidth && {
-      width: '100%',
+      'width': '100%',
     }),
     
     ...(customFullHeight && {
-      height: '100%',
+      'height': '100%',
     }),
     
     ...(customMinHeight && {
-      minHeight: typeof customMinHeight === 'number' ? `${customMinHeight}px` : customMinHeight,
+      'minHeight': typeof customMinHeight === 'number' ? `${customMinHeight}px` : customMinHeight,
     }),
     
     // Variant-specific styling
     ...(customVariant === 'overlay' && {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: customZIndex,
-      alignItems: 'center',
-      justifyContent: 'center',
+      'position': 'fixed',
+      'top': 0,
+      'left': 0,
+      'right': 0,
+      'bottom': 0,
+      'zIndex': customZIndex,
+      'alignItems': 'center',
+      'justifyContent': 'center',
     }),
     
     ...(customVariant === 'inline' && {
-      position: 'relative',
-      display: 'inline-flex',
+      'position': 'relative',
+      'display': 'inline-flex',
     }),
     
     ...(customVariant === 'button' && {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      minWidth: 'auto',
-      minHeight: 'auto',
+      'display': 'inline-flex',
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'minWidth': 'auto',
+      'minHeight': 'auto',
     }),
     
     ...(customVariant === 'page' && {
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: customZIndex,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor: 'rgba(255, 255, 255, 0.8)',
+      'position': 'fixed',
+      'top': 0,
+      'left': 0,
+      'right': 0,
+      'bottom': 0,
+      'zIndex': customZIndex,
+      'alignItems': 'center',
+      'justifyContent': 'center',
+      'backgroundColor': 'rgba(255, 255, 255, 0.8)',
     }),
   };
 });
 
-// Loading backdrop
 /**
- * LoadingBackdrop component
- * 
- * @returns JSX element
+ * Loading backdrop styled component.
+ * Used for overlay loading states with custom opacity and z-index.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const LoadingBackdrop = styled(Backdrop, {
+export const LoadingBackdrop: React.ComponentType<BackdropProps & { customOpacity?: number; customZIndex?: number }> = styled(Backdrop, {
   shouldForwardProp: (prop) => !['customOpacity', 'customZIndex'].includes(prop as string),
-})<{ customOpacity?: number; customZIndex?: number }>((props: any) => {
+})<{ customOpacity?: number; customZIndex?: number }>((props) => {
   const { customOpacity = 0.5, customZIndex } = props;
   
   return {
-    backgroundColor: `rgba(0, 0, 0, ${customOpacity})`,
+    'backgroundColor': `rgba(0, 0, 0, ${customOpacity})`,
     ...(customZIndex && {
-      zIndex: customZIndex,
+      'zIndex': customZIndex,
     }),
   };
 });
 
-// Spinner components
 /**
- * CircularSpinner component
- * 
- * @returns JSX element
+ * Circular spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const CircularSpinner = styled(Box, {
+export const CircularSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 32, customColor, customSpeed = 1 } = props;
   
   return {
-    width: customSize,
-    height: customSize,
-    border: `${Math.max(2, customSize / 16)}px solid`,
-    borderColor: `${customColor || theme.palette.primary.main} transparent ${customColor || theme.palette.primary.main} transparent`,
-    borderRadius: '50%',
-    animation: `${spin} ${LOADING_ANIMATION_DURATIONS.circular / customSpeed}ms ${LOADING_ANIMATION_EASINGS.linear} infinite`,
+    'width': customSize,
+    'height': customSize,
+    'border': `${Math.max(2, customSize / 16)}px solid`,
+    'borderColor': `${customColor || theme.palette.primary.main} transparent ${customColor || theme.palette.primary.main} transparent`,
+    'borderRadius': '50%',
+    'animation': `${spin} ${LOADING_ANIMATION_DURATIONS.circular / customSpeed}ms ${LOADING_ANIMATION_EASINGS.linear} infinite`,
   };
 });
 
 /**
- * DotsSpinner component
- * 
- * @returns JSX element
+ * Dots spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const DotsSpinner = styled(Box, {
+export const DotsSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 24, customColor, customSpeed = 1 } = props;
   const dotSize = customSize / 4;
   
   return {
-    display: 'flex',
-    alignItems: 'center',
+    'display': 'flex',
+    'alignItems': 'center',
     gap: dotSize / 2,
     
     '& .dot': {
-      width: dotSize,
-      height: dotSize,
-      backgroundColor: customColor || theme.palette.primary.main,
-      borderRadius: '50%',
-      animation: `${bounce} ${LOADING_ANIMATION_DURATIONS.dots / customSpeed}ms ${LOADING_ANIMATION_EASINGS.bounce} infinite`,
+      'width': dotSize,
+      'height': dotSize,
+      'backgroundColor': customColor || theme.palette.primary.main,
+      'borderRadius': '50%',
+      'animation': `${bounce} ${LOADING_ANIMATION_DURATIONS.dots / customSpeed}ms ${LOADING_ANIMATION_EASINGS.bounce} infinite`,
       
       '&:nth-of-type(1)': {
-        animationDelay: '0ms',
+        'animationDelay': '0ms',
       },
       '&:nth-of-type(2)': {
-        animationDelay: `${160 / customSpeed}ms`,
+        'animationDelay': `${160 / customSpeed}ms`,
       },
       '&:nth-of-type(3)': {
-        animationDelay: `${320 / customSpeed}ms`,
+        'animationDelay': `${320 / customSpeed}ms`,
       },
     },
   };
 });
 
 /**
- * BarsSpinner component
- * 
- * @returns JSX element
+ * Bars spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const BarsSpinner = styled(Box, {
+export const BarsSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 32, customColor, customSpeed = 1 } = props;
   const barWidth = customSize / 6;
   
   return {
-    display: 'flex',
-    alignItems: 'center',
+    'display': 'flex',
+    'alignItems': 'center',
     gap: barWidth / 2,
-    height: customSize,
+    'height': customSize,
     
     '& .bar': {
-      width: barWidth,
-      height: '100%',
-      backgroundColor: customColor || theme.palette.primary.main,
-      animation: `${bars} ${LOADING_ANIMATION_DURATIONS.bars / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
-      transformOrigin: 'bottom',
+      'width': barWidth,
+      'height': '100%',
+      'backgroundColor': customColor || theme.palette.primary.main,
+      'animation': `${bars} ${LOADING_ANIMATION_DURATIONS.bars / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
+      'transformOrigin': 'bottom',
       
       '&:nth-of-type(1)': {
-        animationDelay: '0ms',
+        'animationDelay': '0ms',
       },
       '&:nth-of-type(2)': {
-        animationDelay: `${100 / customSpeed}ms`,
+        'animationDelay': `${100 / customSpeed}ms`,
       },
       '&:nth-of-type(3)': {
-        animationDelay: `${200 / customSpeed}ms`,
+        'animationDelay': `${200 / customSpeed}ms`,
       },
       '&:nth-of-type(4)': {
-        animationDelay: `${300 / customSpeed}ms`,
+        'animationDelay': `${300 / customSpeed}ms`,
       },
     },
   };
 });
 
 /**
- * PulseSpinner component
- * 
- * @returns JSX element
+ * Pulse spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const PulseSpinner = styled(Box, {
+export const PulseSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 40, customColor, customSpeed = 1 } = props;
   
   return {
-    width: customSize,
-    height: customSize,
-    backgroundColor: customColor || theme.palette.primary.main,
-    borderRadius: '50%',
-    animation: `${pulse} ${LOADING_ANIMATION_DURATIONS.pulse / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
+    'width': customSize,
+    'height': customSize,
+    'backgroundColor': customColor || theme.palette.primary.main,
+    'borderRadius': '50%',
+    'animation': `${pulse} ${LOADING_ANIMATION_DURATIONS.pulse / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
   };
 });
 
 /**
- * RingSpinner component
- * 
- * @returns JSX element
+ * Ring spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const RingSpinner = styled(Box, {
+export const RingSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 40, customColor, customSpeed = 1 } = props;
   
   return {
-    width: customSize,
-    height: customSize,
-    border: `${Math.max(2, customSize / 20)}px solid ${theme.palette.action.disabled}`,
-    borderTop: `${Math.max(2, customSize / 20)}px solid ${customColor || theme.palette.primary.main}`,
-    borderRadius: '50%',
-    animation: `${spin} ${LOADING_ANIMATION_DURATIONS.ring / customSpeed}ms ${LOADING_ANIMATION_EASINGS.linear} infinite`,
+    'width': customSize,
+    'height': customSize,
+    'border': `${Math.max(2, customSize / 20)}px solid ${theme.palette.action.disabled}`,
+    'borderTop': `${Math.max(2, customSize / 20)}px solid ${customColor || theme.palette.primary.main}`,
+    'borderRadius': '50%',
+    'animation': `${spin} ${LOADING_ANIMATION_DURATIONS.ring / customSpeed}ms ${LOADING_ANIMATION_EASINGS.linear} infinite`,
   };
 });
 
 /**
- * WaveSpinner component
- * 
- * @returns JSX element
+ * Wave spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const WaveSpinner = styled(Box, {
+export const WaveSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 32, customColor, customSpeed = 1 } = props;
   const barWidth = customSize / 8;
   
   return {
-    display: 'flex',
-    alignItems: 'center',
+    'display': 'flex',
+    'alignItems': 'center',
     gap: barWidth / 2,
-    height: customSize,
+    'height': customSize,
     
     '& .wave-bar': {
-      width: barWidth,
-      height: customSize / 2,
-      backgroundColor: customColor || theme.palette.primary.main,
-      animation: `${wave} ${LOADING_ANIMATION_DURATIONS.wave / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
+      'width': barWidth,
+      'height': customSize / 2,
+      'backgroundColor': customColor || theme.palette.primary.main,
+      'animation': `${wave} ${LOADING_ANIMATION_DURATIONS.wave / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
       
       '&:nth-of-type(1)': {
-        animationDelay: '0ms',
+        'animationDelay': '0ms',
       },
       '&:nth-of-type(2)': {
-        animationDelay: `${100 / customSpeed}ms`,
+        'animationDelay': `${100 / customSpeed}ms`,
       },
       '&:nth-of-type(3)': {
-        animationDelay: `${200 / customSpeed}ms`,
+        'animationDelay': `${200 / customSpeed}ms`,
       },
       '&:nth-of-type(4)': {
-        animationDelay: `${300 / customSpeed}ms`,
+        'animationDelay': `${300 / customSpeed}ms`,
       },
       '&:nth-of-type(5)': {
-        animationDelay: `${400 / customSpeed}ms`,
+        'animationDelay': `${400 / customSpeed}ms`,
       },
     },
   };
 });
 
 /**
- * RippleSpinner component
- * 
- * @returns JSX element
+ * Ripple spinner styled component for loading indication.
+ * Accepts custom size, color, and speed.
+ * @author dilip.yadav@shorelineiot.com
  */
-export const RippleSpinner = styled(Box, {
+export const RippleSpinner: React.ComponentType<{ customSize?: number; customColor?: string; customSpeed?: number }> = styled(Box, {
   shouldForwardProp: (prop) => !['customSize', 'customColor', 'customSpeed'].includes(prop as string),
-})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props: any) => {
+})<{ customSize?: number; customColor?: string; customSpeed?: number }>((props) => {
   const { theme, customSize = 48, customColor, customSpeed = 1 } = props;
   
   return {
-    position: 'relative',
-    width: customSize,
-    height: customSize,
+    'position': 'relative',
+    'width': customSize,
+    'height': customSize,
     
     '& .ripple': {
-      position: 'absolute',
-      border: `2px solid ${customColor || theme.palette.primary.main}`,
-      borderRadius: '50%',
-      animation: `${ripple} ${LOADING_ANIMATION_DURATIONS.ripple / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
+      'position': 'absolute',
+      'border': `2px solid ${customColor || theme.palette.primary.main}`,
+      'borderRadius': '50%',
+      'animation': `${ripple} ${LOADING_ANIMATION_DURATIONS.ripple / customSpeed}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
       
       '&:nth-of-type(1)': {
-        animationDelay: '0ms',
+        'animationDelay': '0ms',
       },
       '&:nth-of-type(2)': {
-        animationDelay: `${600 / customSpeed}ms`,
+        'animationDelay': `${600 / customSpeed}ms`,
       },
     },
   };
 });
 
 // Loading message
-/**
- * LoadingMessage component
- * 
- * @returns JSX element
- */
-export const LoadingMessage = styled(Box)<any>((props: any) => {
+export const LoadingMessage: React.ComponentType<{ customSize?: string }> = styled(Box)<{ customSize?: string }>((props) => {
   const { theme, customSize = 'medium' } = props;
   const sizeConfig = LOADING_SIZE_CONFIGS[customSize as keyof typeof LOADING_SIZE_CONFIGS];
   
   return {
-    fontSize: sizeConfig.fontSize,
-    color: theme.palette.text.secondary,
-    textAlign: 'center',
-    marginTop: theme.spacing(1),
-    fontWeight: theme.typography.fontWeightMedium,
+    'fontSize': sizeConfig.fontSize,
+    'color': theme.palette.text.secondary,
+    'textAlign': 'center',
+    'marginTop': theme.spacing(1),
+    'fontWeight': theme.typography.fontWeightMedium,
   };
 });
 
-// Skeleton components
 /**
- * SkeletonBase component
- * 
- * @returns JSX element
+ * Props for SkeletonBase, extending BoxProps and adding customAnimation.
  */
-export const SkeletonBase = styled(Box, {
+export interface SkeletonBaseProps {
+  customAnimation?: boolean | 'pulse' | 'wave',
+}
+
+/**
+ * Base skeleton styled component for loading placeholders.
+ * Accepts customAnimation prop for animation type.
+ */
+export const SkeletonBase: React.ComponentType<SkeletonBaseProps> = styled(Box, {
   shouldForwardProp: (prop) => !['customAnimation'].includes(prop as string),
-})<{ customAnimation?: boolean | 'pulse' | 'wave' }>((props: any) => {
+})<SkeletonBaseProps>((props) => {
   const { theme, customAnimation = 'pulse' } = props;
   
   return {
-    backgroundColor: theme.palette.action.hover,
+    'backgroundColor': theme.palette.action.hover,
     
     // Animation
     ...(customAnimation === 'pulse' && {
-      animation: `${skeletonPulse} ${LOADING_ANIMATION_DURATIONS.skeleton}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
+      'animation': `${skeletonPulse} ${LOADING_ANIMATION_DURATIONS.skeleton}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
     }),
     
     ...(customAnimation === 'wave' && {
-      position: 'relative',
-      overflow: 'hidden',
+      'position': 'relative',
+      'overflow': 'hidden',
       
       '&::after': {
-        content: '""',
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        transform: 'translateX(-100%)',
-        background: `linear-gradient(90deg, transparent, ${theme.palette.action.selected}, transparent)`,
-        animation: `${skeletonWave} ${LOADING_ANIMATION_DURATIONS.skeleton}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
+        'content': '""',
+        'position': 'absolute',
+        'top': 0,
+        'right': 0,
+        'bottom': 0,
+        'left': 0,
+        'transform': 'translateX(-100%)',
+        'background': `linear-gradient(90deg, transparent, ${theme.palette.action.selected}, transparent)`,
+        'animation': `${skeletonWave} ${LOADING_ANIMATION_DURATIONS.skeleton}ms ${LOADING_ANIMATION_EASINGS.easeInOut} infinite`,
       },
     }),
   };
 });
 
 /**
- * SkeletonText component
- * 
- * @returns JSX element
+ * Props for SkeletonText, extending SkeletonBaseProps and adding lines.
  */
-export const SkeletonText = styled(SkeletonBase)<{ lines?: number }>((props: any) => {
+export interface SkeletonTextProps extends SkeletonBaseProps {
+  lines?: number,
+}
+
+/**
+ * Skeleton text styled component for text loading placeholders.
+ * Accepts lines prop for number of lines.
+ */
+export const SkeletonText: React.ComponentType<SkeletonTextProps> = styled(SkeletonBase, {
+  shouldForwardProp: (prop) => !['lines'].includes(prop as string),
+})<SkeletonTextProps>((props) => {
   const { theme, lines = 1 } = props;
   
   if (lines === 1) {
     return {
-      height: SKELETON_DEFAULTS.textHeight,
-      borderRadius: theme.spacing(0.5),
+      'height': SKELETON_DEFAULTS.textHeight,
+      'borderRadius': theme.spacing(0.5),
     };
   }
   
   return {
-    display: 'flex',
-    flexDirection: 'column',
+    'display': 'flex',
+    'flexDirection': 'column',
     gap: SKELETON_DEFAULTS.lineSpacing,
     
     '&::before': {
-      content: '""',
-      display: 'block',
-      height: SKELETON_DEFAULTS.textHeight,
-      borderRadius: theme.spacing(0.5),
-      backgroundColor: 'inherit',
+      'content': '""',
+      'display': 'block',
+      'height': SKELETON_DEFAULTS.textHeight,
+      'borderRadius': theme.spacing(0.5),
+      'backgroundColor': 'inherit',
     },
     
-    // Generate additional lines
-    ...Array.from({ length: lines - 1 }, (_, i) => ({
-      [`&::after${i > 0 ? `, &::before:nth-child(${i + 2})` : ''}`]: {
-        content: '""',
-        display: 'block',
-        height: SKELETON_DEFAULTS.textHeight,
-        borderRadius: theme.spacing(0.5),
-        backgroundColor: 'inherit',
-        width: i === lines - 2 ? '60%' : '100%', // Last line is shorter
+    // Generate additional lines - simplified for CSS-in-JS compatibility
+    ...(lines > 1 && {
+      '&::after': {
+        'content': '""',
+        'display': 'block',
+        'height': SKELETON_DEFAULTS.textHeight,
+        'borderRadius': theme.spacing(0.5),
+        'backgroundColor': 'inherit',
+        'width': '60%', // Last line is shorter
       },
-    })),
+    }),
   };
 });
 
 /**
- * SkeletonRectangular component
- * 
- * @returns JSX element
+ * Skeleton rectangular styled component for rectangular loading placeholders.
  */
-export const SkeletonRectangular = styled(SkeletonBase)((props: any) => {
+export const SkeletonRectangular: React.ComponentType<SkeletonBaseProps> = styled(SkeletonBase)((props) => {
   const { theme } = props;
   return {
-    height: SKELETON_DEFAULTS.rectangularHeight,
-    borderRadius: theme.spacing(1),
+    'height': SKELETON_DEFAULTS.rectangularHeight,
+    'borderRadius': theme.spacing(1),
   };
 });
 
 /**
- * SkeletonCircular component
- * 
- * @returns JSX element
+ * Skeleton circular styled component for circular loading placeholders.
  */
-export const SkeletonCircular = styled(SkeletonBase)(() => ({
-  width: SKELETON_DEFAULTS.circularSize,
-  height: SKELETON_DEFAULTS.circularSize,
-  borderRadius: '50%',
+export const SkeletonCircular: React.ComponentType<SkeletonBaseProps> = styled(SkeletonBase)(({ theme }) => ({
+  'width': SKELETON_DEFAULTS.circularSize,
+  'height': SKELETON_DEFAULTS.circularSize,
+  'borderRadius': '50%',
+  'backgroundColor': theme.palette.action.hover,
+  'outline': `2px solid ${theme.palette.action.disabled}`,
+  outlineOffset: '2px',
 }));

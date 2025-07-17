@@ -1,0 +1,27 @@
+{
+  "component": "Drawer",
+  "generated": "2025-07-14T08:19:00.481Z",
+  "scenarios": [
+    {
+      "id": "Drawer-smoke",
+      "name": "Drawer Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Drawer",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Drawer-interaction",
+      "name": "Drawer Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Drawer",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Drawer-accessibility",
+      "name": "Drawer Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Drawer",
+      "estimatedDuration": 1200
+    }
+  ]
+}

@@ -1,7 +1,3 @@
-/**
- * @fileoverview Stack component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 export { Stack } from './Stack';
 export type { 
@@ -45,4 +41,4 @@ export {
   ButtonGroupStack,
   ListStack,
   ResponsiveStack,
-} from './Stack.styles';
+} from './Stack';

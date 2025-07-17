@@ -1,10 +1,5 @@
-import { CardVariant, CardElevation, CardSize, CardOrientation } from './Card.types';
+import type { CardVariant, CardElevation, CardSize, CardOrientation } from './Card.types';
 
-/**
- * CARD_VARIANTS component
- * 
- * @returns JSX element
- */
 export const CARD_VARIANTS: Record<CardVariant, CardVariant> = {
   elevated: 'elevated',
   outlined: 'outlined',
@@ -14,11 +9,6 @@ export const CARD_VARIANTS: Record<CardVariant, CardVariant> = {
   interactive: 'interactive',
 } as const;
 
-/**
- * CARD_ELEVATIONS component
- * 
- * @returns JSX element
- */
 export const CARD_ELEVATIONS: Record<CardElevation, CardElevation> = {
   0: 0,
   1: 1,
@@ -32,32 +22,17 @@ export const CARD_ELEVATIONS: Record<CardElevation, CardElevation> = {
   24: 24,
 } as const;
 
-/**
- * CARD_SIZES component
- * 
- * @returns JSX element
- */
 export const CARD_SIZES: Record<CardSize, CardSize> = {
   compact: 'compact',
   comfortable: 'comfortable',
   spacious: 'spacious',
 } as const;
 
-/**
- * CARD_ORIENTATIONS component
- * 
- * @returns JSX element
- */
 export const CARD_ORIENTATIONS: Record<CardOrientation, CardOrientation> = {
   vertical: 'vertical',
   horizontal: 'horizontal',
 } as const;
 
-/**
- * CARD_SIZE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const CARD_SIZE_CONFIGS = {
   compact: {
     padding: '12px',
@@ -85,11 +60,6 @@ export const CARD_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * CARD_ELEVATION_SHADOWS component
- * 
- * @returns JSX element
- */
 export const CARD_ELEVATION_SHADOWS = {
   0: 'none',
   1: '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
@@ -103,11 +73,6 @@ export const CARD_ELEVATION_SHADOWS = {
   24: '0 60px 120px rgba(0, 0, 0, 0.30)',
 } as const;
 
-/**
- * CARD_INTERACTION_STATES component
- * 
- * @returns JSX element
- */
 export const CARD_INTERACTION_STATES = {
   hover: {
     elevationIncrease: 2,
@@ -124,11 +89,6 @@ export const CARD_INTERACTION_STATES = {
   },
 } as const;
 
-/**
- * CARD_MEDIA_DEFAULTS component
- * 
- * @returns JSX element
- */
 export const CARD_MEDIA_DEFAULTS = {
   height: 200,
   objectFit: 'cover' as const,
@@ -139,11 +99,6 @@ export const CARD_MEDIA_DEFAULTS = {
   },
 } as const;
 
-/**
- * GLASS_MORPHISM_CARD_CONFIG component
- * 
- * @returns JSX element
- */
 export const GLASS_MORPHISM_CARD_CONFIG = {
   backdropFilter: 'blur(12px)',
   backdropFilterFallback: 'blur(8px)',
@@ -152,11 +107,6 @@ export const GLASS_MORPHISM_CARD_CONFIG = {
   saturate: 1.8,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   minTouchTarget: 44, // Minimum touch target size in pixels
   focusOutlineWidth: 2,
@@ -165,11 +115,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   cardRole: 'article',
 } as const;
 
-/**
- * CARD_ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const CARD_ANIMATION_DURATIONS = {
   hover: '0.2s',
   press: '0.1s',
@@ -177,11 +122,6 @@ export const CARD_ANIMATION_DURATIONS = {
   loading: '1.5s',
 } as const;
 
-/**
- * CARD_ANIMATION_EASINGS component
- * 
- * @returns JSX element
- */
 export const CARD_ANIMATION_EASINGS = {
   spring: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',

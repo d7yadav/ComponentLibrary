@@ -35,10 +35,20 @@ const preview: Preview = {
           value: '#000000',
         },
         {
+          name: 'oled-dark',
+          value: '#000000',
+        },
+        {
           name: 'gray',
           value: '#f5f5f5',
         },
       ],
+      // Sync backgrounds with theme state
+      grid: {
+        cellSize: 20,
+        opacity: 0.5,
+        cellAmount: 5,
+      },
     },
     viewport: {
       viewports: {
@@ -135,12 +145,34 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const theme = context.globals.theme === 'dark' ? darkTheme : lightTheme;
+      const isDarkTheme = context.globals.theme === 'dark';
+      
+      // Automatically sync background with theme
+      React.useEffect(() => {
+        if (typeof window !== 'undefined') {
+          const iframe = window.parent?.document?.querySelector('#storybook-preview-iframe') as HTMLIFrameElement;
+          if (iframe) {
+            const backgroundColor = isDarkTheme ? '#000000' : '#ffffff';
+            iframe.style.backgroundColor = backgroundColor;
+          }
+        }
+      }, [isDarkTheme]);
       
       return React.createElement(
         ThemeProvider,
         { theme },
         React.createElement(CssBaseline),
-        React.createElement(Story)
+        React.createElement(
+          'div',
+          {
+            style: {
+              backgroundColor: isDarkTheme ? '#000000' : '#ffffff',
+              minHeight: '100vh',
+              transition: 'background-color 0.3s ease',
+            }
+          },
+          React.createElement(Story)
+        )
       );
     },
   ],

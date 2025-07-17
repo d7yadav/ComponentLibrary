@@ -1,14 +1,6 @@
-/**
- * @fileoverview Enhanced color palette system
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 import type { PaletteOptions } from '@mui/material/styles';
 
-/**
- * AI-Enhanced Material-UI Color Palette
- * Optimized for dark themes and accessibility
- */
 export const palette: PaletteOptions = {
   mode: 'light',
   primary: {
@@ -69,4 +61,11 @@ export const palette: PaletteOptions = {
     disabled: 'rgba(0, 0, 0, 0.38)',
   },
   divider: 'rgba(0, 0, 0, 0.12)',
+  action: {
+    active: 'rgba(0, 0, 0, 0.54)',
+    hover: 'rgba(0, 0, 0, 0.04)',
+    selected: 'rgba(0, 0, 0, 0.08)',
+    disabled: 'rgba(0, 0, 0, 0.26)',
+    disabledBackground: 'rgba(0, 0, 0, 0.12)',
+  },
 };

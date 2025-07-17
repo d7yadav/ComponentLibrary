@@ -1,0 +1,27 @@
+{
+  "component": "FormLabel",
+  "generated": "2025-07-14T08:19:00.479Z",
+  "scenarios": [
+    {
+      "id": "FormLabel-smoke",
+      "name": "FormLabel Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for FormLabel",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "FormLabel-interaction",
+      "name": "FormLabel Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for FormLabel",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "FormLabel-accessibility",
+      "name": "FormLabel Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for FormLabel",
+      "estimatedDuration": 1200
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-bars 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-bounce 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-circular 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-dots 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-pulse 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-ring 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-ripple 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-skeleton 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for all variants > variant-wave 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;
+
+exports[`Loading Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  aria-busy="true"
+  aria-label="Loading"
+  aria-live="polite"
+  class="MuiBox-root css-fc7vi2"
+  role="status"
+>
+  <div
+    class="MuiBox-root css-i0usn6"
+  />
+</div>
+`;

@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Stack Component > Snapshots > matches snapshot for all variants > variant-horizontal 1`] = `
+<div
+  aria-label="Stack layout"
+  class="MuiStack-root css-i6qcix-MuiStack-root"
+  data-testid="stack"
+  role="group"
+  variant="horizontal"
+>
+  horizontal
+   Stack
+</div>
+`;
+
+exports[`Stack Component > Snapshots > matches snapshot for all variants > variant-vertical 1`] = `
+<div
+  aria-label="Stack layout"
+  class="MuiStack-root css-i6qcix-MuiStack-root"
+  data-testid="stack"
+  role="group"
+  variant="vertical"
+>
+  vertical
+   Stack
+</div>
+`;
+
+exports[`Stack Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  aria-label="Stack layout"
+  class="MuiStack-root css-i6qcix-MuiStack-root"
+  data-testid="stack"
+  role="group"
+>
+  Default Stack
+</div>
+`;

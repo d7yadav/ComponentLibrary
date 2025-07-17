@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import { LinearProgressProps as MuiLinearProgressProps } from '@mui/material/LinearProgress';
-import { CircularProgressProps as MuiCircularProgressProps } from '@mui/material/CircularProgress';
+import type { CircularProgressProps as MuiCircularProgressProps } from '@mui/material/CircularProgress';
+import type { LinearProgressProps as MuiLinearProgressProps } from '@mui/material/LinearProgress';
+import type { ReactNode } from 'react';
 
 export type ProgressVariant = 'determinate' | 'indeterminate' | 'buffer' | 'query';
 
@@ -11,204 +11,99 @@ export type ProgressColor = 'primary' | 'secondary' | 'error' | 'warning' | 'inf
 export type ProgressShape = 'linear' | 'circular';
 
 export interface BaseProgressProps {
-  /**
-   * The variant of the progress indicator
-   */
-  variant?: ProgressVariant;
+  variant?: ProgressVariant,
   
-  /**
-   * The value of the progress indicator (0-100)
-   */
-  value?: number;
+  value?: number,
   
-  /**
-   * The value for the buffer variant (0-100)
-   */
-  valueBuffer?: number;
+  valueBuffer?: number,
   
-  /**
-   * The color of the progress indicator
-   */
-  color?: ProgressColor;
+  color?: ProgressColor,
   
-  /**
-   * The size of the progress indicator
-   */
-  size?: ProgressSize;
+  size?: ProgressSize,
   
-  /**
-   * Custom thickness for the progress bar
-   */
-  thickness?: number;
+  thickness?: number,
   
-  /**
-   * Label to display with the progress
-   */
-  label?: ReactNode;
+  label?: ReactNode,
   
-  /**
-   * If true, shows the percentage value
-   */
-  showValue?: boolean;
+  showValue?: boolean,
   
-  /**
-   * Custom value formatter function
-   */
-  valueFormat?: (value: number) => string;
+  valueFormat?: (value: number) => string,
   
-  /**
-   * If true, the progress will be animated
-   */
-  animated?: boolean;
+  animated?: boolean,
   
-  /**
-   * Animation duration in milliseconds
-   */
-  animationDuration?: number;
+  animationDuration?: number,
   
-  /**
-   * If true, the progress will show stripes
-   */
-  striped?: boolean;
+  striped?: boolean,
   
-  /**
-   * If true, the stripes will be animated
-   */
-  stripedAnimated?: boolean;
+  stripedAnimated?: boolean,
   
-  /**
-   * Custom background color
-   */
-  bgcolor?: string;
+  bgcolor?: string,
   
-  /**
-   * Custom progress color
-   */
-  progressColor?: string;
+  progressColor?: string,
   
-  /**
-   * Additional CSS classes
-   */
-  className?: string;
+  className?: string,
   
-  /**
-   * Custom styles
-   */
-  sx?: object;
+  sx?: object,
   
-  /**
-   * ARIA label for accessibility
-   */
-  'aria-label'?: string;
+  'aria-label'?: string,
   
-  /**
-   * ARIA described by for accessibility
-   */
-  'aria-describedby'?: string;
+  'aria-describedby'?: string,
   
-  /**
-   * ARIA value text for accessibility
-   */
-  'aria-valuetext'?: string;
+  'aria-valuetext'?: string,
 }
 
-export interface LinearProgressProps extends Omit<MuiLinearProgressProps, 'variant' | 'value' | 'valueBuffer' | 'color'>, BaseProgressProps {
-  /**
-   * If true, the progress will take full width
-   */
-  fullWidth?: boolean;
+export interface LinearProgressProps extends Omit<MuiLinearProgressProps, 'variant' | 'value' | 'valueBuffer' | 'color' | 'sx'>, BaseProgressProps {
+  fullWidth?: boolean,
   
-  /**
-   * Custom height for the progress bar
-   */
-  height?: number | string;
+  height?: number | string,
   
-  /**
-   * If true, the progress bar will be rounded
-   */
-  rounded?: boolean;
+  rounded?: boolean,
   
-  /**
-   * Border radius value
-   */
-  borderRadius?: number | string;
+  borderRadius?: number | string,
   
-  /**
-   * If true, the progress bar will be elevated
-   */
-  elevated?: boolean;
+  elevated?: boolean,
   
-  /**
-   * Elevation level (0-24)
-   */
-  elevation?: number;
+  elevation?: number,
 }
 
-export interface CircularProgressProps extends Omit<MuiCircularProgressProps, 'variant' | 'value' | 'color' | 'size'>, BaseProgressProps {
-  /**
-   * The size of the circular progress in pixels
-   */
-  customSize?: number;
+export interface CircularProgressProps extends Omit<MuiCircularProgressProps, 'variant' | 'value' | 'color' | 'size' | 'sx'>, BaseProgressProps {
+  customSize?: number,
   
-  /**
-   * If true, shows a track behind the progress
-   */
-  showTrack?: boolean;
+  showTrack?: boolean,
   
-  /**
-   * Color of the track
-   */
-  trackColor?: string;
+  trackColor?: string,
   
-  /**
-   * If true, the progress will have rounded line caps
-   */
-  rounded?: boolean;
+  rounded?: boolean,
   
-  /**
-   * Custom stroke width
-   */
-  strokeWidth?: number;
+  strokeWidth?: number,
   
-  /**
-   * If true, the progress will be centered with label
-   */
-  centered?: boolean;
+  centered?: boolean,
 }
 
 export interface ProgressStyleProps {
-  variant: ProgressVariant;
-  color: ProgressColor;
-  size: ProgressSize;
-  thickness?: number;
-  animated: boolean;
-  animationDuration: number;
-  striped: boolean;
-  stripedAnimated: boolean;
-  bgcolor?: string;
-  progressColor?: string;
+  variant: ProgressVariant,
+  color: ProgressColor,
+  size: ProgressSize,
+  thickness?: number,
+  animated: boolean,
+  animationDuration: number,
+  striped: boolean,
+  stripedAnimated: boolean,
+  bgcolor?: string,
+  progressColor?: string,
 }
 
 export interface ProgressSizeConfig {
-  height: number;
-  thickness: number;
-  fontSize: string;
-  circularSize: number;
+  height: number,
+  thickness: number,
+  fontSize: string,
+  circularSize: number,
 }
 
 export interface ProgressConfiguration {
-  /**
-   * Default animation duration
-   */
-  defaultAnimationDuration: number;
+  defaultAnimationDuration: number,
   
-  /**
-   * Default update interval for smooth animations
-   */
-  updateInterval: number;
+  updateInterval: number,
   
-  /**
-   * Performance threshold for animation optimization
-   */
-  performanceThreshold: number;
+  performanceThreshold: number,
 }

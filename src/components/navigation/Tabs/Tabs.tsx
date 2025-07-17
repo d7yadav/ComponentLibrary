@@ -6,15 +6,15 @@
  * keyboard navigation, responsive behavior, and Material-UI integration.
  */
 
-import { memo, useState, useCallback, useMemo, type KeyboardEvent } from 'react';
 import {
   Tab as MuiTab,
   CircularProgress,
   useTheme,
   useMediaQuery,
+  Box,
 } from '@mui/material';
+import { memo, useState, useCallback, useMemo, type KeyboardEvent } from 'react';
 
-import type { TabsProps, TabPanelProps, TabData } from './Tabs.types';
 import {
   TABS_DEFAULTS,
   TABS_ACCESSIBILITY,
@@ -28,6 +28,7 @@ import {
   StyledTabPanel,
   TabsLoadingOverlay,
 } from './Tabs.styles';
+import type { TabsProps, TabPanelProps, TabData } from './Tabs.types';
 
 
 /**

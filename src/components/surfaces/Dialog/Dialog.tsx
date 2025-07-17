@@ -1,8 +1,18 @@
-import React, { forwardRef, memo, useCallback, useMemo, useState } from 'react';
-import { CircularProgress, Typography } from '@mui/material';
 import { Close } from '@mui/icons-material';
-import { Modal } from '../Modal';
-import { DialogProps, DialogAction } from './Dialog.types';
+import { CircularProgress, Typography } from '@mui/material';
+import React, { forwardRef, memo, useCallback, useMemo, useState } from 'react';
+import { isValidElement } from 'react';
+
+import { Box } from '@/components/layout/Box';
+import { Modal } from '@/components/surfaces/Modal';
+import type { ModalVariant, ModalSize } from '@/components/surfaces/Modal';
+
+import {
+  DIALOG_TYPE_ICONS,
+  DIALOG_DEFAULTS,
+  DIALOG_ACCESSIBILITY_CONSTANTS,
+  DIALOG_PRESET_ACTIONS,
+} from './Dialog.constants';
 import {
   StyledDialogContainer,
   StyledDialogHeader,
@@ -13,20 +23,10 @@ import {
   StyledDialogFooter,
   StyledDialogAction,
   StyledDialogLoadingOverlay,
-  StyledDialogDivider,
   StyledDialogCloseButton,
   loadingSpinKeyframes,
 } from './Dialog.styles';
-import {
-  DIALOG_VARIANTS,
-  DIALOG_TYPES,
-  DIALOG_SIZES,
-  DIALOG_ACTION_TYPES,
-  DIALOG_TYPE_ICONS,
-  DIALOG_DEFAULTS,
-  DIALOG_ACCESSIBILITY_CONSTANTS,
-  DIALOG_PRESET_ACTIONS,
-} from './Dialog.constants';
+import type { DialogProps, DialogAction } from './Dialog.types';
 
 /**
  * Enhanced Dialog component built on top of Modal with pre-configured layouts and actions
@@ -64,7 +64,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   loading = false,
   loadingMessage = 'Loading...',
   elevation = DIALOG_DEFAULTS.elevation,
-  contentClassName,
+  // contentClassName, // Not used
   headerClassName,
   bodyClassName,
   footerClassName,
@@ -90,7 +90,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   const descriptionId = useMemo(() => ariaDescribedBy || `${DIALOG_ACCESSIBILITY_CONSTANTS.descriptionId}-${Math.random().toString(36).substr(2, 9)}`, [ariaDescribedBy]);
 
   // Handle action click with loading state
-  const handleActionClick = useCallback(async (action: DialogAction) => {
+  const handleActionClick = useCallback(async (action: DialogAction): Promise<void> => {
     if (action.disabled || isActionLoading[action.label]) return;
 
     try {
@@ -98,10 +98,11 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
       
       // Call the action handler
       const result = action.onClick({} as React.MouseEvent<HTMLButtonElement>);
-      
       // Handle async actions
       if (result instanceof Promise) {
-        await result;
+        void await result;
+      } else {
+        void result;
       }
       
       // Call global action handler
@@ -122,13 +123,13 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   }, [isActionLoading, onAction, onConfirm, onCancel]);
 
   // Handle dialog close
-  const handleClose = useCallback((event?: {}, reason?: 'backdropClick' | 'escapeKeyDown') => {
+  const handleClose = useCallback((event?: object, reason?: 'backdropClick' | 'escapeKeyDown'): void => {
     if (loading) return; // Prevent closing during loading
     onClose?.(event, reason);
   }, [onClose, loading]);
 
   // Get icon component
-  const IconComponent = useMemo(() => {
+  const IconComponent = useMemo<React.ReactNode>(() => {
     if (icon) return icon;
     if (!showIcon || !type) return null;
     
@@ -137,7 +138,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   }, [icon, showIcon, type]);
 
   // Map dialog size to modal size
-  const modalSize = useMemo(() => {
+  const modalSize: ModalSize = useMemo<ModalSize>(() => {
     switch (size) {
       case 'small': return 'sm';
       case 'medium': return 'md';
@@ -149,7 +150,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   }, [size]);
 
   // Map dialog variant to modal variant
-  const modalVariant = useMemo(() => {
+  const modalVariant: ModalVariant = useMemo<ModalVariant>(() => {
     switch (variant) {
       case 'fullscreen': return 'fullscreen';
       case 'simple':
@@ -167,7 +168,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   const hasHeader = customHeader || title || IconComponent || showCloseButton;
 
   // Render actions
-  const renderActions = useCallback(() => {
+  const renderActions = useCallback((): React.ReactNode => {
     if (customFooter) return customFooter;
     if (!actions.length) return null;
 
@@ -185,6 +186,13 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
         }
       };
 
+      // Ensure icon is always a valid React element
+      const safeIcon = isValidElement(action.icon)
+        ? action.icon
+        : typeof action.icon === 'function'
+          ? React.createElement(action.icon)
+          : undefined;
+
       return (
         <StyledDialogAction
           key={`${action.label}-${index}`}
@@ -193,8 +201,8 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
           disabled={action.disabled || loading}
           loading={isLoading}
           onClick={() => handleActionClick(action)}
-          startIcon={action.icon}
-          autoFocus={action.autoFocus}
+          startIcon={safeIcon}
+          autoFocus={action.autoFocus} // Intentional: Dialog action buttons may use autoFocus for accessibility
           className={action.className}
           data-testid={action['data-testid']}
           {...actionButtonProps}
@@ -206,7 +214,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   }, [actions, customFooter, isActionLoading, loading, handleActionClick, actionButtonProps]);
 
   // Render header content
-  const renderHeader = useCallback(() => {
+  const renderHeader = useCallback((): React.ReactNode => {
     if (customHeader) return customHeader;
     if (!hasHeader) return null;
 
@@ -225,7 +233,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
           </StyledDialogIcon>
         )}
         
-        <div style={{ flex: 1 }}>
+        <Box sx={{ flex: 1 }}>
           {title && (
             <StyledDialogTitle id={titleId} variant="h6">
               {title}
@@ -236,7 +244,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
               {subtitle}
             </StyledDialogSubtitle>
           )}
-        </div>
+        </Box>
         
         {showCloseButton && (
           <StyledDialogCloseButton
@@ -267,7 +275,7 @@ const DialogComponent = forwardRef<HTMLDivElement, DialogProps>(({
   ]);
 
   // Main dialog content
-  const dialogContent = (
+  const dialogContent: React.ReactNode = (
     <StyledDialogContainer
       variant={variant!}
       type={type!}

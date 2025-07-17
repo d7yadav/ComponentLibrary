@@ -1,0 +1,82 @@
+{
+  "timestamp": "2025-07-13T07:46:08.096Z",
+  "buildId": "mock-build-123",
+  "summary": {
+    "totalChanges": 3,
+    "newComponents": 0,
+    "newStories": 0,
+    "riskLevel": "medium",
+    "confidence": 0.68,
+    "autoAcceptable": false
+  },
+  "analysis": {
+    "buildId": "mock-build-123",
+    "timestamp": "2025-07-13T07:46:08.095Z",
+    "totalChanges": 3,
+    "newComponents": [],
+    "newStories": 0,
+    "changeCategories": {
+      "layout": 2,
+      "color": 1,
+      "typography": 0,
+      "spacing": 1,
+      "animation": 0,
+      "content": 0,
+      "newComponent": 0
+    },
+    "riskLevel": "medium",
+    "confidence": 0.68,
+    "recommendations": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "color",
+        "severity": "low",
+        "message": "Color changes detected - check accessibility compliance",
+        "action": "Run color contrast validation"
+      }
+    ],
+    "autoAcceptable": false,
+    "newComponentDetected": false
+  },
+  "recommendations": {
+    "autoAcceptable": false,
+    "requiresReview": true,
+    "confidence": 0.68,
+    "actions": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "color",
+        "severity": "low",
+        "message": "Color changes detected - check accessibility compliance",
+        "action": "Run color contrast validation"
+      }
+    ],
+    "nextSteps": [
+      "Manual review required",
+      "Test in staging environment"
+    ],
+    "newComponentStrategy": null
+  },
+  "newComponentHandling": {
+    "detected": false,
+    "components": [],
+    "strategy": null
+  },
+  "technicalDetails": {
+    "aiVersion": "2.0.0",
+    "analysisMethod": "pattern-recognition-with-new-component-awareness",
+    "confidenceThreshold": 0.85,
+    "autoAcceptThreshold": 0.95,
+    "gracefulMode": false
+  }
+}

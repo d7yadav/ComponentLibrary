@@ -1,0 +1,5 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Snackbar Component > Snapshots > matches snapshot for all variants > variant-default 1`] = `null`;
+
+exports[`Snackbar Component > Snapshots > matches snapshot for default props 1`] = `null`;

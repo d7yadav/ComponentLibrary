@@ -1,0 +1,27 @@
+{
+  "component": "Tabs",
+  "generated": "2025-07-14T08:19:00.480Z",
+  "scenarios": [
+    {
+      "id": "Tabs-smoke",
+      "name": "Tabs Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Tabs",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Tabs-interaction",
+      "name": "Tabs Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Tabs",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Tabs-accessibility",
+      "name": "Tabs Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Tabs",
+      "estimatedDuration": 1200
+    }
+  ]
+}

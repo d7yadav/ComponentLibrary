@@ -9,14 +9,10 @@ import {
   Delete,
   Save
 } from '@mui/icons-material';
-import { DialogVariant, DialogType, DialogSize, DialogActionType, DialogPresetActions } from './Dialog.types';
+
+import type { DialogVariant, DialogType, DialogSize, DialogActionType, DialogPresetActions } from './Dialog.types';
 
 // Dialog Variants
-/**
- * DIALOG_VARIANTS component
- * 
- * @returns JSX element
- */
 export const DIALOG_VARIANTS: Record<string, DialogVariant> = {
   confirmation: 'confirmation',
   alert: 'alert',
@@ -27,11 +23,6 @@ export const DIALOG_VARIANTS: Record<string, DialogVariant> = {
 } as const;
 
 // Dialog Types  
-/**
- * DIALOG_TYPES component
- * 
- * @returns JSX element
- */
 export const DIALOG_TYPES: Record<string, DialogType> = {
   info: 'info',
   success: 'success',
@@ -41,11 +32,6 @@ export const DIALOG_TYPES: Record<string, DialogType> = {
 } as const;
 
 // Dialog Sizes
-/**
- * DIALOG_SIZES component
- * 
- * @returns JSX element
- */
 export const DIALOG_SIZES: Record<string, DialogSize> = {
   small: 'small',
   medium: 'medium', 
@@ -55,11 +41,6 @@ export const DIALOG_SIZES: Record<string, DialogSize> = {
 } as const;
 
 // Action Types
-/**
- * DIALOG_ACTION_TYPES component
- * 
- * @returns JSX element
- */
 export const DIALOG_ACTION_TYPES: Record<string, DialogActionType> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -68,11 +49,6 @@ export const DIALOG_ACTION_TYPES: Record<string, DialogActionType> = {
 } as const;
 
 // Dialog Size Mappings
-/**
- * DIALOG_SIZE_MAPPINGS component
- * 
- * @returns JSX element
- */
 export const DIALOG_SIZE_MAPPINGS = {
   small: {
     maxWidth: '400px',
@@ -97,11 +73,6 @@ export const DIALOG_SIZE_MAPPINGS = {
 } as const;
 
 // Type Icons
-/**
- * DIALOG_TYPE_ICONS component
- * 
- * @returns JSX element
- */
 export const DIALOG_TYPE_ICONS = {
   info: Info,
   success: CheckCircle,
@@ -111,11 +82,6 @@ export const DIALOG_TYPE_ICONS = {
 } as const;
 
 // Type Colors
-/**
- * DIALOG_TYPE_COLORS component
- * 
- * @returns JSX element
- */
 export const DIALOG_TYPE_COLORS = {
   info: 'info',
   success: 'success', 
@@ -125,11 +91,6 @@ export const DIALOG_TYPE_COLORS = {
 } as const;
 
 // Animation Durations
-/**
- * DIALOG_ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const DIALOG_ANIMATION_DURATIONS = {
   fast: 200,
   normal: 300,
@@ -137,11 +98,6 @@ export const DIALOG_ANIMATION_DURATIONS = {
 } as const;
 
 // Z-Index Values
-/**
- * DIALOG_Z_INDEX component
- * 
- * @returns JSX element
- */
 export const DIALOG_Z_INDEX = {
   base: 1300,
   overlay: 1301,
@@ -149,11 +105,6 @@ export const DIALOG_Z_INDEX = {
 } as const;
 
 // Accessibility Constants
-/**
- * DIALOG_ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const DIALOG_ACCESSIBILITY_CONSTANTS = {
   dialogRole: 'dialog',
   alertDialogRole: 'alertdialog',
@@ -165,11 +116,6 @@ export const DIALOG_ACCESSIBILITY_CONSTANTS = {
 } as const;
 
 // Preset Actions
-/**
- * DIALOG_PRESET_ACTIONS component
- * 
- * @returns JSX element
- */
 export const DIALOG_PRESET_ACTIONS: DialogPresetActions = {
   ok: {
     label: 'OK',
@@ -198,39 +144,30 @@ export const DIALOG_PRESET_ACTIONS: DialogPresetActions = {
   save: {
     label: 'Save',
     type: 'primary',
-    icon: Save,
     onClick: () => {},
     'data-testid': 'dialog-save-button',
   },
   delete: {
     label: 'Delete',
     type: 'destructive',
-    icon: Delete,
     onClick: () => {},
     'data-testid': 'dialog-delete-button',
   },
   confirm: {
     label: 'Confirm',
     type: 'primary',
-    icon: Check,
     onClick: () => {},
     'data-testid': 'dialog-confirm-button',
   },
   close: {
     label: 'Close',
     type: 'secondary',
-    icon: Close,
     onClick: () => {},
     'data-testid': 'dialog-close-button',
   },
 } as const;
 
 // Default Values
-/**
- * DIALOG_DEFAULTS component
- * 
- * @returns JSX element
- */
 export const DIALOG_DEFAULTS = {
   variant: DIALOG_VARIANTS.simple,
   type: DIALOG_TYPES.info,
@@ -246,11 +183,6 @@ export const DIALOG_DEFAULTS = {
 } as const;
 
 // Validation Constants
-/**
- * DIALOG_VALIDATION component
- * 
- * @returns JSX element
- */
 export const DIALOG_VALIDATION = {
   maxTitleLength: 120,
   maxSubtitleLength: 200,
@@ -260,11 +192,6 @@ export const DIALOG_VALIDATION = {
 } as const;
 
 // CSS Class Names
-/**
- * DIALOG_CLASS_NAMES component
- * 
- * @returns JSX element
- */
 export const DIALOG_CLASS_NAMES = {
   root: 'dialog-root',
   container: 'dialog-container',
@@ -284,11 +211,6 @@ export const DIALOG_CLASS_NAMES = {
 } as const;
 
 // Breakpoints for responsive behavior
-/**
- * DIALOG_BREAKPOINTS component
- * 
- * @returns JSX element
- */
 export const DIALOG_BREAKPOINTS = {
   mobile: 'max-width: 600px',
   tablet: 'max-width: 960px',

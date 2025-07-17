@@ -1098,16 +1098,28 @@ async function main() {
       // Task analysis mode
       const taskName = args[1] || 'Unnamed Task';
       const description = args[2] || 'No description provided';
-      await seniorEngineer.analyzeTask(taskName, description);
+      const componentName = taskName.replace(/^Create\s+/i, '');
+      const componentType = 'forms'; // Default to 'forms' for FormControl, can be improved
+      const taskAnalysis = await seniorEngineer.analyzeTask(taskName, description, { componentType });
+
+      // Write artifacts for --task mode
+      await seniorEngineer.generateImplementationArtifacts(
+        componentName,
+        componentType,
+        taskAnalysis,
+        { decision: { recommendation: 'N/A', confidenceScore: 0, reasoning: [] } } // Dummy designDecision if not available
+      );
     } else if (args[0] === '--decision') {
       // Decision analysis mode
       const question = args[1] || 'Unnamed Decision';
       const background = args[2] || 'No background provided';
-      await seniorEngineer.analyzeDecision(question, background);
+      const decisionAnalysis = await seniorEngineer.analyzeDecision(question, background);
+      // Optionally write a decision artifact here
     } else if (args[0] === '--quick') {
       // Quick analysis mode
       const question = args[1] || 'What should I do?';
-      await seniorEngineer.quickAnalysis(question);
+      const quickResult = await seniorEngineer.quickAnalysis(question);
+      // Optionally write a summary artifact here
     } else if (args[0] === '--help') {
       console.log(`
 ${colors.bright}🧠 AI Senior Engineer Workflow System${colors.reset}

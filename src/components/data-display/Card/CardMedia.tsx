@@ -1,8 +1,11 @@
-import { forwardRef, useState, memo } from 'react';
-import { CircularProgress } from '@mui/material';
-import { CardMediaProps } from './Card.types';
-import { StyledCardMedia } from './Card.styles';
+import React, { forwardRef, useState, memo } from 'react';
+
+import { CircularProgress } from '@/components/feedback/Progress';
+import { Box } from '@/components/layout/Box';
+
 import { CARD_MEDIA_DEFAULTS } from './Card.constants';
+import { StyledCardMedia } from './Card.styles';
+import type { CardMediaProps } from './Card.types';
 
 /**
  * CardMedia component for displaying images, videos, or custom media content
@@ -51,8 +54,8 @@ export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(({
 
     if (hasError) {
       return (
-        <div data-testid="cardmedia" 
-          style={{
+        <Box data-testid="cardmedia"
+          sx={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -62,12 +65,13 @@ export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(({
           }}
         >
           Failed to load media
-        </div>
+        </Box>
       );
     }
 
     const mediaProps = {
       src,
+      alt: alt || '', // Always provide alt text for accessibility
       style: { 
         opacity: isLoading && showLoading ? 0 : 1,
         transition: 'opacity 0.3s ease',
@@ -75,7 +79,6 @@ export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(({
       onLoad: handleLoad,
       onError: handleError,
       ...(loading && { loading }),
-      ...(alt && { alt }),
       ...(width && { width }),
     };
 
@@ -104,9 +107,9 @@ export const CardMedia = forwardRef<HTMLDivElement, CardMediaProps>(({
       {renderMedia()}
       
       {isLoading && showLoading && src && (
-        <div data-testid="cardmedia" className="card-media-loading">
+        <Box data-testid="cardmedia" className="card-media-loading">
           <CircularProgress size={24} />
-        </div>
+        </Box>
       )}
     </StyledCardMedia>
   );

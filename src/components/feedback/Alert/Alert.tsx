@@ -1,5 +1,3 @@
-import { forwardRef, useState, useEffect, memo } from 'react';
-import { IconButton } from '@mui/material';
 import { 
   CheckCircle, 
   Warning, 
@@ -7,19 +5,24 @@ import {
   Error as ErrorIcon,
   Close 
 } from '@mui/icons-material';
-import { AlertProps } from './Alert.types';
+import { IconButton } from '@mui/material';
+import { forwardRef, useState, useEffect, memo } from 'react';
+
+import { Button } from '@/components/core/Button';
+
+import {
+  DEFAULT_ALERT_PROPS,
+  ACCESSIBILITY_CONSTANTS,
+  ALERT_COLORS,
+} from './Alert.constants';
 import { 
   StyledAlert, 
   AlertTitle, 
   AlertContent, 
   AlertActions 
 } from './Alert.styles';
-import {
-  DEFAULT_ALERT_PROPS,
-  ACCESSIBILITY_CONSTANTS,
-  ALERT_COLORS,
-} from './Alert.constants';
-import { Button } from '../../core/Button';
+import type { AlertProps } from './Alert.types';
+
 
 /**
  * Enhanced Alert component with multiple severity levels and variants

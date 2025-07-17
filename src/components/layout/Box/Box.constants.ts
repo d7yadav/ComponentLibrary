@@ -1,4 +1,4 @@
-import { 
+import type { 
   BoxDisplay, 
   BoxPosition, 
   BoxOverflow, 
@@ -11,11 +11,6 @@ import {
   BoxAlignContent
 } from './Box.types';
 
-/**
- * BOX_DISPLAYS component
- * 
- * @returns JSX element
- */
 export const BOX_DISPLAYS: Record<BoxDisplay, BoxDisplay> = {
   block: 'block',
   inline: 'inline',
@@ -28,11 +23,6 @@ export const BOX_DISPLAYS: Record<BoxDisplay, BoxDisplay> = {
   contents: 'contents',
 } as const;
 
-/**
- * BOX_POSITIONS component
- * 
- * @returns JSX element
- */
 export const BOX_POSITIONS: Record<BoxPosition, BoxPosition> = {
   static: 'static',
   relative: 'relative',
@@ -41,11 +31,6 @@ export const BOX_POSITIONS: Record<BoxPosition, BoxPosition> = {
   sticky: 'sticky',
 } as const;
 
-/**
- * BOX_OVERFLOWS component
- * 
- * @returns JSX element
- */
 export const BOX_OVERFLOWS: Record<BoxOverflow, BoxOverflow> = {
   visible: 'visible',
   hidden: 'hidden',
@@ -53,11 +38,6 @@ export const BOX_OVERFLOWS: Record<BoxOverflow, BoxOverflow> = {
   auto: 'auto',
 } as const;
 
-/**
- * BOX_TEXT_ALIGNS component
- * 
- * @returns JSX element
- */
 export const BOX_TEXT_ALIGNS: Record<BoxTextAlign, BoxTextAlign> = {
   left: 'left',
   center: 'center',
@@ -67,11 +47,6 @@ export const BOX_TEXT_ALIGNS: Record<BoxTextAlign, BoxTextAlign> = {
   end: 'end',
 } as const;
 
-/**
- * BOX_VERTICAL_ALIGNS component
- * 
- * @returns JSX element
- */
 export const BOX_VERTICAL_ALIGNS: Record<BoxVerticalAlign, BoxVerticalAlign> = {
   baseline: 'baseline',
   top: 'top',
@@ -81,11 +56,6 @@ export const BOX_VERTICAL_ALIGNS: Record<BoxVerticalAlign, BoxVerticalAlign> = {
   'text-bottom': 'text-bottom',
 } as const;
 
-/**
- * BOX_FLEX_DIRECTIONS component
- * 
- * @returns JSX element
- */
 export const BOX_FLEX_DIRECTIONS: Record<BoxFlexDirection, BoxFlexDirection> = {
   row: 'row',
   'row-reverse': 'row-reverse',
@@ -93,22 +63,12 @@ export const BOX_FLEX_DIRECTIONS: Record<BoxFlexDirection, BoxFlexDirection> = {
   'column-reverse': 'column-reverse',
 } as const;
 
-/**
- * BOX_FLEX_WRAPS component
- * 
- * @returns JSX element
- */
 export const BOX_FLEX_WRAPS: Record<BoxFlexWrap, BoxFlexWrap> = {
   nowrap: 'nowrap',
   wrap: 'wrap',
   'wrap-reverse': 'wrap-reverse',
 } as const;
 
-/**
- * BOX_JUSTIFY_CONTENTS component
- * 
- * @returns JSX element
- */
 export const BOX_JUSTIFY_CONTENTS: Record<BoxJustifyContent, BoxJustifyContent> = {
   'flex-start': 'flex-start',
   'flex-end': 'flex-end',
@@ -118,11 +78,6 @@ export const BOX_JUSTIFY_CONTENTS: Record<BoxJustifyContent, BoxJustifyContent> 
   'space-evenly': 'space-evenly',
 } as const;
 
-/**
- * BOX_ALIGN_ITEMS component
- * 
- * @returns JSX element
- */
 export const BOX_ALIGN_ITEMS: Record<BoxAlignItems, BoxAlignItems> = {
   'flex-start': 'flex-start',
   'flex-end': 'flex-end',
@@ -131,11 +86,6 @@ export const BOX_ALIGN_ITEMS: Record<BoxAlignItems, BoxAlignItems> = {
   baseline: 'baseline',
 } as const;
 
-/**
- * BOX_ALIGN_CONTENTS component
- * 
- * @returns JSX element
- */
 export const BOX_ALIGN_CONTENTS: Record<BoxAlignContent, BoxAlignContent> = {
   'flex-start': 'flex-start',
   'flex-end': 'flex-end',
@@ -145,11 +95,6 @@ export const BOX_ALIGN_CONTENTS: Record<BoxAlignContent, BoxAlignContent> = {
   stretch: 'stretch',
 } as const;
 
-/**
- * BOX_BREAKPOINTS component
- * 
- * @returns JSX element
- */
 export const BOX_BREAKPOINTS = {
   xs: 0,
   sm: 600,
@@ -158,11 +103,6 @@ export const BOX_BREAKPOINTS = {
   xl: 1536,
 } as const;
 
-/**
- * BOX_SPACING_VALUES component
- * 
- * @returns JSX element
- */
 export const BOX_SPACING_VALUES = {
   0: 0,
   0.5: 0.5,
@@ -200,11 +140,6 @@ export const BOX_SPACING_VALUES = {
   96: 96,
 } as const;
 
-/**
- * BOX_BORDER_RADIUS component
- * 
- * @returns JSX element
- */
 export const BOX_BORDER_RADIUS = {
   none: 0,
   sm: 4,
@@ -216,11 +151,6 @@ export const BOX_BORDER_RADIUS = {
   full: '50%',
 } as const;
 
-/**
- * BOX_SHADOW_VALUES component
- * 
- * @returns JSX element
- */
 export const BOX_SHADOW_VALUES = {
   none: 0,
   sm: 1,
@@ -230,11 +160,6 @@ export const BOX_SHADOW_VALUES = {
   '2xl': 24,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   regionRole: 'region',
   bannerRole: 'banner',
@@ -251,11 +176,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   noneRole: 'none',
 } as const;
 
-/**
- * COMMON_BOX_PATTERNS component
- * 
- * @returns JSX element
- */
 export const COMMON_BOX_PATTERNS = {
   // Layout patterns
   container: {
@@ -397,11 +317,6 @@ export const COMMON_BOX_PATTERNS = {
   },
 } as const;
 
-/**
- * RESPONSIVE_PATTERNS component
- * 
- * @returns JSX element
- */
 export const RESPONSIVE_PATTERNS = {
   // Hide/show patterns
   hideOnMobile: {
@@ -439,11 +354,6 @@ export const RESPONSIVE_PATTERNS = {
   },
 } as const;
 
-/**
- * DEFAULT_BOX_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_BOX_PROPS = {
   component: 'div',
   centered: false,

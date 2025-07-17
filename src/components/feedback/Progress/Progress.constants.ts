@@ -1,10 +1,5 @@
-import { ProgressVariant, ProgressSize, ProgressColor, ProgressShape } from './Progress.types';
+import type { ProgressVariant, ProgressSize, ProgressColor, ProgressShape } from './Progress.types';
 
-/**
- * PROGRESS_VARIANTS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_VARIANTS: Record<ProgressVariant, ProgressVariant> = {
   determinate: 'determinate',
   indeterminate: 'indeterminate',
@@ -12,22 +7,12 @@ export const PROGRESS_VARIANTS: Record<ProgressVariant, ProgressVariant> = {
   query: 'query',
 } as const;
 
-/**
- * PROGRESS_SIZES component
- * 
- * @returns JSX element
- */
 export const PROGRESS_SIZES: Record<ProgressSize, ProgressSize> = {
   small: 'small',
   medium: 'medium',
   large: 'large',
 } as const;
 
-/**
- * PROGRESS_COLORS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_COLORS: Record<ProgressColor, ProgressColor> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -37,21 +22,11 @@ export const PROGRESS_COLORS: Record<ProgressColor, ProgressColor> = {
   success: 'success',
 } as const;
 
-/**
- * PROGRESS_SHAPES component
- * 
- * @returns JSX element
- */
 export const PROGRESS_SHAPES: Record<ProgressShape, ProgressShape> = {
   linear: 'linear',
   circular: 'circular',
 } as const;
 
-/**
- * PROGRESS_SIZE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_SIZE_CONFIGS = {
   small: {
     height: 4,
@@ -79,11 +54,6 @@ export const PROGRESS_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * PROGRESS_ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_ANIMATION_DURATIONS = {
   fast: 200,
   normal: 500,
@@ -91,11 +61,6 @@ export const PROGRESS_ANIMATION_DURATIONS = {
   smooth: 300,
 } as const;
 
-/**
- * PROGRESS_ANIMATION_EASINGS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_ANIMATION_EASINGS = {
   linear: 'linear',
   easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -105,11 +70,6 @@ export const PROGRESS_ANIMATION_EASINGS = {
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 } as const;
 
-/**
- * PROGRESS_TRACK_COLORS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_TRACK_COLORS = {
   light: 'rgba(0, 0, 0, 0.1)',
   medium: 'rgba(0, 0, 0, 0.2)',
@@ -122,22 +82,12 @@ export const PROGRESS_TRACK_COLORS = {
   success: 'rgba(46, 125, 50, 0.1)',
 } as const;
 
-/**
- * PROGRESS_STRIPE_PATTERNS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_STRIPE_PATTERNS = {
   angle: 45, // Stripe angle in degrees
   width: 8, // Stripe width in pixels
   spacing: 8, // Spacing between stripes
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   progressRole: 'progressbar',
   statusRole: 'status',
@@ -152,11 +102,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   maxValue: 100,
 } as const;
 
-/**
- * PROGRESS_VALUE_FORMATTERS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_VALUE_FORMATTERS = {
   percentage: (value: number) => `${Math.round(value)}%`,
   fraction: (value: number, total = 100) => `${Math.round(value)}/${total}`,
@@ -180,11 +125,6 @@ export const PROGRESS_VALUE_FORMATTERS = {
   },
 } as const;
 
-/**
- * PROGRESS_PATTERNS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_PATTERNS = {
   // File upload progress
   upload: {
@@ -255,11 +195,6 @@ export const PROGRESS_PATTERNS = {
   },
 } as const;
 
-/**
- * PROGRESS_THRESHOLDS component
- * 
- * @returns JSX element
- */
 export const PROGRESS_THRESHOLDS = {
   // Progress value thresholds for different states
   warning: 75, // Show warning when progress exceeds this
@@ -267,11 +202,6 @@ export const PROGRESS_THRESHOLDS = {
   error: -1, // Show error when progress is negative or invalid
 } as const;
 
-/**
- * PROGRESS_PERFORMANCE component
- * 
- * @returns JSX element
- */
 export const PROGRESS_PERFORMANCE = {
   // Performance optimization constants
   updateThrottle: 16, // Throttle updates to 60fps (16ms)
@@ -279,11 +209,6 @@ export const PROGRESS_PERFORMANCE = {
   animationThreshold: 5, // Minimum change to trigger animation
 } as const;
 
-/**
- * CIRCULAR_PROGRESS_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const CIRCULAR_PROGRESS_CONSTANTS = {
   // SVG constants for circular progress
   strokeDasharray: 100, // Total circumference for calculations
@@ -293,11 +218,6 @@ export const CIRCULAR_PROGRESS_CONSTANTS = {
   radius: 20,
 } as const;
 
-/**
- * DEFAULT_PROGRESS_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_PROGRESS_PROPS = {
   variant: PROGRESS_VARIANTS.indeterminate,
   color: PROGRESS_COLORS.primary,

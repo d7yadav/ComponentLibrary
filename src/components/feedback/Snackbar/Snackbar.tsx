@@ -1,5 +1,3 @@
-import { forwardRef, ComponentType, memo } from 'react';
-import { IconButton, Slide, Fade, Grow, Collapse } from '@mui/material';
 import { 
   CheckCircle, 
   Warning, 
@@ -7,7 +5,16 @@ import {
   Error as ErrorIcon,
   Close 
 } from '@mui/icons-material';
-import { SnackbarProps } from './Snackbar.types';
+import { IconButton, Slide, Fade, Grow, Collapse } from '@mui/material';
+import type { ComponentType } from 'react';
+import { forwardRef, memo } from 'react';
+
+import { Button } from '@/components/core/Button';
+
+import {
+  DEFAULT_SNACKBAR_PROPS,
+  ACCESSIBILITY_CONSTANTS,
+} from './Snackbar.constants';
 import { 
   StyledSnackbar, 
   StyledSnackbarContent, 
@@ -16,11 +23,8 @@ import {
   SnackbarTitle,
   SnackbarActions
 } from './Snackbar.styles';
-import {
-  DEFAULT_SNACKBAR_PROPS,
-  ACCESSIBILITY_CONSTANTS,
-} from './Snackbar.constants';
-import { Button } from '../../core/Button';
+import type { SnackbarProps } from './Snackbar.types';
+
 
 /**
  * Enhanced Snackbar component with positioning and auto-hide functionality

@@ -1,50 +1,38 @@
-/**
- * @fileoverview Enhanced theme creation with CSS Variables 2.0
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
-import { createTheme as muiCreateTheme, Theme } from '@mui/material/styles';
+import type { Theme } from '@mui/material/styles';
+import { createTheme as muiCreateTheme } from '@mui/material/styles';
 import { deepmerge } from '@mui/utils';
 
-import { palette } from './palette';
-import { darkPalette } from './darkPalette';
-import { typography } from './typography';
-import { spacing } from './spacing';
-import { shadows } from './shadows';
+import { easings, durations, keyframes } from './animations';
 import { breakpoints } from './breakpoints';
 import { components } from './components';
-import { lightGradients, darkGradients, type GradientOptions } from './gradients';
-import { easings, durations, keyframes } from './animations';
 import { customCssVars } from './cssVars';
+import { darkPalette } from './darkPalette';
+import { lightGradients, darkGradients, type GradientOptions } from './gradients';
+import { palette } from './palette';
+import { shadows } from './shadows';
+import { spacing } from './spacing';
+import { typography } from './typography';
 
-/**
- * Extended theme interface with custom properties
- */
 export interface EnhancedTheme extends Theme {
-  gradients: GradientOptions;
+  gradients: GradientOptions,
   animations: {
-    easings: typeof easings;
-    durations: typeof durations;
-    keyframes: typeof keyframes;
-  };
-  cssVars: typeof customCssVars;
+    easings: typeof easings,
+    durations: typeof durations,
+    keyframes: typeof keyframes,
+  },
+  cssVars: typeof customCssVars,
 }
 
-/**
- * Theme options for enhanced theme
- */
 export interface EnhancedThemeOptions {
-  mode?: 'light' | 'dark';
-  primaryColor?: string;
-  secondaryColor?: string;
-  enableGradients?: boolean;
-  enableAnimations?: boolean;
-  enableCssVars?: boolean;
+  mode?: 'light' | 'dark',
+  primaryColor?: string,
+  secondaryColor?: string,
+  enableGradients?: boolean,
+  enableAnimations?: boolean,
+  enableCssVars?: boolean,
 }
 
-/**
- * Creates an enhanced Material-UI theme with advanced features
- */
 export const createEnhancedTheme = (options: EnhancedThemeOptions = {}): Theme => {
   const {
     mode = 'light',
@@ -114,11 +102,8 @@ export const createEnhancedTheme = (options: EnhancedThemeOptions = {}): Theme =
     document.head.appendChild(styleElement);
   }
   
-  return enhancedTheme as Theme;
+  return enhancedTheme;
 };
 
-/**
- * Create light and dark theme presets
- */
 export const lightTheme = createEnhancedTheme({ mode: 'light' });
 export const darkTheme = createEnhancedTheme({ mode: 'dark' });

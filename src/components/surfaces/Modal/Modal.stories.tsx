@@ -1,55 +1,54 @@
+import {
+  Cancel,
+  CheckCircle,
+  Delete,
+  Edit,
+  Email,
+  Error,
+  Favorite,
+  Info,
+  LocationOn,
+  MoreVert,
+  Person,
+  Phone,
+  Save,
+  Settings,
+  Warning
+} from '@mui/icons-material';
+import { FormControlLabel, ListItemAvatar, ListItemText } from '@mui/material';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import React, { useState } from 'react';
+import React, {  useState  } from 'react';
+
+import { Button } from '@/components/core/Button';
+import { IconButton } from '@/components/core/IconButton'; // Replaced MUI IconButton with internal wrapper
+import { Avatar } from '@/components/data-display/Avatar'; // Replaced MUI Avatar with internal wrapper
+import { Card, CardContent } from '@/components/data-display/Card';
+import { Divider } from '@/components/data-display/Divider'; // Replaced MUI Divider with internal wrapper
+import { Typography } from '@/components/data-display/Typography';
+import { Checkbox } from '@/components/forms/Checkbox'; // Replaced MUI Checkbox with internal wrapper
+import { FormControl } from '@/components/forms/FormControl'; // Replaced MUI FormControl with internal wrapper
+import { FormLabel } from '@/components/forms/FormLabel'; // Replaced MUI FormLabel with internal wrapper
+import { Radio } from '@/components/forms/Radio'; // Replaced MUI Radio with internal wrapper
+import { RadioGroup } from '@/components/forms/RadioGroup'; // Replaced MUI RadioGroup with internal wrapper
+import { Switch } from '@/components/forms/Switch'; // Replaced MUI Switch with internal wrapper
+// TODO: Migrate ListItemText, ListItemAvatar, FormControlLabel to internal wrappers when available
+import { TextField } from '@/components/forms/TextField';
+import { Box } from '@/components/layout/Box';
+import { Stack } from '@/components/layout/Stack';
+import { List } from '@/components/surfaces/List'; // Replaced MUI List with internal wrapper
+import { ListItem } from '@/components/surfaces/ListItem'; // Replaced MUI ListItem with internal wrapper
+
 import { Modal } from './Modal';
-import { 
-  MODAL_VARIANTS, 
-  MODAL_POSITIONS, 
-  MODAL_BACKDROPS, 
-  MODAL_ANIMATIONS, 
-  MODAL_SIZES 
+import {
+  MODAL_ANIMATIONS,
+  MODAL_BACKDROPS,
+  MODAL_POSITIONS,
+  MODAL_SIZES,
+  MODAL_VARIANTS
 } from './Modal.constants';
-import { 
-  Button, 
-  Typography, 
-  TextField, 
-  Stack, 
-  Box, 
-  IconButton,
-  Card,
-  CardContent,
-  Avatar,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemAvatar,
-  Divider,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-  FormControlLabel,
-  Checkbox,
-  Switch,
-} from '@mui/material';
-import { 
-  Save, 
-  Cancel, 
-  Delete, 
-  Edit, 
-  Settings, 
-  Person,
-  Email,
-  Phone,
-  LocationOn,
-  Favorite,
-  Share,
-  MoreVert,
-  Warning,
-  CheckCircle,
-  Info,
-  Error,
-} from '@mui/icons-material';
+
+// TODO: Create wrapper components for form controls, list components, Avatar, IconButton, and Divider
 
 /**
  * The Modal component is a flexible overlay that displays content above the page.
@@ -132,9 +131,13 @@ const meta: Meta<typeof Modal> = {
       description: 'The title of the modal',
     },
     onClose: { action: 'closed' },
+    onEntered: { action: 'entered' },
+    onExited: { action: 'exited' },
   },
   args: {
     onClose: fn(),
+    onEntered: fn(),
+    onExited: fn(),
   },
 };
 
@@ -142,18 +145,30 @@ export default meta;
 type Story = StoryObj<typeof Modal>;
 
 // Interactive wrapper component for stories
-const ModalStory = ({ children, ...props }: any) => {
+interface ModalStoryProps extends Omit<React.ComponentProps<typeof Modal>, 'children'> {
+  children: React.ReactNode;
+}
+const ModalStory: React.FC<ModalStoryProps> = ({ children, ...props }) => {
   const [open, setOpen] = useState(false);
+  
+  const handleClose = (): void => {
+    setOpen(false);
+    props.onClose?.();
+  };
+
+  const handleClick = (): void => {
+    setOpen(true);
+  };
   
   return (
     <>
-      <Button variant="contained" onClick={() => setOpen(true)}>
+      <Button variant="outline" onClick={handleClick}>
         Open Modal
       </Button>
       <Modal
         {...props}
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={handleClose}
       >
         {children}
       </Modal>
@@ -189,10 +204,10 @@ export const Default: Story = {
  * Showcases all available modal variants
  */
 export const Variants: Story = {
-  render: () => {
+  render: (args) => {
     const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
     
-    const toggleModal = (variant: string) => {
+    const toggleModal = (variant: string): void => {
       setOpenModals(prev => ({ ...prev, [variant]: !prev[variant] }));
     };
     
@@ -201,13 +216,13 @@ export const Variants: Story = {
         {Object.values(MODAL_VARIANTS).map((variant) => (
           <Box key={variant}>
             <Button
-              variant="outlined"
+              variant="outline"
               onClick={() => toggleModal(variant)}
               sx={{ textTransform: 'capitalize' }}
             >
               {variant} Modal
             </Button>
-            <Modal
+            <Modal {...args}
               variant={variant}
               open={!!openModals[variant]}
               onClose={() => toggleModal(variant)}
@@ -240,10 +255,10 @@ export const Variants: Story = {
  * Demonstrates different positioning options
  */
 export const Positions: Story = {
-  render: () => {
+  render: (args) => {
     const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
     
-    const toggleModal = (position: string) => {
+    const toggleModal = (position: string): void => {
       setOpenModals(prev => ({ ...prev, [position]: !prev[position] }));
     };
     
@@ -256,13 +271,13 @@ export const Positions: Story = {
           {Object.values(MODAL_POSITIONS).filter(p => p !== 'custom').map((position) => (
             <Box key={position}>
               <Button
-                variant="outlined"
+                variant="outline"
                 onClick={() => toggleModal(position)}
                 sx={{ textTransform: 'capitalize' }}
               >
                 {position.replace('-', ' ')}
               </Button>
-              <Modal
+              <Modal {...args}
                 position={position}
                 open={!!openModals[position]}
                 onClose={() => toggleModal(position)}
@@ -286,22 +301,32 @@ export const Positions: Story = {
  * Shows custom positioning capability
  */
 export const CustomPosition: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
+    
+    const handleClose = (): void => {
+      setOpen(false);
+      args.onClose?.();
+    };
+
+    const handleClick = (): void => {
+      setOpen(true);
+    };
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={handleClick}>
           Open Custom Positioned Modal
         </Button>
         <Modal
+          {...args}
           position="custom"
           customPosition={{
             top: '20%',
             right: '10%',
           }}
           open={open}
-          onClose={() => setOpen(false)}
+          onClose={handleClose}
           title="Custom Position"
           size="sm"
         >
@@ -320,10 +345,10 @@ export const CustomPosition: Story = {
  * Demonstrates all available sizes
  */
 export const Sizes: Story = {
-  render: () => {
+  render: (args) => {
     const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
     
-    const toggleModal = (size: string) => {
+    const toggleModal = (size: string): void => {
       setOpenModals(prev => ({ ...prev, [size]: !prev[size] }));
     };
     
@@ -332,13 +357,13 @@ export const Sizes: Story = {
         {Object.values(MODAL_SIZES).map((size) => (
           <Box key={size}>
             <Button
-              variant="outlined"
+                variant="outline"
               onClick={() => toggleModal(size)}
               sx={{ textTransform: 'uppercase' }}
             >
               {size} Size
             </Button>
-            <Modal
+            <Modal {...args}
               size={size}
               open={!!openModals[size]}
               onClose={() => toggleModal(size)}
@@ -364,10 +389,10 @@ export const Sizes: Story = {
  * Shows different backdrop options
  */
 export const BackdropStyles: Story = {
-  render: () => {
+  render: (args) => {
     const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
     
-    const toggleModal = (backdrop: string) => {
+    const toggleModal = (backdrop: string): void => {
       setOpenModals(prev => ({ ...prev, [backdrop]: !prev[backdrop] }));
     };
     
@@ -376,13 +401,13 @@ export const BackdropStyles: Story = {
         {Object.values(MODAL_BACKDROPS).map((backdrop) => (
           <Box key={backdrop}>
             <Button
-              variant="outlined"
+              variant="outline"
               onClick={() => toggleModal(backdrop)}
               sx={{ textTransform: 'capitalize' }}
             >
               {backdrop} Backdrop
             </Button>
-            <Modal
+            <Modal {...args}
               backdrop={backdrop}
               open={!!openModals[backdrop]}
               onClose={() => toggleModal(backdrop)}
@@ -405,10 +430,10 @@ export const BackdropStyles: Story = {
  * Demonstrates all animation options
  */
 export const Animations: Story = {
-  render: () => {
+  render: (args) => {
     const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
     
-    const toggleModal = (animation: string) => {
+    const toggleModal = (animation: string): void => {
       setOpenModals(prev => ({ ...prev, [animation]: !prev[animation] }));
     };
     
@@ -417,13 +442,13 @@ export const Animations: Story = {
         {Object.values(MODAL_ANIMATIONS).map((animation) => (
           <Box key={animation}>
             <Button
-              variant="outlined"
+              variant="outline"
               onClick={() => toggleModal(animation)}
               sx={{ textTransform: 'capitalize' }}
             >
               {animation} Animation
             </Button>
-            <Modal
+            <Modal {...args}
               animation={animation}
               open={!!openModals[animation]}
               onClose={() => toggleModal(animation)}
@@ -446,25 +471,32 @@ export const Animations: Story = {
  * Shows modal with custom header and footer content
  */
 export const WithHeaderAndFooter: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
-    
+    const handleClose = (): void => {
+      setOpen(false);
+      args.onClose?.();
+    };
+    const handleClick = (): void => {
+      setOpen(true);
+    };
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={handleClick}>
           Open Modal with Header & Footer
         </Button>
         <Modal
+          {...args}
           open={open}
-          onClose={() => setOpen(false)}
+          onClose={handleClose}
           title="Settings"
           showCloseButton={true}
           footer={
             <Stack data-testid="modal.stories" direction="row" spacing={2}>
-              <Button variant="outlined" onClick={() => setOpen(false)}>
+              <Button variant="outline" onClick={handleClose}>
                 Cancel
               </Button>
-              <Button variant="contained" startIcon={<Save />}>
+              <Button variant="outline" startIcon={<Save />}>
                 Save Changes
               </Button>
             </Stack>
@@ -473,8 +505,8 @@ export const WithHeaderAndFooter: Story = {
           <Stack data-testid="modal.stories" spacing={2}>
             <TextField label="Username" fullWidth />
             <TextField label="Email" type="email" fullWidth />
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Notifications</FormLabel>
+            <FormControl>
+              <FormLabel>Notifications</FormLabel>
               <Stack data-testid="modal.stories">
                 <FormControlLabel
                   control={<Checkbox defaultChecked />}
@@ -498,15 +530,15 @@ export const WithHeaderAndFooter: Story = {
  * Modal with completely custom header content
  */
 export const CustomHeader: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={() => setOpen(true)}>
           Open Modal with Custom Header
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           header={
@@ -523,13 +555,13 @@ export const CustomHeader: Story = {
                 </Box>
               </Box>
               <Stack data-testid="modal.stories" direction="row" spacing={1}>
-                <IconButton size="small">
+                <IconButton size="small" aria-label="Edit profile">
                   <Edit />
                 </IconButton>
-                <IconButton size="small">
+                <IconButton size="small" aria-label="More options">
                   <MoreVert />
                 </IconButton>
-                <IconButton size="small" onClick={() => setOpen(false)}>
+                <IconButton size="small" onClick={() => setOpen(false)} aria-label="Close modal">
                   <Cancel />
                 </IconButton>
               </Stack>
@@ -561,7 +593,7 @@ export const CustomHeader: Story = {
  * Complex form in a modal with validation
  */
 export const FormModal: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     const [formData, setFormData] = useState({
       name: '',
@@ -570,27 +602,26 @@ export const FormModal: Story = {
       notifications: false,
     });
     
-    const handleSubmit = () => {
-      console.log('Form submitted:', formData);
+    const handleSubmit = (): void => {
       setOpen(false);
     };
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={() => setOpen(true)}>
           Create New User
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           title="Create New User"
           size="md"
           footer={
             <Stack data-testid="modal.stories" direction="row" spacing={2}>
-              <Button variant="outlined" onClick={() => setOpen(false)}>
+              <Button variant="outline" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
-              <Button variant="contained" onClick={handleSubmit}>
+              <Button variant="outline" onClick={handleSubmit}>
                 Create User
               </Button>
             </Stack>
@@ -612,8 +643,8 @@ export const FormModal: Story = {
               value={formData.email}
               onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
             />
-            <FormControl component="fieldset">
-              <FormLabel component="legend">Role</FormLabel>
+            <FormControl>
+              <FormLabel>Role</FormLabel>
               <RadioGroup
                 value={formData.role}
                 onChange={(e) => setFormData(prev => ({ ...prev, role: e.target.value }))}
@@ -644,15 +675,15 @@ export const FormModal: Story = {
  * Modal used as a confirmation dialog
  */
 export const ConfirmationDialog: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     
     return (
       <>
-        <Button variant="contained" color="error" onClick={() => setOpen(true)}>
+        <Button variant="outline" color="error" onClick={() => setOpen(true)}>
           Delete Account
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           size="sm"
@@ -665,10 +696,10 @@ export const ConfirmationDialog: Story = {
           }
           footer={
             <Stack data-testid="modal.stories" direction="row" spacing={2}>
-              <Button variant="outlined" onClick={() => setOpen(false)}>
+              <Button variant="outline" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
-              <Button variant="contained" color="error" startIcon={<Delete />}>
+              <Button variant="outline" color="error" startIcon={<Delete />}>
                 Delete Account
               </Button>
             </Stack>
@@ -689,7 +720,7 @@ export const ConfirmationDialog: Story = {
  * Modal used for displaying alerts with different severities
  */
 export const AlertModal: Story = {
-  render: () => {
+  render: (args) => {
     const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
     
     const alerts = [
@@ -698,24 +729,25 @@ export const AlertModal: Story = {
       { type: 'warning', icon: Warning, color: 'warning' as const, title: 'Warning', message: 'Your session will expire in 5 minutes.' },
       { type: 'error', icon: Error, color: 'error' as const, title: 'Error', message: 'Failed to save changes. Please try again.' },
     ];
-    
-    const toggleModal = (type: string) => {
-      setOpenModals(prev => ({ ...prev, [type]: !prev[type] }));
+    const toggleModal = (type: string): void => {
+      setOpenModals((prevState: Record<string, boolean>) => ({
+        ...prevState,
+        [type]: !prevState[type]
+      }));
     };
-    
     return (
       <Stack data-testid="modal.stories" spacing={2} direction="row" flexWrap="wrap">
         {alerts.map((alert) => (
           <Box key={alert.type}>
             <Button
-              variant="outlined"
+              variant="outline"
               color={alert.color}
               onClick={() => toggleModal(alert.type)}
               sx={{ textTransform: 'capitalize' }}
             >
               {alert.type} Alert
             </Button>
-            <Modal
+            <Modal {...args}
               open={!!openModals[alert.type]}
               onClose={() => toggleModal(alert.type)}
               size="sm"
@@ -727,7 +759,7 @@ export const AlertModal: Story = {
                 </Box>
               }
               footer={
-                <Button variant="contained" onClick={() => toggleModal(alert.type)}>
+                <Button variant="outline" onClick={() => toggleModal(alert.type)}>
                   OK
                 </Button>
               }
@@ -746,12 +778,12 @@ export const AlertModal: Story = {
  * Modal that behaves like a drawer
  */
 export const DrawerModal: Story = {
-  render: () => {
+  render: (args) => {
     const [openDrawers, setOpenDrawers] = useState<Record<string, boolean>>({});
     
     const positions = ['left', 'right', 'top', 'bottom'];
     
-    const toggleDrawer = (position: string) => {
+    const toggleDrawer = (position: string): void => {
       setOpenDrawers(prev => ({ ...prev, [position]: !prev[position] }));
     };
     
@@ -760,15 +792,15 @@ export const DrawerModal: Story = {
         {positions.map((position) => (
           <Box key={position}>
             <Button
-              variant="outlined"
+              variant="outline"
               onClick={() => toggleDrawer(position)}
               sx={{ textTransform: 'capitalize' }}
             >
               {position} Drawer
             </Button>
-            <Modal
+            <Modal {...args}
               variant="drawer"
-              position={position as any}
+              position={position as 'left' | 'right' | 'top' | 'bottom'} // Type-safe position prop using literal union type
               animation="drawer"
               open={!!openDrawers[position]}
               onClose={() => toggleDrawer(position)}
@@ -809,15 +841,15 @@ export const DrawerModal: Story = {
  * Modal for displaying images or media content
  */
 export const GalleryModal: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={() => setOpen(true)}>
           View Gallery
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           variant="fullscreen"
@@ -848,7 +880,7 @@ export const GalleryModal: Story = {
                       justifyContent: 'center',
                     }}
                   >
-                    <Typography variant="h6" color="white">
+                    <Typography variant="h6" color="text.primary">
                       Image {i + 1}
                     </Typography>
                   </Box>
@@ -872,15 +904,15 @@ export const GalleryModal: Story = {
  * Modal that becomes fullscreen on mobile devices
  */
 export const MobileResponsive: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={() => setOpen(true)}>
           Open Mobile-Responsive Modal
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           title="Mobile Responsive Modal"
@@ -888,10 +920,10 @@ export const MobileResponsive: Story = {
           size="lg"
           footer={
             <Stack data-testid="modal.stories" direction="row" spacing={2}>
-              <Button variant="outlined" onClick={() => setOpen(false)}>
+              <Button variant="outline" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
-              <Button variant="contained">
+              <Button variant="outline">
                 Confirm
               </Button>
             </Stack>
@@ -916,25 +948,25 @@ export const MobileResponsive: Story = {
  * Demonstrates accessibility features and keyboard navigation
  */
 export const AccessibilityFeatures: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={() => setOpen(true)}>
           Open Accessible Modal
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           title="Accessibility Demo"
           aria-describedby="modal-description"
           footer={
             <Stack data-testid="modal.stories" direction="row" spacing={2}>
-              <Button variant="outlined" onClick={() => setOpen(false)}>
+              <Button variant="outline" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
-              <Button variant="contained" data-autofocus>
+              <Button variant="outline" data-autofocus>
                 Focus Me First
               </Button>
             </Stack>
@@ -977,15 +1009,15 @@ export const AccessibilityFeatures: Story = {
  * Modal that cannot be closed by backdrop click or escape key
  */
 export const NoCloseOptions: Story = {
-  render: () => {
+  render: (args) => {
     const [open, setOpen] = useState(false);
     
     return (
       <>
-        <Button variant="contained" onClick={() => setOpen(true)}>
+        <Button variant="outline" onClick={() => setOpen(true)}>
           Open Modal (No Easy Close)
         </Button>
-        <Modal
+        <Modal {...args}
           open={open}
           onClose={() => setOpen(false)}
           title="Important Notice"
@@ -993,14 +1025,14 @@ export const NoCloseOptions: Story = {
           closeOnEscape={false}
           showCloseButton={false}
           footer={
-            <Button variant="contained" onClick={() => setOpen(false)}>
+            <Button variant="outline" onClick={() => setOpen(false)}>
               I Understand
             </Button>
           }
         >
           <Typography gutterBottom>
             This modal cannot be closed by clicking outside or pressing escape.
-            You must click the "I Understand" button to proceed.
+            You must click the &quot;I Understand&quot; button to proceed.
           </Typography>
           <Typography variant="body2" color="text.secondary">
             This pattern is useful for critical information that users must acknowledge.
@@ -1016,28 +1048,27 @@ export const NoCloseOptions: Story = {
  * Multiple modals to test performance
  */
 export const PerformanceTest: Story = {
-  render: () => {
+  render: (args) => {
     const [openCount, setOpenCount] = useState(0);
     const [modals, setModals] = useState<number[]>([]);
-    
-    const addModal = () => {
-      const newId = openCount;
-      setModals(prev => [...prev, newId]);
-      setOpenCount(prev => prev + 1);
+    const addModal = (): void => {
+      const newId: number = openCount;
+      setModals((prev: number[]): number[] => [...prev, newId]); 
+      setOpenCount((prev: number): number => prev + 1);
     };
     
-    const removeModal = (id: number) => {
+    const removeModal = (id: number): void => {
       setModals(prev => prev.filter(modalId => modalId !== id));
     };
     
     return (
       <>
         <Stack data-testid="modal.stories" direction="row" spacing={2} alignItems="center">
-          <Button variant="contained" onClick={addModal}>
+          <Button variant="outline" onClick={addModal}>
             Add Modal ({modals.length} open)
           </Button>
           <Button 
-            variant="outlined" 
+            variant="outline" 
             onClick={() => setModals([])}
             disabled={modals.length === 0}
           >
@@ -1046,7 +1077,7 @@ export const PerformanceTest: Story = {
         </Stack>
         
         {modals.map((id, index) => (
-          <Modal
+          <Modal {...args}
             key={id}
             open={true}
             onClose={() => removeModal(id)}
@@ -1067,6 +1098,139 @@ export const PerformanceTest: Story = {
         ))}
       </>
     );
+  },
+};
+
+/**
+ * Modal States
+ * Different states and configurations of the modal
+ */
+export const States: Story = {
+  render: (args) => {
+    const [openModals, setOpenModals] = useState<Record<string, boolean>>({});
+    
+    const toggleModal = (state: string): void => {
+      setOpenModals(prev => ({ ...prev, [state]: !prev[state] }));
+    };
+    
+    return (
+      <Stack data-testid="modal.stories" spacing={2} direction="row" flexWrap="wrap">
+        <Box>
+          <Button variant="outline" onClick={() => toggleModal('open')}>
+            Open State
+          </Button>
+          <Modal {...args}
+            open={!!openModals['open']}
+            onClose={() => toggleModal('open')}
+            title="Open State Modal"
+            size="sm"
+          >
+            <Typography>This modal is in the open state.</Typography>
+          </Modal>
+        </Box>
+        
+        <Box>
+          <Button variant="outline" onClick={() => toggleModal('closable')}>
+            Closable State
+          </Button>
+          <Modal {...args}
+            open={!!openModals['closable']}
+            onClose={() => toggleModal('closable')}
+            title="Closable Modal"
+            size="sm"
+            closeOnBackdropClick={true}
+            closeOnEscape={true}
+            showCloseButton={true}
+          >
+            <Typography>This modal can be closed by backdrop click, escape key, or close button.</Typography>
+          </Modal>
+        </Box>
+        
+        <Box>
+          <Button variant="outline" onClick={() => toggleModal('non-closable')}>
+            Non-Closable State
+          </Button>
+          <Modal {...args}
+            open={!!openModals['non-closable']}
+            onClose={() => toggleModal('non-closable')}
+            title="Non-Closable Modal"
+            size="sm"
+            closeOnBackdropClick={false}
+            closeOnEscape={false}
+            showCloseButton={false}
+            footer={
+              <Button variant="outline" onClick={() => toggleModal('non-closable')}>
+                Acknowledge
+              </Button>
+            }
+          >
+            <Typography>This modal cannot be closed by backdrop click or escape key.</Typography>
+          </Modal>
+        </Box>
+        
+        <Box>
+          <Button variant="outline" onClick={() => toggleModal('elevated')}>
+            Elevated State
+          </Button>
+          <Modal {...args}
+            open={!!openModals['elevated']}
+            onClose={() => toggleModal('elevated')}
+            title="Elevated Modal"
+            size="sm"
+            elevation={true}
+          >
+            <Typography>This modal has elevation shadow for depth.</Typography>
+          </Modal>
+        </Box>
+        
+        <Box>
+          <Button variant="outline" onClick={() => toggleModal('mobile-responsive')}>
+            Mobile Responsive State
+          </Button>
+          <Modal {...args}
+            open={!!openModals['mobile-responsive']}
+            onClose={() => toggleModal('mobile-responsive')}
+            title="Mobile Responsive"
+            size="md"
+            mobileFullscreen={true}
+          >
+            <Typography>This modal becomes fullscreen on mobile devices.</Typography>
+          </Modal>
+        </Box>
+        
+        <Box>
+          <Button variant="outline" onClick={() => toggleModal('with-header-footer')}>
+            With Header & Footer
+          </Button>
+          <Modal {...args}
+            open={!!openModals['with-header-footer']}
+            onClose={() => toggleModal('with-header-footer')}
+            title="Complete Modal"
+            size="sm"
+            showCloseButton={true}
+            footer={
+              <Stack data-testid="modal.stories" direction="row" spacing={2}>
+                <Button variant="outline" onClick={() => toggleModal('with-header-footer')}>
+                  Cancel
+                </Button>
+                <Button variant="outline">
+                  Save
+                </Button>
+              </Stack>
+            }
+          >
+            <Typography>This modal has both header and footer content.</Typography>
+          </Modal>
+        </Box>
+      </Stack>
+    );
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Different states and configurations of the Modal component including open, closable, non-closable, elevated, mobile responsive, and with header/footer.',
+      },
+    },
   },
 };
 

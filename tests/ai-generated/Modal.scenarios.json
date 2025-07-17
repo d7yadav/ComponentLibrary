@@ -1,0 +1,27 @@
+{
+  "component": "Modal",
+  "generated": "2025-07-14T08:19:00.481Z",
+  "scenarios": [
+    {
+      "id": "Modal-smoke",
+      "name": "Modal Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Modal",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Modal-interaction",
+      "name": "Modal Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Modal",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Modal-accessibility",
+      "name": "Modal Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Modal",
+      "estimatedDuration": 1200
+    }
+  ]
+}

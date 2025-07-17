@@ -1,4 +1,4 @@
-import { 
+import type { 
   TypographyVariant, 
   TypographyColor, 
   TypographyAlign, 
@@ -8,9 +8,6 @@ import {
   TypographyComponent 
 } from './Typography.types';
 
-/**
- * TYPOGRAPHY_VARIANTS - All supported typography variants
- */
 export const TYPOGRAPHY_VARIANTS: Record<TypographyVariant, TypographyVariant> = {
   h1: 'h1',
   h2: 'h2',
@@ -27,9 +24,6 @@ export const TYPOGRAPHY_VARIANTS: Record<TypographyVariant, TypographyVariant> =
   subtitle2: 'subtitle2',
 } as const;
 
-/**
- * TYPOGRAPHY_COLORS - All supported color variants
- */
 export const TYPOGRAPHY_COLORS: Record<TypographyColor, TypographyColor> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -45,9 +39,6 @@ export const TYPOGRAPHY_COLORS: Record<TypographyColor, TypographyColor> = {
   inherit: 'inherit',
 } as const;
 
-/**
- * TYPOGRAPHY_ALIGNMENTS - Text alignment options
- */
 export const TYPOGRAPHY_ALIGNMENTS: Record<TypographyAlign, TypographyAlign> = {
   inherit: 'inherit',
   left: 'left',
@@ -56,9 +47,6 @@ export const TYPOGRAPHY_ALIGNMENTS: Record<TypographyAlign, TypographyAlign> = {
   justify: 'justify',
 } as const;
 
-/**
- * TYPOGRAPHY_TRANSFORMS - Text transformation options
- */
 export const TYPOGRAPHY_TRANSFORMS: Record<TypographyTransform, TypographyTransform> = {
   none: 'none',
   capitalize: 'capitalize',
@@ -68,9 +56,6 @@ export const TYPOGRAPHY_TRANSFORMS: Record<TypographyTransform, TypographyTransf
   inherit: 'inherit',
 } as const;
 
-/**
- * TYPOGRAPHY_WEIGHTS - Font weight options
- */
 export const TYPOGRAPHY_WEIGHTS: Record<string, TypographyWeight> = {
   light: 'light',
   regular: 'regular',
@@ -82,9 +67,6 @@ export const TYPOGRAPHY_WEIGHTS: Record<string, TypographyWeight> = {
   700: 700,
 } as const;
 
-/**
- * TYPOGRAPHY_DISPLAYS - Display CSS property options
- */
 export const TYPOGRAPHY_DISPLAYS: Record<TypographyDisplay, TypographyDisplay> = {
   initial: 'initial',
   block: 'block',
@@ -93,9 +75,6 @@ export const TYPOGRAPHY_DISPLAYS: Record<TypographyDisplay, TypographyDisplay> =
   none: 'none',
 } as const;
 
-/**
- * TYPOGRAPHY_COMPONENTS - HTML element mapping
- */
 export const TYPOGRAPHY_COMPONENTS: Record<TypographyComponent, TypographyComponent> = {
   h1: 'h1',
   h2: 'h2',
@@ -119,9 +98,6 @@ export const TYPOGRAPHY_COMPONENTS: Record<TypographyComponent, TypographyCompon
   sup: 'sup',
 } as const;
 
-/**
- * TYPOGRAPHY_VARIANT_MAPPINGS - Default component mapping for variants
- */
 export const TYPOGRAPHY_VARIANT_MAPPINGS: Record<TypographyVariant, TypographyComponent> = {
   h1: 'h1',
   h2: 'h2',
@@ -138,9 +114,6 @@ export const TYPOGRAPHY_VARIANT_MAPPINGS: Record<TypographyVariant, TypographyCo
   subtitle2: 'h6',
 } as const;
 
-/**
- * RESPONSIVE_BREAKPOINTS - Typography scaling breakpoints
- */
 export const RESPONSIVE_BREAKPOINTS = {
   xs: '(max-width: 599px)',
   sm: '(min-width: 600px) and (max-width: 959px)',
@@ -149,9 +122,6 @@ export const RESPONSIVE_BREAKPOINTS = {
   xl: '(min-width: 1920px)',
 } as const;
 
-/**
- * TYPOGRAPHY_SCALE_FACTORS - Responsive scaling factors
- */
 export const TYPOGRAPHY_SCALE_FACTORS = {
   xs: 0.85,  // Mobile - smaller text
   sm: 0.9,   // Tablet - slightly smaller
@@ -160,9 +130,6 @@ export const TYPOGRAPHY_SCALE_FACTORS = {
   xl: 1.1,   // Extra large - larger text
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS - Typography accessibility standards
- */
 export const ACCESSIBILITY_CONSTANTS = {
   minContrastRatio: 4.5,           // WCAG AA standard
   minContrastRatioLarge: 3.0,      // WCAG AA for large text (18pt+)
@@ -176,18 +143,12 @@ export const ACCESSIBILITY_CONSTANTS = {
   readingSpeedWpm: 200,            // Average reading speed (words per minute)
 } as const;
 
-/**
- * TRUNCATION_DEFAULTS - Default truncation settings
- */
 export const TRUNCATION_DEFAULTS = {
   maxLinesDefault: 3,              // Default max lines for truncation
   ellipsis: '...',                 // Ellipsis character
   fadeOutHeight: '1.2em',          // Height of fade out effect
 } as const;
 
-/**
- * FONT_FEATURE_SETTINGS - Advanced typography features
- */
 export const FONT_FEATURE_SETTINGS = {
   ligatures: '"liga" 1, "clig" 1',                    // Common ligatures
   numbers: '"lnum" 1, "tnum" 1',                      // Lining, tabular numbers
@@ -196,9 +157,6 @@ export const FONT_FEATURE_SETTINGS = {
   readability: '"liga" 1, "kern" 1, "clig" 1, "calt" 1', // Optimized for readability
 } as const;
 
-/**
- * ANIMATION_CONSTANTS - Typography animation settings
- */
 export const ANIMATION_CONSTANTS = {
   duration: {
     fast: '0.15s',
@@ -213,9 +171,6 @@ export const ANIMATION_CONSTANTS = {
   properties: ['color', 'transform', 'opacity', 'filter'],
 } as const;
 
-/**
- * GRADIENT_PRESETS - Pre-defined gradient configurations
- */
 export const GRADIENT_PRESETS = {
   primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
   secondary: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
@@ -227,9 +182,6 @@ export const GRADIENT_PRESETS = {
   subtle: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
 } as const;
 
-/**
- * TYPOGRAPHY_SEMANTIC_ROLES - Semantic meaning for screen readers
- */
 export const TYPOGRAPHY_SEMANTIC_ROLES = {
   heading: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
   body: ['body1', 'body2'],
@@ -237,9 +189,6 @@ export const TYPOGRAPHY_SEMANTIC_ROLES = {
   subtitles: ['subtitle1', 'subtitle2'],
 } as const;
 
-/**
- * DEFAULT_PROPS - Component default properties
- */
 export const DEFAULT_PROPS = {
   variant: 'body1' as TypographyVariant,
   color: 'text.primary' as TypographyColor,

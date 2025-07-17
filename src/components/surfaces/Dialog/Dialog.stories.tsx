@@ -1,41 +1,36 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React, { useState } from 'react';
-import { action } from '@storybook/addon-actions';
-import { 
-  TextField, 
-  FormControl, 
-  FormLabel, 
-  RadioGroup, 
-  FormControlLabel, 
-  Radio,
-  Checkbox,
-  Typography,
-  Box,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemIcon,
-  Alert,
-} from '@mui/material';
-import { 
-  Delete, 
-  Save, 
-  Warning, 
-  Info, 
-  CheckCircle, 
-  Error as ErrorIcon,
-  Settings,
+import {
+  Delete,
   Download,
-  Upload,
+  Save,
+  Settings,
   Share,
-  Star,
+  Star
 } from '@mui/icons-material';
+import { FormControlLabel, ListItemIcon, ListItemText } from '@mui/material';
+import { action } from '@storybook/addon-actions';
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import React, { useState } from 'react';
+
+import { Typography } from '@/components/data-display/Typography';
+import { Alert } from '@/components/feedback/Alert';
+import { Checkbox } from '@/components/forms/Checkbox';
+import { FormControl } from '@/components/forms/FormControl';
+import { FormLabel } from '@/components/forms/FormLabel';
+import { Radio } from '@/components/forms/Radio';
+import { RadioGroup } from '@/components/forms/RadioGroup';
+import { TextField } from '@/components/forms/TextField';
+import { Box } from '@/components/layout/Box';
+import { List } from '@/components/surfaces/List';
+import { ListItem } from '@/components/surfaces/ListItem';
+
+// TODO: Create wrapper components for form controls and list components
+
 import { Dialog, createDialogActions } from './Dialog';
-import { 
-  DIALOG_VARIANTS, 
-  DIALOG_TYPES, 
+import {
   DIALOG_SIZES,
-  DIALOG_ACTION_TYPES,
+  DIALOG_TYPES,
+  DIALOG_VARIANTS
 } from './Dialog.constants';
 
 const meta: Meta<typeof Dialog> = {
@@ -117,6 +112,13 @@ Built on top of the Modal component for consistency, providing pre-configured la
       control: 'boolean',
       description: 'Whether pressing escape closes dialog',
     },
+    onClose: {
+      action: 'onClose',
+      description: 'Callback fired when the dialog requests to be closed',
+    },
+  },
+  args: {
+    onClose: fn(),
   },
 };
 
@@ -131,10 +133,13 @@ const DialogTemplate = ({
 }: any) => {
   const [open, setOpen] = useState(false);
   
+  const handleClick = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
   return (
     <>
       <button 
-        onClick={() => setOpen(true)}
+        onClick={handleClick}
         style={{
           padding: '12px 24px',
           backgroundColor: '#1976d2',
@@ -146,10 +151,9 @@ const DialogTemplate = ({
       >
         {buttonText}
       </button>
-      <Dialog
+      <Dialog {...args}
         open={open}
-        onClose={() => setOpen(false)}
-        {...args}
+        onClose={handleClose}
       >
         {children}
       </Dialog>
@@ -182,6 +186,9 @@ export const Default: Story = {
       action('OK clicked'),
       action('Cancel clicked')
     ),
+  
+    onClick: fn(),
+    onClose: fn(),
   },
 };
 
@@ -621,7 +628,7 @@ export const LoadingDialog: Story = {
           {
             label: 'Start Process',
             type: 'primary',
-            onClick: () => {
+            onClick: (): void => {
               setLoading(true);
               setTimeout(() => setLoading(false), 3000);
               action('Process started')();
@@ -635,7 +642,7 @@ export const LoadingDialog: Story = {
         ]}
       >
         <Typography>
-          Click "Start Process" to see the loading state. The dialog will show a loading
+          Click &quot;Start Process&quot; to see the loading state. The dialog will show a loading
           overlay while the process is running.
         </Typography>
       </DialogTemplate>

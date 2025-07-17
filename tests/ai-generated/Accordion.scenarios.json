@@ -1,0 +1,27 @@
+{
+  "component": "Accordion",
+  "generated": "2025-07-14T08:19:00.480Z",
+  "scenarios": [
+    {
+      "id": "Accordion-smoke",
+      "name": "Accordion Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Accordion",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Accordion-interaction",
+      "name": "Accordion Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Accordion",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Accordion-accessibility",
+      "name": "Accordion Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Accordion",
+      "estimatedDuration": 1200
+    }
+  ]
+}

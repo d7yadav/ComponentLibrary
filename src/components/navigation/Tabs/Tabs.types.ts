@@ -1,42 +1,17 @@
-/**
- * @fileoverview Tabs Component Types
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * TypeScript type definitions for the Tabs component with comprehensive
- * prop interfaces, event handlers, and accessibility support.
- */
 
-import type { ReactNode, SyntheticEvent } from 'react';
 import type { SxProps, Theme } from '@mui/material/styles';
+import type { ReactNode, SyntheticEvent } from 'react';
 
-/**
- * Available tab orientations
- */
 export type TabsOrientation = 'horizontal' | 'vertical';
 
-/**
- * Available tab variants
- */
 export type TabsVariant = 'standard' | 'scrollable' | 'fullWidth';
 
-/**
- * Available tab indicator colors
- */
 export type TabsIndicatorColor = 'primary' | 'secondary';
 
-/**
- * Available scroll button modes
- */
 export type TabsScrollButtons = 'auto' | 'desktop' | 'on' | 'off';
 
-/**
- * Tab change event handler type
- */
 export type TabChangeHandler = (event: SyntheticEvent, newValue: string | number) => void;
 
-/**
- * Individual tab data
- */
 export interface TabData {
   /** Unique identifier for the tab */
   id: string;
@@ -54,9 +29,6 @@ export interface TabData {
   'aria-label'?: string;
 }
 
-/**
- * Tab panel props for content display
- */
 export interface TabPanelProps {
   /** Panel content */
   children?: ReactNode;
@@ -72,9 +44,6 @@ export interface TabPanelProps {
   'aria-labelledby'?: string;
 }
 
-/**
- * Main Tabs component props
- */
 export interface TabsProps {
   /** Array of tab data */
   tabs: TabData[];
@@ -120,9 +89,6 @@ export interface TabsProps {
   'data-testid'?: string;
 }
 
-/**
- * Styled components theme extension
- */
 export interface TabsTheme {
   tabs: {
     root: object;
@@ -133,9 +99,6 @@ export interface TabsTheme {
   };
 }
 
-/**
- * Component default props
- */
 export interface TabsDefaultProps {
   orientation: TabsOrientation;
   variant: TabsVariant;

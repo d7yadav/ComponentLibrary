@@ -1,31 +1,16 @@
-import { TextFieldVariant, TextFieldSize, TextFieldInputType, ValidationState } from './TextField.types';
+import type { TextFieldVariant, TextFieldSize, TextFieldInputType, ValidationState } from './TextField.types';
 
-/**
- * TEXTFIELD_VARIANTS component
- * 
- * @returns JSX element
- */
 export const TEXTFIELD_VARIANTS: Record<TextFieldVariant, TextFieldVariant> = {
   filled: 'filled',
   outlined: 'outlined',
   standard: 'standard',
 } as const;
 
-/**
- * TEXTFIELD_SIZES component
- * 
- * @returns JSX element
- */
 export const TEXTFIELD_SIZES: Record<TextFieldSize, TextFieldSize> = {
   small: 'small',
   medium: 'medium',
 } as const;
 
-/**
- * TEXTFIELD_INPUT_TYPES component
- * 
- * @returns JSX element
- */
 export const TEXTFIELD_INPUT_TYPES: Record<string, TextFieldInputType> = {
   text: 'text',
   email: 'email',
@@ -41,11 +26,6 @@ export const TEXTFIELD_INPUT_TYPES: Record<string, TextFieldInputType> = {
   week: 'week',
 } as const;
 
-/**
- * VALIDATION_STATES component
- * 
- * @returns JSX element
- */
 export const VALIDATION_STATES: Record<ValidationState, ValidationState> = {
   none: 'none',
   success: 'success',
@@ -53,11 +33,6 @@ export const VALIDATION_STATES: Record<ValidationState, ValidationState> = {
   error: 'error',
 } as const;
 
-/**
- * TEXTFIELD_SIZE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const TEXTFIELD_SIZE_CONFIGS = {
   small: {
     height: 40,
@@ -79,11 +54,6 @@ export const TEXTFIELD_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * VALIDATION_STATE_COLORS component
- * 
- * @returns JSX element
- */
 export const VALIDATION_STATE_COLORS = {
   none: {
     border: 'divider',
@@ -107,11 +77,6 @@ export const VALIDATION_STATE_COLORS = {
   },
 } as const;
 
-/**
- * TEXTFIELD_ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const TEXTFIELD_ANIMATION_DURATIONS = {
   focus: '0.2s',
   blur: '0.2s',
@@ -119,22 +84,12 @@ export const TEXTFIELD_ANIMATION_DURATIONS = {
   loading: '1.5s',
 } as const;
 
-/**
- * TEXTFIELD_ANIMATION_EASINGS component
- * 
- * @returns JSX element
- */
 export const TEXTFIELD_ANIMATION_EASINGS = {
   spring: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
   smooth: 'cubic-bezier(0.4, 0, 0.2, 1)',
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   minTouchTarget: 44, // Minimum touch target size in pixels
   focusOutlineWidth: 2,
@@ -144,11 +99,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   validationDebounceDefault: 300, // milliseconds
 } as const;
 
-/**
- * INPUT_VALIDATION_PATTERNS component
- * 
- * @returns JSX element
- */
 export const INPUT_VALIDATION_PATTERNS = {
   email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
   url: /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/,
@@ -162,33 +112,18 @@ export const INPUT_VALIDATION_PATTERNS = {
   },
 } as const;
 
-/**
- * CHARACTER_COUNT_CONFIGS component
- * 
- * @returns JSX element
- */
 export const CHARACTER_COUNT_CONFIGS = {
   position: 'bottom-right' as const,
   warningThreshold: 0.8, // Show warning when 80% of maxLength is reached
   errorThreshold: 1.0, // Show error when maxLength is exceeded
 } as const;
 
-/**
- * LOADING_INDICATOR_CONFIG component
- * 
- * @returns JSX element
- */
 export const LOADING_INDICATOR_CONFIG = {
   size: 16,
   position: 'end' as const,
   color: 'inherit' as const,
 } as const;
 
-/**
- * DEFAULT_VALIDATION_MESSAGES component
- * 
- * @returns JSX element
- */
 export const DEFAULT_VALIDATION_MESSAGES = {
   required: 'This field is required',
   email: 'Please enter a valid email address',
@@ -202,11 +137,6 @@ export const DEFAULT_VALIDATION_MESSAGES = {
   time: 'Please enter a valid time',
 } as const;
 
-/**
- * MULTILINE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const MULTILINE_CONFIGS = {
   defaultRows: 3,
   minRows: 1,
@@ -214,11 +144,6 @@ export const MULTILINE_CONFIGS = {
   autoResize: true,
 } as const;
 
-/**
- * FORM_INTEGRATION_CONFIGS component
- * 
- * @returns JSX element
- */
 export const FORM_INTEGRATION_CONFIGS = {
   submitOnEnter: false,
   clearOnEscape: false,

@@ -1,30 +1,16 @@
-/**
- * @fileoverview Workflow Manager - AI Workflow Orchestration System
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * This module orchestrates complex AI workflows, coordinates between different
- * AI systems, and manages the overall AI-enhanced development process.
- */
 
-import { TaskAnalyzer, type TaskContext, type RequirementAnalysis, type ImplementationPlan } from './TaskAnalyzer';
+import type { ComponentCategory, ComplexityLevel } from '@/types';
+
 import { OverthinkingMode, type DecisionContext, type DecisionAnalysis, type MultiFrameworkAnalysis } from './OverthinkingMode';
 import { QualityValidator, type QualityValidationResult } from './QualityValidator';
+import { TaskAnalyzer, type TaskContext, type RequirementAnalysis, type ImplementationPlan } from './TaskAnalyzer';
 import { TestAutomationAI, type AITestScenario, type TestExecutionResult, type ChangeImpactAnalysis } from './TestAutomationAI';
-import type { ComponentCategory, ComplexityLevel } from '../types';
 
-/**
- * Workflow execution status
- */
-export type WorkflowStatus = 'pending' | 'running' | 'completed' | 'failed' | 'cancelled' | 'paused';
 
-/**
- * Workflow priority levels
- */
-export type WorkflowPriority = 'low' | 'medium' | 'high' | 'urgent' | 'critical';
+export type WorkflowStatus = 'pending' | 'running' | 'completed' | 'failed' | 'cancelled' | 'paused',
 
-/**
- * Workflow type definitions
- */
+export type WorkflowPriority = 'low' | 'medium' | 'high' | 'urgent' | 'critical',
+
 export type WorkflowType = 
   | 'component-creation'
   | 'component-enhancement'
@@ -39,175 +25,139 @@ export type WorkflowType =
   | 'ai-testing-automation'
   | 'visual-regression-analysis'
   | 'change-impact-assessment'
-  | 'continuous-integration';
+  | 'continuous-integration',
 
-/**
- * Workflow step definition
- */
 export interface WorkflowStep {
-  id: string;
-  name: string;
-  description: string;
-  type: 'analysis' | 'decision' | 'implementation' | 'validation' | 'documentation';
-  estimatedDuration: string;
-  dependencies: string[];
-  required: boolean;
-  aiEngine?: 'task-analyzer' | 'overthinking-mode' | 'quality-validator' | 'test-automation' | 'custom';
-  inputs: WorkflowInput[];
-  outputs: WorkflowOutput[];
-  validationCriteria: string[];
+  id: string,
+  name: string,
+  description: string,
+  type: 'analysis' | 'decision' | 'implementation' | 'validation' | 'documentation',
+  estimatedDuration: string,
+  dependencies: string[],
+  required: boolean,
+  aiEngine?: 'task-analyzer' | 'overthinking-mode' | 'quality-validator' | 'test-automation' | 'custom',
+  inputs: WorkflowInput[],
+  outputs: WorkflowOutput[],
+  validationCriteria: string[],
 }
 
-/**
- * Workflow input specification
- */
 export interface WorkflowInput {
-  name: string;
-  type: 'string' | 'number' | 'boolean' | 'object' | 'array' | 'file';
-  required: boolean;
-  description: string;
-  validation?: (value: any) => boolean;
-  defaultValue?: any;
+  name: string,
+  type: 'string' | 'number' | 'boolean' | 'object' | 'array' | 'file',
+  required: boolean,
+  description: string,
+  validation?: (value: any) => boolean,
+  defaultValue?: any,
 }
 
-/**
- * Workflow output specification
- */
 export interface WorkflowOutput {
-  name: string;
-  type: 'string' | 'number' | 'boolean' | 'object' | 'array' | 'file';
-  description: string;
-  format?: string;
-  schema?: any;
+  name: string,
+  type: 'string' | 'number' | 'boolean' | 'object' | 'array' | 'file',
+  description: string,
+  format?: string,
+  schema?: any,
 }
 
-/**
- * Workflow execution context
- */
 export interface WorkflowExecutionContext {
-  workflowId: string;
-  userId?: string;
-  sessionId: string;
-  startTime: Date;
-  currentStep: string;
-  stepData: Map<string, any>;
-  globalData: Map<string, any>;
-  configuration: WorkflowConfiguration;
-  metrics: WorkflowMetrics;
+  workflowId: string,
+  userId?: string,
+  sessionId: string,
+  startTime: Date,
+  currentStep: string,
+  stepData: Map<string, any>,
+  globalData: Map<string, any>,
+  configuration: WorkflowConfiguration,
+  metrics: WorkflowMetrics,
 }
 
-/**
- * Workflow configuration
- */
 export interface WorkflowConfiguration {
-  maxRetries: number;
-  timeoutMinutes: number;
-  enableOverthinking: boolean;
-  confidenceThreshold: number;
-  parallelExecution: boolean;
-  enableLogging: boolean;
-  enableMetrics: boolean;
-  outputFormat: 'json' | 'markdown' | 'html';
+  maxRetries: number,
+  timeoutMinutes: number,
+  enableOverthinking: boolean,
+  confidenceThreshold: number,
+  parallelExecution: boolean,
+  enableLogging: boolean,
+  enableMetrics: boolean,
+  outputFormat: 'json' | 'markdown' | 'html',
 }
 
-/**
- * Workflow metrics
- */
 export interface WorkflowMetrics {
-  stepsCompleted: number;
-  stepsTotal: number;
-  duration: number;
-  aiEngineUsage: Map<string, number>;
-  errorCount: number;
-  retryCount: number;
-  confidenceScores: number[];
-  performanceMetrics: Map<string, number>;
+  stepsCompleted: number,
+  stepsTotal: number,
+  duration: number,
+  aiEngineUsage: Map<string, number>,
+  errorCount: number,
+  retryCount: number,
+  confidenceScores: number[],
+  performanceMetrics: Map<string, number>,
 }
 
-/**
- * Workflow definition
- */
 export interface WorkflowDefinition {
-  id: string;
-  name: string;
-  description: string;
-  version: string;
-  type: WorkflowType;
-  category: ComponentCategory;
-  complexity: ComplexityLevel;
-  steps: WorkflowStep[];
-  defaultConfiguration: WorkflowConfiguration;
+  id: string,
+  name: string,
+  description: string,
+  version: string,
+  type: WorkflowType,
+  category: ComponentCategory,
+  complexity: ComplexityLevel,
+  steps: WorkflowStep[],
+  defaultConfiguration: WorkflowConfiguration,
   metadata: {
-    author: string;
-    created: Date;
-    lastModified: Date;
-    tags: string[];
-    estimatedDuration: string;
-  };
+    author: string,
+    created: Date,
+    lastModified: Date,
+    tags: string[],
+    estimatedDuration: string,
+  },
 }
 
-/**
- * Workflow execution result
- */
 export interface WorkflowResult {
-  workflowId: string;
-  status: WorkflowStatus;
-  startTime: Date;
-  endTime?: Date;
-  duration: number;
-  results: Map<string, any>;
-  metrics: WorkflowMetrics;
-  errors: WorkflowError[];
-  warnings: string[];
-  recommendations: string[];
-  nextSteps: string[];
+  workflowId: string,
+  status: WorkflowStatus,
+  startTime: Date,
+  endTime?: Date,
+  duration: number,
+  results: Map<string, any>,
+  metrics: WorkflowMetrics,
+  errors: WorkflowError[],
+  warnings: string[],
+  recommendations: string[],
+  nextSteps: string[],
 }
 
-/**
- * Workflow error tracking
- */
 export interface WorkflowError {
-  stepId: string;
-  timestamp: Date;
-  type: 'validation' | 'execution' | 'timeout' | 'dependency' | 'ai-engine';
-  message: string;
-  details?: any;
-  recoverable: boolean;
-  suggestedAction: string;
+  stepId: string,
+  timestamp: Date,
+  type: 'validation' | 'execution' | 'timeout' | 'dependency' | 'ai-engine',
+  message: string,
+  details?: any,
+  recoverable: boolean,
+  suggestedAction: string,
 }
 
-/**
- * AI Engine integration interface
- */
 export interface AIEngineInterface {
-  name: string;
-  version: string;
-  capabilities: string[];
-  execute(inputs: any, context: WorkflowExecutionContext): Promise<any>;
-  validate(inputs: any): boolean;
-  getRequiredInputs(): WorkflowInput[];
-  getOutputSchema(): WorkflowOutput[];
+  name: string,
+  version: string,
+  capabilities: string[],
+  execute(inputs: any, context: WorkflowExecutionContext): Promise<any>,
+  validate(inputs: any): boolean,
+  getRequiredInputs(): WorkflowInput[],
+  getOutputSchema(): WorkflowOutput[],
 }
 
-/**
- * Workflow Manager - Orchestrates AI-enhanced development workflows
- * 
- * Coordinates between different AI engines and manages complex development
- * processes with intelligent automation and decision support.
- */
 export class WorkflowManager {
-  private workflows: Map<string, WorkflowDefinition> = new Map();
-  private executionContexts: Map<string, WorkflowExecutionContext> = new Map();
-  private aiEngines: Map<string, AIEngineInterface> = new Map();
-  private taskAnalyzer: TaskAnalyzer;
-  private overthinkingMode: OverthinkingMode;
-  private qualityValidator: QualityValidator;
-  private testAutomationAI: TestAutomationAI;
+  private workflows: Map<string, WorkflowDefinition> = new Map(),
+  private executionContexts: Map<string, WorkflowExecutionContext> = new Map(),
+  private aiEngines: Map<string, AIEngineInterface> = new Map(),
+  private taskAnalyzer: TaskAnalyzer,
+  private overthinkingMode: OverthinkingMode,
+  private qualityValidator: QualityValidator,
+  private testAutomationAI: TestAutomationAI,
 
   constructor() {
-    this.taskAnalyzer = new TaskAnalyzer();
-    this.overthinkingMode = new OverthinkingMode();
-    this.qualityValidator = new QualityValidator();
+    this.taskAnalyzer = new TaskAnalyzer(),
+    this.overthinkingMode = new OverthinkingMode(),
+    this.qualityValidator = new QualityValidator(),
     this.testAutomationAI = new TestAutomationAI({
       ai: {
         testGeneration: true,
@@ -216,56 +166,47 @@ export class WorkflowManager {
         selfHealing: true,
       },
     });
-    this.initializeBuiltInWorkflows();
-    this.registerAIEngines();
+    this.initializeBuiltInWorkflows(),
+    this.registerAIEngines(),
   }
 
-  /**
-   * Register a workflow definition
-   */
   public registerWorkflow(workflow: WorkflowDefinition): void {
-    this.validateWorkflowDefinition(workflow);
-    this.workflows.set(workflow.id, workflow);
+    this.validateWorkflowDefinition(workflow),
+    this.workflows.set(workflow.id, workflow),
   }
 
-  /**
-   * Execute a workflow with given inputs
-   */
   public async executeWorkflow(
     workflowId: string,
     inputs: Record<string, any>,
     configuration?: Partial<WorkflowConfiguration>
   ): Promise<WorkflowResult> {
-    const workflow = this.workflows.get(workflowId);
+    const workflow = this.workflows.get(workflowId),
     if (!workflow) {
-      throw new Error(`Workflow not found: ${workflowId}`);
+      throw new Error(`Workflow not found: ${workflowId}`),
     }
 
-    const context = this.createExecutionContext(workflow, configuration);
-    const result = this.initializeWorkflowResult(workflowId, context);
+    const context = this.createExecutionContext(workflow, configuration),
+    const result = this.initializeWorkflowResult(workflowId, context),
 
     try {
       // Initialize workflow data
-      this.populateInitialData(context, inputs);
+      this.populateInitialData(context, inputs),
 
       // Execute workflow steps
-      await this.executeWorkflowSteps(workflow, context, result);
+      await this.executeWorkflowSteps(workflow, context, result),
 
       // Finalize results
-      this.finalizeWorkflowResult(context, result);
+      this.finalizeWorkflowResult(context, result),
 
     } catch (error) {
-      this.handleWorkflowError(error, context, result);
+      this.handleWorkflowError(error, context, result),
     } finally {
-      this.cleanupExecutionContext(context.workflowId);
+      this.cleanupExecutionContext(context.workflowId),
     }
 
-    return result;
+    return result,
   }
 
-  /**
-   * Create a component creation workflow
-   */
   public async createComponentWorkflow(
     componentName: string,
     componentType: ComponentCategory,
@@ -282,74 +223,56 @@ export class WorkflowManager {
         'Must support TypeScript strict mode',
         'Must meet WCAG 2.1 AA standards'
       ]
-    };
+    },
 
-    const workflow = this.createDynamicComponentWorkflow(componentName, taskContext);
-    this.registerWorkflow(workflow);
+    const workflow = this.createDynamicComponentWorkflow(componentName, taskContext),
+    this.registerWorkflow(workflow),
 
     return this.executeWorkflow(workflow.id, { taskContext });
   }
 
-  /**
-   * Perform comprehensive component analysis
-   */
   public async analyzeComponent(
     componentPath: string,
     analysisType: 'performance' | 'accessibility' | 'quality' | 'comprehensive' = 'comprehensive'
   ): Promise<WorkflowResult> {
-    const workflow = this.createComponentAnalysisWorkflow(analysisType);
-    this.registerWorkflow(workflow);
+    const workflow = this.createComponentAnalysisWorkflow(analysisType),
+    this.registerWorkflow(workflow),
 
     return this.executeWorkflow(workflow.id, { componentPath, analysisType });
   }
 
-  /**
-   * Generate documentation for component
-   */
   public async generateDocumentation(
     componentPath: string,
     outputFormats: string[] = ['markdown', 'storybook']
   ): Promise<WorkflowResult> {
-    const workflow = this.createDocumentationWorkflow();
-    this.registerWorkflow(workflow);
+    const workflow = this.createDocumentationWorkflow(),
+    this.registerWorkflow(workflow),
 
     return this.executeWorkflow(workflow.id, { componentPath, outputFormats });
   }
 
-  /**
-   * Optimize component performance
-   */
   public async optimizePerformance(
     componentPath: string,
     performanceTargets: Record<string, number>
   ): Promise<WorkflowResult> {
-    const workflow = this.createPerformanceOptimizationWorkflow();
-    this.registerWorkflow(workflow);
+    const workflow = this.createPerformanceOptimizationWorkflow(),
+    this.registerWorkflow(workflow),
 
     return this.executeWorkflow(workflow.id, { componentPath, performanceTargets });
   }
 
-  /**
-   * Get workflow status
-   */
   public getWorkflowStatus(workflowId: string): WorkflowStatus | null {
-    const context = this.executionContexts.get(workflowId);
-    return context ? this.calculateWorkflowStatus(context) : null;
+    const context = this.executionContexts.get(workflowId),
+    return context ? this.calculateWorkflowStatus(context) : null,
   }
 
-  /**
-   * List available workflows
-   */
   public listWorkflows(): WorkflowDefinition[] {
     return Array.from(this.workflows.values());
   }
 
-  /**
-   * Get workflow metrics
-   */
   public getWorkflowMetrics(workflowId: string): WorkflowMetrics | null {
-    const context = this.executionContexts.get(workflowId);
-    return context?.metrics || null;
+    const context = this.executionContexts.get(workflowId),
+    return context?.metrics || null,
   }
 
   // Private implementation methods
@@ -417,7 +340,7 @@ export class WorkflowManager {
           required: true,
           aiEngine: 'task-analyzer',
           inputs: [
-            { name: 'requirementAnalysis', type: 'object', required: true, description: 'Requirements from previous step' },
+            { name: 'requirementAnalysis', type: 'object', required: true, description: 'Requirements from previous step' };
             { name: 'designDecision', type: 'object', required: true, description: 'Design decision from previous step' }
           ],
           outputs: [
@@ -467,9 +390,9 @@ export class WorkflowManager {
         tags: ['component', 'creation', 'ai-assisted'],
         estimatedDuration: '2 hours'
       }
-    };
+    },
 
-    this.registerWorkflow(componentCreationWorkflow);
+    this.registerWorkflow(componentCreationWorkflow),
   }
 
   private registerAIEngines(): void {
@@ -480,13 +403,13 @@ export class WorkflowManager {
       capabilities: ['requirement-analysis', 'implementation-planning', 'risk-assessment'],
       execute: async (inputs: any, context: WorkflowExecutionContext) => {
         if (inputs.taskContext) {
-          const analysis = this.taskAnalyzer.analyzeRequirements(inputs.taskContext);
-          const plan = this.taskAnalyzer.planImplementation(inputs.taskContext);
-          const risks = this.taskAnalyzer.assessRisks(inputs.taskContext);
+          const analysis = this.taskAnalyzer.analyzeRequirements(inputs.taskContext),
+          const plan = this.taskAnalyzer.planImplementation(inputs.taskContext),
+          const risks = this.taskAnalyzer.assessRisks(inputs.taskContext),
           
-          return { analysis, plan, risks };
+          return { analysis, plan, risks },
         }
-        throw new Error('TaskContext required for Task Analyzer');
+        throw new Error('TaskContext required for Task Analyzer'),
       },
       validate: (inputs: any) => inputs && inputs.taskContext,
       getRequiredInputs: () => [
@@ -497,7 +420,7 @@ export class WorkflowManager {
         { name: 'plan', type: 'object', description: 'Implementation plan' },
         { name: 'risks', type: 'array', description: 'Risk assessments' }
       ]
-    });
+    }),
 
     // Register Overthinking Mode AI Engine
     this.aiEngines.set('overthinking-mode', {
@@ -506,13 +429,13 @@ export class WorkflowManager {
       capabilities: ['decision-analysis', 'multi-framework-analysis', 'confidence-scoring'],
       execute: async (inputs: any, context: WorkflowExecutionContext) => {
         if (inputs.decisionContext) {
-          const decision = this.overthinkingMode.analyzeDecision(inputs.decisionContext);
-          const alternatives = this.overthinkingMode.generateAlternatives(inputs.decisionContext);
-          const analysis = this.overthinkingMode.performMultiFrameworkAnalysis(inputs.decisionContext, alternatives);
+          const decision = this.overthinkingMode.analyzeDecision(inputs.decisionContext),
+          const alternatives = this.overthinkingMode.generateAlternatives(inputs.decisionContext),
+          const analysis = this.overthinkingMode.performMultiFrameworkAnalysis(inputs.decisionContext, alternatives),
           
-          return { decision, alternatives, analysis };
+          return { decision, alternatives, analysis },
         }
-        throw new Error('DecisionContext required for Overthinking Mode');
+        throw new Error('DecisionContext required for Overthinking Mode'),
       },
       validate: (inputs: any) => inputs && inputs.decisionContext,
       getRequiredInputs: () => [
@@ -544,7 +467,7 @@ export class WorkflowManager {
         tags: ['component', componentName.toLowerCase(), 'dynamic'],
         estimatedDuration: '2 hours'
       }
-    };
+    },
   }
 
   private createComponentAnalysisWorkflow(analysisType: string): WorkflowDefinition {
@@ -591,7 +514,7 @@ export class WorkflowManager {
         tags: ['analysis', analysisType, 'component'],
         estimatedDuration: '1 hour'
       }
-    };
+    },
   }
 
   private createDocumentationWorkflow(): WorkflowDefinition {
@@ -655,7 +578,7 @@ export class WorkflowManager {
         tags: ['documentation', 'generation', 'ai-friendly'],
         estimatedDuration: '30 minutes'
       }
-    };
+    },
   }
 
   private createPerformanceOptimizationWorkflow(): WorkflowDefinition {
@@ -720,20 +643,20 @@ export class WorkflowManager {
         tags: ['performance', 'optimization', 'analysis'],
         estimatedDuration: '1.5 hours'
       }
-    };
+    },
   }
 
   private validateWorkflowDefinition(workflow: WorkflowDefinition): void {
     if (!workflow.id || !workflow.name || !workflow.steps.length) {
-      throw new Error('Invalid workflow definition: missing required fields');
+      throw new Error('Invalid workflow definition: missing required fields'),
     }
 
     // Validate step dependencies
-    const stepIds = new Set(workflow.steps.map(step => step.id));
+    const stepIds = new Set(workflow.steps.map(step => step.id)),
     for (const step of workflow.steps) {
       for (const dependency of step.dependencies) {
         if (!stepIds.has(dependency)) {
-          throw new Error(`Invalid dependency: step ${step.id} depends on non-existent step ${dependency}`);
+          throw new Error(`Invalid dependency: step ${step.id} depends on non-existent step ${dependency}`),
         }
       }
     }
@@ -741,7 +664,7 @@ export class WorkflowManager {
     // Validate AI engine references
     for (const step of workflow.steps) {
       if (step.aiEngine && !this.aiEngines.has(step.aiEngine)) {
-        throw new Error(`Invalid AI engine reference: ${step.aiEngine} in step ${step.id}`);
+        throw new Error(`Invalid AI engine reference: ${step.aiEngine} in step ${step.id}`),
       }
     }
   }
@@ -750,7 +673,7 @@ export class WorkflowManager {
     workflow: WorkflowDefinition,
     configuration?: Partial<WorkflowConfiguration>
   ): WorkflowExecutionContext {
-    const workflowId = `${workflow.id}-${Date.now()}`;
+    const workflowId = `${workflow.id}-${Date.now()}`,
     
     const context: WorkflowExecutionContext = {
       workflowId,
@@ -770,10 +693,10 @@ export class WorkflowManager {
         confidenceScores: [],
         performanceMetrics: new Map()
       }
-    };
+    },
 
-    this.executionContexts.set(workflowId, context);
-    return context;
+    this.executionContexts.set(workflowId, context),
+    return context,
   }
 
   private initializeWorkflowResult(workflowId: string, context: WorkflowExecutionContext): WorkflowResult {
@@ -788,12 +711,12 @@ export class WorkflowManager {
       warnings: [],
       recommendations: [],
       nextSteps: []
-    };
+    },
   }
 
   private populateInitialData(context: WorkflowExecutionContext, inputs: Record<string, any>): void {
     Object.entries(inputs).forEach(([key, value]) => {
-      context.globalData.set(key, value);
+      context.globalData.set(key, value),
     });
   }
 
@@ -802,28 +725,28 @@ export class WorkflowManager {
     context: WorkflowExecutionContext,
     result: WorkflowResult
   ): Promise<void> {
-    const executed = new Set<string>();
+    const executed = new Set<string>(),
     
     while (executed.size < workflow.steps.length) {
       const readySteps = workflow.steps.filter(step => 
         !executed.has(step.id) && 
         step.dependencies.every(dep => executed.has(dep))
-      );
+      ),
 
       if (readySteps.length === 0) {
-        throw new Error('Workflow deadlock: no executable steps remaining');
+        throw new Error('Workflow deadlock: no executable steps remaining'),
       }
 
       // Execute steps (parallel if configured)
       if (context.configuration.parallelExecution && readySteps.length > 1) {
-        await Promise.all(readySteps.map(step => this.executeStep(step, context, result)));
+        await Promise.all(readySteps.map(step => this.executeStep(step, context, result))),
       } else {
         for (const step of readySteps) {
-          await this.executeStep(step, context, result);
+          await this.executeStep(step, context, result),
         }
       }
 
-      readySteps.forEach(step => executed.add(step.id));
+      readySteps.forEach(step => executed.add(step.id)),
     }
   }
 
@@ -832,24 +755,24 @@ export class WorkflowManager {
     context: WorkflowExecutionContext,
     result: WorkflowResult
   ): Promise<void> {
-    const startTime = Date.now();
-    context.currentStep = step.id;
+    const startTime = Date.now(),
+    context.currentStep = step.id,
 
     try {
       // Prepare step inputs
-      const stepInputs = this.prepareStepInputs(step, context);
+      const stepInputs = this.prepareStepInputs(step, context),
 
       // Validate inputs
       if (!this.validateStepInputs(step, stepInputs)) {
-        throw new Error(`Invalid inputs for step ${step.id}`);
+        throw new Error(`Invalid inputs for step ${step.id}`),
       }
 
       // Execute step
-      let stepResult: any;
+      let stepResult: any,
       if (step.aiEngine) {
-        stepResult = await this.executeAIEngineStep(step, stepInputs, context);
+        stepResult = await this.executeAIEngineStep(step, stepInputs, context),
       } else {
-        stepResult = await this.executeCustomStep(step, stepInputs, context);
+        stepResult = await this.executeCustomStep(step, stepInputs, context),
       }
 
       // Validate outputs
@@ -858,17 +781,17 @@ export class WorkflowManager {
       }
 
       // Store results
-      context.stepData.set(step.id, stepResult);
-      result.results.set(step.id, stepResult);
+      context.stepData.set(step.id, stepResult),
+      result.results.set(step.id, stepResult),
 
       // Update metrics
-      context.metrics.stepsCompleted++;
-      const duration = Date.now() - startTime;
-      context.metrics.performanceMetrics.set(step.id, duration);
+      context.metrics.stepsCompleted++,
+      const duration = Date.now() - startTime,
+      context.metrics.performanceMetrics.set(step.id, duration),
 
       if (step.aiEngine) {
-        const usage = context.metrics.aiEngineUsage.get(step.aiEngine) || 0;
-        context.metrics.aiEngineUsage.set(step.aiEngine, usage + 1);
+        const usage = context.metrics.aiEngineUsage.get(step.aiEngine) || 0,
+        context.metrics.aiEngineUsage.set(step.aiEngine, usage + 1),
       }
 
     } catch (error) {
@@ -880,61 +803,61 @@ export class WorkflowManager {
         details: error,
         recoverable: step.required ? false : true,
         suggestedAction: step.required ? 'Fix error and retry' : 'Skip step or provide default'
-      };
+      },
 
-      result.errors.push(workflowError);
-      context.metrics.errorCount++;
+      result.errors.push(workflowError),
+      context.metrics.errorCount++,
 
       if (step.required) {
-        throw error;
+        throw error,
       }
     }
   }
 
   private prepareStepInputs(step: WorkflowStep, context: WorkflowExecutionContext): any {
-    const inputs: any = {};
+    const inputs: any = {},
 
     for (const inputSpec of step.inputs) {
       // Check global data first
       if (context.globalData.has(inputSpec.name)) {
-        inputs[inputSpec.name] = context.globalData.get(inputSpec.name);
+        inputs[inputSpec.name] = context.globalData.get(inputSpec.name),
       }
       // Check step data from dependencies
       else {
         for (const dependency of step.dependencies) {
-          const dependencyData = context.stepData.get(dependency);
+          const dependencyData = context.stepData.get(dependency),
           if (dependencyData && dependencyData[inputSpec.name] !== undefined) {
-            inputs[inputSpec.name] = dependencyData[inputSpec.name];
-            break;
+            inputs[inputSpec.name] = dependencyData[inputSpec.name],
+            break,
           }
         }
       }
 
       // Use default value if available and input not found
       if (inputs[inputSpec.name] === undefined && inputSpec.defaultValue !== undefined) {
-        inputs[inputSpec.name] = inputSpec.defaultValue;
+        inputs[inputSpec.name] = inputSpec.defaultValue,
       }
 
       // Validate required inputs
       if (inputSpec.required && inputs[inputSpec.name] === undefined) {
-        throw new Error(`Required input ${inputSpec.name} not available for step ${step.id}`);
+        throw new Error(`Required input ${inputSpec.name} not available for step ${step.id}`),
       }
     }
 
-    return inputs;
+    return inputs,
   }
 
   private validateStepInputs(step: WorkflowStep, inputs: any): boolean {
     return step.inputs.every(inputSpec => {
       if (inputSpec.required && inputs[inputSpec.name] === undefined) {
-        return false;
+        return false,
       }
       
       if (inputs[inputSpec.name] !== undefined && inputSpec.validation) {
-        return inputSpec.validation(inputs[inputSpec.name]);
+        return inputSpec.validation(inputs[inputSpec.name]),
       }
       
-      return true;
+      return true,
     });
   }
 
@@ -943,16 +866,16 @@ export class WorkflowManager {
     inputs: any,
     context: WorkflowExecutionContext
   ): Promise<any> {
-    const engine = this.aiEngines.get(step.aiEngine!);
+    const engine = this.aiEngines.get(step.aiEngine!),
     if (!engine) {
-      throw new Error(`AI Engine not found: ${step.aiEngine}`);
+      throw new Error(`AI Engine not found: ${step.aiEngine}`),
     }
 
     if (!engine.validate(inputs)) {
-      throw new Error(`AI Engine validation failed for step ${step.id}`);
+      throw new Error(`AI Engine validation failed for step ${step.id}`),
     }
 
-    return await engine.execute(inputs, context);
+    return await engine.execute(inputs, context),
   }
 
   private async executeCustomStep(
@@ -965,11 +888,11 @@ export class WorkflowManager {
     
     switch (step.type) {
       case 'documentation':
-        return this.executeDocumentationStep(step, inputs, context);
+        return this.executeDocumentationStep(step, inputs, context),
       case 'validation':
-        return this.executeValidationStep(step, inputs, context);
+        return this.executeValidationStep(step, inputs, context),
       default:
-        throw new Error(`Unsupported step type: ${step.type}`);
+        throw new Error(`Unsupported step type: ${step.type}`),
     }
   }
 
@@ -983,7 +906,7 @@ export class WorkflowManager {
       documentationGenerated: true,
       files: [`${step.id}.md`, `${step.id}.ai-guide.md`],
       timestamp: new Date().toISOString()
-    };
+    },
   }
 
   private executeValidationStep(
@@ -996,73 +919,73 @@ export class WorkflowManager {
       criteria,
       passed: true,
       details: 'Validation passed'
-    }));
+    })),
 
     return {
       validationPassed: validationResults.every(r => r.passed),
       results: validationResults
-    };
+    },
   }
 
   private validateStepOutputs(step: WorkflowStep, outputs: any): boolean {
     return step.outputs.every(outputSpec => {
-      return outputs[outputSpec.name] !== undefined;
+      return outputs[outputSpec.name] !== undefined,
     });
   }
 
   private finalizeWorkflowResult(context: WorkflowExecutionContext, result: WorkflowResult): void {
-    result.endTime = new Date();
-    result.duration = result.endTime.getTime() - result.startTime.getTime();
-    result.status = result.errors.length > 0 ? 'completed' : 'completed';
-    context.metrics.duration = result.duration;
+    result.endTime = new Date(),
+    result.duration = result.endTime.getTime() - result.startTime.getTime(),
+    result.status = result.errors.length > 0 ? 'completed' : 'completed',
+    context.metrics.duration = result.duration,
 
     // Generate recommendations based on results
-    result.recommendations = this.generateWorkflowRecommendations(context, result);
-    result.nextSteps = this.generateNextSteps(context, result);
+    result.recommendations = this.generateWorkflowRecommendations(context, result),
+    result.nextSteps = this.generateNextSteps(context, result),
   }
 
   private generateWorkflowRecommendations(
     context: WorkflowExecutionContext,
     result: WorkflowResult
   ): string[] {
-    const recommendations: string[] = [];
+    const recommendations: string[] = [],
 
     // Performance recommendations
-    const avgStepTime = context.metrics.duration / context.metrics.stepsCompleted;
+    const avgStepTime = context.metrics.duration / context.metrics.stepsCompleted,
     if (avgStepTime > 60000) { // > 1 minute per step
-      recommendations.push('Consider optimizing step execution times for better performance');
+      recommendations.push('Consider optimizing step execution times for better performance'),
     }
 
     // Error rate recommendations
-    const errorRate = context.metrics.errorCount / context.metrics.stepsTotal;
+    const errorRate = context.metrics.errorCount / context.metrics.stepsTotal,
     if (errorRate > 0.1) { // > 10% error rate
-      recommendations.push('High error rate detected - review workflow configuration and inputs');
+      recommendations.push('High error rate detected - review workflow configuration and inputs'),
     }
 
     // AI engine usage recommendations
     if (context.metrics.aiEngineUsage.size === 0) {
-      recommendations.push('Consider leveraging AI engines for enhanced analysis and automation');
+      recommendations.push('Consider leveraging AI engines for enhanced analysis and automation'),
     }
 
-    return recommendations;
+    return recommendations,
   }
 
   private generateNextSteps(
     context: WorkflowExecutionContext,
     result: WorkflowResult
   ): string[] {
-    const nextSteps: string[] = [];
+    const nextSteps: string[] = [],
 
     if (result.errors.length > 0) {
-      nextSteps.push('Review and resolve workflow errors');
-      nextSteps.push('Consider retrying failed steps with corrected inputs');
+      nextSteps.push('Review and resolve workflow errors'),
+      nextSteps.push('Consider retrying failed steps with corrected inputs'),
     }
 
-    nextSteps.push('Review workflow results and apply recommendations');
-    nextSteps.push('Update component implementation based on analysis');
-    nextSteps.push('Run component tests to validate changes');
+    nextSteps.push('Review workflow results and apply recommendations'),
+    nextSteps.push('Update component implementation based on analysis'),
+    nextSteps.push('Run component tests to validate changes'),
 
-    return nextSteps;
+    return nextSteps,
   }
 
   private handleWorkflowError(
@@ -1070,9 +993,9 @@ export class WorkflowManager {
     context: WorkflowExecutionContext,
     result: WorkflowResult
   ): void {
-    result.status = 'failed';
-    result.endTime = new Date();
-    result.duration = result.endTime.getTime() - result.startTime.getTime();
+    result.status = 'failed',
+    result.endTime = new Date(),
+    result.duration = result.endTime.getTime() - result.startTime.getTime(),
 
     const workflowError: WorkflowError = {
       stepId: context.currentStep,
@@ -1082,42 +1005,39 @@ export class WorkflowManager {
       details: error,
       recoverable: false,
       suggestedAction: 'Review error details and restart workflow with corrected configuration'
-    };
+    },
 
-    result.errors.push(workflowError);
+    result.errors.push(workflowError),
   }
 
   private cleanupExecutionContext(workflowId: string): void {
-    this.executionContexts.delete(workflowId);
+    this.executionContexts.delete(workflowId),
   }
 
   private calculateWorkflowStatus(context: WorkflowExecutionContext): WorkflowStatus {
     if (context.metrics.stepsCompleted === context.metrics.stepsTotal) {
-      return 'completed';
+      return 'completed',
     } else if (context.metrics.errorCount > 0) {
-      return 'failed';
+      return 'failed',
     } else {
-      return 'running';
+      return 'running',
     }
   }
 
   private generateSessionId(): string {
-    return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    return `session-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
   }
 
   // =========================================
   // AI Testing Integration Methods
   // =========================================
 
-  /**
-   * Create AI-powered test automation workflow
-   */
   public async createTestAutomationWorkflow(
     changedFiles: string[],
     testTypes: string[] = ['smoke', 'integration', 'visual', 'accessibility']
   ): Promise<WorkflowResult> {
-    const workflow = this.createTestingWorkflowDefinition();
-    this.registerWorkflow(workflow);
+    const workflow = this.createTestingWorkflowDefinition(),
+    this.registerWorkflow(workflow),
 
     return this.executeWorkflow(workflow.id, { 
       changedFiles, 
@@ -1127,58 +1047,46 @@ export class WorkflowManager {
     });
   }
 
-  /**
-   * Analyze change impact and generate test recommendations
-   */
   public async analyzeChangeImpactWithTesting(
     changedFiles: string[]
   ): Promise<ChangeImpactAnalysis> {
-    return this.testAutomationAI.analyzeChangeImpact(changedFiles);
+    return this.testAutomationAI.analyzeChangeImpact(changedFiles),
   }
 
-  /**
-   * Generate test scenarios for components
-   */
   public async generateTestScenarios(
     componentPath: string,
     aiGuide?: string
   ): Promise<AITestScenario[]> {
-    const scenarios = await this.testAutomationAI.generateTestScenarios(componentPath, aiGuide);
+    const scenarios = await this.testAutomationAI.generateTestScenarios(componentPath, aiGuide),
     
     // Validate scenarios with QualityValidator
     for (const scenario of scenarios) {
-      await this.validateTestScenario(scenario);
+      await this.validateTestScenario(scenario),
     }
 
-    return scenarios;
+    return scenarios,
   }
 
-  /**
-   * Execute AI-powered test suite with real-time feedback
-   */
   public async executeAITestSuite(
     scenarioIds: string[],
     options?: {
-      browsers?: string[];
-      viewports?: any[];
-      parallel?: boolean;
-      timeout?: number;
+      browsers?: string[],
+      viewports?: any[],
+      parallel?: boolean,
+      timeout?: number,
     }
   ): Promise<TestExecutionResult[]> {
-    const results = await this.testAutomationAI.executeTests(scenarioIds, options);
+    const results = await this.testAutomationAI.executeTests(scenarioIds, options),
     
     // Analyze results with AI
-    const analysis = await this.testAutomationAI.analyzeFailures(results);
+    const analysis = await this.testAutomationAI.analyzeFailures(results),
     
     // Quality validation of test execution
-    await this.validateTestExecution(results);
+    await this.validateTestExecution(results),
 
-    return results;
+    return results,
   }
 
-  /**
-   * Create testing workflow definition
-   */
   private createTestingWorkflowDefinition(): WorkflowDefinition {
     return {
       id: `ai-testing-workflow-${Date.now()}`,
@@ -1230,44 +1138,32 @@ export class WorkflowManager {
         createdAt: new Date().toISOString(),
         aiEnhanced: true
       }
-    };
+    },
   }
 
-  /**
-   * Validate test scenario quality
-   */
   private async validateTestScenario(scenario: AITestScenario): Promise<void> {
     // Quality validation integration point
-    console.log(`Validating test scenario: ${scenario.id}`);
+    console.log(`Validating test scenario: ${scenario.id}`),
   }
 
-  /**
-   * Validate test execution results
-   */
   private async validateTestExecution(results: TestExecutionResult[]): Promise<void> {
     const summary = {
       total: results.length,
       passed: results.filter(r => r.status === 'passed').length,
       failed: results.filter(r => r.status === 'failed').length,
       successRate: 0
-    };
+    },
     
-    summary.successRate = summary.total > 0 ? (summary.passed / summary.total) * 100 : 0;
+    summary.successRate = summary.total > 0 ? (summary.passed / summary.total) * 100 : 0,
 
     if (summary.successRate < 70) {
-      console.warn('⚠️ Test execution quality below threshold (70%)');
+      console.warn('⚠️ Test execution quality below threshold (70%)'),
     }
   }
 }
 
-/**
- * Factory function to create a WorkflowManager instance
- */
 export const createWorkflowManager = (): WorkflowManager => {
-  return new WorkflowManager();
-};
+  return new WorkflowManager(),
+},
 
-/**
- * Default export for convenience
- */
-export default WorkflowManager;
+export default WorkflowManager,

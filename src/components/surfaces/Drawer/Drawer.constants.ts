@@ -1,6 +1,3 @@
-/**
- * Drawer component constants and configuration
- */
 
 // Drawer variants
 export const DRAWER_VARIANTS = {
@@ -211,6 +208,9 @@ export const DEFAULT_PROPS = {
   responsive: false,
   responsiveBreakpoint: 'md',
   mobileVariant: DRAWER_VARIANTS.temporary,
+  hideScrollbar: false,
+  disableScroll: false,
+  headerVariant: 'default',
 } as const;
 
 // Performance optimization

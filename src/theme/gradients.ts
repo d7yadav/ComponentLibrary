@@ -1,40 +1,29 @@
-/**
- * @fileoverview Gradient design system with performance optimization
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
-/**
- * Performance-optimized gradient system
- * Uses CSS custom properties for runtime updates
- */
 export interface GradientOptions {
-  primary: string;
-  secondary: string;
-  success: string;
-  error: string;
-  warning: string;
-  info: string;
+  primary: string,
+  secondary: string,
+  success: string,
+  error: string,
+  warning: string,
+  info: string,
   // Advanced gradients
-  aurora: string;
-  sunset: string;
-  ocean: string;
-  forest: string;
+  aurora: string,
+  sunset: string,
+  ocean: string,
+  forest: string,
   // Glass morphism effects
   glass: {
-    light: string;
-    dark: string;
-  };
+    light: string,
+    dark: string,
+  },
   // Animated gradients
   animated: {
-    wave: string;
-    pulse: string;
-    shimmer: string;
-  };
+    wave: string,
+    pulse: string,
+    shimmer: string,
+  },
 }
 
-/**
- * Light theme gradients
- */
 export const lightGradients: GradientOptions = {
   primary: 'linear-gradient(45deg, #1976d2 30%, #42a5f5 90%)',
   secondary: 'linear-gradient(45deg, #dc004e 30%, #ff5983 90%)',
@@ -63,9 +52,6 @@ export const lightGradients: GradientOptions = {
   },
 };
 
-/**
- * Dark theme gradients (OLED optimized)
- */
 export const darkGradients: GradientOptions = {
   primary: 'linear-gradient(45deg, #90caf9 30%, #64b5f6 90%)',
   secondary: 'linear-gradient(45deg, #f48fb1 30%, #f06292 90%)',
@@ -94,25 +80,24 @@ export const darkGradients: GradientOptions = {
   },
 };
 
-/**
- * Gradient utility functions
- */
 export const gradientUtils = {
-  /**
-   * Creates a glass morphism effect
-   */
-  createGlassEffect: (opacity = 0.1, blur = '10px') => ({
+  createGlassEffect: (opacity = 0.1, blur = '10px'): {
+    background: string;
+    backdropFilter: string;
+    WebkitBackdropFilter: string;
+    border: string;
+  } => ({
     background: `rgba(255, 255, 255, ${opacity})`,
     backdropFilter: `blur(${blur})`,
     WebkitBackdropFilter: `blur(${blur})`,
     border: '1px solid rgba(255, 255, 255, 0.18)',
   }),
   
-  /**
-   * Creates an animated gradient
-   */
-  createAnimatedGradient: (duration = '3s', direction = 'normal') => ({
+  createAnimatedGradient: (duration = '3s', direction = 'normal'): {
+    backgroundSize: string;
+    animation: string;
+  } => ({
     backgroundSize: '200% 200%',
     animation: `gradientShift ${duration} ease infinite ${direction}`,
-  }),
+  })
 };

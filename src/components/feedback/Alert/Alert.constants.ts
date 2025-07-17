@@ -1,10 +1,5 @@
-import { AlertSeverity, AlertVariant, AlertSize } from './Alert.types';
+import type { AlertSeverity, AlertVariant, AlertSize } from './Alert.types';
 
-/**
- * ALERT_SEVERITIES component
- * 
- * @returns JSX element
- */
 export const ALERT_SEVERITIES: Record<AlertSeverity, AlertSeverity> = {
   error: 'error',
   warning: 'warning',
@@ -12,33 +7,18 @@ export const ALERT_SEVERITIES: Record<AlertSeverity, AlertSeverity> = {
   success: 'success',
 } as const;
 
-/**
- * ALERT_VARIANTS component
- * 
- * @returns JSX element
- */
 export const ALERT_VARIANTS: Record<AlertVariant, AlertVariant> = {
   filled: 'filled',
   outlined: 'outlined',
   standard: 'standard',
 } as const;
 
-/**
- * ALERT_SIZES component
- * 
- * @returns JSX element
- */
 export const ALERT_SIZES: Record<AlertSize, AlertSize> = {
   small: 'small',
   medium: 'medium',
   large: 'large',
 } as const;
 
-/**
- * ALERT_SIZE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const ALERT_SIZE_CONFIGS = {
   small: {
     padding: '6px 12px',
@@ -66,11 +46,6 @@ export const ALERT_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * ALERT_COLORS component
- * 
- * @returns JSX element
- */
 export const ALERT_COLORS = {
   error: {
     main: '#d32f2f',
@@ -106,11 +81,6 @@ export const ALERT_COLORS = {
   },
 } as const;
 
-/**
- * ALERT_ANIMATIONS component
- * 
- * @returns JSX element
- */
 export const ALERT_ANIMATIONS = {
   slideIn: 'slideIn',
   fadeIn: 'fadeIn',
@@ -118,22 +88,12 @@ export const ALERT_ANIMATIONS = {
   bounceIn: 'bounceIn',
 } as const;
 
-/**
- * ALERT_ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const ALERT_ANIMATION_DURATIONS = {
   fast: 200,
   normal: 300,
   slow: 500,
 } as const;
 
-/**
- * ALERT_ANIMATION_EASINGS component
- * 
- * @returns JSX element
- */
 export const ALERT_ANIMATION_EASINGS = {
   easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
   easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
@@ -142,11 +102,6 @@ export const ALERT_ANIMATION_EASINGS = {
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 } as const;
 
-/**
- * ALERT_AUTO_HIDE_DURATIONS component
- * 
- * @returns JSX element
- */
 export const ALERT_AUTO_HIDE_DURATIONS = {
   short: 3000,
   medium: 5000,
@@ -154,11 +109,6 @@ export const ALERT_AUTO_HIDE_DURATIONS = {
   persistent: 0, // Never auto-hide
 } as const;
 
-/**
- * ALERT_ELEVATION_VALUES component
- * 
- * @returns JSX element
- */
 export const ALERT_ELEVATION_VALUES = {
   none: 0,
   subtle: 1,
@@ -169,11 +119,6 @@ export const ALERT_ELEVATION_VALUES = {
   highest: 24,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   alertRole: 'alert',
   statusRole: 'status',
@@ -186,11 +131,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   liveRegionAssertive: 'assertive',
 } as const;
 
-/**
- * ALERT_POSITIONS component
- * 
- * @returns JSX element
- */
 export const ALERT_POSITIONS = {
   top: 'top',
   bottom: 'bottom',
@@ -200,11 +140,6 @@ export const ALERT_POSITIONS = {
   'bottom-right': 'bottom-right',
 } as const;
 
-/**
- * ALERT_ICON_MAPPINGS component
- * 
- * @returns JSX element
- */
 export const ALERT_ICON_MAPPINGS = {
   error: 'ErrorIcon',
   warning: 'WarningIcon',
@@ -212,11 +147,6 @@ export const ALERT_ICON_MAPPINGS = {
   success: 'CheckCircleIcon',
 } as const;
 
-/**
- * ALERT_MESSAGE_TEMPLATES component
- * 
- * @returns JSX element
- */
 export const ALERT_MESSAGE_TEMPLATES = {
   error: {
     generic: 'An error occurred. Please try again.',
@@ -248,11 +178,6 @@ export const ALERT_MESSAGE_TEMPLATES = {
   },
 } as const;
 
-/**
- * ALERT_PATTERNS component
- * 
- * @returns JSX element
- */
 export const ALERT_PATTERNS = {
   // Common alert patterns
   form: {
@@ -303,11 +228,6 @@ export const ALERT_PATTERNS = {
   },
 } as const;
 
-/**
- * DEFAULT_ALERT_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_ALERT_PROPS = {
   severity: ALERT_SEVERITIES.info,
   variant: ALERT_VARIANTS.standard,

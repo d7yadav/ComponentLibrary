@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-07-14T18:18:27.715Z",
+  "metrics": {
+    "totalFiles": 0,
+    "validatedFiles": 0,
+    "errors": 0,
+    "warnings": 0,
+    "suggestions": 0,
+    "score": 0
+  },
+  "results": [],
+  "summary": {
+    "passed": false,
+    "score": 0,
+    "totalIssues": 0
+  }
+}

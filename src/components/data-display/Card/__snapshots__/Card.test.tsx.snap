@@ -1,0 +1,92 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Card Component > Snapshots > matches snapshot for all variants > variant-elevated 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-daihf1-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="article"
+  style="--Paper-shadow: none;"
+>
+  elevated
+   Card
+</div>
+`;
+
+exports[`Card Component > Snapshots > matches snapshot for all variants > variant-filled 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-x9o42e-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="article"
+  style="--Paper-shadow: none;"
+>
+  filled
+   Card
+</div>
+`;
+
+exports[`Card Component > Snapshots > matches snapshot for all variants > variant-glass 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-10duw0y-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="article"
+  style="--Paper-shadow: none;"
+>
+  glass
+   Card
+</div>
+`;
+
+exports[`Card Component > Snapshots > matches snapshot for all variants > variant-gradient 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-tmc9b2-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="article"
+  style="--Paper-shadow: none;"
+>
+  gradient
+   Card
+</div>
+`;
+
+exports[`Card Component > Snapshots > matches snapshot for all variants > variant-interactive 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-15oix20-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="button"
+  style="--Paper-shadow: none;"
+  tabindex="0"
+>
+  interactive
+   Card
+</div>
+`;
+
+exports[`Card Component > Snapshots > matches snapshot for all variants > variant-outlined 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-c0kh2e-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="article"
+  style="--Paper-shadow: none;"
+>
+  outlined
+   Card
+</div>
+`;
+
+exports[`Card Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  aria-disabled="false"
+  class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation0 MuiCard-root css-daihf1-MuiPaper-root-MuiCard-root"
+  data-testid="card"
+  role="article"
+  style="--Paper-shadow: none;"
+>
+  Default Card
+</div>
+`;

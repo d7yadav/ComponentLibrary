@@ -77,3 +77,32 @@ export type {
   PaperGradientConfig,
   ResponsivePaperConfig,
 } from './Paper';
+
+export { List } from './List';
+export type {
+  ListProps,
+  ListVariant,
+  ListDensity,
+  ListOrientation,
+  ListDivider,
+  ListItemSpacing,
+  ListStyleProps,
+  ListItemBase,
+  ListActionHandler,
+  ListSelectionMode,
+  ListKeyboardNavigation,
+} from './List';
+
+export { ListItem } from './ListItem';
+export type {
+  ListItemProps,
+  ListItemVariant,
+  ListItemRole,
+  ListItemState,
+  ListItemContent,
+  ListItemActionArea,
+  ListItemStyleProps,
+  ListItemIconProps,
+  ListItemTextProps,
+  ListItemSecondaryActionProps,
+} from './ListItem';

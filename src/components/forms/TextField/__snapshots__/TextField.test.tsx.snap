@@ -1,0 +1,127 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TextField Component > Snapshots > matches snapshot for all variants > variant-filled 1`] = `
+<div
+  class="css-mx7cbl"
+>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-mz8t4m-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      aria-invalid="false"
+      aria-required="false"
+      class="MuiInputBase-root MuiFilledInput-root MuiFilledInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-1pht7va-MuiInputBase-root-MuiFilledInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiFilledInput-input css-voecp4-MuiInputBase-input-MuiFilledInput-input"
+        id="«r4u»"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField Component > Snapshots > matches snapshot for all variants > variant-outlined 1`] = `
+<div
+  class="css-mx7cbl"
+>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-18gj8ev-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      aria-invalid="false"
+      aria-required="false"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
+        id="«r50»"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-1nf2c5d-MuiNotchedOutlined-root"
+        >
+          <span
+            aria-hidden="true"
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField Component > Snapshots > matches snapshot for all variants > variant-standard 1`] = `
+<div
+  class="css-mx7cbl"
+>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-19o7mrc-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      aria-invalid="false"
+      aria-required="false"
+      class="MuiInputBase-root MuiInput-root MuiInput-underline MuiInputBase-colorPrimary MuiInputBase-formControl css-5h82ro-MuiInputBase-root-MuiInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiInput-input css-1yrc8ca-MuiInputBase-input-MuiInput-input"
+        id="«r52»"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`TextField Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  class="css-mx7cbl"
+>
+  <div
+    class="MuiFormControl-root MuiTextField-root css-18gj8ev-MuiFormControl-root-MuiTextField-root"
+  >
+    <div
+      aria-invalid="false"
+      aria-required="false"
+      class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-formControl css-quhxjy-MuiInputBase-root-MuiOutlinedInput-root"
+    >
+      <input
+        aria-invalid="false"
+        class="MuiInputBase-input MuiOutlinedInput-input css-16wblaj-MuiInputBase-input-MuiOutlinedInput-input"
+        id="«r4s»"
+        type="text"
+        value=""
+      />
+      <fieldset
+        aria-hidden="true"
+        class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
+      >
+        <legend
+          class="css-1nf2c5d-MuiNotchedOutlined-root"
+        >
+          <span
+            aria-hidden="true"
+            class="notranslate"
+          >
+            ​
+          </span>
+        </legend>
+      </fieldset>
+    </div>
+  </div>
+</div>
+`;

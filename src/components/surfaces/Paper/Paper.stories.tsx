@@ -1,14 +1,23 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Box, Typography, Button, Card, CardContent, TextField, Stack } from '@mui/material';
-import { Favorite, Share, MoreVert, Image as ImageIcon } from '@mui/icons-material';
+import { fn } from '@storybook/test';
+import React from 'react';
+
+import { Button } from '@/components/core/Button';
+import { Icon } from '@/components/core/Icon';
+import { Typography } from '@/components/data-display/Typography';
+import { TextField } from '@/components/forms/TextField';
+import { Box } from '@/components/layout/Box';
+import { Stack } from '@/components/layout/Stack';
+
 import { Paper } from './Paper';
-import { 
-  PAPER_VARIANTS, 
-  PAPER_CORNERS, 
-  PAPER_SURFACES, 
-  PAPER_SIZES, 
-  PAPER_GRADIENTS 
+import {
+  PAPER_CORNERS,
+  PAPER_GRADIENTS,
+  PAPER_SIZES,
+  PAPER_SURFACES,
+  PAPER_VARIANTS
 } from './Paper.constants';
+import type { PaperElevation } from './Paper.types';
 
 const meta = {
   title: 'Surfaces/Paper',
@@ -109,6 +118,10 @@ import { Paper } from '@/components/surfaces/Paper';
       control: 'boolean',
       description: 'Enable print-friendly styling',
     },
+    onClick: {
+      action: 'onClick',
+      description: 'Callback fired when click occurs',
+    },
   },
   tags: ['autodocs'],
 } satisfies Meta<typeof Paper>;
@@ -129,6 +142,8 @@ export const Default: Story = {
         This is a basic Paper component with default elevation and styling.
       </Typography>
     ),
+  
+    onClick: fn(),
   },
 };
 
@@ -252,21 +267,24 @@ export const GradientVariant: Story = {
  * @returns JSX element
  */
 export const ElevationLevels: Story = {
-  render: () => (
-    <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
-      {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
-        <Paper
-          key={elevation}
-          elevation={elevation as any}
-          sx={{ padding: 2, minWidth: 100, textAlign: 'center' }}
-        >
-          <Typography variant="body2">
-            Elevation {elevation}
-          </Typography>
-        </Paper>
-      ))}
-    </Stack>
-  ),
+  render: (): JSX.Element => {
+    const elevations: PaperElevation[] = [0, 1, 2, 3, 4, 6, 8, 12, 16, 24];
+    return (
+      <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
+        {elevations.map((elevation) => (
+          <Paper
+            key={elevation}
+            elevation={elevation}
+            sx={{ padding: 2, minWidth: 100, textAlign: 'center' }}
+          >
+            <Typography variant="body2">
+              Elevation {elevation}
+            </Typography>
+          </Paper>
+        ))}
+      </Stack>
+    );
+  },
   parameters: {
     docs: {
       description: {
@@ -283,7 +301,7 @@ export const ElevationLevels: Story = {
  * @returns JSX element
  */
 export const CornerStyles: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
       {Object.values(PAPER_CORNERS).map((corner) => (
         <Paper
@@ -315,7 +333,7 @@ export const CornerStyles: Story = {
  * @returns JSX element
  */
 export const SurfaceTreatments: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Stack direction="row" spacing={3} flexWrap="wrap" useFlexGap>
       {Object.values(PAPER_SURFACES).map((surface) => (
         <Paper
@@ -352,7 +370,7 @@ export const SurfaceTreatments: Story = {
  * @returns JSX element
  */
 export const SizeVariants: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Stack spacing={3}>
       {Object.values(PAPER_SIZES).map((size) => (
         <Paper
@@ -386,7 +404,7 @@ export const SizeVariants: Story = {
  * @returns JSX element
  */
 export const GradientColors: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap>
       {Object.values(PAPER_GRADIENTS).map((gradient) => (
         <Paper
@@ -424,7 +442,7 @@ export const Interactive: Story = {
     elevation: 2,
     hoverElevation: 6,
     pressedElevation: 1,
-    onClick: () => alert('Paper clicked!'),
+    onClick: fn(),
     children: (
       <Stack spacing={2}>
         <Typography variant="h6">Interactive Paper</Typography>
@@ -453,7 +471,7 @@ export const Interactive: Story = {
  * @returns JSX element
  */
 export const GlassMorphismExamples: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Box
       sx={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -531,12 +549,12 @@ export const ResponsiveBehavior: Story = {
  * @returns JSX element
  */
 export const ContentCard: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Paper elevation={2} interactive sx={{ maxWidth: 400 }}>
       <Box sx={{ padding: 2 }}>
         <Stack spacing={2}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <ImageIcon color="action" />
+            <Icon name="image" color="inherit" />
             <Typography variant="h6">Article Title</Typography>
           </Box>
           
@@ -547,11 +565,11 @@ export const ContentCard: Story = {
           
           <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <Stack direction="row" spacing={1}>
-              <Button size="small" startIcon={<Favorite />}>Like</Button>
-              <Button size="small" startIcon={<Share />}>Share</Button>
+              <Button size="small" startIcon={<Icon name="favorite" />}>Like</Button>
+              <Button size="small" startIcon={<Icon name="share" />}>Share</Button>
             </Stack>
             <Button size="small">
-              <MoreVert />
+              <Icon name="more" />
             </Button>
           </Box>
         </Stack>
@@ -573,7 +591,7 @@ export const ContentCard: Story = {
  * @returns JSX element
  */
 export const FormContainer: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Paper variant="outlined" sx={{ maxWidth: 400, padding: 3 }}>
       <Stack spacing={3}>
         <Typography variant="h5">Contact Form</Typography>
@@ -599,7 +617,7 @@ export const FormContainer: Story = {
           variant="outlined"
         />
         
-        <Button variant="contained" size="large">
+        <Button variant="primary" size="large">
           Send Message
         </Button>
       </Stack>
@@ -682,7 +700,7 @@ export const PrintOptimized: Story = {
  * @returns JSX element
  */
 export const CustomStyling: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Stack spacing={3}>
       <Paper
         backgroundColor="rgba(255, 193, 7, 0.1)"
@@ -727,7 +745,7 @@ export const CustomStyling: Story = {
     </Stack>
   ),
   decorators: [
-    (Story) => (
+    (Story: () => JSX.Element): JSX.Element => (
       <Box
         sx={{
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -755,7 +773,7 @@ export const CustomStyling: Story = {
  * @returns JSX element
  */
 export const AccessibilityDemo: Story = {
-  render: () => (
+  render: (): JSX.Element => (
     <Stack spacing={3}>
       <Paper
         interactive

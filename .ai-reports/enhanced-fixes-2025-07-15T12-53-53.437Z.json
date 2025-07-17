@@ -1,0 +1,14 @@
+{
+  "timestamp": "2025-07-15T12:53:53.438Z",
+  "duration": 27,
+  "filesProcessed": 287,
+  "filesFixed": 0,
+  "fixes": {
+    "cssObjectSyntax": 0,
+    "absoluteImports": 0,
+    "reactImports": 0,
+    "errors": []
+  },
+  "totalFixes": 0,
+  "errors": []
+}

@@ -1,0 +1,27 @@
+{
+  "component": "IconButton",
+  "generated": "2025-07-14T08:19:00.478Z",
+  "scenarios": [
+    {
+      "id": "IconButton-smoke",
+      "name": "IconButton Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for IconButton",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "IconButton-interaction",
+      "name": "IconButton Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for IconButton",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "IconButton-accessibility",
+      "name": "IconButton Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for IconButton",
+      "estimatedDuration": 1200
+    }
+  ]
+}

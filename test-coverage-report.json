@@ -1,0 +1,13 @@
+{
+  "timestamp": "2025-07-13T07:17:40.759Z",
+  "summary": {
+    "passed": true,
+    "averageScore": 0,
+    "coveragePercentage": 0
+  },
+  "qualityGates": {
+    "minimumScore": false,
+    "minimumCoverage": false,
+    "allTestsExist": false
+  }
+}

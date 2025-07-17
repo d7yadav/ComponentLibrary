@@ -1,7 +1,3 @@
-/**
- * @fileoverview Button component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 export { Button } from './Button';
 export type { 

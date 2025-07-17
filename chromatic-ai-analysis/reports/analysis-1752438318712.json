@@ -1,0 +1,63 @@
+{
+  "timestamp": "2025-07-13T20:25:18.711Z",
+  "buildId": "3",
+  "summary": {
+    "totalChanges": 0,
+    "newComponents": 0,
+    "newStories": 0,
+    "riskLevel": "low",
+    "confidence": 0,
+    "autoAcceptable": false
+  },
+  "analysis": {
+    "buildId": "3",
+    "timestamp": "2025-07-13T20:25:18.710Z",
+    "totalChanges": 0,
+    "newComponents": [],
+    "newStories": 0,
+    "changeCategories": {
+      "layout": 0,
+      "color": 0,
+      "typography": 0,
+      "spacing": 0,
+      "animation": 0,
+      "content": 0,
+      "newComponent": 0,
+      "themeSpecific": 0
+    },
+    "themeAnalysis": {
+      "lightThemeChanges": 0,
+      "darkThemeChanges": 0,
+      "themeConsistency": "good",
+      "themeSpecificIssues": []
+    },
+    "riskLevel": "low",
+    "confidence": 0,
+    "recommendations": [],
+    "autoAcceptable": false,
+    "newComponentDetected": false
+  },
+  "recommendations": {
+    "autoAcceptable": false,
+    "requiresReview": false,
+    "confidence": 0,
+    "actions": [],
+    "nextSteps": [
+      "Review changes in Chromatic dashboard",
+      "Accept changes if they look correct"
+    ],
+    "newComponentStrategy": null
+  },
+  "newComponentHandling": {
+    "detected": false,
+    "components": [],
+    "strategy": null
+  },
+  "technicalDetails": {
+    "aiVersion": "2.0.0",
+    "analysisMethod": "pattern-recognition-with-new-component-awareness",
+    "confidenceThreshold": 0.85,
+    "autoAcceptThreshold": 0.95,
+    "gracefulMode": false
+  }
+}

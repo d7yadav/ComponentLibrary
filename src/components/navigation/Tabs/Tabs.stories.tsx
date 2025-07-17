@@ -8,24 +8,19 @@
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { 
-  Home as HomeIcon, 
-  Search as SearchIcon, 
-  Settings as SettingsIcon,
-  Person as PersonIcon,
-  Notifications as NotificationsIcon,
-  Dashboard as DashboardIcon,
-} from '@mui/icons-material';
-import { Box, Typography, Paper } from '@mui/material';
+import React from 'react';
+
+import { Typography } from '@/components/data-display/Typography';
+import { Box } from '@/components/layout/Box';
+import { Paper } from '@/components/surfaces/Paper';
 
 import { Tabs } from './Tabs';
-import type { TabsProps } from './Tabs.types';
 
 /**
  * Storybook meta configuration
  */
 const meta: Meta<typeof Tabs> = {
-  title: 'Components/Navigation/Tabs',
+  title: 'Navigation/Tabs', // Moved Tabs to the Navigation section to match Breadcrumbs
   component: Tabs,
   parameters: {
     layout: 'centered',
@@ -131,7 +126,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // Sample content components
-const SampleContent = ({ title, description }: { title: string; description: string }) => (
+const SampleContent = ({ title, description }: { title: string; description: string }): JSX.Element => (
   <Box p={3}>
     <Typography variant="h6" gutterBottom>
       {title}
@@ -166,25 +161,25 @@ const iconTabs = [
   {
     id: 'dashboard',
     label: 'Dashboard',
-    icon: <DashboardIcon />,
+    icon: <span>📊</span>,
     content: <SampleContent title="Dashboard" description="Overview of your key metrics and activities." />,
   },
   {
     id: 'profile',
     label: 'Profile',
-    icon: <PersonIcon />,
+    icon: <span>👤</span>,
     content: <SampleContent title="Profile" description="Manage your personal information and preferences." />,
   },
   {
     id: 'notifications',
     label: 'Notifications',
-    icon: <NotificationsIcon />,
+    icon: <span>🔔</span>,
     content: <SampleContent title="Notifications" description="Stay updated with important alerts and messages." />,
   },
   {
     id: 'settings-icon',
     label: 'Settings',
-    icon: <SettingsIcon />,
+    icon: <span>⚙️</span>,
     content: <SampleContent title="Settings" description="Configure application settings and preferences." />,
   },
 ];
@@ -228,7 +223,7 @@ export const Vertical: Story = {
     'data-testid': 'vertical-tabs',
   },
   decorators: [
-    (Story) => (
+    (Story): JSX.Element => (
       <Box sx={{ display: 'flex', width: 600, height: 400 }}>
         <Story />
       </Box>
@@ -349,7 +344,7 @@ export const ComplexContent: Story = {
               Project Overview
             </Typography>
             <Typography variant="body1" paragraph>
-              This comprehensive dashboard provides insights into your project's progress,
+              This comprehensive dashboard provides insights into your project&apos;s progress,
               team performance, and key metrics that matter most to your success.
             </Typography>
             <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
@@ -372,7 +367,7 @@ export const ComplexContent: Story = {
       {
         id: 'analytics',
         label: 'Analytics',
-        icon: <SearchIcon />,
+        icon: <span>🔍</span>,
         content: (
           <Paper elevation={1} sx={{ p: 3, m: 2 }}>
             <Typography variant="h5" gutterBottom>
@@ -388,7 +383,7 @@ export const ComplexContent: Story = {
       {
         id: 'team',
         label: 'Team',
-        icon: <PersonIcon />,
+        icon: <span>👤</span>,
         content: (
           <Paper elevation={1} sx={{ p: 3, m: 2 }}>
             <Typography variant="h5" gutterBottom>

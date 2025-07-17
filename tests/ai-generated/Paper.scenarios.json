@@ -1,0 +1,27 @@
+{
+  "component": "Paper",
+  "generated": "2025-07-14T08:19:00.481Z",
+  "scenarios": [
+    {
+      "id": "Paper-smoke",
+      "name": "Paper Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Paper",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Paper-interaction",
+      "name": "Paper Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Paper",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Paper-accessibility",
+      "name": "Paper Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Paper",
+      "estimatedDuration": 1200
+    }
+  ]
+}

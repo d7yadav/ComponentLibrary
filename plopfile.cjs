@@ -81,12 +81,6 @@ module.exports = function (plop) {
       },
       {
         type: 'confirm',
-        name: 'generateTests',
-        message: 'Generate test file?',
-        default: true
-      },
-      {
-        type: 'confirm',
         name: 'generateStories',
         message: 'Generate Storybook stories?',
         default: true
@@ -142,15 +136,13 @@ module.exports = function (plop) {
         data
       });
 
-      // Test file
-      if (data.generateTests) {
-        actions.push({
-          type: 'add',
-          path: `${componentPath}/{{name}}.test.tsx`,
-          templateFile: 'templates/component/Component.test.tsx.hbs',
-          data
-        });
-      }
+      // Test file (mandatory)
+      actions.push({
+        type: 'add',
+        path: `${componentPath}/{{name}}.test.tsx`,
+        templateFile: 'templates/component/Component.test.tsx.hbs',
+        data
+      });
 
       // Storybook stories
       if (data.generateStories) {
@@ -242,12 +234,6 @@ module.exports = function (plop) {
       },
       {
         type: 'confirm',
-        name: 'generateTests',
-        message: 'Generate test file?',
-        default: true
-      },
-      {
-        type: 'confirm',
         name: 'generateDocs',
         message: 'Generate documentation?',
         default: true
@@ -266,15 +252,13 @@ module.exports = function (plop) {
         data: { ...data, hookName }
       });
 
-      // Test file
-      if (data.generateTests) {
-        actions.push({
-          type: 'add',
-          path: `${hookPath}/${hookName}.test.ts`,
-          templateFile: 'templates/hook/useHook.test.ts.hbs',
-          data: { ...data, hookName }
-        });
-      }
+      // Test file (mandatory)
+      actions.push({
+        type: 'add',
+        path: `${hookPath}/${hookName}.test.ts`,
+        templateFile: 'templates/hook/useHook.test.ts.hbs',
+        data: { ...data, hookName }
+      });
 
       // Documentation
       if (data.generateDocs) {

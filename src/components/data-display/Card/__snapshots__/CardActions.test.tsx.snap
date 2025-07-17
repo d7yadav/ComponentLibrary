@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardActions Component > Snapshots > matches snapshot for all variants > variant-default 1`] = `
+<div
+  aria-disabled="false"
+  class="css-ebq3xf"
+  data-testid="cardactions"
+  role="group"
+  tabindex="0"
+>
+  default
+   CardActions
+</div>
+`;
+
+exports[`CardActions Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  aria-disabled="false"
+  class="css-ebq3xf"
+  data-testid="cardactions"
+  role="group"
+  tabindex="0"
+>
+  Default CardActions
+</div>
+`;

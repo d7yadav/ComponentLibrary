@@ -1,12 +1,22 @@
-import { forwardRef, useState, useEffect, useCallback, memo } from 'react';
-import { InputAdornment, CircularProgress } from '@mui/material';
 import { 
   CheckCircle, 
   Warning, 
   Error as ErrorIcon, 
   Clear 
 } from '@mui/icons-material';
-import { TextFieldProps, ValidationResult } from './TextField.types';
+import { InputAdornment, CircularProgress } from '@mui/material';
+import { forwardRef, useState, useEffect, useCallback, memo } from 'react';
+
+import {
+  TEXTFIELD_VARIANTS,
+  TEXTFIELD_SIZES,
+  VALIDATION_STATES,
+  ACCESSIBILITY_CONSTANTS,
+  INPUT_VALIDATION_PATTERNS,
+  DEFAULT_VALIDATION_MESSAGES,
+  CHARACTER_COUNT_CONFIGS,
+  LOADING_INDICATOR_CONFIG,
+} from './TextField.constants';
 import {
   StyledTextField,
   StyledHelperText,
@@ -18,16 +28,7 @@ import {
   RequiredIndicator,
   MultilineCharacterCount,
 } from './TextField.styles';
-import {
-  TEXTFIELD_VARIANTS,
-  TEXTFIELD_SIZES,
-  VALIDATION_STATES,
-  ACCESSIBILITY_CONSTANTS,
-  INPUT_VALIDATION_PATTERNS,
-  DEFAULT_VALIDATION_MESSAGES,
-  CHARACTER_COUNT_CONFIGS,
-  LOADING_INDICATOR_CONFIG,
-} from './TextField.constants';
+import type { TextFieldProps, ValidationResult } from './TextField.types';
 
 /**
  * Enhanced TextField component with comprehensive validation, accessibility, and form integration
@@ -43,7 +44,7 @@ import {
  * - Debounced validation
  * - Multiline support with auto-resize
  */
-export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(({
+export const TextField = memo(forwardRef<HTMLDivElement, TextFieldProps>(({
   variant = TEXTFIELD_VARIANTS.outlined,
   size = TEXTFIELD_SIZES.medium,
   type = 'text',
@@ -418,6 +419,6 @@ export const TextField = forwardRef<HTMLDivElement, TextFieldProps>(({
       {renderCharacterCount()}
     </TextFieldContainer>
   );
-});
+}));
 
 TextField.displayName = 'TextField';

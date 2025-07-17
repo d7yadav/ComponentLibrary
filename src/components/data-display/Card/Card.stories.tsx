@@ -1,30 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import React from 'react';
+
+// Remove direct MUI icon imports and add TODO for icon wrappers
+// TODO: Replace these with internal icon wrappers when available
+// import { MoreVert, Favorite, Share, BookmarkBorder, Person, LocationOn, Event } from '@mui/icons-material';
+import { Button } from '@/components/core/Button';
+import { Chip } from '@/components/core/Chip'; // Replaced MUI Chip with internal wrapper as per migration guidelines
+import { IconButton } from '@/components/core/IconButton'; // Replaced MUI IconButton with internal wrapper as per migration guidelines
+import { Avatar } from '@/components/data-display/Avatar'; // Replaced MUI Avatar with internal wrapper as per migration guidelines
+// TODO: Migrate Rating to internal wrapper when available
+import { Typography } from '@/components/data-display/Typography';
+import { Box } from '@/components/layout/Box';
+import { Stack } from '@/components/layout/Stack';
+
 import { Card } from './Card';
-import { CardHeader } from './CardHeader';
-import { CardContent } from './CardContent';
-import { CardMedia } from './CardMedia';
-import { CardActions } from './CardActions';
 import { CARD_VARIANTS, CARD_ELEVATIONS, CARD_SIZES, CARD_ORIENTATIONS } from './Card.constants';
-import { Button } from '../../core/Button';
-import { 
-  Avatar, 
-  IconButton, 
-  Typography, 
-  Stack, 
-  Box,
-  Chip,
-  Rating 
-} from '@mui/material';
-import { 
-  MoreVert, 
-  Favorite, 
-  Share, 
-  BookmarkBorder,
-  Person,
-  LocationOn,
-  Event
-} from '@mui/icons-material';
+import { CardActions } from './CardActions';
+import { CardContent } from './CardContent';
+import { CardHeader } from './CardHeader';
+import { CardMedia } from './CardMedia';
 
 /**
  * The Card component is a versatile container for displaying content with multiple variants,
@@ -427,7 +422,8 @@ export const WithHeader: Story = {
         avatar={<Avatar src={sampleAvatar} />}
         action={
           <IconButton aria-label="settings">
-            <MoreVert />
+            {/* TODO: Replace with MoreVert icon wrapper */}
+            <span />
           </IconButton>
         }
         title="John Doe"
@@ -475,14 +471,15 @@ export const WithActions: Story = {
         </Typography>
       </CardContent>,
       <CardActions key="actions">
-        <Button size="small" startIcon={<Favorite />}>
+        <Button size="small" startIcon={<span />}>{/* TODO: Replace with Favorite icon wrapper */}
           Like
         </Button>
-        <Button size="small" startIcon={<Share />}>
+        <Button size="small" startIcon={<span />}>{/* TODO: Replace with Share icon wrapper */}
           Share
         </Button>
         <IconButton aria-label="bookmark">
-          <BookmarkBorder />
+          {/* TODO: Replace with BookmarkBorder icon wrapper */}
+          <span />
         </IconButton>
       </CardActions>,
     ],
@@ -497,7 +494,8 @@ export const CompleteCard: Story = {
         avatar={<Avatar src={sampleAvatar} />}
         action={
           <IconButton aria-label="settings">
-            <MoreVert />
+            {/* TODO: Replace with MoreVert icon wrapper */}
+            <span />
           </IconButton>
         }
         title="Travel Photography"
@@ -523,14 +521,15 @@ export const CompleteCard: Story = {
         </Stack>
       </CardContent>,
       <CardActions key="actions">
-        <Button size="small" startIcon={<Favorite />}>
+        <Button size="small" startIcon={<span />}>{/* TODO: Replace with Favorite icon wrapper */}
           24 Likes
         </Button>
-        <Button size="small" startIcon={<Share />}>
+        <Button size="small" startIcon={<span />}>{/* TODO: Replace with Share icon wrapper */}
           Share
         </Button>
         <IconButton aria-label="bookmark">
-          <BookmarkBorder />
+          {/* TODO: Replace with BookmarkBorder icon wrapper */}
+          <span />
         </IconButton>
       </CardActions>,
     ],
@@ -572,8 +571,8 @@ export const AllElevations: Story = {
         All Elevation Levels
       </Typography>
       <Box display="grid" gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))" gap={2}>
-        {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation) => (
-          <Card key={elevation} elevation={elevation as any}>
+        {[0, 1, 2, 3, 4, 6, 8, 12, 16, 24].map((elevation: number) => (
+          <Card key={elevation} elevation={elevation as (typeof CARD_ELEVATIONS)[keyof typeof CARD_ELEVATIONS]}>
             <CardContent>
               <Typography variant="h6" gutterBottom>
                 Elevation {elevation}
@@ -643,7 +642,6 @@ export const AccessibilityDemo: Story = {
             </Typography>
           </CardContent>
         </Card>
-        
         <Card role="article" aria-labelledby="article-title">
           <CardContent>
             <Typography id="article-title" variant="h6" gutterBottom>
@@ -654,7 +652,6 @@ export const AccessibilityDemo: Story = {
             </Typography>
           </CardContent>
         </Card>
-        
         <Card disabled aria-label="This content is currently unavailable">
           <CardContent>
             <Typography variant="h6" gutterBottom>

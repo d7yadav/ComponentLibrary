@@ -1,10 +1,3 @@
-/**
- * @fileoverview Tabs Component Barrel Export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * Centralized exports for the Tabs component module, providing clean
- * import paths and consistent API surface for external consumers.
- */
 
 // Main component exports
 export { Tabs, TabPanel } from './Tabs';

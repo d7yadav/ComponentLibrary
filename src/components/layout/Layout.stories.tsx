@@ -1,4 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import React from 'react';
+
+import { Button } from '@/components/core/Button';
+import { Card, CardContent, CardHeader } from '@/components/data-display/Card';
+import { TextField } from '@/components/forms/TextField';
+
 import { 
   Container, 
   Grid, 
@@ -10,10 +17,7 @@ import {
   HeroBox,
   SectionBox
 } from './index';
-import { Card, CardContent, CardHeader } from '../data-display/Card';
-import { Button } from '../core/Button';
-import { TextField } from '../forms/TextField';
-import React from 'react';
+
 
 const meta: Meta = {
   title: 'Layout/Overview',
@@ -56,7 +60,7 @@ type Story = StoryObj;
  * @returns JSX element
  */
 export const ContainerVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={4}>
       <Box>
         <h2>Container Variants</h2>
@@ -102,7 +106,7 @@ export const ContainerVariants: Story = {
  * @returns JSX element
  */
 export const GridLayouts: Story = {
-  render: () => (
+  render: (args) => (
     <Container maxWidth="lg">
       <Stack spacing={4}>
         <Box>
@@ -182,7 +186,7 @@ export const GridLayouts: Story = {
  * @returns JSX element
  */
 export const StackLayouts: Story = {
-  render: () => (
+  render: (args) => (
     <Container maxWidth="md">
       <Stack spacing={4}>
         <Box>
@@ -265,7 +269,7 @@ export const StackLayouts: Story = {
  * @returns JSX element
  */
 export const BoxUtilities: Story = {
-  render: () => (
+  render: (args) => (
     <Container maxWidth="lg">
       <Stack spacing={4}>
         <Box>
@@ -378,7 +382,7 @@ export const BoxUtilities: Story = {
  * @returns JSX element
  */
 export const ComplexLayout: Story = {
-  render: () => (
+  render: (args) => (
     <Container maxWidth="xl" fullWidth>
       <Stack spacing={4}>
         <Box>
@@ -521,7 +525,7 @@ export const ComplexLayout: Story = {
  * @returns JSX element
  */
 export const PerformanceOptimized: Story = {
-  render: () => (
+  render: (args) => (
     <Container maxWidth="lg">
       <Stack spacing={4}>
         <Box>
@@ -589,7 +593,7 @@ export const PerformanceOptimized: Story = {
  * @returns JSX element
  */
 export const AccessibilityFeatures: Story = {
-  render: () => (
+  render: (args) => (
     <Container maxWidth="md">
       <Stack spacing={4}>
         <Box>

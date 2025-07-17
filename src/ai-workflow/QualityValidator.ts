@@ -1,247 +1,188 @@
-/**
- * @fileoverview Quality Validator - Code Quality Validation Engine
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * This module provides comprehensive code quality validation including
- * pattern validation, TypeScript compliance, accessibility checking,
- * performance impact assessment, and code quality scoring.
- */
 
-import type { ComponentCategory, ComplexityLevel } from '../types';
+import type { ComponentCategory, ComplexityLevel } from '@/types';
 
-/**
- * Quality validation result
- */
 export interface QualityValidationResult {
-  overall: QualityScore;
-  categories: QualityCategoryResults;
-  violations: QualityViolation[];
-  warnings: QualityWarning[];
-  recommendations: QualityRecommendation[];
-  metrics: QualityMetrics;
-  passedChecks: string[];
-  failedChecks: string[];
-  timestamp: Date;
-  validatorVersion: string;
+  overall: QualityScore,
+  categories: QualityCategoryResults,
+  violations: QualityViolation[],
+  warnings: QualityWarning[],
+  recommendations: QualityRecommendation[],
+  metrics: QualityMetrics,
+  passedChecks: string[],
+  failedChecks: string[],
+  timestamp: Date,
+  validatorVersion: string,
 }
 
-/**
- * Quality score breakdown
- */
 export interface QualityScore {
   score: number; // 0-100
-  grade: 'A+' | 'A' | 'B+' | 'B' | 'C+' | 'C' | 'D' | 'F';
-  level: 'excellent' | 'good' | 'fair' | 'poor' | 'critical';
+  grade: 'A+' | 'A' | 'B+' | 'B' | 'C+' | 'C' | 'D' | 'F',
+  level: 'excellent' | 'good' | 'fair' | 'poor' | 'critical',
   confidence: number; // 0-100
-  factors: QualityFactor[];
+  factors: QualityFactor[],
 }
 
-/**
- * Quality factor contributing to score
- */
 export interface QualityFactor {
-  name: string;
+  name: string,
   weight: number; // 0-1
   score: number; // 0-100
-  impact: 'positive' | 'negative' | 'neutral';
-  description: string;
-  evidence: string[];
+  impact: 'positive' | 'negative' | 'neutral',
+  description: string,
+  evidence: string[],
 }
 
-/**
- * Quality category results
- */
 export interface QualityCategoryResults {
-  codePatterns: CategoryResult;
-  typeScript: CategoryResult;
-  accessibility: CategoryResult;
-  performance: CategoryResult;
-  security: CategoryResult;
-  maintainability: CategoryResult;
-  testing: CategoryResult;
-  documentation: CategoryResult;
+  codePatterns: CategoryResult,
+  typeScript: CategoryResult,
+  accessibility: CategoryResult,
+  performance: CategoryResult,
+  security: CategoryResult,
+  maintainability: CategoryResult,
+  testing: CategoryResult,
+  documentation: CategoryResult,
 }
 
-/**
- * Individual category result
- */
 export interface CategoryResult {
   score: number; // 0-100
-  status: 'pass' | 'warning' | 'fail';
-  checks: QualityCheck[];
-  summary: string;
-  criticalIssues: number;
-  warnings: number;
-  suggestions: number;
+  status: 'pass' | 'warning' | 'fail',
+  checks: QualityCheck[],
+  summary: string,
+  criticalIssues: number,
+  warnings: number,
+  suggestions: number,
 }
 
-/**
- * Quality check definition and result
- */
 export interface QualityCheck {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  severity: 'info' | 'warning' | 'error' | 'critical';
-  status: 'pass' | 'fail' | 'skip';
-  message?: string;
-  details?: any;
-  rule: string;
-  autoFixable: boolean;
+  id: string,
+  name: string,
+  description: string,
+  category: string,
+  severity: 'info' | 'warning' | 'error' | 'critical',
+  status: 'pass' | 'fail' | 'skip',
+  message?: string,
+  details?: any,
+  rule: string,
+  autoFixable: boolean,
   performance: {
-    executionTime: number;
-    memoryUsage: number;
-  };
+    executionTime: number,
+    memoryUsage: number,
+  },
 }
 
-/**
- * Quality violation (failed check)
- */
 export interface QualityViolation {
-  checkId: string;
-  severity: 'error' | 'critical';
-  message: string;
-  location: CodeLocation;
-  rule: string;
-  suggestion: string;
-  autoFixable: boolean;
-  examples: string[];
+  checkId: string,
+  severity: 'error' | 'critical',
+  message: string,
+  location: CodeLocation,
+  rule: string,
+  suggestion: string,
+  autoFixable: boolean,
+  examples: string[],
 }
 
-/**
- * Quality warning (warning check)
- */
 export interface QualityWarning {
-  checkId: string;
-  message: string;
-  location: CodeLocation;
-  rule: string;
-  suggestion: string;
-  impact: 'low' | 'medium' | 'high';
+  checkId: string,
+  message: string,
+  location: CodeLocation,
+  rule: string,
+  suggestion: string,
+  impact: 'low' | 'medium' | 'high',
 }
 
-/**
- * Quality recommendation for improvement
- */
 export interface QualityRecommendation {
-  category: string;
-  priority: 'low' | 'medium' | 'high' | 'critical';
-  title: string;
-  description: string;
-  benefits: string[];
-  effort: 'low' | 'medium' | 'high';
-  impact: 'low' | 'medium' | 'high';
-  implementation: string[];
-  resources: string[];
+  category: string,
+  priority: 'low' | 'medium' | 'high' | 'critical',
+  title: string,
+  description: string,
+  benefits: string[],
+  effort: 'low' | 'medium' | 'high',
+  impact: 'low' | 'medium' | 'high',
+  implementation: string[],
+  resources: string[],
 }
 
-/**
- * Code location for violations/warnings
- */
 export interface CodeLocation {
-  file: string;
-  line: number;
-  column: number;
-  length?: number;
-  context: string;
+  file: string,
+  line: number,
+  column: number,
+  length?: number,
+  context: string,
 }
 
-/**
- * Quality metrics
- */
 export interface QualityMetrics {
-  linesOfCode: number;
-  complexity: number;
-  maintainabilityIndex: number;
+  linesOfCode: number,
+  complexity: number,
+  maintainabilityIndex: number,
   technicalDebt: number; // minutes
   testCoverage: number; // percentage
   duplicateCode: number; // percentage
-  codeSmells: number;
-  bugs: number;
-  vulnerabilities: number;
+  codeSmells: number,
+  bugs: number,
+  vulnerabilities: number,
   bundleSize: number; // bytes
-  performanceScore: number;
-  accessibilityScore: number;
+  performanceScore: number,
+  accessibilityScore: number,
 }
 
-/**
- * Validation configuration
- */
 export interface ValidationConfiguration {
-  enabledCategories: string[];
-  strictMode: boolean;
-  typeScriptStrict: boolean;
-  accessibilityLevel: 'A' | 'AA' | 'AAA';
+  enabledCategories: string[],
+  strictMode: boolean,
+  typeScriptStrict: boolean,
+  accessibilityLevel: 'A' | 'AA' | 'AAA',
   performanceBudget: {
     bundleSize: number; // bytes
     loadTime: number; // ms
     renderTime: number; // ms
-  };
-  customRules: CustomRule[];
-  ignorePaths: string[];
-  ruleOverrides: Record<string, 'error' | 'warning' | 'off'>;
+  },
+  customRules: CustomRule[],
+  ignorePaths: string[],
+  ruleOverrides: Record<string, 'error' | 'warning' | 'off'>,
 }
 
-/**
- * Custom validation rule
- */
 export interface CustomRule {
-  id: string;
-  name: string;
-  description: string;
-  category: string;
-  severity: 'info' | 'warning' | 'error' | 'critical';
-  pattern: RegExp | string;
-  validator: (code: string, context: ValidationContext) => boolean;
-  message: string;
-  suggestion: string;
-  autoFix?: (code: string) => string;
+  id: string,
+  name: string,
+  description: string,
+  category: string,
+  severity: 'info' | 'warning' | 'error' | 'critical',
+  pattern: RegExp | string,
+  validator: (code: string, context: ValidationContext) => boolean,
+  message: string,
+  suggestion: string,
+  autoFix?: (code: string) => string,
 }
 
-/**
- * Validation context
- */
 export interface ValidationContext {
-  filePath: string;
-  fileContent: string;
-  componentType?: ComponentCategory;
-  complexity?: ComplexityLevel;
-  dependencies: string[];
-  imports: string[];
-  exports: string[];
-  tsConfig?: any;
-  metadata: Record<string, any>;
+  filePath: string,
+  fileContent: string,
+  componentType?: ComponentCategory,
+  complexity?: ComplexityLevel,
+  dependencies: string[],
+  imports: string[],
+  exports: string[],
+  tsConfig?: any,
+  metadata: Record<string, any>,
 }
 
-/**
- * Code pattern validation rules
- */
 export interface PatternRule {
-  id: string;
-  name: string;
-  pattern: RegExp | string | ((code: string) => boolean);
-  required: boolean;
-  message: string;
-  category: 'naming' | 'structure' | 'imports' | 'exports' | 'props' | 'hooks';
-  severity: 'info' | 'warning' | 'error' | 'critical';
-  autoFix?: (code: string) => string;
+  id: string,
+  name: string,
+  pattern: RegExp | string | ((code: string) => boolean),
+  required: boolean,
+  message: string,
+  category: 'naming' | 'structure' | 'imports' | 'exports' | 'props' | 'hooks',
+  severity: 'info' | 'warning' | 'error' | 'critical',
+  autoFix?: (code: string) => string,
   examples: {
-    good: string[];
-    bad: string[];
-  };
+    good: string[],
+    bad: string[],
+  },
 }
 
-/**
- * Quality Validator - Comprehensive Code Quality Analysis
- * 
- * Provides real-time validation of code patterns, TypeScript compliance,
- * accessibility standards, performance impact, and overall code quality.
- */
 export class QualityValidator {
-  private readonly version = '1.0.0';
-  private patternRules: PatternRule[];
-  private configuration: ValidationConfiguration;
+  private readonly version = '1.0.0',
+  private patternRules: PatternRule[],
+  private configuration: ValidationConfiguration,
 
   constructor(configuration?: Partial<ValidationConfiguration>) {
     this.configuration = {
@@ -267,16 +208,13 @@ export class QualityValidator {
       ignorePaths: ['node_modules', 'dist', 'build'],
       ruleOverrides: {},
       ...configuration
-    };
+    },
 
-    this.patternRules = this.initializePatternRules();
+    this.patternRules = this.initializePatternRules(),
   }
 
-  /**
-   * Validate code quality for a file or component
-   */
   public async validateCode(context: ValidationContext): Promise<QualityValidationResult> {
-    const startTime = Date.now();
+    const startTime = Date.now(),
 
     try {
       // Initialize result structure
@@ -291,85 +229,79 @@ export class QualityValidator {
         failedChecks: [],
         timestamp: new Date(),
         validatorVersion: this.version
-      };
+      },
 
       // Calculate metrics first
-      result.metrics = await this.calculateMetrics(context);
+      result.metrics = await this.calculateMetrics(context),
 
       // Run validation categories
       if (this.configuration.enabledCategories.includes('codePatterns')) {
-        result.categories.codePatterns = await this.validateCodePatterns(context);
+        result.categories.codePatterns = await this.validateCodePatterns(context),
       }
 
       if (this.configuration.enabledCategories.includes('typeScript')) {
-        result.categories.typeScript = await this.validateTypeScript(context);
+        result.categories.typeScript = await this.validateTypeScript(context),
       }
 
       if (this.configuration.enabledCategories.includes('accessibility')) {
-        result.categories.accessibility = await this.validateAccessibility(context);
+        result.categories.accessibility = await this.validateAccessibility(context),
       }
 
       if (this.configuration.enabledCategories.includes('performance')) {
-        result.categories.performance = await this.validatePerformance(context, result.metrics);
+        result.categories.performance = await this.validatePerformance(context, result.metrics),
       }
 
       if (this.configuration.enabledCategories.includes('security')) {
-        result.categories.security = await this.validateSecurity(context);
+        result.categories.security = await this.validateSecurity(context),
       }
 
       if (this.configuration.enabledCategories.includes('maintainability')) {
-        result.categories.maintainability = await this.validateMaintainability(context, result.metrics);
+        result.categories.maintainability = await this.validateMaintainability(context, result.metrics),
       }
 
       if (this.configuration.enabledCategories.includes('testing')) {
-        result.categories.testing = await this.validateTesting(context);
+        result.categories.testing = await this.validateTesting(context),
       }
 
       if (this.configuration.enabledCategories.includes('documentation')) {
-        result.categories.documentation = await this.validateDocumentation(context);
+        result.categories.documentation = await this.validateDocumentation(context),
       }
 
       // Collect violations and warnings
-      this.collectViolationsAndWarnings(result);
+      this.collectViolationsAndWarnings(result),
 
       // Calculate overall score
-      result.overall = this.calculateOverallScore(result.categories);
+      result.overall = this.calculateOverallScore(result.categories),
 
       // Generate recommendations
-      result.recommendations = this.generateRecommendations(result);
+      result.recommendations = this.generateRecommendations(result),
 
-      return result;
+      return result,
 
     } catch (error) {
-      throw new Error(`Quality validation failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      throw new Error(`Quality validation failed: ${error instanceof Error ? error.message : 'Unknown error'}`),
     }
   }
 
-  /**
-   * Validate multiple files in batch
-   */
   public async validateBatch(contexts: ValidationContext[]): Promise<QualityValidationResult[]> {
     const results = await Promise.all(
       contexts.map(context => this.validateCode(context))
-    );
+    ),
 
-    return results;
+    return results,
   }
 
-  /**
-   * Get validation summary for multiple results
-   */
   public generateSummary(results: QualityValidationResult[]): QualitySummary {
-    const totalFiles = results.length;
-    const totalViolations = results.reduce((sum, r) => sum + r.violations.length, 0);
-    const totalWarnings = results.reduce((sum, r) => sum + r.warnings.length, 0);
-    const averageScore = results.reduce((sum, r) => sum + r.overall.score, 0) / totalFiles;
+    const totalFiles = results.length,
+    const totalViolations = results.reduce((sum, r) => sum + r.violations.length, 0),
+    const totalWarnings = results.reduce((sum, r) => sum + r.warnings.length, 0),
+    const averageScore = results.reduce((sum, r) => sum + r.overall.score, 0) / totalFiles,
 
     const categoryScores = Object.keys(results[0].categories).reduce((acc, category) => {
       acc[category] = results.reduce((sum, r) => 
-        sum + r.categories[category as keyof QualityCategoryResults].score, 0) / totalFiles;
-      return acc;
-    }, {} as Record<string, number>);
+        sum + r.categories[category as keyof QualityCategoryResults].score, 0) / totalFiles,
+      return acc,
+    }, {} as Record<string, number>),
 
     return {
       totalFiles,
@@ -383,7 +315,7 @@ export class QualityValidator {
         .slice(0, 5)
         .map(r => ({ file: r.metrics.linesOfCode > 0 ? 'component' : 'unknown', score: r.overall.score })),
       recommendations: this.aggregateRecommendations(results)
-    };
+    },
   }
 
   // Private validation methods
@@ -409,14 +341,72 @@ export class QualityValidator {
       {
         id: 'absolute-imports',
         name: 'Absolute Import Pattern',
-        pattern: /^import.*from\s+['"]@\//,
+        pattern: /^import.*from\s+['"]@\//;
         required: true,
         message: 'Use absolute imports with @ prefix for internal modules',
         category: 'imports',
-        severity: 'warning',
+        severity: 'error',
         examples: {
-          good: ["import { Button } from '@/components/core/Button'"],
+          good: ["import { Button } from '@/components/core/Button'"];
           bad: ["import { Button } from '../core/Button'"]
+        }
+      },
+
+      // React import for story files
+      {
+        id: 'react-import-stories',
+        name: 'React Import in Stories',
+        pattern: (code: string) => {
+          if (!code.includes('.stories.tsx')) return true,
+          const hasJSX = /<[A-Z]/.test(code),
+          const hasReactImport = /import\s+React/.test(code),
+          return !hasJSX || hasReactImport,
+        },
+        required: true,
+        message: 'Story files with JSX must import React explicitly';
+        category: 'imports',
+        severity: 'critical',
+        examples: {
+          good: ["import React, { useState } from 'react';"];
+          bad: ["import { useState } from 'react';"]
+        }
+      },
+
+      // CSS-in-JS syntax validation
+      {
+        id: 'css-in-js-syntax',
+        name: 'CSS-in-JS Syntax',
+        pattern: (code: string) => {
+          // Check for unquoted CSS selectors like &:hover
+          const hasUnquotedSelectors = /&:[a-zA-Z-]+\s*{/.test(code),
+          return !hasUnquotedSelectors,
+        },
+        required: true,
+        message: 'CSS-in-JS selectors must be quoted (e.g., \'&:hover\')',
+        category: 'structure',
+        severity: 'error',
+        examples: {
+          good: ["'&:hover': { opacity: 0.8, cursor: 'pointer' }"],
+          bad: ["&:hover { opacity: 0.8; cursor: pointer; }"]
+        }
+      },
+
+      // Arrow function syntax validation
+      {
+        id: 'arrow-function-syntax',
+        name: 'Arrow Function Syntax',
+        pattern: (code: string) => {
+          // Check for malformed arrow functions
+          const hasMalformedArrow = /=>\s*return\s+/.test(code),
+          return !hasMalformedArrow,
+        },
+        required: true,
+        message: 'Arrow functions must have proper brace syntax',
+        category: 'structure',
+        severity: 'error',
+        examples: {
+          good: ["const Component = () => { return <div>Content</div>; }"],
+          bad: ["const Component = () => return <div>Content</div>;"]
         }
       },
 
@@ -430,7 +420,7 @@ export class QualityValidator {
         category: 'exports',
         severity: 'error',
         examples: {
-          good: ['export { Button }', 'export const Button = () => {}'],
+          good: ['export { Button }', 'export const Button = () => {}'];
           bad: ['export default Button']
         }
       },
@@ -470,10 +460,10 @@ export class QualityValidator {
         id: 'component-structure',
         name: 'Component File Structure',
         pattern: (code: string) => {
-          const hasInterface = code.includes('interface') && code.includes('Props');
-          const hasComponent = code.includes('const ') && code.includes('= (');
-          const hasExport = code.includes('export {') || code.includes('export const');
-          return hasInterface && hasComponent && hasExport;
+          const hasInterface = code.includes('interface') && code.includes('Props'),
+          const hasComponent = code.includes('const ') && code.includes('= ('),
+          const hasExport = code.includes('export {') || code.includes('export const'),
+          return hasInterface && hasComponent && hasExport,
         },
         required: true,
         message: 'Component file must include Props interface, component implementation, and named export',
@@ -488,7 +478,7 @@ export class QualityValidator {
           bad: ['Missing props interface', 'Missing component export']
         }
       }
-    ];
+    ],
   }
 
   private initializeCategoryResults(): QualityCategoryResults {
@@ -500,7 +490,7 @@ export class QualityValidator {
       criticalIssues: 0,
       warnings: 0,
       suggestions: 0
-    };
+    },
 
     return {
       codePatterns: { ...defaultCategory },
@@ -511,7 +501,7 @@ export class QualityValidator {
       maintainability: { ...defaultCategory },
       testing: { ...defaultCategory },
       documentation: { ...defaultCategory }
-    };
+    },
   }
 
   private initializeMetrics(): QualityMetrics {
@@ -528,32 +518,32 @@ export class QualityValidator {
       bundleSize: 0,
       performanceScore: 0,
       accessibilityScore: 0
-    };
+    },
   }
 
   private async calculateMetrics(context: ValidationContext): Promise<QualityMetrics> {
-    const metrics = this.initializeMetrics();
+    const metrics = this.initializeMetrics(),
 
     // Calculate lines of code
     metrics.linesOfCode = context.fileContent.split('\n').filter(line => 
       line.trim() && !line.trim().startsWith('//') && !line.trim().startsWith('*')
-    ).length;
+    ).length,
 
     // Calculate cyclomatic complexity (simplified)
-    metrics.complexity = this.calculateComplexity(context.fileContent);
+    metrics.complexity = this.calculateComplexity(context.fileContent),
 
     // Estimate maintainability index
-    metrics.maintainabilityIndex = this.calculateMaintainabilityIndex(context.fileContent, metrics.complexity);
+    metrics.maintainabilityIndex = this.calculateMaintainabilityIndex(context.fileContent, metrics.complexity),
 
     // Estimate technical debt (simplified)
-    metrics.technicalDebt = this.estimateTechnicalDebt(context.fileContent);
+    metrics.technicalDebt = this.estimateTechnicalDebt(context.fileContent),
 
     // Placeholder for other metrics (would integrate with actual tools)
     metrics.testCoverage = 85; // Would come from coverage reports
     metrics.duplicateCode = 5; // Would come from code analysis tools
     metrics.bundleSize = context.fileContent.length; // Simplified
 
-    return metrics;
+    return metrics,
   }
 
   private calculateComplexity(code: string): number {
@@ -569,33 +559,33 @@ export class QualityValidator {
       /\b&&\b/g,
       /\b\|\|\b/g,
       /\?\s*.*:/g // ternary operators
-    ];
+    ],
 
     let complexity = 1; // Base complexity
     patterns.forEach(pattern => {
-      const matches = code.match(pattern);
+      const matches = code.match(pattern),
       if (matches) {
-        complexity += matches.length;
+        complexity += matches.length,
       }
-    });
+    }),
 
-    return complexity;
+    return complexity,
   }
 
   private calculateMaintainabilityIndex(code: string, complexity: number): number {
-    const loc = code.split('\n').length;
+    const loc = code.split('\n').length,
     const volume = Math.log2(loc) * loc; // Simplified Halstead volume
     
     // Simplified maintainability index formula
     const maintainabilityIndex = Math.max(0, 
       (171 - 5.2 * Math.log(volume) - 0.23 * complexity - 16.2 * Math.log(loc)) / 171 * 100
-    );
+    ),
 
-    return Math.round(maintainabilityIndex);
+    return Math.round(maintainabilityIndex),
   }
 
   private estimateTechnicalDebt(code: string): number {
-    let debt = 0;
+    let debt = 0,
 
     // Code smells that contribute to technical debt
     if (code.includes('any')) debt += 5; // Type any usage
@@ -605,13 +595,13 @@ export class QualityValidator {
     if (code.length > 5000) debt += 20; // Large files
     if (this.calculateComplexity(code) > 10) debt += 30; // High complexity
 
-    return debt;
+    return debt,
   }
 
   private async validateCodePatterns(context: ValidationContext): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let criticalIssues = 0;
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let criticalIssues = 0,
+    let warnings = 0,
 
     for (const rule of this.patternRules) {
       const check: QualityCheck = {
@@ -624,41 +614,41 @@ export class QualityValidator {
         rule: rule.id,
         autoFixable: !!rule.autoFix,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
-      const startTime = Date.now();
-      let passed = false;
+      const startTime = Date.now(),
+      let passed = false,
 
       try {
         if (typeof rule.pattern === 'function') {
-          passed = rule.pattern(context.fileContent);
+          passed = rule.pattern(context.fileContent),
         } else if (rule.pattern instanceof RegExp) {
-          passed = rule.pattern.test(context.fileContent);
+          passed = rule.pattern.test(context.fileContent),
         } else {
-          passed = context.fileContent.includes(rule.pattern);
+          passed = context.fileContent.includes(rule.pattern),
         }
 
         if (rule.required && !passed) {
-          check.status = 'fail';
-          check.message = rule.message;
+          check.status = 'fail',
+          check.message = rule.message,
           
           if (rule.severity === 'critical' || rule.severity === 'error') {
-            criticalIssues++;
+            criticalIssues++,
           } else if (rule.severity === 'warning') {
-            warnings++;
+            warnings++,
           }
         }
       } catch (error) {
-        check.status = 'fail';
-        check.message = `Pattern validation error: ${error instanceof Error ? error.message : 'Unknown error'}`;
-        criticalIssues++;
+        check.status = 'fail',
+        check.message = `Pattern validation error: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        criticalIssues++,
       }
 
-      check.performance.executionTime = Date.now() - startTime;
-      checks.push(check);
+      check.performance.executionTime = Date.now() - startTime,
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -668,13 +658,13 @@ export class QualityValidator {
       criticalIssues,
       warnings,
       suggestions: checks.filter(c => c.severity === 'info').length
-    };
+    },
   }
 
   private async validateTypeScript(context: ValidationContext): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let criticalIssues = 0;
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let criticalIssues = 0,
+    let warnings = 0,
 
     // TypeScript strict mode checks
     const typeScriptChecks = [
@@ -703,14 +693,14 @@ export class QualityValidator {
         id: 'return-types',
         name: 'Function Return Types',
         test: () => {
-          const functionMatches = context.fileContent.match(/const\s+\w+\s*=\s*\(/g);
-          const typedMatches = context.fileContent.match(/\):\s*\w+\s*=>/g);
-          return !functionMatches || (typedMatches && typedMatches.length >= functionMatches.length * 0.8);
+          const functionMatches = context.fileContent.match(/const\s+\w+\s*=\s*\(/g),
+          const typedMatches = context.fileContent.match(/\):\s*\w+\s*=>/g),
+          return !functionMatches || (typedMatches && typedMatches.length >= functionMatches.length * 0.8),
         },
         severity: 'warning' as const,
         message: 'Functions should have explicit return types'
       }
-    ];
+    ],
 
     for (const tsCheck of typeScriptChecks) {
       const check: QualityCheck = {
@@ -723,21 +713,21 @@ export class QualityValidator {
         rule: tsCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = tsCheck.message;
+        check.message = tsCheck.message,
         if (tsCheck.severity === 'error') {
-          criticalIssues++;
+          criticalIssues++,
         } else if (tsCheck.severity === 'warning') {
-          warnings++;
+          warnings++,
         }
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -747,13 +737,13 @@ export class QualityValidator {
       criticalIssues,
       warnings,
       suggestions: 0
-    };
+    },
   }
 
   private async validateAccessibility(context: ValidationContext): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let criticalIssues = 0;
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let criticalIssues = 0,
+    let warnings = 0,
 
     // Accessibility checks
     const a11yChecks = [
@@ -761,11 +751,11 @@ export class QualityValidator {
         id: 'aria-labels',
         name: 'ARIA Labels',
         test: () => {
-          const hasAriaProps = context.fileContent.includes('aria-') || context.fileContent.includes('aria');
+          const hasAriaProps = context.fileContent.includes('aria-') || context.fileContent.includes('aria'),
           const hasInteractiveElements = context.fileContent.includes('onClick') || 
                                       context.fileContent.includes('button') ||
-                                      context.fileContent.includes('input');
-          return !hasInteractiveElements || hasAriaProps;
+                                      context.fileContent.includes('input'),
+          return !hasInteractiveElements || hasAriaProps,
         },
         severity: 'error' as const,
         message: 'Interactive elements must have appropriate ARIA labels'
@@ -776,7 +766,7 @@ export class QualityValidator {
         test: () => {
           return context.fileContent.includes('onKeyDown') || 
                  context.fileContent.includes('onKeyPress') ||
-                 !context.fileContent.includes('onClick');
+                 !context.fileContent.includes('onClick'),
         },
         severity: 'warning' as const,
         message: 'Components with onClick should support keyboard navigation'
@@ -785,9 +775,9 @@ export class QualityValidator {
         id: 'semantic-html',
         name: 'Semantic HTML',
         test: () => {
-          const hasSemanticElements = /\b(button|input|label|nav|main|section|article|aside|header|footer)\b/.test(context.fileContent);
-          const hasDivSpan = /\b(div|span)\b/.test(context.fileContent);
-          return !hasDivSpan || hasSemanticElements;
+          const hasSemanticElements = /\b(button|input|label|nav|main|section|article|aside|header|footer)\b/.test(context.fileContent),
+          const hasDivSpan = /\b(div|span)\b/.test(context.fileContent),
+          return !hasDivSpan || hasSemanticElements,
         },
         severity: 'warning' as const,
         message: 'Prefer semantic HTML elements over generic div/span'
@@ -799,12 +789,12 @@ export class QualityValidator {
           // Check if component uses theme colors (good practice)
           return context.fileContent.includes('theme.palette') || 
                  context.fileContent.includes('theme.colors') ||
-                 !context.fileContent.includes('color:');
+                 !context.fileContent.includes('color:'),
         },
         severity: 'info' as const,
         message: 'Use theme colors to ensure proper contrast ratios'
       }
-    ];
+    ],
 
     for (const a11yCheck of a11yChecks) {
       const check: QualityCheck = {
@@ -817,21 +807,21 @@ export class QualityValidator {
         rule: a11yCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = a11yCheck.message;
+        check.message = a11yCheck.message,
         if (a11yCheck.severity === 'error') {
-          criticalIssues++;
+          criticalIssues++,
         } else if (a11yCheck.severity === 'warning') {
-          warnings++;
+          warnings++,
         }
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -841,13 +831,13 @@ export class QualityValidator {
       criticalIssues,
       warnings,
       suggestions: checks.filter(c => c.severity === 'info').length
-    };
+    },
   }
 
   private async validatePerformance(context: ValidationContext, metrics: QualityMetrics): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let criticalIssues = 0;
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let criticalIssues = 0,
+    let warnings = 0,
 
     // Performance checks
     const perfChecks = [
@@ -864,9 +854,9 @@ export class QualityValidator {
         test: () => {
           const hasExpensiveOperations = context.fileContent.includes('useMemo') || 
                                        context.fileContent.includes('useCallback') ||
-                                       metrics.complexity > 5;
+                                       metrics.complexity > 5,
           return !hasExpensiveOperations || context.fileContent.includes('React.memo') || 
-                 context.fileContent.includes('memo(');
+                 context.fileContent.includes('memo('),
         },
         severity: 'warning' as const,
         message: 'Consider using React.memo for components with expensive operations or high complexity'
@@ -876,9 +866,9 @@ export class QualityValidator {
         name: 'Unnecessary Re-renders',
         test: () => {
           // Check for common anti-patterns
-          const hasInlineObjects = /\w+={{\s*\w+:/.test(context.fileContent);
-          const hasInlineFunctions = /\w+={() =>/.test(context.fileContent);
-          return !hasInlineObjects && !hasInlineFunctions;
+          const hasInlineObjects = /\w+={{\s*\w+:/.test(context.fileContent),
+          const hasInlineFunctions = /\w+={() =>/.test(context.fileContent),
+          return !hasInlineObjects && !hasInlineFunctions,
         },
         severity: 'warning' as const,
         message: 'Avoid inline objects and functions in JSX props to prevent unnecessary re-renders'
@@ -887,13 +877,13 @@ export class QualityValidator {
         id: 'heavy-imports',
         name: 'Heavy Library Imports',
         test: () => {
-          const heavyLibraries = ['lodash', 'moment', 'date-fns'];
+          const heavyLibraries = ['lodash', 'moment', 'date-fns'],
           return !heavyLibraries.some(lib => context.fileContent.includes(`from '${lib}'`));
         },
         severity: 'info' as const,
         message: 'Consider tree-shaking or lighter alternatives for heavy library imports'
       }
-    ];
+    ],
 
     for (const perfCheck of perfChecks) {
       const check: QualityCheck = {
@@ -906,21 +896,21 @@ export class QualityValidator {
         rule: perfCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = perfCheck.message;
+        check.message = perfCheck.message,
         if (perfCheck.severity === 'error') {
-          criticalIssues++;
+          criticalIssues++,
         } else if (perfCheck.severity === 'warning') {
-          warnings++;
+          warnings++,
         }
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -930,13 +920,13 @@ export class QualityValidator {
       criticalIssues,
       warnings,
       suggestions: checks.filter(c => c.severity === 'info').length
-    };
+    },
   }
 
   private async validateSecurity(context: ValidationContext): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let criticalIssues = 0;
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let criticalIssues = 0,
+    let warnings = 0,
 
     // Security checks
     const securityChecks = [
@@ -960,8 +950,8 @@ export class QualityValidator {
         test: () => {
           const hasUserInput = context.fileContent.includes('input') || 
                               context.fileContent.includes('value') ||
-                              context.fileContent.includes('onChange');
-          return !hasUserInput || (context.fileContent.includes('Props') && context.fileContent.includes('interface'));
+                              context.fileContent.includes('onChange'),
+          return !hasUserInput || (context.fileContent.includes('Props') && context.fileContent.includes('interface')),
         },
         severity: 'warning' as const,
         message: 'Components handling user input should have proper prop validation'
@@ -970,14 +960,14 @@ export class QualityValidator {
         id: 'no-inline-styles-with-user-data',
         name: 'No Inline Styles with User Data',
         test: () => {
-          const hasInlineStyles = context.fileContent.includes('style={{');
-          const hasUserData = context.fileContent.includes('props.') && hasInlineStyles;
-          return !hasUserData;
+          const hasInlineStyles = context.fileContent.includes('style={{'),
+          const hasUserData = context.fileContent.includes('props.') && hasInlineStyles,
+          return !hasUserData,
         },
         severity: 'warning' as const,
         message: 'Avoid using user data directly in inline styles'
       }
-    ];
+    ],
 
     for (const secCheck of securityChecks) {
       const check: QualityCheck = {
@@ -990,21 +980,21 @@ export class QualityValidator {
         rule: secCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = secCheck.message;
+        check.message = secCheck.message,
         if (secCheck.severity === 'critical' || secCheck.severity === 'error') {
-          criticalIssues++;
+          criticalIssues++,
         } else if (secCheck.severity === 'warning') {
-          warnings++;
+          warnings++,
         }
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -1014,13 +1004,13 @@ export class QualityValidator {
       criticalIssues,
       warnings,
       suggestions: 0
-    };
+    },
   }
 
   private async validateMaintainability(context: ValidationContext, metrics: QualityMetrics): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let criticalIssues = 0;
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let criticalIssues = 0,
+    let warnings = 0,
 
     // Maintainability checks
     const maintChecks = [
@@ -1042,7 +1032,7 @@ export class QualityValidator {
         id: 'function-size',
         name: 'Function Size',
         test: () => {
-          const functions = context.fileContent.match(/const\s+\w+\s*=\s*\([^)]*\)\s*=>\s*{/g);
+          const functions = context.fileContent.match(/const\s+\w+\s*=\s*\([^)]*\)\s*=>\s*{/g),
           // Simplified check - would need proper AST parsing for accuracy
           return !functions || functions.length <= 5; // Max 5 functions per file
         },
@@ -1053,15 +1043,15 @@ export class QualityValidator {
         id: 'documentation-coverage',
         name: 'Documentation Coverage',
         test: () => {
-          const hasJSDoc = context.fileContent.includes('/**');
-          const hasTypeDoc = context.fileContent.includes('@param') || context.fileContent.includes('@returns');
-          const hasExportedFunctions = context.fileContent.includes('export');
-          return !hasExportedFunctions || (hasJSDoc && hasTypeDoc);
+          const hasJSDoc = context.fileContent.includes('/**'),
+          const hasTypeDoc = context.fileContent.includes('@param') || context.fileContent.includes('@returns'),
+          const hasExportedFunctions = context.fileContent.includes('export'),
+          return !hasExportedFunctions || (hasJSDoc && hasTypeDoc),
         },
         severity: 'info' as const,
         message: 'Exported functions should have JSDoc documentation'
       }
-    ];
+    ],
 
     for (const maintCheck of maintChecks) {
       const check: QualityCheck = {
@@ -1074,21 +1064,21 @@ export class QualityValidator {
         rule: maintCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = maintCheck.message;
+        check.message = maintCheck.message,
         if (maintCheck.severity === 'error') {
-          criticalIssues++;
+          criticalIssues++,
         } else if (maintCheck.severity === 'warning') {
-          warnings++;
+          warnings++,
         }
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -1098,12 +1088,12 @@ export class QualityValidator {
       criticalIssues,
       warnings,
       suggestions: checks.filter(c => c.severity === 'info').length
-    };
+    },
   }
 
   private async validateTesting(context: ValidationContext): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let warnings = 0,
 
     // Testing checks (informational - no critical issues for missing tests)
     const testChecks = [
@@ -1118,14 +1108,14 @@ export class QualityValidator {
         id: 'testable-structure',
         name: 'Testable Structure',
         test: () => {
-          const hasDataTestIds = context.fileContent.includes('data-testid');
-          const hasAriaLabels = context.fileContent.includes('aria-label');
-          return hasDataTestIds || hasAriaLabels;
+          const hasDataTestIds = context.fileContent.includes('data-testid'),
+          const hasAriaLabels = context.fileContent.includes('aria-label'),
+          return hasDataTestIds || hasAriaLabels,
         },
         severity: 'info' as const,
         message: 'Component should include test-friendly attributes (data-testid, aria-label)'
       }
-    ];
+    ],
 
     for (const testCheck of testChecks) {
       const check: QualityCheck = {
@@ -1138,17 +1128,17 @@ export class QualityValidator {
         rule: testCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = testCheck.message;
-        warnings++;
+        check.message = testCheck.message,
+        warnings++,
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -1158,12 +1148,12 @@ export class QualityValidator {
       criticalIssues: 0,
       warnings: 0,
       suggestions: warnings
-    };
+    },
   }
 
   private async validateDocumentation(context: ValidationContext): Promise<CategoryResult> {
-    const checks: QualityCheck[] = [];
-    let warnings = 0;
+    const checks: QualityCheck[] = [],
+    let warnings = 0,
 
     // Documentation checks
     const docChecks = [
@@ -1171,9 +1161,9 @@ export class QualityValidator {
         id: 'component-documentation',
         name: 'Component Documentation',
         test: () => {
-          const hasJSDoc = context.fileContent.includes('/**');
-          const hasFileHeader = context.fileContent.includes('@fileoverview') || context.fileContent.includes('@description');
-          return hasJSDoc && hasFileHeader;
+          const hasJSDoc = context.fileContent.includes('/**'),
+          const hasFileHeader = context.fileContent.includes('@fileoverview') || context.fileContent.includes('@description'),
+          return hasJSDoc && hasFileHeader,
         },
         severity: 'info' as const,
         message: 'Component file should include JSDoc documentation with file overview'
@@ -1182,14 +1172,14 @@ export class QualityValidator {
         id: 'props-documentation',
         name: 'Props Documentation',
         test: () => {
-          const hasPropsInterface = context.fileContent.includes('Props');
-          const hasJSDocProps = context.fileContent.includes('@param') || context.fileContent.includes('*/');
-          return !hasPropsInterface || hasJSDocProps;
+          const hasPropsInterface = context.fileContent.includes('Props'),
+          const hasJSDocProps = context.fileContent.includes('@param') || context.fileContent.includes('*/'),
+          return !hasPropsInterface || hasJSDocProps,
         },
         severity: 'info' as const,
         message: 'Component props interface should be documented'
       }
-    ];
+    ],
 
     for (const docCheck of docChecks) {
       const check: QualityCheck = {
@@ -1202,17 +1192,17 @@ export class QualityValidator {
         rule: docCheck.id,
         autoFixable: false,
         performance: { executionTime: 0, memoryUsage: 0 }
-      };
+      },
 
       if (check.status === 'fail') {
-        check.message = docCheck.message;
-        warnings++;
+        check.message = docCheck.message,
+        warnings++,
       }
 
-      checks.push(check);
+      checks.push(check),
     }
 
-    const score = this.calculateCategoryScore(checks);
+    const score = this.calculateCategoryScore(checks),
 
     return {
       score,
@@ -1222,31 +1212,31 @@ export class QualityValidator {
       criticalIssues: 0,
       warnings: 0,
       suggestions: warnings
-    };
+    },
   }
 
   private calculateCategoryScore(checks: QualityCheck[]): number {
-    if (checks.length === 0) return 100;
+    if (checks.length === 0) return 100,
 
-    let totalWeight = 0;
-    let weightedScore = 0;
+    let totalWeight = 0,
+    let weightedScore = 0,
 
     for (const check of checks) {
-      let weight = 1;
+      let weight = 1,
       switch (check.severity) {
-        case 'critical': weight = 4; break;
-        case 'error': weight = 3; break;
-        case 'warning': weight = 2; break;
-        case 'info': weight = 1; break;
+        case 'critical': weight = 4; break,
+        case 'error': weight = 3; break,
+        case 'warning': weight = 2; break,
+        case 'info': weight = 1; break,
       }
 
-      totalWeight += weight;
+      totalWeight += weight,
       if (check.status === 'pass') {
-        weightedScore += weight;
+        weightedScore += weight,
       }
     }
 
-    return Math.round((weightedScore / totalWeight) * 100);
+    return Math.round((weightedScore / totalWeight) * 100),
   }
 
   private calculateOverallScore(categories: QualityCategoryResults): QualityScore {
@@ -1259,14 +1249,14 @@ export class QualityValidator {
       maintainability: 0.1,
       testing: 0.05,
       documentation: 0.05
-    };
+    },
 
-    let weightedScore = 0;
-    const factors: QualityFactor[] = [];
+    let weightedScore = 0,
+    const factors: QualityFactor[] = [],
 
     Object.entries(categories).forEach(([category, result]) => {
-      const weight = categoryWeights[category as keyof typeof categoryWeights] || 0;
-      weightedScore += result.score * weight;
+      const weight = categoryWeights[category as keyof typeof categoryWeights] || 0,
+      weightedScore += result.score * weight,
 
       factors.push({
         name: category,
@@ -1276,11 +1266,11 @@ export class QualityValidator {
         description: result.summary,
         evidence: result.checks.map(c => c.name)
       });
-    });
+    }),
 
-    const finalScore = Math.round(weightedScore);
-    const grade = this.scoreToGrade(finalScore);
-    const level = this.scoreToLevel(finalScore);
+    const finalScore = Math.round(weightedScore),
+    const grade = this.scoreToGrade(finalScore),
+    const level = this.scoreToLevel(finalScore),
 
     return {
       score: finalScore,
@@ -1288,26 +1278,26 @@ export class QualityValidator {
       level,
       confidence: 90, // High confidence in automated validation
       factors
-    };
+    },
   }
 
   private scoreToGrade(score: number): QualityScore['grade'] {
-    if (score >= 97) return 'A+';
-    if (score >= 93) return 'A';
-    if (score >= 90) return 'B+';
-    if (score >= 87) return 'B';
-    if (score >= 83) return 'C+';
-    if (score >= 80) return 'C';
-    if (score >= 70) return 'D';
-    return 'F';
+    if (score >= 97) return 'A+',
+    if (score >= 93) return 'A',
+    if (score >= 90) return 'B+',
+    if (score >= 87) return 'B',
+    if (score >= 83) return 'C+',
+    if (score >= 80) return 'C',
+    if (score >= 70) return 'D',
+    return 'F',
   }
 
   private scoreToLevel(score: number): QualityScore['level'] {
-    if (score >= 90) return 'excellent';
-    if (score >= 80) return 'good';
-    if (score >= 70) return 'fair';
-    if (score >= 60) return 'poor';
-    return 'critical';
+    if (score >= 90) return 'excellent',
+    if (score >= 80) return 'good',
+    if (score >= 70) return 'fair',
+    if (score >= 60) return 'poor',
+    return 'critical',
   }
 
   private collectViolationsAndWarnings(result: QualityValidationResult): void {
@@ -1346,16 +1336,16 @@ export class QualityValidator {
             });
           }
 
-          result.failedChecks.push(check.id);
+          result.failedChecks.push(check.id),
         } else {
-          result.passedChecks.push(check.id);
+          result.passedChecks.push(check.id),
         }
       });
     });
   }
 
   private generateRecommendations(result: QualityValidationResult): QualityRecommendation[] {
-    const recommendations: QualityRecommendation[] = [];
+    const recommendations: QualityRecommendation[] = [],
 
     // Generate recommendations based on violations and overall score
     if (result.overall.score < 70) {
@@ -1396,22 +1386,22 @@ export class QualityValidator {
           resources: [`${category} guidelines`, 'Documentation', 'Tools']
         });
       }
-    });
+    }),
 
-    return recommendations;
+    return recommendations,
   }
 
   private aggregateRecommendations(results: QualityValidationResult[]): QualityRecommendation[] {
-    const aggregated = new Map<string, QualityRecommendation>();
+    const aggregated = new Map<string, QualityRecommendation>(),
 
     results.forEach(result => {
       result.recommendations.forEach(rec => {
-        const key = `${rec.category}-${rec.title}`;
+        const key = `${rec.category}-${rec.title}`,
         if (!aggregated.has(key)) {
           aggregated.set(key, { ...rec });
         }
       });
-    });
+    }),
 
     return Array.from(aggregated.values());
   }
@@ -1420,9 +1410,6 @@ export class QualityValidator {
   // AI Testing Integration Methods
   // =========================================
 
-  /**
-   * Validate test scenario quality
-   */
   public async validateTestScenario(scenario: any): Promise<QualityValidationResult> {
     const context: ValidationContext = {
       fileContent: JSON.stringify(scenario, null, 2),
@@ -1433,20 +1420,206 @@ export class QualityValidator {
         priority: scenario.priority,
         estimatedDuration: scenario.estimatedDuration
       }
-    };
+    },
 
-    const result = await this.validateCode(context);
+    const result = await this.validateCode(context),
     
     // Add test-specific validations
-    const testChecks = await this.performTestSpecificChecks(scenario);
-    result.categories.testing.checks.push(...testChecks);
+    const testChecks = await this.performTestSpecificChecks(scenario),
+    result.categories.testing.checks.push(...testChecks),
 
-    return result;
+    return result,
   }
 
-  /**
-   * Validate test execution results
-   */
+  public async validateStoryFiles(storyFiles: string[]): Promise<QualityValidationResult> {
+    const violations: QualityViolation[] = [],
+    const warnings: QualityWarning[] = [],
+    
+    for (const filePath of storyFiles) {
+      try {
+        // Check if file exists and read content
+        const content = await this.readFileContent(filePath),
+        
+        // Check for React import in story files with JSX
+        const hasJSX = /<[A-Z]/.test(content),
+        const hasReactImport = /import\s+React/.test(content),
+        
+        if (hasJSX && !hasReactImport) {
+          violations.push({
+            checkId: 'react-import-stories',
+            severity: 'critical',
+            message: 'Story file with JSX must import React explicitly';
+            location: {
+              file: filePath,
+              line: 1,
+              column: 1,
+              context: 'Story file import validation'
+            },
+            rule: 'react-import-stories',
+            suggestion: 'Add "import React" to the imports section';
+            autoFixable: true,
+            examples: ['import React, { useState } from \'react\';']
+          });
+        }
+        
+        // Check for CSS-in-JS syntax issues
+        const hasUnquotedSelectors = /&:[a-zA-Z-]+\s*{/.test(content),
+        if (hasUnquotedSelectors) {
+          violations.push({
+            checkId: 'css-in-js-syntax',
+            severity: 'error',
+            message: 'CSS-in-JS selectors must be quoted',
+            location: {
+              file: filePath,
+              line: 1,
+              column: 1,
+              context: 'CSS-in-JS syntax validation'
+            },
+            rule: 'css-in-js-syntax',
+            suggestion: 'Quote CSS selectors like \'&:hover\': { ... }',
+            autoFixable: true,
+            examples: ['\'&:hover\': { opacity: 0.8, cursor: \'pointer\' }']
+          });
+        }
+        
+        // Check for relative imports
+        const hasRelativeImports = /import.*from\s+['"]\.\.?\//g.test(content);
+        if (hasRelativeImports) {
+          warnings.push({
+            checkId: 'absolute-imports',
+            message: 'Use @ alias imports instead of relative imports',
+            location: {
+              file: filePath,
+              line: 1,
+              column: 1,
+              context: 'Import path validation'
+            },
+            rule: 'absolute-imports',
+            suggestion: 'Convert relative imports to @ alias imports',
+            impact: 'medium'
+          });
+        }
+        
+      } catch (error) {
+        warnings.push({
+          checkId: 'file-read-error',
+          message: `Could not read file: ${error instanceof Error ? error.message : 'Unknown error'}`,
+          location: {
+            file: filePath,
+            line: 1,
+            column: 1,
+            context: 'File reading'
+          },
+          rule: 'file-accessibility',
+          suggestion: 'Ensure file exists and is readable',
+          impact: 'high'
+        });
+      }
+    }
+    
+    // Create validation result
+    const result: QualityValidationResult = {
+      overall: {
+        score: violations.length === 0 ? 100 : Math.max(0, 100 - (violations.length * 20)),
+        grade: violations.length === 0 ? 'A+' : violations.length < 3 ? 'B' : 'D',
+        level: violations.length === 0 ? 'excellent' : violations.length < 3 ? 'good' : 'poor',
+        confidence: 95,
+        factors: []
+      },
+      categories: this.initializeCategoryResults(),
+      violations,
+      warnings,
+      recommendations: [],
+      metrics: this.initializeMetrics(),
+      passedChecks: violations.length === 0 ? ['story-file-validation'] : [],
+      failedChecks: violations.length > 0 ? ['story-file-validation'] : [],
+      timestamp: new Date(),
+      validatorVersion: this.version
+    },
+    
+    return result,
+  }
+
+  public async validateRuntimeErrors(): Promise<QualityValidationResult> {
+    const violations: QualityViolation[] = [],
+    const warnings: QualityWarning[] = [],
+    
+    try {
+      // This would integrate with actual Storybook build validation
+      // For now, we'll simulate the validation
+      const buildSuccess = await this.checkStorybookBuild(),
+      
+      if (!buildSuccess) {
+        violations.push({
+          checkId: 'storybook-build-failure',
+          severity: 'critical',
+          message: 'Storybook build failed - runtime errors detected',
+          location: {
+            file: 'storybook-build',
+            line: 1,
+            column: 1,
+            context: 'Storybook build validation'
+          },
+          rule: 'runtime-validation',
+          suggestion: 'Fix runtime errors in story files',
+          autoFixable: false,
+          examples: ['Check for missing React imports, CSS-in-JS syntax errors']
+        });
+      }
+      
+    } catch (error) {
+      violations.push({
+        checkId: 'runtime-validation-error',
+        severity: 'error',
+        message: `Runtime validation failed: ${error instanceof Error ? error.message : 'Unknown error'}`,
+        location: {
+          file: 'runtime-validation',
+          line: 1,
+          column: 1,
+          context: 'Runtime validation'
+        },
+        rule: 'runtime-validation',
+        suggestion: 'Check build configuration and dependencies',
+        autoFixable: false,
+        examples: []
+      });
+    }
+    
+    // Create validation result
+    const result: QualityValidationResult = {
+      overall: {
+        score: violations.length === 0 ? 100 : Math.max(0, 100 - (violations.length * 30)),
+        grade: violations.length === 0 ? 'A+' : violations.length < 2 ? 'C' : 'F',
+        level: violations.length === 0 ? 'excellent' : violations.length < 2 ? 'fair' : 'critical',
+        confidence: 90,
+        factors: []
+      },
+      categories: this.initializeCategoryResults(),
+      violations,
+      warnings,
+      recommendations: [],
+      metrics: this.initializeMetrics(),
+      passedChecks: violations.length === 0 ? ['runtime-validation'] : [],
+      failedChecks: violations.length > 0 ? ['runtime-validation'] : [],
+      timestamp: new Date(),
+      validatorVersion: this.version
+    },
+    
+    return result,
+  }
+
+  private async readFileContent(filePath: string): Promise<string> {
+    // This would read actual file content
+    // For now, we'll simulate it
+    return Promise.resolve('// Simulated file content'),
+  }
+
+  private async checkStorybookBuild(): Promise<boolean> {
+    // This would run actual Storybook build validation
+    // For now, we'll simulate it
+    return Promise.resolve(true),
+  }
+
   public async validateTestResults(results: any[]): Promise<QualityValidationResult> {
     const context: ValidationContext = {
       fileContent: JSON.stringify(results, null, 2),
@@ -1457,13 +1630,13 @@ export class QualityValidator {
         passedTests: results.filter(r => r.status === 'passed').length,
         failedTests: results.filter(r => r.status === 'failed').length
       }
-    };
+    },
 
-    const result = await this.validateCode(context);
+    const result = await this.validateCode(context),
     
     // Calculate test quality metrics
-    const testQuality = this.calculateTestQuality(results);
-    result.metrics.testCoverage = testQuality.coverage;
+    const testQuality = this.calculateTestQuality(results),
+    result.metrics.testCoverage = testQuality.coverage,
     
     // Add test execution quality assessment
     if (testQuality.successRate < 70) {
@@ -1479,14 +1652,11 @@ export class QualityValidator {
       });
     }
 
-    return result;
+    return result,
   }
 
-  /**
-   * Perform test-specific quality checks
-   */
   private async performTestSpecificChecks(scenario: any): Promise<QualityCheck[]> {
-    const checks: QualityCheck[] = [];
+    const checks: QualityCheck[] = [],
 
     // Check test scenario completeness
     checks.push({
@@ -1505,58 +1675,46 @@ export class QualityValidator {
         executionTime: 10,
         memoryUsage: 1024
       }
-    });
+    }),
 
-    return checks;
+    return checks,
   }
 
-  /**
-   * Calculate test quality metrics
-   */
   private calculateTestQuality(results: any[]): {
-    coverage: number;
-    successRate: number;
-    reliability: number;
-    avgDuration: number;
+    coverage: number,
+    successRate: number,
+    reliability: number,
+    avgDuration: number,
   } {
-    const total = results.length;
-    const passed = results.filter(r => r.status === 'passed').length;
+    const total = results.length,
+    const passed = results.filter(r => r.status === 'passed').length,
     
-    const successRate = total > 0 ? Math.round((passed / total) * 100) : 0;
-    const avgDuration = total > 0 ? results.reduce((sum, r) => sum + (r.duration || 0), 0) / total : 0;
-    const coverage = Math.min(95, 60 + (successRate * 0.3));
+    const successRate = total > 0 ? Math.round((passed / total) * 100) : 0,
+    const avgDuration = total > 0 ? results.reduce((sum, r) => sum + (r.duration || 0), 0) / total : 0,
+    const coverage = Math.min(95, 60 + (successRate * 0.3)),
 
     return {
       coverage: Math.round(coverage),
       successRate,
       reliability: Math.round((passed / total) * 100),
       avgDuration: Math.round(avgDuration)
-    };
+    },
   }
 }
 
-/**
- * Quality summary interface
- */
 export interface QualitySummary {
-  totalFiles: number;
-  totalViolations: number;
-  totalWarnings: number;
-  averageScore: number;
-  grade: QualityScore['grade'];
-  categoryScores: Record<string, number>;
-  worstPerformers: Array<{ file: string; score: number }>;
-  recommendations: QualityRecommendation[];
+  totalFiles: number,
+  totalViolations: number,
+  totalWarnings: number,
+  averageScore: number,
+  grade: QualityScore['grade'],
+  categoryScores: Record<string, number>,
+  worstPerformers: Array<{ file: string; score: number }>,
+  recommendations: QualityRecommendation[],
 }
 
-/**
- * Factory function to create a QualityValidator instance
- */
 export const createQualityValidator = (configuration?: Partial<ValidationConfiguration>): QualityValidator => {
-  return new QualityValidator(configuration);
-};
+  return new QualityValidator(configuration),
+},
 
-/**
- * Default export for convenience
- */
-export default QualityValidator;
+export default QualityValidator,

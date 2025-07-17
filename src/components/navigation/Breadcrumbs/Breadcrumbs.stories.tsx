@@ -6,20 +6,23 @@
  * states, and interactive behaviors with comprehensive examples.
  */
 
-import type { Meta, StoryObj } from '@storybook/react';
+// TODO: Replace with internal icon wrappers when available
+// import { 
+//   Home, 
+//   Category, 
+//   ShoppingCart, 
+//   Person, 
+//   Settings,
+//   Folder,
+//   Description,
+//   Dashboard,
+//   BusinessCenter,
+//   School,
+// } from '@mui/icons-material';
 import { action } from '@storybook/addon-actions';
-import { 
-  Home, 
-  Category, 
-  ShoppingCart, 
-  Person, 
-  Settings,
-  Folder,
-  Description,
-  Dashboard,
-  BusinessCenter,
-  School,
-} from '@mui/icons-material';
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
+import React from 'react';
 
 import { Breadcrumbs } from './Breadcrumbs';
 import type { BreadcrumbsProps } from './Breadcrumbs.types';
@@ -83,15 +86,15 @@ type Story = StoryObj<typeof Breadcrumbs>;
 
 // Sample breadcrumb data
 const basicItems = [
-  { id: '1', label: 'Home', href: '/', icon: <Home fontSize="small" /> },
-  { id: '2', label: 'Category', href: '/category', icon: <Category fontSize="small" /> },
+  { id: '1', label: 'Home', href: '/', icon: <span>🏠</span> },
+  { id: '2', label: 'Category', href: '/category', icon: <span>📂</span> },
   { id: '3', label: 'Product', current: true }
 ];
 
 const longItems = [
-  { id: '1', label: 'Home', href: '/', icon: <Home fontSize="small" /> },
-  { id: '2', label: 'Dashboard', href: '/dashboard', icon: <Dashboard fontSize="small" /> },
-  { id: '3', label: 'Projects', href: '/projects', icon: <BusinessCenter fontSize="small" /> },
+  { id: '1', label: 'Home', href: '/', icon: <span>🏠</span> },
+  { id: '2', label: 'Dashboard', href: '/dashboard', icon: <span>📊</span> },
+  { id: '3', label: 'Projects', href: '/projects', icon: <span>💼</span> },
   { id: '4', label: 'Web Application', href: '/projects/web-app' },
   { id: '5', label: 'Components', href: '/projects/web-app/components' },
   { id: '6', label: 'Navigation', href: '/projects/web-app/components/navigation' },
@@ -206,13 +209,13 @@ export const WithClickHandlers: Story = {
         id: '1', 
         label: 'Home', 
         onClick: action('Navigate to Home'),
-        icon: <Home fontSize="small" /> 
+        icon: <span>🏠</span> 
       },
       { 
         id: '2', 
         label: 'Products', 
         onClick: action('Navigate to Products'),
-        icon: <ShoppingCart fontSize="small" /> 
+        icon: <span>🛒</span> 
       },
       { 
         id: '3', 
@@ -231,9 +234,9 @@ export const WithClickHandlers: Story = {
 export const MixedLinksAndButtons: Story = {
   args: {
     items: [
-      { id: '1', label: 'Home', href: '/', icon: <Home fontSize="small" /> },
-      { id: '2', label: 'Profile', onClick: action('Open Profile'), icon: <Person fontSize="small" /> },
-      { id: '3', label: 'Settings', href: '/settings', icon: <Settings fontSize="small" /> },
+      { id: '1', label: 'Home', href: '/', icon: <span>🏠</span> },
+      { id: '2', label: 'Profile', onClick: action('Open Profile'), icon: <span>👤</span> },
+      { id: '3', label: 'Settings', href: '/settings', icon: <span>⚙️</span> },
       { id: '4', label: 'Privacy', current: true }
     ],
   }
@@ -250,8 +253,8 @@ export const DisabledBreadcrumbs: Story = {
 export const WithDisabledItems: Story = {
   args: {
     items: [
-      { id: '1', label: 'Home', href: '/', icon: <Home fontSize="small" /> },
-      { id: '2', label: 'Restricted Area', disabled: true, icon: <Settings fontSize="small" /> },
+      { id: '1', label: 'Home', href: '/', icon: <span>🏠</span> },
+      { id: '2', label: 'Restricted Area', disabled: true, icon: <span>⚙️</span> },
       { id: '3', label: 'Current Page', current: true }
     ],
   }
@@ -261,11 +264,11 @@ export const WithDisabledItems: Story = {
 export const FileSystemNavigation: Story = {
   args: {
     items: [
-      { id: '1', label: 'Root', href: '/', icon: <Folder fontSize="small" /> },
-      { id: '2', label: 'Documents', href: '/documents', icon: <Folder fontSize="small" /> },
-      { id: '3', label: 'Projects', href: '/documents/projects', icon: <Folder fontSize="small" /> },
-      { id: '4', label: 'Website', href: '/documents/projects/website', icon: <Folder fontSize="small" /> },
-      { id: '5', label: 'index.html', current: true, icon: <Description fontSize="small" /> }
+      { id: '1', label: 'Root', href: '/', icon: <span>📁</span> },
+      { id: '2', label: 'Documents', href: '/documents', icon: <span>📁</span> },
+      { id: '3', label: 'Projects', href: '/documents/projects', icon: <span>📁</span> },
+      { id: '4', label: 'Website', href: '/documents/projects/website', icon: <span>📁</span> },
+      { id: '5', label: 'index.html', current: true, icon: <span>📄</span> }
     ],
     separator: 'slash',
   }
@@ -274,8 +277,8 @@ export const FileSystemNavigation: Story = {
 export const EcommerceCatalog: Story = {
   args: {
     items: [
-      { id: '1', label: 'Store', href: '/', icon: <Home fontSize="small" /> },
-      { id: '2', label: 'Electronics', href: '/electronics', icon: <Category fontSize="small" /> },
+      { id: '1', label: 'Store', href: '/', icon: <span>🏠</span> },
+      { id: '2', label: 'Electronics', href: '/electronics', icon: <span>📂</span> },
       { id: '3', label: 'Computers', href: '/electronics/computers' },
       { id: '4', label: 'Laptops', href: '/electronics/computers/laptops' },
       { id: '5', label: 'Gaming Laptops', href: '/electronics/computers/laptops/gaming' },
@@ -292,7 +295,7 @@ export const EcommerceCatalog: Story = {
 export const EducationalPlatform: Story = {
   args: {
     items: [
-      { id: '1', label: 'Learning Platform', href: '/', icon: <School fontSize="small" /> },
+      { id: '1', label: 'Learning Platform', href: '/', icon: <span>🏫</span> },
       { id: '2', label: 'Computer Science', href: '/courses/computer-science' },
       { id: '3', label: 'Web Development', href: '/courses/computer-science/web-dev' },
       { id: '4', label: 'React Course', href: '/courses/computer-science/web-dev/react' },
@@ -329,7 +332,7 @@ export const AccessibilityExample: Story = {
         label: 'Home', 
         href: '/', 
         'aria-label': 'Navigate to homepage',
-        icon: <Home fontSize="small" /> 
+        icon: <span>🏠</span> 
       },
       { 
         id: '2', 

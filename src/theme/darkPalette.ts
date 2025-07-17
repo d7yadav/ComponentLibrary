@@ -1,14 +1,6 @@
-/**
- * @fileoverview OLED-friendly dark theme palette
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 import type { PaletteOptions } from '@mui/material/styles';
 
-/**
- * OLED-Optimized Dark Theme Palette
- * Uses true blacks for OLED displays and enhanced contrast
- */
 export const darkPalette: PaletteOptions = {
   mode: 'dark',
   primary: {
@@ -75,5 +67,5 @@ export const darkPalette: PaletteOptions = {
     selected: 'rgba(255, 255, 255, 0.12)',
     disabled: 'rgba(255, 255, 255, 0.26)',
     disabledBackground: 'rgba(255, 255, 255, 0.12)',
-  },
+  }
 };

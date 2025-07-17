@@ -1,0 +1,27 @@
+{
+  "component": "List",
+  "generated": "2025-07-14T08:19:00.481Z",
+  "scenarios": [
+    {
+      "id": "List-smoke",
+      "name": "List Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for List",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "List-interaction",
+      "name": "List Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for List",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "List-accessibility",
+      "name": "List Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for List",
+      "estimatedDuration": 1200
+    }
+  ]
+}

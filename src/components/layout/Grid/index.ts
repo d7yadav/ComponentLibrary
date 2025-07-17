@@ -1,8 +1,3 @@
-/**
- * @fileoverview Grid component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Grid } from './Grid';
 export type { 
   GridProps, 

@@ -1,15 +1,71 @@
-/**
- * @fileoverview Typography system configuration
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 // Typography types are part of the Theme interface in MUI v7
-type TypographyOptions = Record<string, any>;
+type TypographyOptions = {
+  fontFamily: string;
+  fontSize: number;
+  fontWeightLight: number;
+  fontWeightRegular: number;
+  fontWeightMedium: number;
+  fontWeightBold: number;
+  h1: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  h2: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  h3: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  h4: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  h5: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  h6: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  body1: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  body2: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  button: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+    textTransform: string;
+  };
+  caption: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+  };
+  overline: {
+    fontSize: string;
+    fontWeight: number;
+    lineHeight: number;
+    textTransform: string;
+  };
+};
 
-/**
- * AI-Enhanced Typography System
- * Optimized for readability and accessibility
- */
 export const typography: TypographyOptions = {
   fontFamily: [
     '-apple-system',
@@ -84,5 +140,5 @@ export const typography: TypographyOptions = {
     fontWeight: 400,
     lineHeight: 2.66,
     textTransform: 'uppercase',
-  },
+  }
 };

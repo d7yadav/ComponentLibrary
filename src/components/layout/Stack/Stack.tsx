@@ -1,10 +1,14 @@
-import { forwardRef, Children, cloneElement, isValidElement, ReactNode, ReactElement, memo } from 'react';
-import { StackProps } from './Stack.types';
-import { StyledStack, StackDivider } from './Stack.styles';
+import type { SxProps, ResponsiveStyleValue } from '@mui/system';
+import type { Theme } from '@mui/material/styles';
+import type { ReactNode } from 'react';
+import { forwardRef, Children } from 'react';
+
 import {
   DEFAULT_STACK_PROPS,
   ACCESSIBILITY_CONSTANTS,
 } from './Stack.constants';
+import { StyledStack, StackDivider } from './Stack.styles';
+import type { StackProps } from './Stack.types';
 
 /**
  * Enhanced Stack component with flexible layout and spacing control
@@ -89,13 +93,13 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>((
   return (
     <StyledStack data-testid="stack"
       ref={ref}
-      direction={direction}
-      spacing={spacing}
+      direction={direction as ResponsiveStyleValue<'row' | 'row-reverse' | 'column' | 'column-reverse'>}
+      spacing={spacing as ResponsiveStyleValue<string | number>}
       justifyContent={justifyContent}
       alignItems={alignItems}
       flexWrap={flexWrap}
-      className={className}
-      sx={sx}
+      className={className ?? ''}
+      sx={sx as SxProps<Theme>}
       // Custom props for styled component
       customFullWidth={fullWidth}
       customFullHeight={fullHeight}
@@ -128,3 +132,21 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>((
 });
 
 Stack.displayName = 'Stack';
+
+// Re-export StackDivider for external usage (e.g., Storybook)
+export { StackDivider } from './Stack.styles';
+// Re-export all stack variants for external usage
+export {
+  HStack,
+  VStack,
+  CenterStack,
+  SpaceBetweenStack,
+  CardStack,
+  NavbarStack,
+  SidebarStack,
+  HeroStack,
+  FormStack,
+  ButtonGroupStack,
+  ListStack,
+  ResponsiveStack
+} from './Stack.styles';

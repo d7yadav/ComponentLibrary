@@ -1,5 +1,5 @@
-import { PaperProps as MuiPaperProps } from '@mui/material/Paper';
-import { ReactNode } from 'react';
+import type { PaperProps as MuiPaperProps } from '@mui/material/Paper';
+import type { ReactNode } from 'react';
 
 export type PaperVariant = 
   | 'elevation'
@@ -38,260 +38,140 @@ export type PaperGradient =
   | 'info';
 
 export interface PaperProps extends Omit<MuiPaperProps, 'variant' | 'elevation'> {
-  /**
-   * The variant of the paper
-   */
-  variant?: PaperVariant;
+  variant?: PaperVariant,
   
-  /**
-   * The elevation level of the paper (0-24)
-   */
-  elevation?: PaperElevation;
+  elevation?: PaperElevation,
   
-  /**
-   * The corner radius style
-   */
-  corners?: PaperCorners;
+  corners?: PaperCorners,
   
-  /**
-   * The surface treatment
-   */
-  surface?: PaperSurface;
+  surface?: PaperSurface,
   
-  /**
-   * The size variant affecting padding and spacing
-   */
-  size?: PaperSize;
+  size?: PaperSize,
   
-  /**
-   * The gradient variant (only applies to gradient variant)
-   */
-  gradient?: PaperGradient;
+  gradient?: PaperGradient,
   
-  /**
-   * If true, enables interactive hover effects
-   */
-  interactive?: boolean;
+  interactive?: boolean,
   
-  /**
-   * If true, enables glass morphism effect (glass variant)
-   */
-  glassMorphism?: boolean;
+  glassMorphism?: boolean,
   
-  /**
-   * If true, enables responsive padding and sizing
-   */
-  responsive?: boolean;
+  responsive?: boolean,
   
-  /**
-   * If true, optimizes for print media
-   */
-  printFriendly?: boolean;
+  printFriendly?: boolean,
   
-  /**
-   * Custom hover elevation (only for interactive papers)
-   */
-  hoverElevation?: PaperElevation;
+  hoverElevation?: PaperElevation,
   
-  /**
-   * Custom pressed elevation (only for interactive papers)
-   */
-  pressedElevation?: PaperElevation;
+  pressedElevation?: PaperElevation,
   
-  /**
-   * Custom background color (overrides variant)
-   */
-  backgroundColor?: string;
+  backgroundColor?: string,
   
-  /**
-   * Custom border color (for outlined variant)
-   */
-  borderColor?: string;
+  borderColor?: string,
   
-  /**
-   * Custom border width (for outlined variant)
-   */
-  borderWidth?: string | number;
+  borderWidth?: string | number,
   
-  /**
-   * The content of the paper
-   */
-  children?: ReactNode;
+  children?: ReactNode,
   
-  /**
-   * Additional CSS classes
-   */
-  className?: string;
+  className?: string,
   
-  /**
-   * Custom styling object
-   */
-  sx?: any;
+  sx?: any,
   
-  /**
-   * Custom padding override
-   */
-  padding?: string | number;
+  padding?: string | number,
   
-  /**
-   * Custom margin override
-   */
-  margin?: string | number;
+  margin?: string | number,
   
-  /**
-   * Animation duration for hover effects
-   */
-  animationDuration?: number;
+  animationDuration?: number,
   
-  /**
-   * Z-index override
-   */
-  zIndex?: number;
+  zIndex?: number,
   
-  /**
-   * If true, enables smooth transitions
-   */
-  transitions?: boolean;
+  transitions?: boolean,
   
-  /**
-   * Content overflow handling
-   */
-  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
+  overflow?: 'visible' | 'hidden' | 'scroll' | 'auto',
   
-  /**
-   * Maximum width constraint
-   */
-  maxWidth?: string | number;
+  maxWidth?: string | number,
   
-  /**
-   * Maximum height constraint
-   */
-  maxHeight?: string | number;
+  maxHeight?: string | number,
   
-  /**
-   * Minimum width constraint
-   */
-  minWidth?: string | number;
+  minWidth?: string | number,
   
-  /**
-   * Minimum height constraint
-   */
-  minHeight?: string | number;
+  minHeight?: string | number,
   
-  /**
-   * Click handler for interactive papers
-   */
-  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void,
   
-  /**
-   * Mouse enter handler for interactive papers
-   */
-  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLDivElement>) => void,
   
-  /**
-   * Mouse leave handler for interactive papers
-   */
-  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLDivElement>) => void,
   
-  /**
-   * Focus handler for interactive papers
-   */
-  onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLDivElement>) => void,
   
-  /**
-   * Blur handler for interactive papers
-   */
-  onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void,
   
-  /**
-   * ARIA label for accessibility
-   */
-  'aria-label'?: string;
+  'aria-label'?: string,
   
-  /**
-   * ARIA described by for accessibility
-   */
-  'aria-describedby'?: string;
+  'aria-describedby'?: string,
   
-  /**
-   * ARIA labelledby for accessibility
-   */
-  'aria-labelledby'?: string;
+  'aria-labelledby'?: string,
   
-  /**
-   * Role attribute for accessibility
-   */
-  role?: string;
+  role?: string,
   
-  /**
-   * Tabindex for focusable papers
-   */
-  tabIndex?: number;
+  tabIndex?: number,
   
-  /**
-   * ID attribute
-   */
-  id?: string;
+  id?: string,
   
-  /**
-   * Test ID for automated testing
-   */
-  'data-testid'?: string;
+  'data-testid'?: string,
 }
 
 export interface PaperStyleProps {
-  customVariant: PaperVariant;
-  customElevation: PaperElevation;
-  corners: PaperCorners;
-  surface: PaperSurface;
-  size: PaperSize;
-  gradient: PaperGradient;
-  interactive: boolean;
-  glassMorphism: boolean;
-  responsive: boolean;
-  printFriendly: boolean;
-  hoverElevation?: PaperElevation;
-  pressedElevation?: PaperElevation;
-  backgroundColor?: string;
-  borderColor?: string;
-  borderWidth?: string | number;
-  padding?: string | number;
-  margin?: string | number;
-  animationDuration: number;
-  transitions: boolean;
-  overflow?: string;
-  maxWidth?: string | number;
-  maxHeight?: string | number;
-  minWidth?: string | number;
-  minHeight?: string | number;
-  zIndex?: number;
+  customVariant: PaperVariant,
+  customElevation: PaperElevation,
+  corners: PaperCorners,
+  surface: PaperSurface,
+  size: PaperSize,
+  gradient: PaperGradient,
+  interactive: boolean,
+  glassMorphism: boolean,
+  responsive: boolean,
+  printFriendly: boolean,
+  hoverElevation?: PaperElevation,
+  pressedElevation?: PaperElevation,
+  backgroundColor?: string,
+  borderColor?: string,
+  borderWidth?: string | number,
+  padding?: string | number,
+  margin?: string | number,
+  animationDuration: number,
+  transitions: boolean,
+  overflow?: string,
+  maxWidth?: string | number,
+  maxHeight?: string | number,
+  minWidth?: string | number,
+  minHeight?: string | number,
+  zIndex?: number,
 }
 
 export interface PaperSizeConfig {
-  padding: string;
-  margin: string;
-  borderRadius: string;
+  padding: string,
+  margin: string,
+  borderRadius: string,
 }
 
 export interface PaperCornerConfig {
-  borderRadius: string;
+  borderRadius: string,
 }
 
 export interface PaperSurfaceConfig {
-  boxShadow: string;
-  background: string;
-  borderStyle?: string;
+  boxShadow: string,
+  background: string,
+  borderStyle?: string,
 }
 
 export interface PaperGradientConfig {
-  background: string;
-  fallbackColor: string;
+  background: string,
+  fallbackColor: string,
 }
 
 export interface ResponsivePaperConfig {
-  xs?: Partial<PaperStyleProps>;
-  sm?: Partial<PaperStyleProps>;
-  md?: Partial<PaperStyleProps>;
-  lg?: Partial<PaperStyleProps>;
-  xl?: Partial<PaperStyleProps>;
+  xs?: Partial<PaperStyleProps>,
+  sm?: Partial<PaperStyleProps>,
+  md?: Partial<PaperStyleProps>,
+  lg?: Partial<PaperStyleProps>,
+  xl?: Partial<PaperStyleProps>,
 }

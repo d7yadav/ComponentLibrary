@@ -1,746 +1,613 @@
-/**
- * @fileoverview AI Component Context - Interface Definitions
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * This module defines comprehensive interfaces for AI component metadata,
- * providing structured context for AI-enhanced development workflows.
- */
 
-import type { ComponentCategory, ComplexityLevel } from '../types';
+import type { ComponentCategory, ComplexityLevel } from '@/types';
 
-/**
- * Main AI Component Context interface
- */
 export interface AIComponentContext {
-  name: string;
-  category: ComponentCategory;
-  complexity: ComplexityLevel;
-  dependencies: string[];
-  props: AIPropertyContext[];
-  variants: AIVariantContext[];
-  usage: AIUsageContext[];
-  patterns: AIPatternContext[];
-  accessibility: AIAccessibilityContext;
-  performance: AIPerformanceContext;
-  testing: AITestingContext;
-  examples: AIExampleContext[];
-  relationships: AIRelationshipContext[];
-  lastUpdated: string;
-  version: string;
+  name: string,
+  category: ComponentCategory,
+  complexity: ComplexityLevel,
+  dependencies: string[],
+  props: AIPropertyContext[],
+  variants: AIVariantContext[],
+  usage: AIUsageContext[],
+  patterns: AIPatternContext[],
+  accessibility: AIAccessibilityContext,
+  performance: AIPerformanceContext,
+  testing: AITestingContext,
+  examples: AIExampleContext[],
+  relationships: AIRelationshipContext[],
+  lastUpdated: string,
+  version: string,
 }
 
-/**
- * Property context for AI understanding
- */
 export interface AIPropertyContext {
-  name: string;
-  type: string;
-  required: boolean;
-  description: string;
-  defaultValue?: any;
+  name: string,
+  type: string,
+  required: boolean,
+  description: string,
+  defaultValue?: any,
   validation?: {
-    rules: string[];
+    rules: string[],
     examples: {
-      valid: any[];
-      invalid: any[];
-    };
-  };
+      valid: any[],
+      invalid: any[],
+    },
+  },
   aiGuidance: {
-    purpose: string;
-    bestPractices: string[];
-    commonMistakes: string[];
-    relatedProps: string[];
-  };
+    purpose: string,
+    bestPractices: string[],
+    commonMistakes: string[],
+    relatedProps: string[],
+  },
 }
 
-/**
- * Variant context for component variations
- */
 export interface AIVariantContext {
-  name: string;
-  description: string;
-  useCases: string[];
-  requiredProps: string[];
-  optionalProps: string[];
+  name: string,
+  description: string,
+  useCases: string[],
+  requiredProps: string[],
+  optionalProps: string[],
   styling: {
-    approach: 'emotion' | 'styled-components' | 'css-modules' | 'inline';
-    customization: string[];
-    themeSupport: boolean;
-  };
+    approach: 'emotion' | 'styled-components' | 'css-modules' | 'inline',
+    customization: string[],
+    themeSupport: boolean,
+  },
   aiGuidance: {
-    whenToUse: string[];
-    implementation: string[];
-    pitfalls: string[];
-  };
+    whenToUse: string[],
+    implementation: string[],
+    pitfalls: string[],
+  },
 }
 
-/**
- * Usage context for different scenarios
- */
 export interface AIUsageContext {
-  scenario: string;
-  description: string;
-  complexity: ComplexityLevel;
-  codeExample: string;
-  explanation: string;
-  prerequisites: string[];
-  relatedConcepts: string[];
+  scenario: string,
+  description: string,
+  complexity: ComplexityLevel,
+  codeExample: string,
+  explanation: string,
+  prerequisites: string[],
+  relatedConcepts: string[],
   aiNotes: {
-    difficulty: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-    keyPoints: string[];
-    troubleshooting: string[];
-  };
+    difficulty: 'beginner' | 'intermediate' | 'advanced' | 'expert',
+    keyPoints: string[],
+    troubleshooting: string[],
+  },
 }
 
-/**
- * Pattern context for implementation patterns
- */
 export interface AIPatternContext {
-  pattern: string;
-  type: 'design' | 'implementation' | 'integration' | 'testing' | 'performance';
-  description: string;
-  codeExample: string;
-  benefits: string[];
-  drawbacks: string[];
-  alternatives: string[];
+  pattern: string,
+  type: 'design' | 'implementation' | 'integration' | 'testing' | 'performance',
+  description: string,
+  codeExample: string,
+  benefits: string[],
+  drawbacks: string[],
+  alternatives: string[],
   aiGuidance: {
-    implementation: string[];
-    validation: string[];
-    optimization: string[];
-  };
+    implementation: string[],
+    validation: string[],
+    optimization: string[],
+  },
 }
 
-/**
- * Accessibility context for WCAG compliance
- */
 export interface AIAccessibilityContext {
-  level: 'A' | 'AA' | 'AAA';
+  level: 'A' | 'AA' | 'AAA',
   features: {
-    keyboardNavigation: boolean;
-    screenReaderSupport: boolean;
-    highContrast: boolean;
-    reducedMotion: boolean;
-    focusManagement: boolean;
-  };
+    keyboardNavigation: boolean,
+    screenReaderSupport: boolean,
+    highContrast: boolean,
+    reducedMotion: boolean,
+    focusManagement: boolean,
+  },
   ariaAttributes: {
-    required: string[];
-    optional: string[];
-    examples: Record<string, string>;
-  };
+    required: string[],
+    optional: string[],
+    examples: Record<string, string>,
+  },
   testing: {
-    tools: string[];
-    checklist: string[];
-    automation: string[];
-  };
+    tools: string[],
+    checklist: string[],
+    automation: string[],
+  },
   aiGuidance: {
-    implementation: string[];
-    testing: string[];
-    commonIssues: string[];
-  };
+    implementation: string[],
+    testing: string[],
+    commonIssues: string[],
+  },
 }
 
-/**
- * Performance context for optimization
- */
 export interface AIPerformanceContext {
   metrics: {
     bundleSize: {
-      min: number;
-      max: number;
-      target: number;
-      unit: 'bytes' | 'KB' | 'MB';
-    };
+      min: number,
+      max: number,
+      target: number,
+      unit: 'bytes' | 'KB' | 'MB',
+    },
     renderTime: {
-      target: number;
-      unit: 'ms';
-    };
+      target: number,
+      unit: 'ms',
+    },
     memoryUsage: {
-      baseline: number;
-      peak: number;
-      unit: 'MB';
-    };
-  };
+      baseline: number,
+      peak: number,
+      unit: 'MB',
+    },
+  },
   optimizations: {
-    lazyLoading: boolean;
-    memoization: boolean;
-    virtualization: boolean;
-    treeshaking: boolean;
-  };
+    lazyLoading: boolean,
+    memoization: boolean,
+    virtualization: boolean,
+    treeshaking: boolean,
+  },
   bottlenecks: {
-    potential: string[];
-    mitigation: string[];
-  };
+    potential: string[],
+    mitigation: string[],
+  },
   aiGuidance: {
-    optimization: string[];
-    monitoring: string[];
-    profiling: string[];
-  };
+    optimization: string[],
+    monitoring: string[],
+    profiling: string[],
+  },
 }
 
-/**
- * Testing context for comprehensive testing
- */
 export interface AITestingContext {
   strategies: {
-    unit: TestingStrategy;
-    integration: TestingStrategy;
-    e2e: TestingStrategy;
-    visual: TestingStrategy;
-    accessibility: TestingStrategy;
-    performance: TestingStrategy;
-  };
+    unit: TestingStrategy,
+    integration: TestingStrategy,
+    e2e: TestingStrategy,
+    visual: TestingStrategy,
+    accessibility: TestingStrategy,
+    performance: TestingStrategy,
+  },
   coverage: {
-    target: number;
-    current?: number;
-    criticalAreas: string[];
-  };
+    target: number,
+    current?: number,
+    criticalAreas: string[],
+  },
   tools: {
-    framework: string;
-    utilities: string[];
-    mocking: string[];
-    assertions: string[];
-  };
+    framework: string,
+    utilities: string[],
+    mocking: string[],
+    assertions: string[],
+  },
   aiGuidance: {
-    testGeneration: string[];
-    patterns: string[];
-    maintenance: string[];
-  };
+    testGeneration: string[],
+    patterns: string[],
+    maintenance: string[],
+  },
 }
 
-/**
- * Testing strategy definition
- */
 export interface TestingStrategy {
-  enabled: boolean;
-  approach: string;
-  tools: string[];
-  patterns: string[];
-  examples: string[];
-  coverage: number;
+  enabled: boolean,
+  approach: string,
+  tools: string[],
+  patterns: string[],
+  examples: string[],
+  coverage: number,
 }
 
-/**
- * Example context for AI learning
- */
 export interface AIExampleContext {
-  title: string;
-  description: string;
-  category: 'basic' | 'intermediate' | 'advanced' | 'edge-case';
-  code: string;
-  explanation: string;
-  highlights: string[];
-  relatedExamples: string[];
+  title: string,
+  description: string,
+  category: 'basic' | 'intermediate' | 'advanced' | 'edge-case',
+  code: string,
+  explanation: string,
+  highlights: string[],
+  relatedExamples: string[],
   aiAnnotations: {
-    learningObjectives: string[];
-    keyTakeaways: string[];
-    extensions: string[];
-  };
+    learningObjectives: string[],
+    keyTakeaways: string[],
+    extensions: string[],
+  },
 }
 
-/**
- * Relationship context for component interconnections
- */
 export interface AIRelationshipContext {
-  type: 'composition' | 'dependency' | 'similar' | 'alternative' | 'extension';
-  target: string;
-  description: string;
-  strength: 'weak' | 'moderate' | 'strong';
-  examples: string[];
+  type: 'composition' | 'dependency' | 'similar' | 'alternative' | 'extension',
+  target: string,
+  description: string,
+  strength: 'weak' | 'moderate' | 'strong',
+  examples: string[],
   aiGuidance: {
-    integration: string[];
-    migration: string[];
-    alternatives: string[];
-  };
+    integration: string[],
+    migration: string[],
+    alternatives: string[],
+  },
 }
 
-/**
- * Component metadata for AI registry
- */
 export interface ComponentMetadata {
-  id: string;
-  name: string;
-  path: string;
-  category: ComponentCategory;
-  complexity: ComplexityLevel;
-  status: 'draft' | 'review' | 'stable' | 'deprecated';
-  version: string;
-  author: string;
-  created: string;
-  lastModified: string;
-  tags: string[];
-  keywords: string[];
+  id: string,
+  name: string,
+  path: string,
+  category: ComponentCategory,
+  complexity: ComplexityLevel,
+  status: 'draft' | 'review' | 'stable' | 'deprecated',
+  version: string,
+  author: string,
+  created: string,
+  lastModified: string,
+  tags: string[],
+  keywords: string[],
 }
 
-/**
- * AI learning pattern for pattern recognition
- */
 export interface AILearningPattern {
-  id: string;
-  name: string;
-  type: 'anti-pattern' | 'best-practice' | 'optimization' | 'integration';
-  description: string;
+  id: string,
+  name: string,
+  type: 'anti-pattern' | 'best-practice' | 'optimization' | 'integration',
+  description: string,
   detection: {
-    indicators: string[];
-    codePatterns: string[];
-    context: string[];
-  };
+    indicators: string[],
+    codePatterns: string[],
+    context: string[],
+  },
   resolution: {
-    steps: string[];
-    examples: string[];
-    tools: string[];
-  };
+    steps: string[],
+    examples: string[],
+    tools: string[],
+  },
   prevention: {
-    guidelines: string[];
-    checks: string[];
-    automation: string[];
-  };
+    guidelines: string[],
+    checks: string[],
+    automation: string[],
+  },
 }
 
-/**
- * AI knowledge base entry
- */
 export interface AIKnowledgeEntry {
-  id: string;
-  title: string;
-  type: 'concept' | 'technique' | 'troubleshooting' | 'best-practice';
-  description: string;
-  content: string;
-  examples: string[];
-  references: string[];
-  relatedEntries: string[];
-  tags: string[];
-  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'expert';
-  lastUpdated: string;
+  id: string,
+  title: string,
+  type: 'concept' | 'technique' | 'troubleshooting' | 'best-practice',
+  description: string,
+  content: string,
+  examples: string[],
+  references: string[],
+  relatedEntries: string[],
+  tags: string[],
+  difficulty: 'beginner' | 'intermediate' | 'advanced' | 'expert',
+  lastUpdated: string,
 }
 
-/**
- * AI workflow context for development processes
- */
 export interface AIWorkflowContext {
-  id: string;
-  name: string;
-  description: string;
-  steps: AIWorkflowStep[];
-  triggers: string[];
-  conditions: string[];
-  outputs: string[];
+  id: string,
+  name: string,
+  description: string,
+  steps: AIWorkflowStep[],
+  triggers: string[],
+  conditions: string[],
+  outputs: string[],
   metrics: {
-    efficiency: number;
-    accuracy: number;
-    confidence: number;
-  };
+    efficiency: number,
+    accuracy: number,
+    confidence: number,
+  },
 }
 
-/**
- * AI workflow step definition
- */
 export interface AIWorkflowStep {
-  id: string;
-  name: string;
-  type: 'analysis' | 'generation' | 'validation' | 'optimization' | 'documentation';
-  description: string;
-  inputs: string[];
-  outputs: string[];
-  aiEngine: string;
-  configuration: Record<string, any>;
-  validation: string[];
+  id: string,
+  name: string,
+  type: 'analysis' | 'generation' | 'validation' | 'optimization' | 'documentation',
+  description: string,
+  inputs: string[],
+  outputs: string[],
+  aiEngine: string,
+  configuration: Record<string, any>,
+  validation: string[],
 }
 
-/**
- * Component analysis result
- */
 export interface ComponentAnalysisResult {
-  component: string;
-  timestamp: string;
+  component: string,
+  timestamp: string,
   analysis: {
-    complexity: ComplexityAnalysis;
-    patterns: PatternAnalysis;
-    quality: QualityAnalysis;
-    performance: PerformanceAnalysis;
-    accessibility: AccessibilityAnalysis;
-  };
-  recommendations: Recommendation[];
-  confidence: number;
+    complexity: ComplexityAnalysis,
+    patterns: PatternAnalysis,
+    quality: QualityAnalysis,
+    performance: PerformanceAnalysis,
+    accessibility: AccessibilityAnalysis,
+  },
+  recommendations: Recommendation[],
+  confidence: number,
 }
 
-/**
- * Complexity analysis details
- */
 export interface ComplexityAnalysis {
-  score: number;
+  score: number,
   factors: {
-    cyclomatic: number;
-    cognitive: number;
-    maintainability: number;
-    dependencies: number;
-  };
+    cyclomatic: number,
+    cognitive: number,
+    maintainability: number,
+    dependencies: number,
+  },
   breakdown: {
-    functions: number;
-    branches: number;
-    loops: number;
-    nesting: number;
-  };
-  recommendations: string[];
+    functions: number,
+    branches: number,
+    loops: number,
+    nesting: number,
+  },
+  recommendations: string[],
 }
 
-/**
- * Pattern analysis details
- */
 export interface PatternAnalysis {
-  detected: DetectedPattern[];
-  violations: PatternViolation[];
+  detected: DetectedPattern[],
+  violations: PatternViolation[],
   adherence: {
-    naming: number;
-    structure: number;
-    imports: number;
-    exports: number;
-  };
-  recommendations: string[];
+    naming: number,
+    structure: number,
+    imports: number,
+    exports: number,
+  },
+  recommendations: string[],
 }
 
-/**
- * Detected pattern information
- */
 export interface DetectedPattern {
-  pattern: string;
-  confidence: number;
+  pattern: string,
+  confidence: number,
   location: {
-    line: number;
-    column: number;
-    length: number;
-  };
-  context: string;
-  classification: 'positive' | 'negative' | 'neutral';
+    line: number,
+    column: number,
+    length: number,
+  },
+  context: string,
+  classification: 'positive' | 'negative' | 'neutral',
 }
 
-/**
- * Pattern violation details
- */
 export interface PatternViolation {
-  pattern: string;
-  severity: 'low' | 'medium' | 'high' | 'critical';
-  description: string;
+  pattern: string,
+  severity: 'low' | 'medium' | 'high' | 'critical',
+  description: string,
   location: {
-    line: number;
-    column: number;
-    length: number;
-  };
-  suggestion: string;
-  autoFixable: boolean;
+    line: number,
+    column: number,
+    length: number,
+  },
+  suggestion: string,
+  autoFixable: boolean,
 }
 
-/**
- * Quality analysis details
- */
 export interface QualityAnalysis {
-  score: number;
+  score: number,
   categories: {
-    structure: number;
-    naming: number;
-    documentation: number;
-    testing: number;
-    performance: number;
-  };
-  issues: QualityIssue[];
-  suggestions: string[];
+    structure: number,
+    naming: number,
+    documentation: number,
+    testing: number,
+    performance: number,
+  },
+  issues: QualityIssue[],
+  suggestions: string[],
 }
 
-/**
- * Quality issue definition
- */
 export interface QualityIssue {
-  type: string;
-  severity: 'info' | 'warning' | 'error' | 'critical';
-  description: string;
+  type: string,
+  severity: 'info' | 'warning' | 'error' | 'critical',
+  description: string,
   location?: {
-    line: number;
-    column: number;
-  };
-  fix: string;
-  impact: string;
+    line: number,
+    column: number,
+  },
+  fix: string,
+  impact: string,
 }
 
-/**
- * Performance analysis details
- */
 export interface PerformanceAnalysis {
-  score: number;
+  score: number,
   metrics: {
-    bundleSize: number;
-    renderTime: number;
-    memoryUsage: number;
-    reRenders: number;
-  };
-  bottlenecks: PerformanceBottleneck[];
-  optimizations: string[];
+    bundleSize: number,
+    renderTime: number,
+    memoryUsage: number,
+    reRenders: number,
+  },
+  bottlenecks: PerformanceBottleneck[],
+  optimizations: string[],
 }
 
-/**
- * Performance bottleneck definition
- */
 export interface PerformanceBottleneck {
-  type: 'rendering' | 'memory' | 'computation' | 'network';
-  description: string;
-  impact: 'low' | 'medium' | 'high' | 'critical';
+  type: 'rendering' | 'memory' | 'computation' | 'network',
+  description: string,
+  impact: 'low' | 'medium' | 'high' | 'critical',
   location?: {
-    function: string;
-    line: number;
-  };
-  solution: string;
-  effort: 'low' | 'medium' | 'high';
+    function: string,
+    line: number,
+  },
+  solution: string,
+  effort: 'low' | 'medium' | 'high',
 }
 
-/**
- * Accessibility analysis details
- */
 export interface AccessibilityAnalysis {
-  score: number;
-  level: 'A' | 'AA' | 'AAA';
-  violations: AccessibilityViolation[];
+  score: number,
+  level: 'A' | 'AA' | 'AAA',
+  violations: AccessibilityViolation[],
   features: {
-    keyboardNavigation: boolean;
-    screenReader: boolean;
-    colorContrast: boolean;
-    focusManagement: boolean;
-  };
-  recommendations: string[];
+    keyboardNavigation: boolean,
+    screenReader: boolean,
+    colorContrast: boolean,
+    focusManagement: boolean,
+  },
+  recommendations: string[],
 }
 
-/**
- * Accessibility violation definition
- */
 export interface AccessibilityViolation {
-  rule: string;
-  severity: 'minor' | 'moderate' | 'serious' | 'critical';
-  description: string;
-  element?: string;
-  fix: string;
-  wcagLevel: 'A' | 'AA' | 'AAA';
+  rule: string,
+  severity: 'minor' | 'moderate' | 'serious' | 'critical',
+  description: string,
+  element?: string,
+  fix: string,
+  wcagLevel: 'A' | 'AA' | 'AAA',
 }
 
-/**
- * Recommendation definition
- */
 export interface Recommendation {
-  type: 'improvement' | 'optimization' | 'fix' | 'enhancement';
-  priority: 'low' | 'medium' | 'high' | 'critical';
-  title: string;
-  description: string;
-  implementation: string[];
-  benefits: string[];
-  effort: 'low' | 'medium' | 'high';
-  impact: 'low' | 'medium' | 'high';
+  type: 'improvement' | 'optimization' | 'fix' | 'enhancement',
+  priority: 'low' | 'medium' | 'high' | 'critical',
+  title: string,
+  description: string,
+  implementation: string[],
+  benefits: string[],
+  effort: 'low' | 'medium' | 'high',
+  impact: 'low' | 'medium' | 'high',
 }
 
-/**
- * AI context registry for managing component contexts
- */
 export interface AIContextRegistry {
-  components: Map<string, AIComponentContext>;
-  patterns: Map<string, AILearningPattern>;
-  knowledge: Map<string, AIKnowledgeEntry>;
-  workflows: Map<string, AIWorkflowContext>;
-  metadata: Map<string, ComponentMetadata>;
+  components: Map<string, AIComponentContext>,
+  patterns: Map<string, AILearningPattern>,
+  knowledge: Map<string, AIKnowledgeEntry>,
+  workflows: Map<string, AIWorkflowContext>,
+  metadata: Map<string, ComponentMetadata>,
 }
 
-/**
- * Context search query interface
- */
 export interface ContextSearchQuery {
-  term: string;
-  category?: ComponentCategory;
-  complexity?: ComplexityLevel;
-  tags?: string[];
-  type?: 'component' | 'pattern' | 'knowledge' | 'workflow';
+  term: string,
+  category?: ComponentCategory,
+  complexity?: ComplexityLevel,
+  tags?: string[],
+  type?: 'component' | 'pattern' | 'knowledge' | 'workflow',
   filters?: {
-    author?: string;
+    author?: string,
     dateRange?: {
-      start: string;
-      end: string;
-    };
-    status?: string[];
-  };
+      start: string,
+      end: string,
+    },
+    status?: string[],
+  },
 }
 
-/**
- * Context search result interface
- */
 export interface ContextSearchResult {
-  type: 'component' | 'pattern' | 'knowledge' | 'workflow';
-  id: string;
-  title: string;
-  description: string;
-  relevance: number;
-  highlights: string[];
-  context: any;
+  type: 'component' | 'pattern' | 'knowledge' | 'workflow',
+  id: string,
+  title: string,
+  description: string,
+  relevance: number,
+  highlights: string[],
+  context: any,
 }
 
-/**
- * AI guidance configuration
- */
 export interface AIGuidanceConfig {
-  verbosity: 'minimal' | 'standard' | 'detailed' | 'comprehensive';
-  includeExamples: boolean;
-  includeAlternatives: boolean;
-  includePitfalls: boolean;
-  includePerformance: boolean;
-  includeAccessibility: boolean;
+  verbosity: 'minimal' | 'standard' | 'detailed' | 'comprehensive',
+  includeExamples: boolean,
+  includeAlternatives: boolean,
+  includePitfalls: boolean,
+  includePerformance: boolean,
+  includeAccessibility: boolean,
   customization: {
-    focusAreas: string[];
-    excludeAreas: string[];
-    priorityLevel: 'learning' | 'production' | 'optimization';
-  };
+    focusAreas: string[],
+    excludeAreas: string[],
+    priorityLevel: 'learning' | 'production' | 'optimization',
+  },
 }
 
-/**
- * AI context factory for creating component contexts
- */
 export interface AIContextFactory {
   createComponentContext(
     component: any,
     options?: {
-      includeAnalysis?: boolean;
-      includeExamples?: boolean;
-      includeRelationships?: boolean;
+      includeAnalysis?: boolean,
+      includeExamples?: boolean,
+      includeRelationships?: boolean,
     }
-  ): Promise<AIComponentContext>;
+  ): Promise<AIComponentContext>,
   
   createPatternContext(
     pattern: any,
     type: AILearningPattern['type']
-  ): Promise<AILearningPattern>;
+  ): Promise<AILearningPattern>,
   
   createKnowledgeEntry(
     content: any,
     type: AIKnowledgeEntry['type']
-  ): Promise<AIKnowledgeEntry>;
+  ): Promise<AIKnowledgeEntry>,
   
   createWorkflowContext(
     workflow: any
-  ): Promise<AIWorkflowContext>;
+  ): Promise<AIWorkflowContext>,
 }
 
-/**
- * AI context validator for ensuring data quality
- */
 export interface AIContextValidator {
-  validateComponentContext(context: AIComponentContext): ValidationResult;
-  validatePattern(pattern: AILearningPattern): ValidationResult;
-  validateKnowledge(knowledge: AIKnowledgeEntry): ValidationResult;
-  validateWorkflow(workflow: AIWorkflowContext): ValidationResult;
+  validateComponentContext(context: AIComponentContext): ValidationResult,
+  validatePattern(pattern: AILearningPattern): ValidationResult,
+  validateKnowledge(knowledge: AIKnowledgeEntry): ValidationResult,
+  validateWorkflow(workflow: AIWorkflowContext): ValidationResult,
 }
 
-/**
- * Validation result interface
- */
 export interface ValidationResult {
-  valid: boolean;
-  errors: ValidationError[];
-  warnings: ValidationWarning[];
-  suggestions: string[];
+  valid: boolean,
+  errors: ValidationError[],
+  warnings: ValidationWarning[],
+  suggestions: string[],
 }
 
-/**
- * Validation error definition
- */
 export interface ValidationError {
-  field: string;
-  message: string;
-  code: string;
-  severity: 'error' | 'critical';
+  field: string,
+  message: string,
+  code: string,
+  severity: 'error' | 'critical',
 }
 
-/**
- * Validation warning definition
- */
 export interface ValidationWarning {
-  field: string;
-  message: string;
-  code: string;
-  suggestion: string;
+  field: string,
+  message: string,
+  code: string,
+  suggestion: string,
 }
 
-/**
- * AI context analyzer for extracting insights
- */
 export interface AIContextAnalyzer {
-  analyzeComponent(context: AIComponentContext): ComponentInsights;
-  analyzeUsagePatterns(contexts: AIComponentContext[]): UsageInsights;
-  analyzeTrends(registry: AIContextRegistry): TrendInsights;
-  generateRecommendations(analysis: any): Recommendation[];
+  analyzeComponent(context: AIComponentContext): ComponentInsights,
+  analyzeUsagePatterns(contexts: AIComponentContext[]): UsageInsights,
+  analyzeTrends(registry: AIContextRegistry): TrendInsights,
+  generateRecommendations(analysis: any): Recommendation[],
 }
 
-/**
- * Component insights from analysis
- */
 export interface ComponentInsights {
   complexity: {
-    overall: number;
-    breakdown: Record<string, number>;
-    comparison: string;
-  };
+    overall: number,
+    breakdown: Record<string, number>,
+    comparison: string,
+  },
   usage: {
-    frequency: number;
-    contexts: string[];
-    patterns: string[];
-  };
+    frequency: number,
+    contexts: string[],
+    patterns: string[],
+  },
   quality: {
-    score: number;
-    strengths: string[];
-    weaknesses: string[];
-  };
+    score: number,
+    strengths: string[],
+    weaknesses: string[],
+  },
   relationships: {
-    strong: string[];
-    weak: string[];
-    suggestions: string[];
-  };
+    strong: string[],
+    weak: string[],
+    suggestions: string[],
+  },
 }
 
-/**
- * Usage pattern insights
- */
 export interface UsageInsights {
   popular: {
-    components: string[];
-    patterns: string[];
-    combinations: string[];
-  };
+    components: string[],
+    patterns: string[],
+    combinations: string[],
+  },
   emerging: {
-    trends: string[];
-    technologies: string[];
-    patterns: string[];
-  };
+    trends: string[],
+    technologies: string[],
+    patterns: string[],
+  },
   deprecated: {
-    components: string[];
-    patterns: string[];
-    reasons: string[];
-  };
+    components: string[],
+    patterns: string[],
+    reasons: string[],
+  },
 }
 
-/**
- * Trend insights from analysis
- */
 export interface TrendInsights {
   adoption: {
-    growing: string[];
-    declining: string[];
-    stable: string[];
-  };
+    growing: string[],
+    declining: string[],
+    stable: string[],
+  },
   complexity: {
-    increasing: string[];
-    decreasing: string[];
-    reasons: Record<string, string>;
-  };
+    increasing: string[],
+    decreasing: string[],
+    reasons: Record<string, string>,
+  },
   innovation: {
-    newPatterns: string[];
-    improvements: string[];
-    experiments: string[];
-  };
+    newPatterns: string[],
+    improvements: string[],
+    experiments: string[],
+  },
 }
 
-/**
- * Export all context-related types for convenience
- */
 export type {
   // Main interfaces
   AIComponentContext as ComponentContext,
@@ -774,9 +641,6 @@ export type {
   Recommendation
 };
 
-/**
- * Default context configuration
- */
 export const defaultAIGuidanceConfig: AIGuidanceConfig = {
   verbosity: 'standard',
   includeExamples: true,
@@ -791,9 +655,6 @@ export const defaultAIGuidanceConfig: AIGuidanceConfig = {
   }
 };
 
-/**
- * Component context template for rapid creation
- */
 export const componentContextTemplate: Partial<AIComponentContext> = {
   complexity: 'medium',
   dependencies: [],

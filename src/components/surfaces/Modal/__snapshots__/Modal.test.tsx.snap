@@ -1,0 +1,256 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Modal Component > Snapshots > matches snapshot for all variants > variant-basic 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for all variants > variant-centered 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for all variants > variant-drawer 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for all variants > variant-fullscreen 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for all variants > variant-popover 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for default props 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different positions > position-bottom 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different positions > position-center 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different positions > position-left 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different positions > position-right 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different positions > position-top 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different sizes > size-fullscreen 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different sizes > size-lg 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different sizes > size-md 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different sizes > size-sm 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different sizes > size-xl 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Modal Component > Snapshots > matches snapshot for different sizes > size-xs 1`] = `
+<style>
+  
+  @keyframes modal-loading-spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;

@@ -1,5 +1,11 @@
-import { forwardRef, useState, useEffect, memo } from 'react';
-import { LoadingProps } from './Loading.types';
+import React, { forwardRef, useState, useEffect, memo } from 'react';
+
+import {
+  DEFAULT_LOADING_PROPS,
+  ACCESSIBILITY_CONSTANTS,
+  LOADING_SIZE_CONFIGS,
+  LOADING_DOT_COUNTS,
+} from './Loading.constants';
 import { 
   LoadingContainer,
   LoadingBackdrop,
@@ -12,13 +18,8 @@ import {
   WaveSpinner,
   RippleSpinner,
 } from './Loading.styles';
+import type { LoadingProps } from './Loading.types';
 import { Skeleton } from './Skeleton';
-import {
-  DEFAULT_LOADING_PROPS,
-  ACCESSIBILITY_CONSTANTS,
-  LOADING_SIZE_CONFIGS,
-  LOADING_DOT_COUNTS,
-} from './Loading.constants';
 
 /**
  * Enhanced Loading component with different spinner types and comprehensive options

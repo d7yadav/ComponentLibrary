@@ -1,6 +1,18 @@
-import React, { forwardRef, memo, useCallback, useMemo, SyntheticEvent } from 'react';
 import { ExpandMore, ChevronRight } from '@mui/icons-material';
-import { AccordionProps, AccordionSummaryProps, AccordionDetailsProps, AccordionActionsProps } from './Accordion.types';
+import type { SyntheticEvent } from 'react';
+import React, { forwardRef, memo, useCallback, useMemo } from 'react';
+
+import {
+  ACCORDION_VARIANTS,
+  ACCORDION_SIZES,
+  ACCORDION_ICON_POSITIONS,
+  ACCORDION_TRANSITIONS,
+  ACCORDION_FOCUS_COLORS,
+  ANIMATION_DURATIONS,
+  DEFAULT_PROPS,
+  ACCESSIBILITY_CONSTANTS,
+  TEST_IDS,
+} from './Accordion.constants';
 import {
   StyledAccordion,
   StyledAccordionSummary,
@@ -13,17 +25,7 @@ import {
   StyledDivider,
   loadingSpinKeyframes,
 } from './Accordion.styles';
-import {
-  ACCORDION_VARIANTS,
-  ACCORDION_SIZES,
-  ACCORDION_ICON_POSITIONS,
-  ACCORDION_TRANSITIONS,
-  ACCORDION_FOCUS_COLORS,
-  ANIMATION_DURATIONS,
-  DEFAULT_PROPS,
-  ACCESSIBILITY_CONSTANTS,
-  TEST_IDS,
-} from './Accordion.constants';
+import type { AccordionProps, AccordionSummaryProps, AccordionDetailsProps, AccordionActionsProps } from './Accordion.types';
 
 /**
  * Enhanced Accordion component with multiple variants, animations, and accessibility features

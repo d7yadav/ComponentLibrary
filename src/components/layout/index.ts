@@ -1,7 +1,3 @@
-/**
- * @fileoverview Layout components barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 // Container
 export { 

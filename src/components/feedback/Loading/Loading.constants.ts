@@ -1,10 +1,5 @@
-import { LoadingSpinnerType, LoadingSize, LoadingColor, LoadingVariant } from './Loading.types';
+import type { LoadingSpinnerType, LoadingSize, LoadingColor, LoadingVariant } from './Loading.types';
 
-/**
- * LOADING_SPINNER_TYPES component
- * 
- * @returns JSX element
- */
 export const LOADING_SPINNER_TYPES: Record<LoadingSpinnerType, LoadingSpinnerType> = {
   circular: 'circular',
   dots: 'dots',
@@ -17,22 +12,12 @@ export const LOADING_SPINNER_TYPES: Record<LoadingSpinnerType, LoadingSpinnerTyp
   skeleton: 'skeleton',
 } as const;
 
-/**
- * LOADING_SIZES component
- * 
- * @returns JSX element
- */
 export const LOADING_SIZES: Record<LoadingSize, LoadingSize> = {
   small: 'small',
   medium: 'medium',
   large: 'large',
 } as const;
 
-/**
- * LOADING_COLORS component
- * 
- * @returns JSX element
- */
 export const LOADING_COLORS: Record<LoadingColor, LoadingColor> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -43,11 +28,6 @@ export const LOADING_COLORS: Record<LoadingColor, LoadingColor> = {
   inherit: 'inherit',
 } as const;
 
-/**
- * LOADING_VARIANTS component
- * 
- * @returns JSX element
- */
 export const LOADING_VARIANTS: Record<LoadingVariant, LoadingVariant> = {
   default: 'default',
   overlay: 'overlay',
@@ -56,11 +36,6 @@ export const LOADING_VARIANTS: Record<LoadingVariant, LoadingVariant> = {
   page: 'page',
 } as const;
 
-/**
- * LOADING_SIZE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const LOADING_SIZE_CONFIGS = {
   small: {
     circular: 20,
@@ -97,11 +72,6 @@ export const LOADING_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * LOADING_ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const LOADING_ANIMATION_DURATIONS = {
   circular: 1400,
   dots: 1200,
@@ -114,11 +84,6 @@ export const LOADING_ANIMATION_DURATIONS = {
   skeleton: 2000,
 } as const;
 
-/**
- * LOADING_ANIMATION_EASINGS component
- * 
- * @returns JSX element
- */
 export const LOADING_ANIMATION_EASINGS = {
   linear: 'linear',
   easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -126,22 +91,12 @@ export const LOADING_ANIMATION_EASINGS = {
   elastic: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
 } as const;
 
-/**
- * LOADING_Z_INDEX component
- * 
- * @returns JSX element
- */
 export const LOADING_Z_INDEX = {
   overlay: 1300,
   backdrop: 1200,
   inline: 1,
 } as const;
 
-/**
- * LOADING_BACKDROP_OPACITY component
- * 
- * @returns JSX element
- */
 export const LOADING_BACKDROP_OPACITY = {
   light: 0.3,
   medium: 0.5,
@@ -149,11 +104,6 @@ export const LOADING_BACKDROP_OPACITY = {
   opaque: 1,
 } as const;
 
-/**
- * LOADING_DELAYS component
- * 
- * @returns JSX element
- */
 export const LOADING_DELAYS = {
   instant: 0,
   short: 200,
@@ -161,11 +111,6 @@ export const LOADING_DELAYS = {
   long: 1000,
 } as const;
 
-/**
- * LOADING_TIMEOUTS component
- * 
- * @returns JSX element
- */
 export const LOADING_TIMEOUTS = {
   short: 5000,
   medium: 10000,
@@ -173,11 +118,6 @@ export const LOADING_TIMEOUTS = {
   none: 0,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   statusRole: 'status',
   progressRole: 'progressbar',
@@ -190,11 +130,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   liveRegionAssertive: 'assertive',
 } as const;
 
-/**
- * LOADING_DOT_COUNTS component
- * 
- * @returns JSX element
- */
 export const LOADING_DOT_COUNTS = {
   dots: 3,
   bars: 4,
@@ -202,11 +137,6 @@ export const LOADING_DOT_COUNTS = {
   bounce: 3,
 } as const;
 
-/**
- * LOADING_MESSAGES component
- * 
- * @returns JSX element
- */
 export const LOADING_MESSAGES = {
   default: 'Loading...',
   data: 'Loading data...',
@@ -223,11 +153,6 @@ export const LOADING_MESSAGES = {
   authenticating: 'Authenticating...',
 } as const;
 
-/**
- * LOADING_PATTERNS component
- * 
- * @returns JSX element
- */
 export const LOADING_PATTERNS = {
   // Page loading
   page: {
@@ -298,33 +223,18 @@ export const LOADING_PATTERNS = {
   },
 } as const;
 
-/**
- * SKELETON_VARIANTS component
- * 
- * @returns JSX element
- */
 export const SKELETON_VARIANTS = {
   text: 'text',
   rectangular: 'rectangular',
   circular: 'circular',
 } as const;
 
-/**
- * SKELETON_ANIMATIONS component
- * 
- * @returns JSX element
- */
 export const SKELETON_ANIMATIONS = {
   pulse: 'pulse',
   wave: 'wave',
   none: false,
 } as const;
 
-/**
- * SKELETON_DEFAULTS component
- * 
- * @returns JSX element
- */
 export const SKELETON_DEFAULTS = {
   textHeight: '1.2em',
   textWidth: '100%',
@@ -335,11 +245,6 @@ export const SKELETON_DEFAULTS = {
   lineSpacing: 8,
 } as const;
 
-/**
- * DEFAULT_LOADING_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_LOADING_PROPS = {
   type: LOADING_SPINNER_TYPES.circular,
   size: LOADING_SIZES.medium,

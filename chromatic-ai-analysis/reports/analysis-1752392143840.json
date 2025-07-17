@@ -1,0 +1,170 @@
+{
+  "timestamp": "2025-07-13T07:35:43.840Z",
+  "buildId": "mock-build-123",
+  "summary": {
+    "totalChanges": 19,
+    "newComponents": 19,
+    "newStories": 19,
+    "riskLevel": "low",
+    "confidence": 0.95,
+    "autoAcceptable": true
+  },
+  "analysis": {
+    "buildId": "mock-build-123",
+    "timestamp": "2025-07-13T07:35:43.839Z",
+    "totalChanges": 19,
+    "newComponents": [
+      "Button",
+      "Card",
+      "Typography",
+      "Alert",
+      "Loading",
+      "Progress",
+      "Snackbar",
+      "TextField",
+      "Box",
+      "Container",
+      "Grid",
+      "Stack",
+      "Breadcrumbs",
+      "Tabs",
+      "Accordion",
+      "Dialog",
+      "Drawer",
+      "Modal",
+      "Paper"
+    ],
+    "newStories": 19,
+    "changeCategories": {
+      "layout": 0,
+      "color": 0,
+      "typography": 0,
+      "spacing": 0,
+      "animation": 0,
+      "content": 0,
+      "newComponent": 19
+    },
+    "riskLevel": "low",
+    "confidence": 0.95,
+    "recommendations": [
+      {
+        "type": "new-component",
+        "severity": "info",
+        "message": "19 new component(s) detected: Button, Card, Typography, Alert, Loading, Progress, Snackbar, TextField, Box, Container, Grid, Stack, Breadcrumbs, Tabs, Accordion, Dialog, Drawer, Modal, Paper",
+        "action": "Review new component visuals and approve if they look correct"
+      },
+      {
+        "type": "automation",
+        "severity": "info",
+        "message": "Changes appear safe for automatic acceptance",
+        "action": "Auto-accept if CI checks pass"
+      }
+    ],
+    "autoAcceptable": true,
+    "newComponentDetected": true
+  },
+  "recommendations": {
+    "autoAcceptable": true,
+    "requiresReview": false,
+    "confidence": 0.95,
+    "actions": [
+      {
+        "type": "new-component",
+        "severity": "info",
+        "message": "19 new component(s) detected: Button, Card, Typography, Alert, Loading, Progress, Snackbar, TextField, Box, Container, Grid, Stack, Breadcrumbs, Tabs, Accordion, Dialog, Drawer, Modal, Paper",
+        "action": "Review new component visuals and approve if they look correct"
+      },
+      {
+        "type": "automation",
+        "severity": "info",
+        "message": "Changes appear safe for automatic acceptance",
+        "action": "Auto-accept if CI checks pass"
+      }
+    ],
+    "nextSteps": [
+      "Auto-accept new component baselines",
+      "Monitor for regressions in next build"
+    ],
+    "newComponentStrategy": {
+      "components": [
+        "Button",
+        "Card",
+        "Typography",
+        "Alert",
+        "Loading",
+        "Progress",
+        "Snackbar",
+        "TextField",
+        "Box",
+        "Container",
+        "Grid",
+        "Stack",
+        "Breadcrumbs",
+        "Tabs",
+        "Accordion",
+        "Dialog",
+        "Drawer",
+        "Modal",
+        "Paper"
+      ],
+      "recommendation": "Create initial baselines for new components",
+      "autoAccept": true
+    }
+  },
+  "newComponentHandling": {
+    "detected": true,
+    "components": [
+      "Button",
+      "Card",
+      "Typography",
+      "Alert",
+      "Loading",
+      "Progress",
+      "Snackbar",
+      "TextField",
+      "Box",
+      "Container",
+      "Grid",
+      "Stack",
+      "Breadcrumbs",
+      "Tabs",
+      "Accordion",
+      "Dialog",
+      "Drawer",
+      "Modal",
+      "Paper"
+    ],
+    "strategy": {
+      "components": [
+        "Button",
+        "Card",
+        "Typography",
+        "Alert",
+        "Loading",
+        "Progress",
+        "Snackbar",
+        "TextField",
+        "Box",
+        "Container",
+        "Grid",
+        "Stack",
+        "Breadcrumbs",
+        "Tabs",
+        "Accordion",
+        "Dialog",
+        "Drawer",
+        "Modal",
+        "Paper"
+      ],
+      "recommendation": "Create initial baselines for new components",
+      "autoAccept": true
+    }
+  },
+  "technicalDetails": {
+    "aiVersion": "2.0.0",
+    "analysisMethod": "pattern-recognition-with-new-component-awareness",
+    "confidenceThreshold": 0.85,
+    "autoAcceptThreshold": 0.95,
+    "gracefulMode": false
+  }
+}

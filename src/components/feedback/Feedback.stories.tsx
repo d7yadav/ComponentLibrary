@@ -1,5 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
+import { fn } from '@storybook/test';
+import React, { useState } from 'react';
+
+import { Button } from '@/components/core/Button';
+import { Box } from '@/components/layout/Box';
+import { Container } from '@/components/layout/Container';
+import { Grid } from '@/components/layout/Grid';
+import { Stack } from '@/components/layout/Stack';
+
 import { 
   Alert, 
   Snackbar, 
@@ -8,12 +16,6 @@ import {
   Loading,
   Skeleton
 } from './index';
-import { Button } from '../core/Button';
-import { Stack } from '../layout/Stack';
-import { Box } from '../layout/Box';
-import { Grid } from '../layout/Grid';
-import { Container } from '../layout/Container';
-import React from 'react';
 
 const meta: Meta = {
   title: 'Feedback/Overview',
@@ -44,7 +46,22 @@ A comprehensive collection of feedback components for user interaction and syste
       }
     }
   },
+  argTypes: {
+    onClick: {
+      action: 'onClick',
+      description: 'Callback fired when click occurs',
+  },
+    onClose: {
+      action: 'onClose',
+      description: 'Callback fired when close occurs',
+    },
+  },
   tags: ['autodocs'],
+
+  args: {
+    onClick: fn(),
+    onClose: fn(),
+  },
 };
 
 export default meta;
@@ -57,7 +74,7 @@ type Story = StoryObj;
  * @returns JSX element
  */
 export const AlertVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Container data-testid="feedback.stories" maxWidth="md">
       <Stack spacing={3}>
         <Box>
@@ -142,7 +159,7 @@ export const AlertVariants: Story = {
  * @returns JSX element
  */
 export const SnackbarExamples: Story = {
-  render: () => {
+  render: (args) => {
     const [snackbars, setSnackbars] = useState({
       success: false,
       error: false,
@@ -265,7 +282,7 @@ export const SnackbarExamples: Story = {
  * @returns JSX element
  */
 export const ProgressIndicators: Story = {
-  render: () => {
+  render: (args) => {
     const [progress, setProgress] = useState(0);
     
     React.useEffect(() => {
@@ -422,7 +439,7 @@ export const ProgressIndicators: Story = {
  * @returns JSX element
  */
 export const LoadingStates: Story = {
-  render: () => {
+  render: (args) => {
     const [loadingStates, setLoadingStates] = useState({
       page: false,
       content: false,
@@ -636,7 +653,7 @@ export const LoadingStates: Story = {
  * @returns JSX element
  */
 export const FeedbackWorkflow: Story = {
-  render: () => {
+  render: (args) => {
     const [step, setStep] = useState(0);
     const [progress, setProgress] = useState(0);
     const [showSuccess, setShowSuccess] = useState(false);
@@ -741,7 +758,7 @@ export const FeedbackWorkflow: Story = {
               title="Complete"
               autoHide
               autoHideDuration={3000}
-              onClose={() => setProgress(0)}
+              onClose={fn()}
             >
               All steps completed successfully!
             </Alert>
@@ -800,7 +817,7 @@ export const FeedbackWorkflow: Story = {
  * @returns JSX element
  */
 export const AccessibilityFeatures: Story = {
-  render: () => (
+  render: (args) => (
     <Container data-testid="feedback.stories" maxWidth="md">
       <Stack spacing={4}>
         <Box>

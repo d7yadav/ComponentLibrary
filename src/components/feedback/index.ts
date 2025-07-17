@@ -1,7 +1,3 @@
-/**
- * @fileoverview Feedback components barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 // Alert
 export { 

@@ -1,7 +1,3 @@
-/**
- * @fileoverview Theme system main export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 // Export enhanced theme system
 export { 

@@ -1,15 +1,16 @@
-import { forwardRef, memo } from 'react';
-import { SkeletonProps } from './Loading.types';
-import { 
-  SkeletonText,
-  SkeletonRectangular,
-  SkeletonCircular
-} from './Loading.styles';
+import React, { forwardRef, memo } from 'react';
+
 import {
   SKELETON_VARIANTS,
   SKELETON_DEFAULTS,
   ACCESSIBILITY_CONSTANTS,
 } from './Loading.constants';
+import { 
+  SkeletonText,
+  SkeletonRectangular,
+  SkeletonCircular
+} from './Loading.styles';
+import type { SkeletonProps } from './Loading.types';
 
 /**
  * Skeleton component for loading placeholders

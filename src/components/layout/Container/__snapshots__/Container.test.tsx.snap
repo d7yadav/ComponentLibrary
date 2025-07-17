@@ -1,0 +1,48 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Container Component > Snapshots > matches snapshot for all variants > variant-constrained 1`] = `
+<div
+  aria-label="Content container"
+  class="MuiContainer-root MuiContainer-maxWidthLg css-2g5gxw-MuiContainer-root"
+  data-testid="container"
+  role="main"
+>
+  constrained
+   Container
+</div>
+`;
+
+exports[`Container Component > Snapshots > matches snapshot for all variants > variant-fixed 1`] = `
+<div
+  aria-label="Content container"
+  class="MuiContainer-root MuiContainer-maxWidthLg css-agtab2-MuiContainer-root"
+  data-testid="container"
+  role="main"
+>
+  fixed
+   Container
+</div>
+`;
+
+exports[`Container Component > Snapshots > matches snapshot for all variants > variant-fluid 1`] = `
+<div
+  aria-label="Content container"
+  class="MuiContainer-root MuiContainer-maxWidthLg css-b3cund-MuiContainer-root"
+  data-testid="container"
+  role="main"
+>
+  fluid
+   Container
+</div>
+`;
+
+exports[`Container Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  aria-label="Content container"
+  class="MuiContainer-root MuiContainer-maxWidthLg css-agtab2-MuiContainer-root"
+  data-testid="container"
+  role="main"
+>
+  Default Container
+</div>
+`;

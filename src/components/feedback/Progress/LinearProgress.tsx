@@ -1,16 +1,29 @@
 import { forwardRef, memo } from 'react';
-import { LinearProgressProps } from './Progress.types';
+
+import {
+  DEFAULT_PROGRESS_PROPS,
+  ACCESSIBILITY_CONSTANTS,
+  PROGRESS_VALUE_FORMATTERS,
+} from './Progress.constants';
 import { 
   StyledLinearProgress, 
   ProgressContainer,
   ProgressLabel,
   ProgressValue
 } from './Progress.styles';
-import {
-  DEFAULT_PROGRESS_PROPS,
-  ACCESSIBILITY_CONSTANTS,
-  PROGRESS_VALUE_FORMATTERS,
-} from './Progress.constants';
+import type { LinearProgressProps } from './Progress.types';
+
+// Extracted style objects to prevent re-renders
+const progressWrapperBaseStyle = {
+  display: 'flex' as const,
+  alignItems: 'center' as const,
+  gap: 8,
+};
+
+const createProgressWrapperStyle = (fullWidth: boolean) => ({
+  ...progressWrapperBaseStyle,
+  width: fullWidth ? '100%' : 'auto',
+});
 
 /**
  * Enhanced Linear Progress component with comprehensive styling and accessibility
@@ -115,7 +128,7 @@ export const LinearProgress = forwardRef<HTMLDivElement, LinearProgressProps>((
           {label}
         </ProgressLabel>
       )}
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, width: fullWidth ? '100%' : 'auto' }}>
+      <div style={createProgressWrapperStyle(fullWidth)}>
         {progressElement}
         {showValue && value !== undefined && (
           <ProgressValue customSize={size}>

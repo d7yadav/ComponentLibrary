@@ -1,10 +1,5 @@
-import { ButtonVariant, ButtonSize, ButtonColor } from './Button.types';
+import type { ButtonVariant, ButtonSize, ButtonColor } from './Button.types';
 
-/**
- * BUTTON_VARIANTS component
- * 
- * @returns JSX element
- */
 export const BUTTON_VARIANTS: Record<ButtonVariant, ButtonVariant> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -16,22 +11,12 @@ export const BUTTON_VARIANTS: Record<ButtonVariant, ButtonVariant> = {
   text: 'text',
 } as const;
 
-/**
- * BUTTON_SIZES component
- * 
- * @returns JSX element
- */
 export const BUTTON_SIZES: Record<ButtonSize, ButtonSize> = {
   small: 'small',
   medium: 'medium',
   large: 'large',
 } as const;
 
-/**
- * BUTTON_COLORS component
- * 
- * @returns JSX element
- */
 export const BUTTON_COLORS: Record<ButtonColor, ButtonColor> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -43,11 +28,6 @@ export const BUTTON_COLORS: Record<ButtonColor, ButtonColor> = {
   info: 'info',
 } as const;
 
-/**
- * BUTTON_SIZE_CONFIGS component
- * 
- * @returns JSX element
- */
 export const BUTTON_SIZE_CONFIGS = {
   small: {
     height: 32,
@@ -69,11 +49,6 @@ export const BUTTON_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * ANIMATION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const ANIMATION_DURATIONS = {
   hover: '0.2s',
   press: '0.1s',
@@ -81,22 +56,12 @@ export const ANIMATION_DURATIONS = {
   ripple: '0.6s',
 } as const;
 
-/**
- * ANIMATION_EASINGS component
- * 
- * @returns JSX element
- */
 export const ANIMATION_EASINGS = {
   spring: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)',
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
   elastic: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   minTouchTarget: 44, // Minimum touch target size in pixels
   focusOutlineWidth: 2,
@@ -105,11 +70,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   disabledAriaLabel: 'Button is disabled',
 } as const;
 
-/**
- * GLASS_MORPHISM_CONFIG component
- * 
- * @returns JSX element
- */
 export const GLASS_MORPHISM_CONFIG = {
   backdropFilter: 'blur(10px)',
   backdropFilterFallback: 'blur(8px)',

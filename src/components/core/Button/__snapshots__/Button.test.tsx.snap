@@ -1,0 +1,136 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-glass 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-gradient 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-outline 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-primary 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-quaternary 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-secondary 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-tertiary 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for all variants > variant-text 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Button Component > Snapshots > matches snapshot for default props 1`] = `
+<style>
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;

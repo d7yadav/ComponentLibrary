@@ -58,11 +58,22 @@ const config: StorybookConfig = {
   }),
   
   viteFinal: async (config) => {
-    // Ensure proper handling of absolute imports
+    const { resolve } = await import('path');
+    
+    // Ensure proper handling of absolute imports matching vite.config.ts
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@': '/src',
+        '@': resolve(__dirname, '../src'),
+        '@/components': resolve(__dirname, '../src/components'),
+        '@/theme': resolve(__dirname, '../src/theme'),
+        '@/hooks': resolve(__dirname, '../src/hooks'),
+        '@/utils': resolve(__dirname, '../src/utils'),
+        '@/types': resolve(__dirname, '../src/types'),
+        '@/providers': resolve(__dirname, '../src/providers'),
+        '@/constants': resolve(__dirname, '../src/constants'),
+        '@/ai-context': resolve(__dirname, '../src/ai-context'),
+        '@/ai-workflow': resolve(__dirname, '../src/ai-workflow'),
       };
     }
     

@@ -1,0 +1,93 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LinearProgress Component > Snapshots > matches snapshot for all variants > variant-buffer 1`] = `
+<span
+  aria-label="Progress"
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="50"
+  aria-valuetext="50%"
+  class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-buffer css-1t0dxxh-MuiLinearProgress-root"
+  role="progressbar"
+>
+  <span
+    class="MuiLinearProgress-dashed MuiLinearProgress-dashedColorPrimary css-z7k20-MuiLinearProgress-dashed"
+  />
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar1 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Buffer css-1igjkhl-MuiLinearProgress-bar1"
+    style="transform: translateX(-50%);"
+  />
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar2 MuiLinearProgress-colorPrimary MuiLinearProgress-bar2Buffer css-1v1662g-MuiLinearProgress-bar2"
+    style="transform: translateX(-30%);"
+  />
+</span>
+`;
+
+exports[`LinearProgress Component > Snapshots > matches snapshot for all variants > variant-determinate 1`] = `
+<span
+  aria-label="Progress"
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="50"
+  aria-valuetext="50%"
+  class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-determinate css-18cps20-MuiLinearProgress-root"
+  role="progressbar"
+>
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar1 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Determinate css-l16vtb-MuiLinearProgress-bar1"
+    style="transform: translateX(-50%);"
+  />
+</span>
+`;
+
+exports[`LinearProgress Component > Snapshots > matches snapshot for all variants > variant-indeterminate 1`] = `
+<span
+  aria-label="Progress"
+  aria-valuemax="100"
+  aria-valuemin="0"
+  class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-18cps20-MuiLinearProgress-root"
+  role="progressbar"
+>
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar1 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-lcqqge-MuiLinearProgress-bar1"
+  />
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar2 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-lfb3c7-MuiLinearProgress-bar2"
+  />
+</span>
+`;
+
+exports[`LinearProgress Component > Snapshots > matches snapshot for all variants > variant-query 1`] = `
+<span
+  aria-label="Progress"
+  aria-valuemax="100"
+  aria-valuemin="0"
+  class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-query css-12hj3fj-MuiLinearProgress-root"
+  role="progressbar"
+>
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar1 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-lcqqge-MuiLinearProgress-bar1"
+  />
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar2 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-lfb3c7-MuiLinearProgress-bar2"
+  />
+</span>
+`;
+
+exports[`LinearProgress Component > Snapshots > matches snapshot for default props 1`] = `
+<span
+  aria-label="Progress"
+  aria-valuemax="100"
+  aria-valuemin="0"
+  class="MuiLinearProgress-root MuiLinearProgress-colorPrimary MuiLinearProgress-indeterminate css-18cps20-MuiLinearProgress-root"
+  role="progressbar"
+>
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar1 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar1Indeterminate css-lcqqge-MuiLinearProgress-bar1"
+  />
+  <span
+    class="MuiLinearProgress-bar MuiLinearProgress-bar2 MuiLinearProgress-barColorPrimary MuiLinearProgress-bar2Indeterminate css-lfb3c7-MuiLinearProgress-bar2"
+  />
+</span>
+`;

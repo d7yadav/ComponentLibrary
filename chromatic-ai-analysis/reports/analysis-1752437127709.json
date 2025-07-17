@@ -1,0 +1,101 @@
+{
+  "timestamp": "2025-07-13T20:05:27.709Z",
+  "buildId": "mock-build-123",
+  "summary": {
+    "totalChanges": 3,
+    "newComponents": 0,
+    "newStories": 0,
+    "riskLevel": "medium",
+    "confidence": 0.71,
+    "autoAcceptable": false
+  },
+  "analysis": {
+    "buildId": "mock-build-123",
+    "timestamp": "2025-07-13T20:05:27.708Z",
+    "totalChanges": 3,
+    "newComponents": [],
+    "newStories": 0,
+    "changeCategories": {
+      "layout": 1,
+      "color": 1,
+      "typography": 0,
+      "spacing": 0,
+      "animation": 0,
+      "content": 0,
+      "newComponent": 0,
+      "themeSpecific": 2
+    },
+    "themeAnalysis": {
+      "lightThemeChanges": 1,
+      "darkThemeChanges": 1,
+      "themeConsistency": "good",
+      "themeSpecificIssues": []
+    },
+    "riskLevel": "medium",
+    "confidence": 0.71,
+    "recommendations": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "color",
+        "severity": "low",
+        "message": "Color changes detected - check accessibility compliance",
+        "action": "Run color contrast validation"
+      },
+      {
+        "type": "theme-testing",
+        "severity": "info",
+        "message": "2 theme-specific changes detected",
+        "action": "Verify both light and dark theme variations in Storybook"
+      }
+    ],
+    "autoAcceptable": false,
+    "newComponentDetected": false
+  },
+  "recommendations": {
+    "autoAcceptable": false,
+    "requiresReview": true,
+    "confidence": 0.71,
+    "actions": [
+      {
+        "type": "layout",
+        "severity": "medium",
+        "message": "Layout changes detected - verify responsive behavior",
+        "action": "Test across multiple viewports"
+      },
+      {
+        "type": "color",
+        "severity": "low",
+        "message": "Color changes detected - check accessibility compliance",
+        "action": "Run color contrast validation"
+      },
+      {
+        "type": "theme-testing",
+        "severity": "info",
+        "message": "2 theme-specific changes detected",
+        "action": "Verify both light and dark theme variations in Storybook"
+      }
+    ],
+    "nextSteps": [
+      "Manual review required",
+      "Test in staging environment"
+    ],
+    "newComponentStrategy": null
+  },
+  "newComponentHandling": {
+    "detected": false,
+    "components": [],
+    "strategy": null
+  },
+  "technicalDetails": {
+    "aiVersion": "2.0.0",
+    "analysisMethod": "pattern-recognition-with-new-component-awareness",
+    "confidenceThreshold": 0.85,
+    "autoAcceptThreshold": 0.95,
+    "gracefulMode": false
+  }
+}

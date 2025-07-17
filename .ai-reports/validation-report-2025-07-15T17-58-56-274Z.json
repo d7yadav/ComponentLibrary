@@ -1,0 +1,254 @@
+{
+  "timestamp": "2025-07-15T17:58:56.274Z",
+  "metrics": {
+    "totalFiles": 11,
+    "validatedFiles": 11,
+    "errors": 7,
+    "warnings": 5,
+    "suggestions": 7,
+    "score": 90
+  },
+  "results": [
+    {
+      "path": "src/components/feedback/Alert/Alert.ai-guide.md",
+      "size": 4707,
+      "lines": 201,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.constants.ts",
+      "size": 5885,
+      "lines": 246,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 93
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.examples.md",
+      "size": 2970,
+      "lines": 173,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.stories.tsx",
+      "size": 39108,
+      "lines": 1237,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Alert.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Components should use named exports only, no default exports",
+          "line": 86,
+          "type": "default-export",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface Alert.storiesProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 66
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.styles.ts",
+      "size": 9291,
+      "lines": 357,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Found 10 'any' type(s). Use explicit types for AI comprehension",
+          "line": 64,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 88
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.test.tsx",
+      "size": 9833,
+      "lines": 356,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Alert.test }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface Alert.testProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 78
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.tsx",
+      "size": 5253,
+      "lines": 196,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Alert }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface AlertProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 80
+    },
+    {
+      "path": "src/components/feedback/Alert/Alert.types.ts",
+      "size": 2391,
+      "lines": 131,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 91
+    },
+    {
+      "path": "src/components/feedback/Alert/README.md",
+      "size": 1486,
+      "lines": 64,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/feedback/Alert/__snapshots__/Alert.test.tsx.snap",
+      "size": 4219,
+      "lines": 161,
+      "issues": [],
+      "score": 100
+    },
+    {
+      "path": "src/components/feedback/Alert/index.ts",
+      "size": 858,
+      "lines": 45,
+      "issues": [
+        {
+          "message": "Exported functions/components should have JSDoc comments for AI understanding",
+          "line": 1,
+          "type": "jsdoc-missing",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        }
+      ],
+      "score": 95
+    }
+  ],
+  "summary": {
+    "passed": true,
+    "score": 90,
+    "totalIssues": 19
+  }
+}

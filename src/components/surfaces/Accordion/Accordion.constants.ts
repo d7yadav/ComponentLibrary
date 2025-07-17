@@ -1,7 +1,3 @@
-/**
- * Accordion component constants
- * Provides configuration values for variants, sizes, transitions, and accessibility
- */
 
 export const ACCORDION_VARIANTS = {
   standard: 'standard',

@@ -1,9 +1,10 @@
 import { forwardRef, memo } from 'react';
-import { BoxProps } from './Box.types';
-import { StyledBox } from './Box.styles';
+
 import {
   DEFAULT_BOX_PROPS,
 } from './Box.constants';
+import { StyledBox } from './Box.styles';
+import type { BoxProps } from './Box.types';
 
 /**
  * Enhanced Box component with general-purpose styling props and responsive support
@@ -20,7 +21,7 @@ import {
  * - Dark theme support via enhanced theme system
  * - Performance optimized with shouldForwardProp
  */
-export const Box = forwardRef<HTMLDivElement, BoxProps>((
+export const Box = memo(forwardRef<HTMLDivElement, BoxProps>((
   {
     children,
     component = DEFAULT_BOX_PROPS.component,
@@ -80,6 +81,6 @@ export const Box = forwardRef<HTMLDivElement, BoxProps>((
       {children}
     </StyledBox>
   );
-});
+}));
 
 Box.displayName = 'Box';

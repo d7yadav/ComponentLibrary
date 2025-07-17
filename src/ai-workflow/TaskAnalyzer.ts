@@ -1,150 +1,119 @@
-/**
- * @fileoverview Senior Engineer Task Analysis Engine
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * This module implements a sophisticated task analysis system that mimics
- * senior engineer thinking patterns for systematic component development.
- */
 
-import type { ComponentCategory, ComplexityLevel } from '../types';
+import type { ComponentCategory, ComplexityLevel } from '@/types';
 
-/**
- * Requirement analysis structure
- */
 export interface RequirementAnalysis {
-  functionalRequirements: string[];
-  nonFunctionalRequirements: string[];
-  constraints: string[];
-  assumptions: string[];
-  dependencies: string[];
-  successCriteria: string[];
-  risksIdentified: string[];
+  functionalRequirements: string[],
+  nonFunctionalRequirements: string[],
+  constraints: string[],
+  assumptions: string[],
+  dependencies: string[],
+  successCriteria: string[],
+  risksIdentified: string[],
 }
 
-/**
- * Technical challenge classification
- */
 export interface TechnicalChallenge {
-  id: string;
-  title: string;
-  description: string;
-  category: 'performance' | 'accessibility' | 'security' | 'maintainability' | 'scalability' | 'integration';
-  severity: 'low' | 'medium' | 'high' | 'critical';
-  impact: string;
-  estimatedEffort: string;
-  mitigation: string[];
-  alternatives: string[];
+  id: string,
+  title: string,
+  description: string,
+  category: 'performance' | 'accessibility' | 'security' | 'maintainability' | 'scalability' | 'integration',
+  severity: 'low' | 'medium' | 'high' | 'critical',
+  impact: string,
+  estimatedEffort: string,
+  mitigation: string[],
+  alternatives: string[],
 }
 
-/**
- * Risk assessment framework
- */
 export interface RiskAssessment {
-  id: string;
-  risk: string;
-  probability: 'low' | 'medium' | 'high';
-  impact: 'low' | 'medium' | 'high' | 'critical';
-  category: 'technical' | 'business' | 'operational' | 'security';
-  mitigation: string[];
-  contingency: string[];
-  owner: string;
-  timeline: string;
+  id: string,
+  risk: string,
+  probability: 'low' | 'medium' | 'high',
+  impact: 'low' | 'medium' | 'high' | 'critical',
+  category: 'technical' | 'business' | 'operational' | 'security',
+  mitigation: string[],
+  contingency: string[],
+  owner: string,
+  timeline: string,
 }
 
-/**
- * Implementation plan structure
- */
 export interface ImplementationPlan {
-  phases: ImplementationPhase[];
-  criticalPath: string[];
-  dependencies: PhaseDependency[];
-  estimatedTimeline: string;
-  resourceRequirements: string[];
-  qualityGates: QualityGate[];
-  milestones: Milestone[];
+  phases: ImplementationPhase[],
+  criticalPath: string[],
+  dependencies: PhaseDependency[],
+  estimatedTimeline: string,
+  resourceRequirements: string[],
+  qualityGates: QualityGate[],
+  milestones: Milestone[],
 }
 
 export interface ImplementationPhase {
-  id: string;
-  name: string;
-  description: string;
-  tasks: Task[];
-  duration: string;
-  priority: 'low' | 'medium' | 'high' | 'critical';
-  prerequisites: string[];
-  deliverables: string[];
+  id: string,
+  name: string,
+  description: string,
+  tasks: Task[],
+  duration: string,
+  priority: 'low' | 'medium' | 'high' | 'critical',
+  prerequisites: string[],
+  deliverables: string[],
 }
 
 export interface Task {
-  id: string;
-  name: string;
-  description: string;
-  type: 'analysis' | 'design' | 'implementation' | 'testing' | 'documentation' | 'review';
-  estimatedHours: number;
-  complexity: ComplexityLevel;
-  skills: string[];
-  dependencies: string[];
+  id: string,
+  name: string,
+  description: string,
+  type: 'analysis' | 'design' | 'implementation' | 'testing' | 'documentation' | 'review',
+  estimatedHours: number,
+  complexity: ComplexityLevel,
+  skills: string[],
+  dependencies: string[],
 }
 
 export interface PhaseDependency {
   fromPhase: string;
-  toPhase: string;
-  type: 'blocking' | 'informational';
-  description: string;
+  toPhase: string,
+  type: 'blocking' | 'informational',
+  description: string,
 }
 
 export interface QualityGate {
-  id: string;
-  phase: string;
-  criteria: string[];
-  validationMethod: string;
-  acceptanceCriteria: string[];
+  id: string,
+  phase: string,
+  criteria: string[],
+  validationMethod: string,
+  acceptanceCriteria: string[],
 }
 
 export interface Milestone {
-  id: string;
-  name: string;
-  description: string;
-  targetDate: string;
-  deliverables: string[];
-  successMetrics: string[];
+  id: string,
+  name: string,
+  description: string,
+  targetDate: string,
+  deliverables: string[],
+  successMetrics: string[],
 }
 
-/**
- * Success criteria framework
- */
 export interface SuccessCriteria {
-  functional: string[];
-  performance: string[];
-  accessibility: string[];
-  security: string[];
-  maintainability: string[];
-  usability: string[];
-  compliance: string[];
-  businessValue: string[];
+  functional: string[],
+  performance: string[],
+  accessibility: string[],
+  security: string[],
+  maintainability: string[],
+  usability: string[],
+  compliance: string[],
+  businessValue: string[],
 }
 
-/**
- * Task context for analysis
- */
 export interface TaskContext {
-  taskName: string;
-  description: string;
-  componentType?: ComponentCategory;
-  complexity?: ComplexityLevel;
-  requirements?: string[];
-  constraints?: string[];
-  existingComponents?: string[];
-  targetUsers?: string[];
-  businessContext?: string;
+  taskName: string,
+  description: string,
+  componentType?: ComponentCategory,
+  complexity?: ComplexityLevel,
+  requirements?: string[],
+  constraints?: string[],
+  existingComponents?: string[],
+  targetUsers?: string[],
+  businessContext?: string,
 }
 
-/**
- * Senior Engineer Task Analysis Engine
- * 
- * Provides comprehensive task analysis using multiple frameworks and perspectives
- * to ensure systematic, senior engineer-level thinking for component development.
- */
 export class TaskAnalyzer {
   private readonly analysisFrameworks = [
     'technical-feasibility',
@@ -159,19 +128,16 @@ export class TaskAnalyzer {
     'timeline-impact',
     'risk-assessment',
     'dependency-analysis'
-  ];
+  ],
 
-  /**
-   * Analyze requirements using systematic decomposition
-   */
   public analyzeRequirements(context: TaskContext): RequirementAnalysis {
-    const functionalRequirements = this.extractFunctionalRequirements(context);
-    const nonFunctionalRequirements = this.extractNonFunctionalRequirements(context);
-    const constraints = this.identifyConstraints(context);
-    const assumptions = this.documentAssumptions(context);
-    const dependencies = this.mapDependencies(context);
-    const successCriteria = this.defineSuccessCriteria(context);
-    const risksIdentified = this.identifyInitialRisks(context);
+    const functionalRequirements = this.extractFunctionalRequirements(context),
+    const nonFunctionalRequirements = this.extractNonFunctionalRequirements(context),
+    const constraints = this.identifyConstraints(context),
+    const assumptions = this.documentAssumptions(context),
+    const dependencies = this.mapDependencies(context),
+    const successCriteria = this.defineSuccessCriteria(context),
+    const risksIdentified = this.identifyInitialRisks(context),
 
     return {
       functionalRequirements,
@@ -181,70 +147,61 @@ export class TaskAnalyzer {
       dependencies,
       successCriteria,
       risksIdentified
-    };
+    },
   }
 
-  /**
-   * Identify technical challenges using multiple perspectives
-   */
   public identifyTechnicalChallenges(context: TaskContext): TechnicalChallenge[] {
-    const challenges: TechnicalChallenge[] = [];
+    const challenges: TechnicalChallenge[] = [],
 
     // Performance challenges
-    challenges.push(...this.analyzePerformanceChallenges(context));
+    challenges.push(...this.analyzePerformanceChallenges(context)),
     
     // Accessibility challenges
-    challenges.push(...this.analyzeAccessibilityChallenges(context));
+    challenges.push(...this.analyzeAccessibilityChallenges(context)),
     
     // Security challenges
-    challenges.push(...this.analyzeSecurityChallenges(context));
+    challenges.push(...this.analyzeSecurityChallenges(context)),
     
     // Maintainability challenges
-    challenges.push(...this.analyzeMaintainabilityChallenges(context));
+    challenges.push(...this.analyzeMaintainabilityChallenges(context)),
     
     // Scalability challenges
-    challenges.push(...this.analyzeScalabilityChallenges(context));
+    challenges.push(...this.analyzeScalabilityChallenges(context)),
     
     // Integration challenges
-    challenges.push(...this.analyzeIntegrationChallenges(context));
+    challenges.push(...this.analyzeIntegrationChallenges(context)),
 
-    return challenges.sort((a, b) => this.getSeverityScore(b.severity) - this.getSeverityScore(a.severity));
+    return challenges.sort((a, b) => this.getSeverityScore(b.severity) - this.getSeverityScore(a.severity)),
   }
 
-  /**
-   * Assess risks using comprehensive risk framework
-   */
   public assessRisks(context: TaskContext): RiskAssessment[] {
-    const risks: RiskAssessment[] = [];
+    const risks: RiskAssessment[] = [],
 
     // Technical risks
-    risks.push(...this.assessTechnicalRisks(context));
+    risks.push(...this.assessTechnicalRisks(context)),
     
     // Business risks
-    risks.push(...this.assessBusinessRisks(context));
+    risks.push(...this.assessBusinessRisks(context)),
     
     // Operational risks
-    risks.push(...this.assessOperationalRisks(context));
+    risks.push(...this.assessOperationalRisks(context)),
     
     // Security risks
-    risks.push(...this.assessSecurityRisks(context));
+    risks.push(...this.assessSecurityRisks(context)),
 
     return risks.sort((a, b) => 
       this.getRiskScore(b.probability, b.impact) - this.getRiskScore(a.probability, a.impact)
-    );
+    ),
   }
 
-  /**
-   * Plan implementation using hierarchical decomposition
-   */
   public planImplementation(context: TaskContext): ImplementationPlan {
-    const phases = this.decomposePhasesStrategically(context);
-    const criticalPath = this.identifyCriticalPath(phases);
-    const dependencies = this.mapPhaseDependencies(phases);
-    const estimatedTimeline = this.estimateOverallTimeline(phases);
-    const resourceRequirements = this.identifyResourceRequirements(context, phases);
-    const qualityGates = this.defineQualityGates(phases);
-    const milestones = this.defineMilestones(phases);
+    const phases = this.decomposePhasesStrategically(context),
+    const criticalPath = this.identifyCriticalPath(phases),
+    const dependencies = this.mapPhaseDependencies(phases),
+    const estimatedTimeline = this.estimateOverallTimeline(phases),
+    const resourceRequirements = this.identifyResourceRequirements(context, phases),
+    const qualityGates = this.defineQualityGates(phases),
+    const milestones = this.defineMilestones(phases),
 
     return {
       phases,
@@ -254,12 +211,9 @@ export class TaskAnalyzer {
       resourceRequirements,
       qualityGates,
       milestones
-    };
+    },
   }
 
-  /**
-   * Define comprehensive success criteria
-   */
   public defineSuccessCriteria(context: TaskContext): SuccessCriteria {
     return {
       functional: this.defineFunctionalCriteria(context),
@@ -270,13 +224,13 @@ export class TaskAnalyzer {
       usability: this.defineUsabilityCriteria(context),
       compliance: this.defineComplianceCriteria(context),
       businessValue: this.defineBusinessValueCriteria(context)
-    };
+    },
   }
 
   // Private helper methods for requirement analysis
 
   private extractFunctionalRequirements(context: TaskContext): string[] {
-    const requirements: string[] = [];
+    const requirements: string[] = [],
     
     if (context.componentType === 'core') {
       requirements.push(
@@ -284,7 +238,7 @@ export class TaskAnalyzer {
         'Component must handle all specified props appropriately',
         'Component must support ref forwarding',
         'Component must integrate with theme system'
-      );
+      ),
     }
 
     if (context.componentType === 'forms') {
@@ -292,15 +246,15 @@ export class TaskAnalyzer {
         'Component must support form validation',
         'Component must handle controlled/uncontrolled modes',
         'Component must support React Hook Form integration'
-      );
+      ),
     }
 
     // Add context-specific requirements
     if (context.requirements) {
-      requirements.push(...context.requirements);
+      requirements.push(...context.requirements),
     }
 
-    return requirements;
+    return requirements,
   }
 
   private extractNonFunctionalRequirements(context: TaskContext): string[] {
@@ -314,7 +268,7 @@ export class TaskAnalyzer {
       'Component must be responsive across all breakpoints',
       'Component must support dark/light themes',
       'Component must have TypeScript strict mode compliance'
-    ];
+    ],
   }
 
   private identifyConstraints(context: TaskContext): string[] {
@@ -324,13 +278,13 @@ export class TaskAnalyzer {
       'Must support React 18.3+ concurrent features',
       'Must follow established component structure patterns',
       'Must use Emotion for styling'
-    ];
+    ],
 
     if (context.constraints) {
-      constraints.push(...context.constraints);
+      constraints.push(...context.constraints),
     }
 
-    return constraints;
+    return constraints,
   }
 
   private documentAssumptions(context: TaskContext): string[] {
@@ -340,7 +294,7 @@ export class TaskAnalyzer {
       'Theme provider is available in component tree',
       'React 18+ features are available',
       'Emotion runtime is properly configured'
-    ];
+    ],
   }
 
   private mapDependencies(context: TaskContext): string[] {
@@ -350,13 +304,13 @@ export class TaskAnalyzer {
       '@emotion/styled',
       'react',
       'react-dom'
-    ];
+    ],
 
     if (context.existingComponents) {
-      dependencies.push(...context.existingComponents.map(comp => `@/components/${comp}`));
+      dependencies.push(...context.existingComponents.map(comp => `@/components/${comp}`)),
     }
 
-    return dependencies;
+    return dependencies,
   }
 
   private identifyInitialRisks(context: TaskContext): string[] {
@@ -367,13 +321,13 @@ export class TaskAnalyzer {
       'Accessibility compliance gaps',
       'Browser compatibility issues',
       'Integration testing complexity'
-    ];
+    ],
   }
 
   // Private helper methods for challenge analysis
 
   private analyzePerformanceChallenges(context: TaskContext): TechnicalChallenge[] {
-    const challenges: TechnicalChallenge[] = [];
+    const challenges: TechnicalChallenge[] = [],
 
     if (context.componentType === 'data-display') {
       challenges.push({
@@ -386,10 +340,10 @@ export class TaskAnalyzer {
         estimatedEffort: '2-3 days',
         mitigation: ['Implement virtualization', 'Add pagination', 'Use React.memo'],
         alternatives: ['Server-side pagination', 'Lazy loading', 'Data filtering']
-      });
+      }),
     }
 
-    return challenges;
+    return challenges,
   }
 
   private analyzeAccessibilityChallenges(context: TaskContext): TechnicalChallenge[] {
@@ -403,11 +357,11 @@ export class TaskAnalyzer {
       estimatedEffort: '1-2 days',
       mitigation: ['Implement proper ARIA attributes', 'Add screen reader testing'],
       alternatives: ['Use semantic HTML', 'Provide alternative interactions']
-    }];
+    }],
   }
 
   private analyzeSecurityChallenges(context: TaskContext): TechnicalChallenge[] {
-    const challenges: TechnicalChallenge[] = [];
+    const challenges: TechnicalChallenge[] = [],
 
     if (context.componentType === 'forms') {
       challenges.push({
@@ -420,10 +374,10 @@ export class TaskAnalyzer {
         estimatedEffort: '1 day',
         mitigation: ['Implement input sanitization', 'Use CSP headers'],
         alternatives: ['Server-side validation', 'Input masking']
-      });
+      }),
     }
 
-    return challenges;
+    return challenges,
   }
 
   private analyzeMaintainabilityChallenges(context: TaskContext): TechnicalChallenge[] {
@@ -437,7 +391,7 @@ export class TaskAnalyzer {
       estimatedEffort: '1 day',
       mitigation: ['Use semantic versioning', 'Deprecation warnings'],
       alternatives: ['Feature flags', 'Parallel APIs']
-    }];
+    }],
   }
 
   private analyzeScalabilityChallenges(context: TaskContext): TechnicalChallenge[] {
@@ -451,7 +405,7 @@ export class TaskAnalyzer {
       estimatedEffort: '2 days',
       mitigation: ['CSS variable optimization', 'Theme caching'],
       alternatives: ['Compile-time theme generation', 'Reduced variant sets']
-    }];
+    }],
   }
 
   private analyzeIntegrationChallenges(context: TaskContext): TechnicalChallenge[] {
@@ -465,7 +419,7 @@ export class TaskAnalyzer {
       estimatedEffort: '1-2 days',
       mitigation: ['Create integration guides', 'Provide adapter components'],
       alternatives: ['Generic interfaces', 'Plugin architecture']
-    }];
+    }],
   }
 
   // Risk assessment methods
@@ -481,7 +435,7 @@ export class TaskAnalyzer {
       contingency: ['Fallback to v6 APIs', 'Custom implementation'],
       owner: 'Development Team',
       timeline: 'Throughout development'
-    }];
+    }],
   }
 
   private assessBusinessRisks(context: TaskContext): RiskAssessment[] {
@@ -495,7 +449,7 @@ export class TaskAnalyzer {
       contingency: ['Extended support period', 'Training sessions'],
       owner: 'Product Team',
       timeline: 'Post-release'
-    }];
+    }],
   }
 
   private assessOperationalRisks(context: TaskContext): RiskAssessment[] {
@@ -509,7 +463,7 @@ export class TaskAnalyzer {
       contingency: ['Rollback procedures', 'Manual deployment'],
       owner: 'DevOps Team',
       timeline: 'Deployment phase'
-    }];
+    }],
   }
 
   private assessSecurityRisks(context: TaskContext): RiskAssessment[] {
@@ -523,7 +477,7 @@ export class TaskAnalyzer {
       contingency: ['Rapid patching process', 'Alternative dependencies'],
       owner: 'Security Team',
       timeline: 'Ongoing'
-    }];
+    }],
   }
 
   // Implementation planning methods
@@ -603,49 +557,49 @@ export class TaskAnalyzer {
           }
         ]
       }
-    ];
+    ],
 
-    return phases;
+    return phases,
   }
 
   private identifyCriticalPath(phases: ImplementationPhase[]): string[] {
     // Simple critical path - all phases are sequential in this case
-    return phases.map(phase => phase.id);
+    return phases.map(phase => phase.id),
   }
 
   private mapPhaseDependencies(phases: ImplementationPhase[]): PhaseDependency[] {
-    const dependencies: PhaseDependency[] = [];
+    const dependencies: PhaseDependency[] = [],
     
     for (let i = 1; i < phases.length; i++) {
       dependencies.push({
-        fromPhase: phases[i - 1].id,
+        fromPhase: phases[i - 1].id;
         toPhase: phases[i].id,
         type: 'blocking',
         description: `${phases[i].name} requires completion of ${phases[i - 1].name}`
-      });
+      }),
     }
 
-    return dependencies;
+    return dependencies,
   }
 
   private estimateOverallTimeline(phases: ImplementationPhase[]): string {
     // Simple estimation - sum of phase durations
     const totalDays = phases.reduce((sum, phase) => {
-      const [min, max] = phase.duration.match(/\d+/g)?.map(Number) || [1, 1];
-      return sum + Math.ceil((min + max) / 2);
-    }, 0);
+      const [min, max] = phase.duration.match(/\d+/g)?.map(Number) || [1, 1],
+      return sum + Math.ceil((min + max) / 2),
+    }, 0),
 
-    return `${totalDays} days`;
+    return `${totalDays} days`,
   }
 
   private identifyResourceRequirements(context: TaskContext, phases: ImplementationPhase[]): string[] {
-    const requirements = new Set<string>();
+    const requirements = new Set<string>(),
     
     phases.forEach(phase => {
       phase.tasks.forEach(task => {
-        task.skills.forEach(skill => requirements.add(skill));
-      });
-    });
+        task.skills.forEach(skill => requirements.add(skill)),
+      }),
+    }),
 
     return Array.from(requirements);
   }
@@ -673,7 +627,7 @@ export class TaskAnalyzer {
         validationMethod: 'Coverage report + manual review',
         acceptanceCriteria: ['Coverage threshold met', 'All stories functional']
       }
-    ];
+    ],
   }
 
   private defineMilestones(phases: ImplementationPhase[]): Milestone[] {
@@ -684,7 +638,7 @@ export class TaskAnalyzer {
       targetDate: `Day ${(index + 1) * 3}`, // Simplified timeline
       deliverables: phase.deliverables,
       successMetrics: [`All phase ${index + 1} quality gates passed`]
-    }));
+    })),
   }
 
   // Success criteria definition methods
@@ -697,7 +651,7 @@ export class TaskAnalyzer {
       'All variants display correctly',
       'Event handlers function properly',
       'Ref forwarding works correctly'
-    ];
+    ],
   }
 
   private definePerformanceCriteria(context: TaskContext): string[] {
@@ -707,7 +661,7 @@ export class TaskAnalyzer {
       'No memory leaks during mount/unmount cycles',
       'Smooth 60fps animations',
       'Efficient re-renders with React.memo where appropriate'
-    ];
+    ],
   }
 
   private defineAccessibilityCriteria(context: TaskContext): string[] {
@@ -718,7 +672,7 @@ export class TaskAnalyzer {
       'Color contrast ratios meet standards',
       'Focus indicators visible and appropriate',
       'ARIA attributes properly implemented'
-    ];
+    ],
   }
 
   private defineSecurityCriteria(context: TaskContext): string[] {
@@ -728,7 +682,7 @@ export class TaskAnalyzer {
       'No exposure of sensitive props in DOM',
       'CSP compatibility maintained',
       'No unsafe-inline styles when CSP enabled'
-    ];
+    ],
   }
 
   private defineMaintainabilityCriteria(context: TaskContext): string[] {
@@ -739,7 +693,7 @@ export class TaskAnalyzer {
       'Clear separation of concerns',
       'Minimal coupling with external dependencies',
       'Version compatibility maintained'
-    ];
+    ],
   }
 
   private defineUsabilityCriteria(context: TaskContext): string[] {
@@ -750,7 +704,7 @@ export class TaskAnalyzer {
       'Responsive behavior across screen sizes',
       'Consistent visual design language',
       'Minimal cognitive load for implementation'
-    ];
+    ],
   }
 
   private defineComplianceCriteria(context: TaskContext): string[] {
@@ -761,7 +715,7 @@ export class TaskAnalyzer {
       'Browser compatibility requirements met',
       'Code quality standards satisfied',
       'License compatibility verified'
-    ];
+    ],
   }
 
   private defineBusinessValueCriteria(context: TaskContext): string[] {
@@ -772,33 +726,27 @@ export class TaskAnalyzer {
       'Enables faster feature development',
       'Reduces maintenance overhead',
       'Facilitates design system adoption'
-    ];
+    ],
   }
 
   // Utility methods
 
   private getSeverityScore(severity: string): number {
-    const scores = { low: 1, medium: 2, high: 3, critical: 4 };
-    return scores[severity as keyof typeof scores] || 0;
+    const scores = { low: 1, medium: 2, high: 3, critical: 4 },
+    return scores[severity as keyof typeof scores] || 0,
   }
 
   private getRiskScore(probability: string, impact: string): number {
-    const probScores = { low: 1, medium: 2, high: 3 };
-    const impactScores = { low: 1, medium: 2, high: 3, critical: 4 };
+    const probScores = { low: 1, medium: 2, high: 3 },
+    const impactScores = { low: 1, medium: 2, high: 3, critical: 4 },
     
     return (probScores[probability as keyof typeof probScores] || 0) *
-           (impactScores[impact as keyof typeof impactScores] || 0);
+           (impactScores[impact as keyof typeof impactScores] || 0),
   }
 }
 
-/**
- * Factory function to create a TaskAnalyzer instance
- */
 export const createTaskAnalyzer = (): TaskAnalyzer => {
-  return new TaskAnalyzer();
-};
+  return new TaskAnalyzer(),
+},
 
-/**
- * Default export for convenience
- */
-export default TaskAnalyzer;
+export default TaskAnalyzer,

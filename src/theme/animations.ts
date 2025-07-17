@@ -1,11 +1,4 @@
-/**
- * @fileoverview Physics-based animation system
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
-/**
- * Physics-based easing functions for natural animations
- */
 export const easings = {
   // Standard Material Design easings
   standard: 'cubic-bezier(0.4, 0, 0.2, 1)',
@@ -20,12 +13,9 @@ export const easings = {
   
   // Custom easings
   smooth: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-  swift: 'cubic-bezier(0.55, 0, 0.1, 1)',
+  swift: 'cubic-bezier(0.55, 0, 0.1, 1)'
 } as const;
 
-/**
- * Animation durations optimized for performance
- */
 export const durations = {
   shortest: 150,
   shorter: 200,
@@ -36,13 +26,7 @@ export const durations = {
   leavingScreen: 195,
 } as const;
 
-/**
- * CSS Keyframe animations
- */
 export const keyframes = {
-  /**
-   * Gradient shift animation for animated gradients
-   */
   gradientShift: `
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
@@ -51,9 +35,6 @@ export const keyframes = {
     }
   `,
   
-  /**
-   * Pulse animation for loading states
-   */
   pulse: `
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
@@ -62,9 +43,6 @@ export const keyframes = {
     }
   `,
   
-  /**
-   * Wave animation for ripple effects
-   */
   wave: `
     @keyframes wave {
       0% { transform: translateX(-100%); }
@@ -72,9 +50,6 @@ export const keyframes = {
     }
   `,
   
-  /**
-   * Shimmer animation for loading skeletons
-   */
   shimmer: `
     @keyframes shimmer {
       0% { transform: translateX(-100%); }
@@ -82,9 +57,6 @@ export const keyframes = {
     }
   `,
   
-  /**
-   * Fade in animation
-   */
   fadeIn: `
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -92,24 +64,15 @@ export const keyframes = {
     }
   `,
   
-  /**
-   * Slide up animation
-   */
   slideUp: `
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-  `,
+  `
 };
 
-/**
- * Animation utility functions
- */
 export const animationUtils = {
-  /**
-   * Creates a transition string
-   */
   createTransition: (
     properties: string[],
     duration = durations.standard,
@@ -121,21 +84,15 @@ export const animationUtils = {
       .join(', ');
   },
   
-  /**
-   * Creates a spring animation
-   */
-  createSpringAnimation: (property: string, duration = durations.complex) => ({
+  createSpringAnimation: (property: string, duration = durations.complex): { transition: string } => ({
     transition: `${property} ${duration}ms ${easings.spring}`,
   }),
   
-  /**
-   * Creates a reduced motion safe animation
-   */
-  createReducedMotion: (animation: Record<string, any>) => ({
+  createReducedMotion: (animation: Record<string, string | number>): Record<string, Record<string, string> | Record<string, string | number>> => ({
     '@media (prefers-reduced-motion: reduce)': {
       animation: 'none',
       transition: 'none',
     },
     '@media (prefers-reduced-motion: no-preference)': animation,
-  }),
+  })
 };

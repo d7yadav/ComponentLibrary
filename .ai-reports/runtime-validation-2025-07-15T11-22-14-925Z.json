@@ -1,0 +1,1531 @@
+{
+  "timestamp": "2025-07-15T11:22:14.925Z",
+  "duration": 15239,
+  "checks": 405,
+  "violations": [
+    {
+      "type": "CRITICAL",
+      "rule": "storybook-build-failure",
+      "file": "storybook-build",
+      "message": "Storybook build failed - runtime errors detected",
+      "suggestion": "Fix runtime errors in story files",
+      "example": "Check for missing React imports, CSS-in-JS syntax errors"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/core/Button/Button.styles.ts",
+      "message": "Found 3 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/core/Chip/Chip.styles.ts",
+      "message": "Found 8 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/core/Icon/Icon.styles.ts",
+      "message": "Found 3 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/core/IconButton/IconButton.styles.ts",
+      "message": "Found 2 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/data-display/Avatar/Avatar.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/data-display/Badge/Badge.styles.ts",
+      "message": "Found 2 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/data-display/Card/Card.styles.ts",
+      "message": "Found 2 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/data-display/Divider/Divider.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/data-display/Tooltip/Tooltip.styles.ts",
+      "message": "Found 3 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/data-display/Typography/Typography.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/feedback/Alert/Alert.styles.ts",
+      "message": "Found 10 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/feedback/Loading/Loading.styles.ts",
+      "message": "Found 16 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/feedback/Progress/Progress.styles.ts",
+      "message": "Found 8 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/feedback/Snackbar/Snackbar.styles.ts",
+      "message": "Found 18 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/Autocomplete/Autocomplete.styles.ts",
+      "message": "Found 2 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/Checkbox/Checkbox.styles.ts",
+      "message": "Found 5 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/DatePicker/DatePicker.styles.ts",
+      "message": "Found 7 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/FormControl/FormControl.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/FormLabel/FormLabel.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/Radio/Radio.styles.ts",
+      "message": "Found 6 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/RadioGroup/RadioGroup.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/Select/Select.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/Slider/Slider.styles.ts",
+      "message": "Found 5 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/Switch/Switch.styles.ts",
+      "message": "Found 2 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/forms/TextField/TextField.styles.ts",
+      "message": "Found 15 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/layout/Box/Box.styles.ts",
+      "message": "Found 11 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/layout/Container/Container.styles.ts",
+      "message": "Found 5 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/layout/Grid/Grid.styles.ts",
+      "message": "Found 6 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/layout/Stack/Stack.styles.ts",
+      "message": "Found 10 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/navigation/AppBar/AppBar.styles.ts",
+      "message": "Found 3 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.styles.ts",
+      "message": "Found 4 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/navigation/Menu/Menu.styles.ts",
+      "message": "Found 5 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/navigation/Tabs/Tabs.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/surfaces/Accordion/Accordion.styles.ts",
+      "message": "Found 5 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/surfaces/Drawer/Drawer.styles.ts",
+      "message": "Found 23 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/surfaces/List/List.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/surfaces/ListItem/ListItem.styles.ts",
+      "message": "Found 1 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/surfaces/Modal/Modal.styles.ts",
+      "message": "Found 5 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "css-object-syntax",
+      "file": "src/components/surfaces/Paper/Paper.styles.ts",
+      "message": "Found 14 semicolons in CSS object (should be commas)",
+      "suggestion": "Use commas instead of semicolons in CSS-in-JS objects"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/ai-workflow/AILearningEngine.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/ai-workflow/OverthinkingMode.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/ai-workflow/QualityValidator.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/ai-workflow/WorkflowManager.ts",
+      "message": "Found 4 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Button/Button.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Button/Button.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Button/Button.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Button/Button.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Button/Button.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Button/ButtonTest.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Chip/Chip.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Chip/Chip.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Chip/Chip.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Icon/Icon.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Icon/Icon.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Icon/Icon.styles.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Icon/Icon.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/Icon/Icon.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/IconButton/IconButton.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/IconButton/IconButton.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/core/IconButton/IconButton.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Avatar/Avatar.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Avatar/Avatar.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Avatar/Avatar.styles.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Avatar/Avatar.test.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Avatar/Avatar.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Badge/Badge.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Badge/Badge.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Badge/Badge.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Badge/Badge.types.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/Card.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/Card.stories.tsx",
+      "message": "Found 6 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/Card.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/Card.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardActions.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardActions.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardActions.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardContent.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardContent.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardContent.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardHeader.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardHeader.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardHeader.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardMedia.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardMedia.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Card/CardMedia.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Divider/Divider.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Divider/Divider.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Divider/Divider.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Divider/Divider.test.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Divider/Divider.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Tooltip/Tooltip.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Tooltip/Tooltip.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Typography/Typography.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Typography/Typography.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/data-display/Typography/Typography.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Alert/Alert.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Alert/Alert.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Alert/Alert.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Alert/Alert.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Loading.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Loading.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Loading.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Loading.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Skeleton.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Skeleton.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Loading/Skeleton.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/CircularProgress.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/CircularProgress.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/CircularProgress.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/LinearProgress.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/LinearProgress.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/LinearProgress.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Progress/Progress.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Snackbar/Snackbar.constants.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Snackbar/Snackbar.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/feedback/Snackbar/Snackbar.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Autocomplete/Autocomplete.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Autocomplete/Autocomplete.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Checkbox/Checkbox.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Checkbox/Checkbox.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Checkbox/Checkbox.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Checkbox/Checkbox.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/DatePicker/DatePicker.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/DatePicker/DatePicker.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/FormControl/FormControl.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/FormLabel/FormLabel.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Radio/Radio.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Radio/Radio.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Radio/Radio.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Radio/Radio.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/RadioGroup/RadioGroup.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Select/Select.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Select/Select.stories.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Select/Select.test.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Select/Select.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Slider/Slider.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Switch/Switch.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Switch/Switch.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/Switch/Switch.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/TextField/TextField.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/TextField/TextField.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/TextField/TextField.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/forms/TextField/TextField.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Box/Box.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Box/Box.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Box/Box.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Container/Container.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Container/Container.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Container/Container.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Grid/Grid.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Grid/Grid.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Grid/Grid.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Grid/Grid.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Stack/Stack.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Stack/Stack.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Stack/Stack.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/layout/Stack/Stack.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/AppBar/AppBar.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/AppBar/AppBar.styles.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.styles.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Menu/Menu.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Menu/Menu.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Tabs/Tabs.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Tabs/Tabs.test.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/navigation/Tabs/Tabs.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Accordion/Accordion.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Accordion/Accordion.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Accordion/Accordion.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Dialog/Dialog.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Dialog/Dialog.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Dialog/Dialog.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Dialog/Dialog.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Drawer/Drawer.stories.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Drawer/Drawer.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Drawer/Drawer.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Drawer/Drawer.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/List/List.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/List/List.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/ListItem/ListItem.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/ListItem/ListItem.tsx",
+      "message": "Found 3 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Modal/Modal.constants.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Modal/Modal.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Modal/Modal.styles.ts",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Modal/Modal.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Modal/Modal.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Paper/Paper.stories.tsx",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Paper/Paper.styles.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Paper/Paper.test.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/components/surfaces/Paper/Paper.tsx",
+      "message": "Found 2 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/theme/createEnhancedTheme.ts",
+      "message": "Found 10 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    },
+    {
+      "type": "WARNING",
+      "rule": "absolute-imports",
+      "file": "src/theme/index.ts",
+      "message": "Found 1 relative imports",
+      "suggestion": "Convert relative imports to @ alias imports",
+      "example": "import { Button } from '@/components/core/Button';"
+    }
+  ],
+  "status": "FAILED"
+}

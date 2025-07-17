@@ -1,0 +1,27 @@
+{
+  "component": "Chip",
+  "generated": "2025-07-14T08:19:00.478Z",
+  "scenarios": [
+    {
+      "id": "Chip-smoke",
+      "name": "Chip Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Chip",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Chip-interaction",
+      "name": "Chip Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Chip",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Chip-accessibility",
+      "name": "Chip Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Chip",
+      "estimatedDuration": 1200
+    }
+  ]
+}

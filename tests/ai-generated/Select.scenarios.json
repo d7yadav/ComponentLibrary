@@ -1,0 +1,27 @@
+{
+  "component": "Select",
+  "generated": "2025-07-14T08:19:00.480Z",
+  "scenarios": [
+    {
+      "id": "Select-smoke",
+      "name": "Select Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Select",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Select-interaction",
+      "name": "Select Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Select",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Select-accessibility",
+      "name": "Select Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Select",
+      "estimatedDuration": 1200
+    }
+  ]
+}

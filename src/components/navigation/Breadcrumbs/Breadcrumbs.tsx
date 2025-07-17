@@ -6,10 +6,9 @@
  * keyboard navigation, collapse functionality, and Material-UI integration.
  */
 
-import { memo, useState, useCallback, useMemo, type KeyboardEvent } from 'react';
 import { MoreHoriz, NavigateNext, NavigateBefore, FiberManualRecord } from '@mui/icons-material';
+import React, { memo, useState, useCallback, useMemo, type KeyboardEvent } from 'react';
 
-import type { BreadcrumbsProps, BreadcrumbItem } from './Breadcrumbs.types';
 import {
   BREADCRUMBS_DEFAULTS,
   BREADCRUMBS_ACCESSIBILITY,
@@ -26,6 +25,28 @@ import {
   BreadcrumbText,
   ExpandedItemsContainer,
 } from './Breadcrumbs.styles';
+import type { BreadcrumbsProps, BreadcrumbItem } from './Breadcrumbs.types';
+
+// Extracted style objects to prevent re-renders
+const arrowSeparatorStyle = {
+  transform: 'scaleX(-1)',
+};
+
+const invisibleButtonStyle = {
+  border: 'none',
+  background: 'none',
+  cursor: 'pointer',
+};
+
+const breadcrumbListStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  listStyle: 'none',
+  margin: 0,
+  padding: 0,
+  flexWrap: 'nowrap' as const,
+  overflow: 'hidden' as const,
+};
 
 /**
  * Main Breadcrumbs component
@@ -123,7 +144,7 @@ const Breadcrumbs = memo<BreadcrumbsProps>(({
         case 'chevron':
           return <NavigateNext fontSize="small" />;
         case 'arrow':
-          return <NavigateBefore style={{ transform: 'scaleX(-1)' }} fontSize="small" />;
+          return <NavigateBefore style={arrowSeparatorStyle} fontSize="small" />;
         case 'dot':
           return <FiberManualRecord fontSize="small" />;
         case 'slash':
@@ -198,7 +219,7 @@ const Breadcrumbs = memo<BreadcrumbsProps>(({
             variant={variant}
             onClick={handleItemClick(item)}
             tabIndex={disabled ? -1 : 0}
-            style={{ border: 'none', background: 'none', cursor: 'pointer' }}
+            style={invisibleButtonStyle}
           >
             {itemContent}
           </BreadcrumbLink>
@@ -231,15 +252,15 @@ const Breadcrumbs = memo<BreadcrumbsProps>(({
   const renderContent = useCallback(() => {
     if (Array.isArray(visibleItems)) {
       // Simple case: all items visible
-      return visibleItems.map((item, index) => {
+      const elements = [];
+      visibleItems.forEach((item, index) => {
         const isLast = index === visibleItems.length - 1;
-        return (
-          <span key={`breadcrumb-${index}`}>
-            {renderBreadcrumbItem(item, index, isLast)}
-            {!isLast && renderSeparator(index)}
-          </span>
-        );
+        elements.push(renderBreadcrumbItem(item, index, isLast));
+        if (!isLast) {
+          elements.push(renderSeparator(index));
+        }
       });
+      return elements;
     }
 
     // Collapsed case: show before items, collapse indicator, and after items
@@ -248,34 +269,26 @@ const Breadcrumbs = memo<BreadcrumbsProps>(({
 
     // Render before items
     before.forEach((item: BreadcrumbItem, index: number) => {
-      elements.push(
-        <span key={`before-${index}`}>
-          {renderBreadcrumbItem(item, index, false)}
-          {renderSeparator(index)}
-        </span>
-      );
+      elements.push(renderBreadcrumbItem(item, index, false));
+      elements.push(renderSeparator(index));
     });
 
     // Render collapse indicator
     if (hasCollapsed) {
-      elements.push(
-        <span key="collapse-indicator">
-          {renderCollapseIndicator()}
-          {after.length > 0 && renderSeparator(before.length)}
-        </span>
-      );
+      elements.push(renderCollapseIndicator());
+      if (after.length > 0) {
+        elements.push(renderSeparator(before.length));
+      }
     }
 
     // Render after items
     after.forEach((item: BreadcrumbItem, index: number) => {
       const actualIndex = items.length - after.length + index;
       const isLast = index === after.length - 1;
-      elements.push(
-        <span key={`after-${index}`}>
-          {renderBreadcrumbItem(item, actualIndex, isLast)}
-          {!isLast && renderSeparator(actualIndex)}
-        </span>
-      );
+      elements.push(renderBreadcrumbItem(item, actualIndex, isLast));
+      if (!isLast) {
+        elements.push(renderSeparator(actualIndex));
+      }
     });
 
     return elements;
@@ -295,14 +308,7 @@ const Breadcrumbs = memo<BreadcrumbsProps>(({
       {...props}
     >
       <ol
-        style={{ 
-          display: 'flex', 
-          alignItems: 'center', 
-          listStyle: 'none', 
-          margin: 0, 
-          padding: 0,
-          flexWrap: 'wrap',
-        }}
+        style={breadcrumbListStyle}
         role={BREADCRUMBS_ACCESSIBILITY.listRole}
       >
         {renderContent()}

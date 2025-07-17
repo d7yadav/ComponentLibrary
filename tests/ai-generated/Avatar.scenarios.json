@@ -1,0 +1,27 @@
+{
+  "component": "Avatar",
+  "generated": "2025-07-14T08:19:00.478Z",
+  "scenarios": [
+    {
+      "id": "Avatar-smoke",
+      "name": "Avatar Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Avatar",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Avatar-interaction",
+      "name": "Avatar Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Avatar",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Avatar-accessibility",
+      "name": "Avatar Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Avatar",
+      "estimatedDuration": 1200
+    }
+  ]
+}

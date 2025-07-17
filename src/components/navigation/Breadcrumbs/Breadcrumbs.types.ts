@@ -1,37 +1,15 @@
-/**
- * @fileoverview Breadcrumbs Component Types
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * TypeScript type definitions for the Breadcrumbs component with comprehensive
- * prop interfaces, event handlers, and accessibility support.
- */
 
-import type { ReactNode, MouseEvent } from 'react';
 import type { SxProps, Theme } from '@mui/material/styles';
+import type { ReactNode, MouseEvent } from 'react';
 
-/**
- * Available breadcrumb separators
- */
 export type BreadcrumbSeparator = 'slash' | 'chevron' | 'arrow' | 'dot' | 'custom';
 
-/**
- * Available breadcrumb sizes
- */
 export type BreadcrumbSize = 'small' | 'medium' | 'large';
 
-/**
- * Available breadcrumb variants
- */
 export type BreadcrumbVariant = 'standard' | 'text' | 'contained';
 
-/**
- * Click event handler type
- */
 export type BreadcrumbClickHandler = (event: MouseEvent<HTMLElement>, id: string) => void;
 
-/**
- * Individual breadcrumb item data
- */
 export interface BreadcrumbItem {
   /** Unique identifier for the breadcrumb */
   id: string;
@@ -51,9 +29,6 @@ export interface BreadcrumbItem {
   current?: boolean;
 }
 
-/**
- * Main Breadcrumbs component props
- */
 export interface BreadcrumbsProps {
   /** Array of breadcrumb items */
   items: BreadcrumbItem[];
@@ -85,9 +60,6 @@ export interface BreadcrumbsProps {
   'data-testid'?: string;
 }
 
-/**
- * Styled components theme extension
- */
 export interface BreadcrumbsTheme {
   breadcrumbs: {
     root: object;
@@ -99,9 +71,6 @@ export interface BreadcrumbsTheme {
   };
 }
 
-/**
- * Component default props
- */
 export interface BreadcrumbsDefaultProps {
   separator: BreadcrumbSeparator;
   maxItems: number;

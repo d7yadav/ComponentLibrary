@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Skeleton Component > Snapshots > matches snapshot for all variants > variant-circular 1`] = `
+<div
+  aria-label="Loading placeholder"
+  aria-live="polite"
+  class="MuiBox-root css-2sdssh"
+  data-testid="skeleton"
+  role="status"
+>
+  circular
+   Skeleton
+</div>
+`;
+
+exports[`Skeleton Component > Snapshots > matches snapshot for all variants > variant-rectangular 1`] = `
+<div
+  aria-label="Loading placeholder"
+  aria-live="polite"
+  class="MuiBox-root css-1e9atac"
+  role="status"
+>
+  rectangular
+   Skeleton
+</div>
+`;
+
+exports[`Skeleton Component > Snapshots > matches snapshot for all variants > variant-text 1`] = `
+<div
+  aria-label="Loading placeholder"
+  aria-live="polite"
+  class="MuiBox-root css-1czlf4u"
+  lines="3"
+  role="status"
+>
+  text
+   Skeleton
+</div>
+`;
+
+exports[`Skeleton Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  aria-label="Loading placeholder"
+  aria-live="polite"
+  class="MuiBox-root css-1czlf4u"
+  lines="3"
+  role="status"
+>
+  Default Skeleton
+</div>
+`;

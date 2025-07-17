@@ -1,0 +1,84 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tabs Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  class="MuiBox-root css-kkxk6u-TabsContainer-root"
+  data-testid="tabs"
+>
+  <div
+    class="MuiTabs-root css-14zghss-MuiTabs-root-StyledTabs-root"
+  >
+    <div
+      class="MuiTabs-scroller MuiTabs-fixed css-s2t35c-MuiTabs-scroller"
+      style="overflow: hidden; margin-bottom: 0px;"
+    >
+      <div
+        aria-label="Tabs navigation"
+        class="MuiTabs-list MuiTabs-flexContainer css-hzcega-MuiTabs-list"
+        role="tablist"
+      >
+        <button
+          aria-controls="tabpanel-tab1"
+          aria-selected="true"
+          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary Mui-selected css-1usuzwp-MuiButtonBase-root-MuiTab-root"
+          data-testid="tabs-tab-0"
+          id="tab-tab1"
+          role="tab"
+          tabindex="0"
+          type="button"
+        >
+          Tab 1
+        </button>
+        <button
+          aria-controls="tabpanel-tab2"
+          aria-selected="false"
+          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1usuzwp-MuiButtonBase-root-MuiTab-root"
+          data-testid="tabs-tab-1"
+          id="tab-tab2"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          Tab 2
+        </button>
+        <button
+          aria-controls="tabpanel-tab3"
+          aria-selected="false"
+          class="MuiButtonBase-root MuiTab-root MuiTab-textColorPrimary css-1usuzwp-MuiButtonBase-root-MuiTab-root"
+          data-testid="tabs-tab-2"
+          id="tab-tab3"
+          role="tab"
+          tabindex="-1"
+          type="button"
+        >
+          Tab 3
+        </button>
+      </div>
+      <span
+        class="MuiTabs-indicator css-1qltlow-MuiTabs-indicator"
+        style="left: 0px; width: 0px;"
+      />
+    </div>
+  </div>
+  <div
+    aria-labelledby="tab-tab1"
+    class="MuiBox-root css-1lxn0nd-TabPanel-root"
+    id="tabpanel-tab1"
+    role="tabpanel"
+  >
+    Content 1
+  </div>
+  <div
+    aria-labelledby="tab-tab2"
+    class="MuiBox-root css-a52z6e-TabPanel-root"
+    id="tabpanel-tab2"
+    role="tabpanel"
+  />
+  <div
+    aria-labelledby="tab-tab3"
+    class="MuiBox-root css-a52z6e-TabPanel-root"
+    id="tabpanel-tab3"
+    role="tabpanel"
+  />
+</div>
+`;

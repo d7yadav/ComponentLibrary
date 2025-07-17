@@ -1,10 +1,5 @@
-import { StackDirection, StackJustify, StackAlign, StackWrap } from './Stack.types';
+import type { StackDirection, StackJustify, StackAlign, StackWrap } from './Stack.types';
 
-/**
- * STACK_DIRECTIONS component
- * 
- * @returns JSX element
- */
 export const STACK_DIRECTIONS: Record<StackDirection, StackDirection> = {
   row: 'row',
   'row-reverse': 'row-reverse',
@@ -12,11 +7,6 @@ export const STACK_DIRECTIONS: Record<StackDirection, StackDirection> = {
   'column-reverse': 'column-reverse',
 } as const;
 
-/**
- * STACK_JUSTIFY_CONTENT component
- * 
- * @returns JSX element
- */
 export const STACK_JUSTIFY_CONTENT: Record<StackJustify, StackJustify> = {
   'flex-start': 'flex-start',
   center: 'center',
@@ -26,11 +16,6 @@ export const STACK_JUSTIFY_CONTENT: Record<StackJustify, StackJustify> = {
   'space-evenly': 'space-evenly',
 } as const;
 
-/**
- * STACK_ALIGN_ITEMS component
- * 
- * @returns JSX element
- */
 export const STACK_ALIGN_ITEMS: Record<StackAlign, StackAlign> = {
   'flex-start': 'flex-start',
   center: 'center',
@@ -39,22 +24,12 @@ export const STACK_ALIGN_ITEMS: Record<StackAlign, StackAlign> = {
   baseline: 'baseline',
 } as const;
 
-/**
- * STACK_FLEX_WRAP component
- * 
- * @returns JSX element
- */
 export const STACK_FLEX_WRAP: Record<StackWrap, StackWrap> = {
   nowrap: 'nowrap',
   wrap: 'wrap',
   'wrap-reverse': 'wrap-reverse',
 } as const;
 
-/**
- * STACK_SPACING_VALUES component
- * 
- * @returns JSX element
- */
 export const STACK_SPACING_VALUES = {
   none: 0,
   xs: 0.5,
@@ -66,11 +41,6 @@ export const STACK_SPACING_VALUES = {
   '3xl': 8,
 } as const;
 
-/**
- * STACK_BORDER_RADIUS component
- * 
- * @returns JSX element
- */
 export const STACK_BORDER_RADIUS = {
   none: 0,
   sm: 4,
@@ -82,11 +52,6 @@ export const STACK_BORDER_RADIUS = {
   full: '50%',
 } as const;
 
-/**
- * STACK_ELEVATION_VALUES component
- * 
- * @returns JSX element
- */
 export const STACK_ELEVATION_VALUES = {
   none: 0,
   sm: 1,
@@ -96,11 +61,6 @@ export const STACK_ELEVATION_VALUES = {
   '2xl': 24,
 } as const;
 
-/**
- * STACK_BREAKPOINTS component
- * 
- * @returns JSX element
- */
 export const STACK_BREAKPOINTS = {
   xs: 0,
   sm: 600,
@@ -109,11 +69,6 @@ export const STACK_BREAKPOINTS = {
   xl: 1536,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   listRole: 'list',
   listItemRole: 'listitem',
@@ -126,11 +81,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   defaultLabel: 'Stack layout',
 } as const;
 
-/**
- * DIVIDER_CONFIGS component
- * 
- * @returns JSX element
- */
 export const DIVIDER_CONFIGS = {
   thickness: {
     thin: 1,
@@ -153,11 +103,6 @@ export const DIVIDER_CONFIGS = {
   },
 } as const;
 
-/**
- * COMMON_STACK_PATTERNS component
- * 
- * @returns JSX element
- */
 export const COMMON_STACK_PATTERNS = {
   // Navigation patterns
   navbar: {
@@ -227,11 +172,6 @@ export const COMMON_STACK_PATTERNS = {
   },
 } as const;
 
-/**
- * RESPONSIVE_PATTERNS component
- * 
- * @returns JSX element
- */
 export const RESPONSIVE_PATTERNS = {
   // Mobile-first responsive direction
   mobileColumn: {
@@ -270,11 +210,6 @@ export const RESPONSIVE_PATTERNS = {
   },
 } as const;
 
-/**
- * DEFAULT_STACK_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_STACK_PROPS = {
   direction: STACK_DIRECTIONS.column,
   spacing: STACK_SPACING_VALUES.md,

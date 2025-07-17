@@ -1,8 +1,3 @@
-/**
- * @fileoverview Modal component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Modal } from './Modal';
 export type { 
   ModalProps, 

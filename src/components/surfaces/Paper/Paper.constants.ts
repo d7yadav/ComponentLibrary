@@ -1,4 +1,4 @@
-import { 
+import type { 
   PaperVariant, 
   PaperCorners, 
   PaperSurface, 
@@ -10,9 +10,6 @@ import {
   PaperGradientConfig
 } from './Paper.types';
 
-/**
- * PAPER_VARIANTS constants
- */
 export const PAPER_VARIANTS: Record<PaperVariant, PaperVariant> = {
   elevation: 'elevation',
   outlined: 'outlined',
@@ -21,9 +18,6 @@ export const PAPER_VARIANTS: Record<PaperVariant, PaperVariant> = {
   gradient: 'gradient',
 } as const;
 
-/**
- * PAPER_CORNERS constants
- */
 export const PAPER_CORNERS: Record<PaperCorners, PaperCorners> = {
   none: 'none',
   small: 'small',
@@ -32,27 +26,18 @@ export const PAPER_CORNERS: Record<PaperCorners, PaperCorners> = {
   circular: 'circular',
 } as const;
 
-/**
- * PAPER_SURFACES constants
- */
 export const PAPER_SURFACES: Record<PaperSurface, PaperSurface> = {
   flat: 'flat',
   concave: 'concave',
   convex: 'convex',
 } as const;
 
-/**
- * PAPER_SIZES constants
- */
 export const PAPER_SIZES: Record<PaperSize, PaperSize> = {
   compact: 'compact',
   comfortable: 'comfortable',
   spacious: 'spacious',
 } as const;
 
-/**
- * PAPER_GRADIENTS constants
- */
 export const PAPER_GRADIENTS: Record<PaperGradient, PaperGradient> = {
   primary: 'primary',
   secondary: 'secondary',
@@ -64,9 +49,6 @@ export const PAPER_GRADIENTS: Record<PaperGradient, PaperGradient> = {
   info: 'info',
 } as const;
 
-/**
- * PAPER_SIZE_CONFIGS constants
- */
 export const PAPER_SIZE_CONFIGS: Record<PaperSize, PaperSizeConfig> = {
   compact: {
     padding: '8px',
@@ -85,9 +67,6 @@ export const PAPER_SIZE_CONFIGS: Record<PaperSize, PaperSizeConfig> = {
   },
 } as const;
 
-/**
- * PAPER_CORNER_CONFIGS constants
- */
 export const PAPER_CORNER_CONFIGS: Record<PaperCorners, PaperCornerConfig> = {
   none: {
     borderRadius: '0px',
@@ -106,9 +85,6 @@ export const PAPER_CORNER_CONFIGS: Record<PaperCorners, PaperCornerConfig> = {
   },
 } as const;
 
-/**
- * PAPER_SURFACE_CONFIGS constants
- */
 export const PAPER_SURFACE_CONFIGS: Record<PaperSurface, PaperSurfaceConfig> = {
   flat: {
     boxShadow: 'none',
@@ -126,9 +102,6 @@ export const PAPER_SURFACE_CONFIGS: Record<PaperSurface, PaperSurfaceConfig> = {
   },
 } as const;
 
-/**
- * PAPER_GRADIENT_CONFIGS constants (light theme)
- */
 export const PAPER_GRADIENT_CONFIGS: Record<PaperGradient, PaperGradientConfig> = {
   primary: {
     background: 'linear-gradient(135deg, var(--primary-50) 0%, var(--primary-100) 100%)',
@@ -164,9 +137,6 @@ export const PAPER_GRADIENT_CONFIGS: Record<PaperGradient, PaperGradientConfig> 
   },
 } as const;
 
-/**
- * PAPER_GRADIENT_CONFIGS_DARK constants (dark theme)
- */
 export const PAPER_GRADIENT_CONFIGS_DARK: Record<PaperGradient, PaperGradientConfig> = {
   primary: {
     background: 'linear-gradient(135deg, var(--primary-900) 0%, var(--primary-800) 100%)',
@@ -202,9 +172,6 @@ export const PAPER_GRADIENT_CONFIGS_DARK: Record<PaperGradient, PaperGradientCon
   },
 } as const;
 
-/**
- * ELEVATION_SHADOWS constants - MUI-like elevation system
- */
 export const ELEVATION_SHADOWS = {
   0: 'none',
   1: '0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
@@ -233,18 +200,12 @@ export const ELEVATION_SHADOWS = {
   24: '0px 11px 15px -7px rgba(0,0,0,0.2), 0px 24px 38px 3px rgba(0,0,0,0.14), 0px 9px 46px 8px rgba(0,0,0,0.12)',
 } as const;
 
-/**
- * ANIMATION_DURATIONS constants
- */
 export const ANIMATION_DURATIONS = {
   fast: 150,
   normal: 300,
   slow: 500,
 } as const;
 
-/**
- * ANIMATION_EASINGS constants
- */
 export const ANIMATION_EASINGS = {
   easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
   easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
@@ -253,9 +214,6 @@ export const ANIMATION_EASINGS = {
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 } as const;
 
-/**
- * GLASS_MORPHISM_CONFIG constants
- */
 export const GLASS_MORPHISM_CONFIG = {
   background: 'rgba(255, 255, 255, 0.25)',
   backdropFilter: 'blur(10px)',
@@ -263,9 +221,6 @@ export const GLASS_MORPHISM_CONFIG = {
   boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
 } as const;
 
-/**
- * GLASS_MORPHISM_CONFIG_DARK constants
- */
 export const GLASS_MORPHISM_CONFIG_DARK = {
   background: 'rgba(255, 255, 255, 0.1)',
   backdropFilter: 'blur(10px)',
@@ -273,9 +228,6 @@ export const GLASS_MORPHISM_CONFIG_DARK = {
   boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
 } as const;
 
-/**
- * PRINT_STYLES constants
- */
 export const PRINT_STYLES = {
   backgroundColor: 'white !important',
   color: 'black !important',
@@ -284,9 +236,6 @@ export const PRINT_STYLES = {
   backgroundImage: 'none !important',
 } as const;
 
-/**
- * RESPONSIVE_BREAKPOINTS constants
- */
 export const RESPONSIVE_BREAKPOINTS = {
   xs: '(max-width: 599px)',
   sm: '(min-width: 600px) and (max-width: 959px)',
@@ -295,9 +244,6 @@ export const RESPONSIVE_BREAKPOINTS = {
   xl: '(min-width: 1920px)',
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS constants
- */
 export const ACCESSIBILITY_CONSTANTS = {
   interactiveRole: 'button',
   cardRole: 'region',
@@ -310,9 +256,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   focusOutlineOffset: '2px',
 } as const;
 
-/**
- * Z_INDEX_LEVELS constants
- */
 export const Z_INDEX_LEVELS = {
   base: 0,
   elevated: 1,

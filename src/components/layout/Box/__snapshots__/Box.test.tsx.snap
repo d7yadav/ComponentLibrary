@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Box Component > Snapshots > matches snapshot for all variants > variant-default 1`] = `
+<div
+  class="MuiBox-root css-1xdhyk6"
+  data-testid="box"
+  variant="default"
+>
+  default
+   Box
+</div>
+`;
+
+exports[`Box Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  class="MuiBox-root css-1xdhyk6"
+  data-testid="box"
+>
+  Default Box
+</div>
+`;

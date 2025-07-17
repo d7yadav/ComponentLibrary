@@ -1,12 +1,8 @@
-/**
- * @fileoverview TextField component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { TextField } from './TextField';
+
 export type { 
   TextFieldProps, 
-  TextFieldVariant, 
+  TextFieldVariant,   
   TextFieldSize, 
   TextFieldInputType,
   ValidationState,

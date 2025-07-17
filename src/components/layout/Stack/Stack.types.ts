@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-import { StackProps as MuiStackProps } from '@mui/material/Stack';
+import type { StackProps as MuiStackProps } from '@mui/material/Stack';
+import type { ReactNode } from 'react';
 
 export type StackDirection = 'row' | 'row-reverse' | 'column' | 'column-reverse';
 
@@ -23,241 +23,127 @@ export type StackAlign =
 export type StackWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
 
 export interface ResponsiveStackDirection {
-  xs?: StackDirection;
-  sm?: StackDirection;
-  md?: StackDirection;
-  lg?: StackDirection;
-  xl?: StackDirection;
+  xs?: StackDirection,
+  sm?: StackDirection,
+  md?: StackDirection,
+  lg?: StackDirection,
+  xl?: StackDirection,
 }
 
 export interface ResponsiveStackSpacing {
-  xs?: StackSpacing;
-  sm?: StackSpacing;
-  md?: StackSpacing;
-  lg?: StackSpacing;
-  xl?: StackSpacing;
+  xs?: StackSpacing,
+  sm?: StackSpacing,
+  md?: StackSpacing,
+  lg?: StackSpacing,
+  xl?: StackSpacing,
 }
 
 export interface StackProps extends Omit<MuiStackProps, 'direction' | 'spacing' | 'justifyContent' | 'alignItems'> {
-  /**
-   * The content of the stack
-   */
-  children: ReactNode;
+  children: ReactNode,
   
-  /**
-   * Direction of the stack layout
-   */
-  direction?: StackDirection | ResponsiveStackDirection;
+  direction?: StackDirection | ResponsiveStackDirection,
   
-  /**
-   * Spacing between stack items
-   */
-  spacing?: StackSpacing | ResponsiveStackSpacing;
+  spacing?: StackSpacing | ResponsiveStackSpacing,
   
-  /**
-   * Horizontal alignment of stack items
-   */
-  justifyContent?: StackJustify;
+  justifyContent?: StackJustify,
   
-  /**
-   * Vertical alignment of stack items
-   */
-  alignItems?: StackAlign;
+  alignItems?: StackAlign,
   
-  /**
-   * Wrap behavior of stack items
-   */
-  flexWrap?: StackWrap;
+  flexWrap?: StackWrap,
   
-  /**
-   * If true, items will be divided by dividers
-   */
-  divider?: ReactNode;
+  divider?: ReactNode,
   
-  /**
-   * If true, the stack will take the full width
-   */
-  fullWidth?: boolean;
+  fullWidth?: boolean,
   
-  /**
-   * If true, the stack will take the full height
-   */
-  fullHeight?: boolean;
+  fullHeight?: boolean,
   
-  /**
-   * Minimum height of the stack
-   */
-  minHeight?: number | string;
+  minHeight?: number | string,
   
-  /**
-   * Maximum height of the stack
-   */
-  maxHeight?: number | string;
+  maxHeight?: number | string,
   
-  /**
-   * Minimum width of the stack
-   */
-  minWidth?: number | string;
+  minWidth?: number | string,
   
-  /**
-   * Maximum width of the stack
-   */
-  maxWidth?: number | string;
+  maxWidth?: number | string,
   
-  /**
-   * Background color of the stack
-   */
-  bgcolor?: string;
+  bgcolor?: string,
   
-  /**
-   * Padding for the stack container
-   */
-  padding?: number | string;
+  padding?: number | string,
   
-  /**
-   * Margin for the stack container
-   */
-  margin?: number | string;
+  margin?: number | string,
   
-  /**
-   * If true, the stack will have rounded corners
-   */
-  rounded?: boolean;
+  rounded?: boolean,
   
-  /**
-   * Border radius value
-   */
-  borderRadius?: number | string;
+  borderRadius?: number | string,
   
-  /**
-   * If true, the stack will have a border
-   */
-  bordered?: boolean;
+  bordered?: boolean,
   
-  /**
-   * Border color
-   */
-  borderColor?: string;
+  borderColor?: string,
   
-  /**
-   * Border width
-   */
-  borderWidth?: number | string;
+  borderWidth?: number | string,
   
-  /**
-   * Shadow level (0-24)
-   */
-  elevation?: number;
+  elevation?: number,
   
-  /**
-   * If true, items will grow to fill available space
-   */
-  stretch?: boolean;
+  stretch?: boolean,
   
-  /**
-   * If true, items will be centered in their cross axis
-   */
-  centered?: boolean;
+  centered?: boolean,
   
-  /**
-   * If true, the stack will use flex-grow for equal distribution
-   */
-  equalWidth?: boolean;
+  equalWidth?: boolean,
   
-  /**
-   * If true, the stack will use flex-grow for equal distribution in height
-   */
-  equalHeight?: boolean;
+  equalHeight?: boolean,
   
-  /**
-   * Gap between items (alternative to spacing)
-   */
-  gap?: number | string;
+  gap?: number | string,
   
-  /**
-   * Row gap between items
-   */
-  rowGap?: number | string;
+  rowGap?: number | string,
   
-  /**
-   * Column gap between items
-   */
-  columnGap?: number | string;
+  columnGap?: number | string,
   
-  /**
-   * Additional CSS classes
-   */
-  className?: string;
+  className?: string,
   
-  /**
-   * Custom styles
-   */
-  sx?: object;
+  sx?: object,
   
-  /**
-   * ARIA label for accessibility
-   */
-  'aria-label'?: string;
+  'aria-label'?: string,
   
-  /**
-   * Role for accessibility
-   */
-  role?: string;
+  role?: string,
 }
 
 export interface StackStyleProps {
-  direction: StackDirection | ResponsiveStackDirection;
-  spacing: StackSpacing | ResponsiveStackSpacing;
-  justifyContent: StackJustify;
-  alignItems: StackAlign;
-  flexWrap: StackWrap;
-  fullWidth: boolean;
-  fullHeight: boolean;
-  minHeight?: number | string;
-  maxHeight?: number | string;
-  minWidth?: number | string;
-  maxWidth?: number | string;
-  bgcolor?: string;
-  padding?: number | string;
-  margin?: number | string;
-  rounded: boolean;
-  borderRadius?: number | string;
-  bordered: boolean;
-  borderColor?: string;
-  borderWidth?: number | string;
-  elevation: number;
-  stretch: boolean;
-  centered: boolean;
-  equalWidth: boolean;
-  equalHeight: boolean;
-  gap?: number | string;
-  rowGap?: number | string;
-  columnGap?: number | string;
+  direction: StackDirection | ResponsiveStackDirection,
+  spacing: StackSpacing | ResponsiveStackSpacing,
+  justifyContent: StackJustify,
+  alignItems: StackAlign,
+  flexWrap: StackWrap,
+  fullWidth: boolean,
+  fullHeight: boolean,
+  minHeight?: number | string,
+  maxHeight?: number | string,
+  minWidth?: number | string,
+  maxWidth?: number | string,
+  bgcolor?: string,
+  padding?: number | string,
+  margin?: number | string,
+  rounded: boolean,
+  borderRadius?: number | string,
+  bordered: boolean,
+  borderColor?: string,
+  borderWidth?: number | string,
+  elevation: number,
+  stretch: boolean,
+  centered: boolean,
+  equalWidth: boolean,
+  equalHeight: boolean,
+  gap?: number | string,
+  rowGap?: number | string,
+  columnGap?: number | string,
 }
 
 export interface StackDividerProps {
-  /**
-   * Orientation of the divider
-   */
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical',
   
-  /**
-   * Color of the divider
-   */
-  color?: string;
+  color?: string,
   
-  /**
-   * Thickness of the divider
-   */
-  thickness?: number | string;
+  thickness?: number | string,
   
-  /**
-   * Length of the divider
-   */
-  length?: number | string;
+  length?: number | string,
   
-  /**
-   * Style of the divider
-   */
-  variant?: 'solid' | 'dashed' | 'dotted';
+  variant?: 'solid' | 'dashed' | 'dotted',
 }

@@ -1,10 +1,11 @@
-import { forwardRef, memo } from 'react';
-import { GridProps } from './Grid.types';
-import { StyledGrid } from './Grid.styles';
+import React, { forwardRef, memo } from 'react';
+
 import {
   DEFAULT_GRID_PROPS,
   ACCESSIBILITY_CONSTANTS,
 } from './Grid.constants';
+import { StyledGrid } from './Grid.styles';
+import type { GridProps } from './Grid.types';
 
 /**
  * Enhanced Grid component with advanced grid system and auto-layout support
@@ -115,3 +116,5 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>((
 });
 
 Grid.displayName = 'Grid';
+
+export default memo(Grid);

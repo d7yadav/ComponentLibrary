@@ -1,8 +1,3 @@
-/**
- * @fileoverview Card component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Card } from './Card';
 export { CardHeader } from './CardHeader';
 export { CardContent } from './CardContent';

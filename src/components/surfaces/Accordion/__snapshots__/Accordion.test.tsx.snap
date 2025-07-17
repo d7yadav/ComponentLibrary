@@ -1,0 +1,106 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Accordion Component > Snapshots > matches snapshot for all variants > variant-elevated 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Accordion Component > Snapshots > matches snapshot for all variants > variant-filled 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Accordion Component > Snapshots > matches snapshot for all variants > variant-ghost 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Accordion Component > Snapshots > matches snapshot for all variants > variant-outlined 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Accordion Component > Snapshots > matches snapshot for all variants > variant-standard 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Accordion Component > Snapshots > matches snapshot for default props 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;
+
+exports[`Accordion Component > Snapshots > matches snapshot for expanded state > expanded-state 1`] = `
+<style>
+  
+  @keyframes accordion-loading-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+</style>
+`;

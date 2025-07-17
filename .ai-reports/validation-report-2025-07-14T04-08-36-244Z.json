@@ -1,0 +1,249 @@
+{
+  "timestamp": "2025-07-14T04:08:36.244Z",
+  "metrics": {
+    "totalFiles": 7,
+    "validatedFiles": 7,
+    "errors": 12,
+    "warnings": 2,
+    "suggestions": 8,
+    "score": 79
+  },
+  "results": [
+    {
+      "path": "src/components/forms/Select/Select.constants.ts",
+      "size": 8411,
+      "lines": 366,
+      "issues": [
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/forms/Select/Select.stories.tsx",
+      "size": 44642,
+      "lines": 1423,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Select.stories }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Components should use named exports only, no default exports",
+          "line": 189,
+          "type": "default-export",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface Select.storiesProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Found 2 'any' type(s). Use explicit types for AI comprehension",
+          "line": 473,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 61
+    },
+    {
+      "path": "src/components/forms/Select/Select.styles.ts",
+      "size": 18346,
+      "lines": 625,
+      "issues": [
+        {
+          "message": "Found 1 'any' type(s). Use explicit types for AI comprehension",
+          "line": 33,
+          "type": "any-type",
+          "rule": "ai-patterns",
+          "category": "ai-compliance",
+          "severity": "warning"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 91
+    },
+    {
+      "path": "src/components/forms/Select/Select.test.tsx",
+      "size": 648,
+      "lines": 24,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Select.test }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        }
+      ],
+      "score": 90
+    },
+    {
+      "path": "src/components/forms/Select/Select.tsx",
+      "size": 18400,
+      "lines": 615,
+      "issues": [
+        {
+          "message": "Component should export named export: export { Select }",
+          "line": 1,
+          "type": "export-pattern",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Component should define interface SelectProps",
+          "line": 1,
+          "type": "interface-missing",
+          "rule": "component-structure",
+          "category": "architecture",
+          "severity": "error"
+        },
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Consider extracting inline objects to avoid re-renders",
+          "line": 1,
+          "type": "inline-objects",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        },
+        {
+          "message": "Test file missing 'Rendering' test section",
+          "line": 1,
+          "type": "test-incomplete",
+          "severity": "error",
+          "category": "testing",
+          "rule": "test-coverage"
+        },
+        {
+          "message": "Test file missing 'Props' test section",
+          "line": 1,
+          "type": "test-incomplete",
+          "severity": "error",
+          "category": "testing",
+          "rule": "test-coverage"
+        },
+        {
+          "message": "Test file missing 'Accessibility' test section",
+          "line": 1,
+          "type": "test-incomplete",
+          "severity": "error",
+          "category": "testing",
+          "rule": "test-coverage"
+        },
+        {
+          "message": "Test file missing 'Theme Integration' test section",
+          "line": 1,
+          "type": "test-incomplete",
+          "severity": "error",
+          "category": "testing",
+          "rule": "test-coverage"
+        },
+        {
+          "message": "Test file missing automated accessibility testing with axe",
+          "line": 1,
+          "type": "test-accessibility",
+          "severity": "error",
+          "category": "testing",
+          "rule": "test-coverage"
+        },
+        {
+          "message": "Test file missing user interaction testing",
+          "line": 1,
+          "type": "test-interaction",
+          "severity": "error",
+          "category": "testing",
+          "rule": "test-coverage"
+        }
+      ],
+      "score": 16
+    },
+    {
+      "path": "src/components/forms/Select/Select.types.ts",
+      "size": 7551,
+      "lines": 346,
+      "issues": [
+        {
+          "message": "Consider using React.memo for performance optimization on complex components",
+          "line": 1,
+          "type": "memo-suggestion",
+          "rule": "performance",
+          "category": "performance",
+          "severity": "suggestion"
+        }
+      ],
+      "score": 98
+    },
+    {
+      "path": "src/components/forms/Select/index.ts",
+      "size": 1220,
+      "lines": 62,
+      "issues": [],
+      "score": 100
+    }
+  ],
+  "summary": {
+    "passed": false,
+    "score": 79,
+    "totalIssues": 22
+  }
+}

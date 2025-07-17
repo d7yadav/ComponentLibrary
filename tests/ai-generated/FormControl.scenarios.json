@@ -1,0 +1,27 @@
+{
+  "component": "FormControl",
+  "generated": "2025-07-14T08:19:00.479Z",
+  "scenarios": [
+    {
+      "id": "FormControl-smoke",
+      "name": "FormControl Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for FormControl",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "FormControl-interaction",
+      "name": "FormControl Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for FormControl",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "FormControl-accessibility",
+      "name": "FormControl Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for FormControl",
+      "estimatedDuration": 1200
+    }
+  ]
+}

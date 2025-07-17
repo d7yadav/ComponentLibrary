@@ -1,6 +1,5 @@
 import React, { forwardRef, memo, useCallback, useState } from 'react';
-import { PaperProps } from './Paper.types';
-import { StyledPaper, paperHoverKeyframes } from './Paper.styles';
+
 import {
   PAPER_VARIANTS,
   PAPER_CORNERS,
@@ -10,6 +9,8 @@ import {
   ANIMATION_DURATIONS,
   ACCESSIBILITY_CONSTANTS,
 } from './Paper.constants';
+import { StyledPaper, paperHoverKeyframes } from './Paper.styles';
+import type { PaperProps } from './Paper.types';
 
 /**
  * Enhanced Paper component with multiple variants, surfaces, and accessibility features

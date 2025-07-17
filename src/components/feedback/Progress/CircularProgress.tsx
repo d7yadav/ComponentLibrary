@@ -1,16 +1,36 @@
 import { forwardRef, memo } from 'react';
-import { CircularProgressProps } from './Progress.types';
+
+import {
+  DEFAULT_PROGRESS_PROPS,
+  ACCESSIBILITY_CONSTANTS,
+  PROGRESS_VALUE_FORMATTERS,
+} from './Progress.constants';
 import { 
   StyledCircularProgress, 
   ProgressContainer,
   ProgressLabel,
   ProgressValue
 } from './Progress.styles';
-import {
-  DEFAULT_PROGRESS_PROPS,
-  ACCESSIBILITY_CONSTANTS,
-  PROGRESS_VALUE_FORMATTERS,
-} from './Progress.constants';
+import type { CircularProgressProps } from './Progress.types';
+
+// Extracted style objects to prevent re-renders
+const circularProgressWrapperStyle = {
+  position: 'relative' as const,
+  display: 'inline-flex' as const,
+};
+
+const centeredContentStyle = {
+  position: 'absolute' as const,
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  display: 'flex' as const,
+  flexDirection: 'column' as const,
+  alignItems: 'center' as const,
+  justifyContent: 'center' as const,
+  textAlign: 'center' as const,
+  pointerEvents: 'none' as const,
+};
 
 /**
  * Enhanced Circular Progress component with comprehensive styling and accessibility
@@ -72,7 +92,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
   };
 
   const progressElement = (
-    <div style={{ position: 'relative', display: 'inline-flex' }}>
+    <div style={circularProgressWrapperStyle}>
       <StyledCircularProgress
         ref={ref}
         variant={variant}
@@ -96,20 +116,7 @@ export const CircularProgress = forwardRef<HTMLDivElement, CircularProgressProps
       
       {/* Centered label and/or value */}
       {(label || (showValue && value !== undefined)) && (
-        <div
-          style={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            textAlign: 'center',
-            pointerEvents: 'none',
-          }}
-        >
+        <div style={centeredContentStyle}>
           {label && (
             <ProgressLabel customSize={size} className="progress-label-center">
               {label}

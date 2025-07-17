@@ -1,9 +1,12 @@
-/**
- * @fileoverview Core components barrel exports
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
-// AUTO-GENERATED EXPORTS
-// Core components will be added here by the component generator
+// Button Component
+export * from './Button';
 
-export {};
+// IconButton Component
+export * from './IconButton';
+
+// Chip Component
+export * from './Chip';
+
+// Icon Component
+export * from './Icon';

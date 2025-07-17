@@ -1,0 +1,27 @@
+{
+  "component": "Typography",
+  "generated": "2025-07-14T08:19:00.479Z",
+  "scenarios": [
+    {
+      "id": "Typography-smoke",
+      "name": "Typography Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Typography",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Typography-interaction",
+      "name": "Typography Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Typography",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Typography-accessibility",
+      "name": "Typography Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Typography",
+      "estimatedDuration": 1200
+    }
+  ]
+}

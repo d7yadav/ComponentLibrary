@@ -1,21 +1,11 @@
-import { ContainerMaxWidth, ContainerVariant } from './Container.types';
+import type { ContainerMaxWidth, ContainerVariant } from './Container.types';
 
-/**
- * CONTAINER_VARIANTS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_VARIANTS: Record<ContainerVariant, ContainerVariant> = {
   fluid: 'fluid',
   fixed: 'fixed',
   constrained: 'constrained',
 } as const;
 
-/**
- * CONTAINER_MAX_WIDTHS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_MAX_WIDTHS: Record<string, ContainerMaxWidth> = {
   xs: 'xs',
   sm: 'sm', 
@@ -25,11 +15,6 @@ export const CONTAINER_MAX_WIDTHS: Record<string, ContainerMaxWidth> = {
   false: false,
 } as const;
 
-/**
- * CONTAINER_BREAKPOINTS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_BREAKPOINTS = {
   xs: 0,
   sm: 600,
@@ -38,11 +23,6 @@ export const CONTAINER_BREAKPOINTS = {
   xl: 1536,
 } as const;
 
-/**
- * CONTAINER_MAX_WIDTH_VALUES component
- * 
- * @returns JSX element
- */
 export const CONTAINER_MAX_WIDTH_VALUES = {
   xs: 444,
   sm: 600,
@@ -51,11 +31,6 @@ export const CONTAINER_MAX_WIDTH_VALUES = {
   xl: 1536,
 } as const;
 
-/**
- * CONTAINER_GUTTERS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_GUTTERS = {
   xs: 16,
   sm: 24,
@@ -64,11 +39,6 @@ export const CONTAINER_GUTTERS = {
   xl: 32,
 } as const;
 
-/**
- * CONTAINER_PADDING_CONFIGS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_PADDING_CONFIGS = {
   none: 0,
   xs: 8,
@@ -78,11 +48,6 @@ export const CONTAINER_PADDING_CONFIGS = {
   xl: 40,
 } as const;
 
-/**
- * CONTAINER_MARGIN_CONFIGS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_MARGIN_CONFIGS = {
   none: 0,
   xs: 8,
@@ -93,11 +58,6 @@ export const CONTAINER_MARGIN_CONFIGS = {
   auto: 'auto',
 } as const;
 
-/**
- * CONTAINER_ELEVATION_CONFIGS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_ELEVATION_CONFIGS = {
   none: 0,
   subtle: 1,
@@ -108,11 +68,6 @@ export const CONTAINER_ELEVATION_CONFIGS = {
   highest: 24,
 } as const;
 
-/**
- * CONTAINER_BORDER_RADIUS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_BORDER_RADIUS = {
   none: 0,
   small: 4,
@@ -121,11 +76,6 @@ export const CONTAINER_BORDER_RADIUS = {
   xlarge: 16,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   defaultRole: 'main',
   sectionRole: 'section',
@@ -133,11 +83,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   containerLabel: 'Content container',
 } as const;
 
-/**
- * CONTAINER_VARIANT_CONFIGS component
- * 
- * @returns JSX element
- */
 export const CONTAINER_VARIANT_CONFIGS = {
   fluid: {
     maxWidth: false,
@@ -159,11 +104,6 @@ export const CONTAINER_VARIANT_CONFIGS = {
   },
 } as const;
 
-/**
- * RESPONSIVE_BEHAVIOR component
- * 
- * @returns JSX element
- */
 export const RESPONSIVE_BEHAVIOR = {
   fluid: {
     xs: '100%',
@@ -188,11 +128,6 @@ export const RESPONSIVE_BEHAVIOR = {
   },
 } as const;
 
-/**
- * DEFAULT_CONTAINER_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_CONTAINER_PROPS = {
   variant: CONTAINER_VARIANTS.fixed,
   maxWidth: CONTAINER_MAX_WIDTHS.lg,

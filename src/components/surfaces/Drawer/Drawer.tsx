@@ -1,7 +1,12 @@
-import React, { forwardRef, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, KeyboardArrowUp, KeyboardArrowDown, Menu } from '@mui/icons-material';
 import { useTheme, useMediaQuery } from '@mui/material';
-import { DrawerProps, SwipeHandlers } from './Drawer.types';
+import { forwardRef, memo, useCallback, useEffect, useRef, useState } from 'react';
+
+import {
+  ACCESSIBILITY_CONSTANTS,
+  SWIPE_CONFIG,
+  DEFAULT_PROPS,
+} from './Drawer.constants';
 import {
   StyledDrawer,
   StyledDrawerContent,
@@ -13,17 +18,7 @@ import {
   StyledSwipeArea,
   drawerAnimationKeyframes,
 } from './Drawer.styles';
-import {
-  DRAWER_VARIANTS,
-  DRAWER_ANCHORS,
-  DRAWER_SIZES,
-  DRAWER_BEHAVIORS,
-  DRAWER_ANIMATIONS,
-  ANIMATION_DURATIONS,
-  ACCESSIBILITY_CONSTANTS,
-  SWIPE_CONFIG,
-  DEFAULT_PROPS,
-} from './Drawer.constants';
+import type { DrawerProps } from './Drawer.types';
 
 /**
  * Enhanced Drawer component with multiple variants, animations, and accessibility features
@@ -85,6 +80,9 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
   responsive = DEFAULT_PROPS.responsive,
   responsiveBreakpoint = DEFAULT_PROPS.responsiveBreakpoint,
   mobileVariant = DEFAULT_PROPS.mobileVariant,
+  hideScrollbar = DEFAULT_PROPS.hideScrollbar,
+  disableScroll = DEFAULT_PROPS.disableScroll,
+  headerVariant = DEFAULT_PROPS.headerVariant,
   ...other
 }, ref) => {
   const theme = useTheme();
@@ -102,7 +100,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
   const handleClose = useCallback((event?: {}, reason?: 'backdropClick' | 'escapeKeyDown' | 'swipeToClose') => {
     if (reason === 'backdropClick' && !closeOnBackdropClick) return;
     if (reason === 'escapeKeyDown' && !closeOnEscape) return;
-    onClose?.(event, reason);
+    onClose?.(event || {}, reason);
   }, [onClose, closeOnBackdropClick, closeOnEscape]);
 
   // Handle mini drawer toggle
@@ -116,7 +114,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
   const handleKeyDown = useCallback((event: KeyboardEvent) => {
     if (event.key === ACCESSIBILITY_CONSTANTS.keys.escape && closeOnEscape && open) {
       event.preventDefault();
-      handleClose(event as any, 'escapeKeyDown');
+      handleClose({}, 'escapeKeyDown');
     }
     
     // Focus trap for drawer
@@ -149,6 +147,8 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
     if (!swipeEnabled) return;
     
     const touch = event.touches[0];
+    if (!touch) return;
+    
     setSwipeState({
       startX: touch.clientX,
       startY: touch.clientY,
@@ -191,7 +191,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
       
       if (shouldClose) {
         onSwipe?.('close');
-        handleClose(event as any, 'swipeToClose');
+        handleClose({}, 'swipeToClose');
       }
     }
   }, [swipeEnabled, swipeState, anchor, onSwipe, handleClose]);
@@ -238,6 +238,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
       
       return () => clearTimeout(timer);
     }
+    return undefined;
   }, [open, disableAutoFocus]);
 
   // Keyboard event listeners
@@ -246,6 +247,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
       document.addEventListener('keydown', handleKeyDown);
       return () => document.removeEventListener('keydown', handleKeyDown);
     }
+    return undefined;
   }, [open, handleKeyDown]);
 
   // Touch event listeners for swipe gestures
@@ -275,6 +277,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
         }
       };
     }
+    return undefined;
   }, [swipeEnabled, open, handleTouchStart, handleTouchMove, handleTouchEnd, handleEdgeSwipe]);
 
   // Handle animation callbacks
@@ -284,6 +287,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
     } else {
       onClosed?.();
     }
+    return undefined;
   }, [open, onOpened, onClosed]);
 
   // Update internal collapsed state when prop changes
@@ -355,6 +359,8 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
     fixedHeader,
     fixedFooter,
     disableScrolling,
+    hideScrollbar,
+    disableScroll,
   };
 
   return (
@@ -398,6 +404,7 @@ const DrawerComponent = forwardRef<HTMLDivElement, DrawerProps>(({
             <StyledDrawerHeader
               fixed={fixedHeader}
               collapsed={effectiveCollapsed}
+              variant={headerVariant}
               data-testid="drawer-header"
             >
               {header}

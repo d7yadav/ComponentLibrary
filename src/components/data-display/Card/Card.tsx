@@ -1,6 +1,5 @@
-import React, { forwardRef } from 'react';
-import { CardProps } from './Card.types';
-import { StyledCard } from './Card.styles';
+import React, { forwardRef, memo } from 'react';
+
 import { 
   CARD_VARIANTS, 
   CARD_ELEVATIONS, 
@@ -8,6 +7,8 @@ import {
   CARD_ORIENTATIONS,
   ACCESSIBILITY_CONSTANTS 
 } from './Card.constants';
+import { StyledCard } from './Card.styles';
+import type { CardProps } from './Card.types';
 
 /**
  * Enhanced Card component with multiple variants and accessibility features
@@ -22,25 +23,27 @@ import {
  * - WCAG 2.1 AA accessibility compliance
  * - Dark theme support
  */
-export const Card = forwardRef<HTMLDivElement, CardProps>(({
-  variant = CARD_VARIANTS.elevated,
-  elevation = CARD_ELEVATIONS[1],
-  size = CARD_SIZES.comfortable,
-  orientation = CARD_ORIENTATIONS.vertical,
-  interactive = false,
-  disabled = false,
-  selected = false,
-  onClick,
-  header,
-  media,
-  children,
-  actions,
-  className,
-  'aria-label': ariaLabel,
-  role,
-  tabIndex,
-  ...other
-}, ref) => {
+export const Card = memo(forwardRef<HTMLDivElement, CardProps>((props, ref): React.ReactElement => {
+  const {
+    variant = CARD_VARIANTS.elevated,
+    elevation = CARD_ELEVATIONS[1],
+    size = CARD_SIZES.comfortable,
+    orientation = CARD_ORIENTATIONS.vertical,
+    interactive = false,
+    disabled = false,
+    selected = false,
+    onClick,
+    header,
+    media,
+    children,
+    actions,
+    className,
+    'aria-label': ariaLabel,
+    role,
+    tabIndex,
+    ...other
+  } = props;
+  
   // Determine if card should be interactive
   const isInteractive = variant === 'interactive' || interactive || Boolean(onClick);
   
@@ -63,10 +66,12 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({
   };
 
   return (
-    <StyledCard data-testid="card"
+    <StyledCard
+      data-testid="card"
       ref={ref}
-      variant="elevation" // Use MUI variant
-      elevation={0} // Use custom elevation via styled component
+      // MUI props (variant/elevation) are set to defaults, custom props control appearance
+      variant="elevation"
+      elevation={0}
       // Custom props for styled component
       customVariant={variant}
       customElevation={elevation}
@@ -80,12 +85,13 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(({
       {...accessibilityProps}
       {...other}
     >
+      {/* Render header, media, children, and actions in order */}
       {header}
       {media}
       {children}
       {actions}
     </StyledCard>
   );
-});
+}));
 
 Card.displayName = 'Card';

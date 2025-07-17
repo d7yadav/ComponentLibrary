@@ -1,11 +1,3 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { TextField } from './TextField';
-import { 
-  TEXTFIELD_VARIANTS, 
-  TEXTFIELD_SIZES, 
-  TEXTFIELD_INPUT_TYPES,
-  VALIDATION_STATES 
-} from './TextField.constants';
 import { 
   Search, 
   Email, 
@@ -20,7 +12,21 @@ import {
   Error as ErrorIcon,
   CalendarToday
 } from '@mui/icons-material';
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import React, { useState } from 'react';
+
+import { Typography } from '@/components/data-display';
+import { Stack, Box } from '@/components/layout';
+
+import { TextField } from './TextField';
+import { 
+  TEXTFIELD_VARIANTS, 
+  TEXTFIELD_SIZES, 
+  TEXTFIELD_INPUT_TYPES,
+  VALIDATION_STATES 
+} from './TextField.constants';
+
 
 const meta: Meta<typeof TextField> = {
   title: 'Forms/TextField',
@@ -92,8 +98,20 @@ Use TextField for collecting user input in forms. The component supports various
     showCharacterCount: {
       control: 'boolean',
       description: 'Shows character counter'
-    }
-  }
+    },
+    onClick: {
+      action: 'onClick',
+      description: 'Callback fired when click occurs',
+  },
+    onChange: {
+      action: 'onChange',
+      description: 'Callback fired when change occurs',
+    },
+  },
+  args: {
+    onClick: fn(),
+    onChange: fn(),
+  },
 };
 
 export default meta;
@@ -729,6 +747,8 @@ export const CustomValidation: Story = {
       return null;
     },
     helperText: 'Letters, numbers, and underscores only',
+    onClick: fn(),
+    onChange: fn(),
   }
 };
 
@@ -739,7 +759,7 @@ export const CustomValidation: Story = {
  * @returns JSX element
  */
 export const ComplexForm: Story = {
-  render: () => (
+  render: (args) => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', maxWidth: '400px' }}>
       <TextField data-testid="textfield.stories"
         required
@@ -820,7 +840,7 @@ export const DarkThemeCompatible: Story = {
  * @returns JSX element
  */
 export const LabelPositioning: Story = {
-  render: () => {
+  render: (args) => {
     const [phoneNumber, setPhoneNumber] = React.useState('');
     const [email, setEmail] = React.useState('');
     
@@ -884,5 +904,369 @@ export const LabelPositioning: Story = {
         </Stack>
       </Stack>
     );
+  },
+};
+
+/**
+ * BooleanProps component
+ * 
+ * @returns JSX element
+ */
+export const BooleanProps: Story = {
+  render: (args) => (
+    <Stack spacing={4}>
+      <Typography variant="h6" gutterBottom>
+        Boolean Properties Demonstration
+      </Typography>
+      
+      {/* Loading Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          loading Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Shows spinner indicator and prevents user input when true
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">loading: false</Typography>
+            <TextField
+              label="Username"
+              placeholder="Enter username"
+              loading={false}
+              startIcon={<Person />}
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">loading: true</Typography>
+            <TextField
+              label="Checking availability..."
+              value="checking_user"
+              loading={true}
+              startIcon={<Person />}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* Disabled Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          disabled Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Prevents all interactions and shows disabled styling when true
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">disabled: false</Typography>
+            <TextField
+              label="Email Address"
+              placeholder="user@example.com"
+              disabled={false}
+              startIcon={<Email />}
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">disabled: true</Typography>
+            <TextField
+              label="Account ID"
+              value="ACC-123456"
+              disabled={true}
+              helperText="This field cannot be modified"
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* ReadOnly Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          readOnly Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Allows focus and selection but prevents text modification when true
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">readOnly: false</Typography>
+            <TextField
+              label="Description"
+              value="Editable content"
+              readOnly={false}
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">readOnly: true</Typography>
+            <TextField
+              label="User ID"
+              value="USR-789012"
+              readOnly={true}
+              helperText="Read-only field - can copy but not edit"
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* FullWidth Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          fullWidth Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Makes field take full width of container when true
+        </Typography>
+        <Stack spacing={2}>
+          <Stack spacing={1}>
+            <Typography variant="caption" color="text.secondary">fullWidth: false</Typography>
+            <Box p={2} border="1px dashed" borderColor="divider">
+              <TextField
+                label="Normal Width"
+                placeholder="Default width field"
+                fullWidth={false}
+              />
+            </Box>
+          </Stack>
+          <Stack spacing={1}>
+            <Typography variant="caption" color="text.secondary">fullWidth: true</Typography>
+            <Box p={2} border="1px dashed" borderColor="divider">
+              <TextField
+                label="Full Width Field"
+                placeholder="Takes full container width"
+                fullWidth={true}
+              />
+            </Box>
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* Multiline Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          multiline Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Converts input to textarea when true, supports multiple rows
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">multiline: false</Typography>
+            <TextField
+              label="Single Line"
+              placeholder="Single line input"
+              multiline={false}
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">multiline: true</Typography>
+            <TextField
+              label="Multi Line"
+              placeholder="Multiple lines supported..."
+              multiline={true}
+              rows={3}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* hasStartIcon Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          hasStartIcon Property (with startIcon)
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Automatically true when startIcon prop is provided
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">No startIcon</Typography>
+            <TextField
+              label="Search"
+              placeholder="No icon"
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">With startIcon</Typography>
+            <TextField
+              label="Search"
+              placeholder="With search icon"
+              startIcon={<Search />}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* hasEndIcon Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          hasEndIcon Property (with endIcon)
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Automatically true when endIcon prop is provided
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">No endIcon</Typography>
+            <TextField
+              label="Email"
+              value="user@example.com"
+              validationState="success"
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">With endIcon</Typography>
+            <TextField
+              label="Email"
+              value="user@example.com"
+              validationState="success"
+              endIcon={<CheckCircle />}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* hasEndAction Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          hasEndAction Property (with endAction)
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Automatically true when endAction prop is provided
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">No endAction</Typography>
+            <TextField
+              label="Message"
+              value="Some text content"
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">With endAction</Typography>
+            <TextField
+              label="Message"
+              value="Clearable text"
+              endAction={<Clear style={{ cursor: 'pointer' }} />}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* showCharacterCount Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          showCharacterCount Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Shows character counter and length validation when true
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">showCharacterCount: false</Typography>
+            <TextField
+              label="Bio"
+              value="No character count shown"
+              maxLength={100}
+              showCharacterCount={false}
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">showCharacterCount: true</Typography>
+            <TextField
+              label="Bio"
+              value="Character count is visible"
+              maxLength={100}
+              showCharacterCount={true}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* focused Property */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          focused Property
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Forces focus state when true (controlled focus)
+        </Typography>
+        <Stack direction="row" spacing={3} alignItems="start">
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">focused: false</Typography>
+            <TextField
+              label="Normal Focus"
+              placeholder="Click to focus"
+              focused={false}
+            />
+          </Stack>
+          <Stack spacing={1} flex={1}>
+            <Typography variant="caption" color="text.secondary">focused: true</Typography>
+            <TextField
+              label="Always Focused"
+              placeholder="Always shows focus state"
+              focused={true}
+            />
+          </Stack>
+        </Stack>
+      </Stack>
+      
+      {/* Combined Boolean Properties */}
+      <Stack spacing={2}>
+        <Typography variant="subtitle2" gutterBottom>
+          Combined Boolean Properties
+        </Typography>
+        <Typography variant="caption" color="text.secondary" gutterBottom display="block">
+          Real-world scenarios combining multiple boolean properties
+        </Typography>
+        <Stack spacing={2}>
+          <TextField
+            variant="outlined"
+            label="Basic Field"
+            placeholder="Default state"
+          />
+          <TextField
+            variant="filled"
+            label="Full Featured Field"
+            value="Complex example"
+            fullWidth
+            multiline
+            rows={2}
+            maxLength={200}
+            showCharacterCount
+            startIcon={<Person />}
+            endAction={<Clear style={{ cursor: 'pointer' }} />}
+            helperText="Full width + multiline + character count + icons"
+          />
+          <TextField
+            variant="outlined"
+            label="Loading Form Field"
+            value="Submitting data..."
+            loading
+            disabled
+            fullWidth
+            startIcon={<Email />}
+            helperText="Loading + disabled + full width combination"
+          />
+          <TextField
+            variant="standard"
+            label="Read-only Display"
+            value="Important read-only information that can be selected and copied"
+            readOnly
+            fullWidth
+            multiline
+            rows={2}
+            helperText="Read-only + full width + multiline for display purposes"
+          />
+        </Stack>
+      </Stack>
+    </Stack>
+  ),
+  parameters: {
+    layout: 'padded',
+    docs: {
+      description: {
+        story: 'Demonstrates all boolean properties of the TextField component with clear visual comparisons and practical examples showing when each property should be used.',
+      },
+    },
   },
 };

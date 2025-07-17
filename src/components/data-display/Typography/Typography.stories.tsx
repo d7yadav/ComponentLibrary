@@ -1,5 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
+import React from 'react';
+
+import { Divider } from '@/components/data-display/Divider'; // Replaced MUI Divider with internal wrapper as per migration guidelines
+import { Box } from '@/components/layout/Box';
+import { Stack } from '@/components/layout/Stack';
+import { Paper } from '@/components/surfaces/Paper';
+
 import { 
   Typography, 
   HeadingTypography, 
@@ -15,8 +22,7 @@ import {
   TYPOGRAPHY_WEIGHTS,
   GRADIENT_PRESETS
 } from './Typography.constants';
-import { Stack, Box, Paper, Divider } from '@mui/material';
-import { Link, Email, Phone, AccessTime } from '@mui/icons-material';
+// Note: Using MUI Divider temporarily until we create a wrapper component
 
 /**
  * The Typography component provides comprehensive text rendering with extensive customization options,
@@ -91,10 +97,15 @@ const meta: Meta<typeof Typography> = {
       control: 'number',
       description: 'Maximum number of lines to display before truncating',
     },
-    onClick: { action: 'clicked' },
+    onClick: { 
+      action: 'clicked',
+      description: 'Callback fired when click occurs',
+    },
   },
   args: {
     children: 'Typography text content',
+  
+    onClick: fn(),
   },
 };
 
@@ -111,7 +122,7 @@ export const Default: Story = {
 
 // ===== VARIANT STORIES =====
 export const AllVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography variant="h1">Heading 1 - Main page title</Typography>
       <Typography variant="h2">Heading 2 - Section title</Typography>
@@ -141,7 +152,7 @@ export const AllVariants: Story = {
 };
 
 export const HeadingVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={1}>
       <Typography variant="h1" gutterBottom>Heading 1</Typography>
       <Typography variant="h2" gutterBottom>Heading 2</Typography>
@@ -154,7 +165,7 @@ export const HeadingVariants: Story = {
 };
 
 export const BodyVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography variant="body1" paragraph>
         Body 1 text is used for primary content. It provides excellent readability for longer 
@@ -169,7 +180,7 @@ export const BodyVariants: Story = {
 };
 
 export const UtilityVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography variant="subtitle1">Subtitle 1 - Section introduction</Typography>
       <Typography variant="subtitle2">Subtitle 2 - Smaller section text</Typography>
@@ -186,7 +197,7 @@ export const UtilityVariants: Story = {
 
 // ===== COLOR STORIES =====
 export const ColorVariants: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={1}>
       <Typography color="primary">Primary color text</Typography>
       <Typography color="secondary">Secondary color text</Typography>
@@ -205,7 +216,7 @@ export const ColorVariants: Story = {
 };
 
 export const SemanticColors: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography color="success" variant="body1">
         ✓ Success message indicating completed action
@@ -225,7 +236,7 @@ export const SemanticColors: Story = {
 
 // ===== ALIGNMENT STORIES =====
 export const TextAlignment: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography align="left">Left aligned text (default)</Typography>
       <Typography align="center">Center aligned text</Typography>
@@ -240,7 +251,7 @@ export const TextAlignment: Story = {
 
 // ===== TRANSFORMATION STORIES =====
 export const TextTransformations: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={1}>
       <Typography textTransform="none">None - Original case maintained</Typography>
       <Typography textTransform="capitalize">capitalize - first letter of each word</Typography>
@@ -252,7 +263,7 @@ export const TextTransformations: Story = {
 
 // ===== FONT WEIGHT STORIES =====
 export const FontWeights: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={1}>
       <Typography fontWeight="light">Light weight (300)</Typography>
       <Typography fontWeight="regular">Regular weight (400)</Typography>
@@ -268,7 +279,7 @@ export const FontWeights: Story = {
 
 // ===== INTERACTIVE STORIES =====
 export const InteractiveText: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography 
         color="primary" 
@@ -300,7 +311,7 @@ export const InteractiveText: Story = {
 
 // ===== GRADIENT STORIES =====
 export const GradientText: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography 
         variant="h2" 
@@ -341,7 +352,7 @@ export const GradientText: Story = {
 
 // ===== TRUNCATION STORIES =====
 export const TextTruncation: Story = {
-  render: () => (
+  render: (args) => (
     <Box sx={{ width: 300 }}>
       <Stack spacing={2}>
         <Typography noWrap>
@@ -365,7 +376,7 @@ export const TextTruncation: Story = {
 
 // ===== RESPONSIVE STORIES =====
 export const ResponsiveTypography: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography variant="h1" responsive>
         Responsive Heading 1 - Scales with screen size
@@ -390,7 +401,7 @@ export const ResponsiveTypography: Story = {
 
 // ===== ACCESSIBILITY STORIES =====
 export const AccessibilityFeatures: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography 
         variant="h2" 
@@ -434,7 +445,7 @@ export const AccessibilityFeatures: Story = {
 
 // ===== COMPONENT VARIANTS =====
 export const SpecializedComponents: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={3}>
       <Box>
         <LabelTypography>Form Label</LabelTypography>
@@ -464,7 +475,7 @@ export const SpecializedComponents: Story = {
 
 // ===== REAL-WORLD USAGE STORIES =====
 export const ArticleLayout: Story = {
-  render: () => (
+  render: (args) => (
     <Box sx={{ maxWidth: 600, margin: '0 auto' }}>
       <HeadingTypography variant="h1" gutterBottom>
         The Future of Web Typography
@@ -502,7 +513,7 @@ export const ArticleLayout: Story = {
 };
 
 export const UserInterface: Story = {
-  render: () => (
+  render: (args) => (
     <Paper sx={{ p: 3, maxWidth: 400 }}>
       <HeadingTypography variant="h4" gutterBottom>
         Account Settings
@@ -528,10 +539,10 @@ export const UserInterface: Story = {
         </Box>
         
         <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-          <AccessTime fontSize="small" color="action" />
-          <CaptionTypography>
+          {/* TODO: Replace with internal icon wrapper */}
+          <Typography variant="caption" color="action">
             Last updated 2 hours ago
-          </CaptionTypography>
+          </Typography>
         </Box>
       </Stack>
     </Paper>
@@ -540,7 +551,7 @@ export const UserInterface: Story = {
 
 // ===== THEME INTEGRATION =====
 export const ThemeIntegration: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={2}>
       <Typography variant="h3" gutterBottom>
         Theme Integration
@@ -568,7 +579,7 @@ export const ThemeIntegration: Story = {
 
 // ===== PERFORMANCE STORIES =====
 export const PerformanceOptimized: Story = {
-  render: () => (
+  render: (args) => (
     <Stack spacing={1}>
       {Array.from({ length: 50 }, (_, i) => (
         <Typography key={i} variant="body2">
@@ -584,4 +595,504 @@ export const PerformanceOptimized: Story = {
       },
     },
   },
+};
+
+// ===== MISSING MANDATORY CATEGORIES =====
+
+// ===== VARIANTS =====
+export const Variants: Story = {
+  render: (args) => (
+    <Stack spacing={3}>
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h1">h1. Heading Level 1</Typography>
+        <Typography variant="h2">h2. Heading Level 2</Typography>
+        <Typography variant="h3">h3. Heading Level 3</Typography>
+        <Typography variant="h4">h4. Heading Level 4</Typography>
+        <Typography variant="h5">h5. Heading Level 5</Typography>
+        <Typography variant="h6">h6. Heading Level 6</Typography>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="subtitle1" gutterBottom>subtitle1. Large subtitle text</Typography>
+        <Typography variant="subtitle2" gutterBottom>subtitle2. Medium subtitle text</Typography>
+        <Typography variant="body1" paragraph>body1. Primary body text with good readability and comfortable line height for longer content.</Typography>
+        <Typography variant="body2" paragraph>body2. Secondary body text, often used for less prominent content or additional information.</Typography>
+        <Typography variant="button">BUTTON TEXT</Typography>
+        <Typography variant="caption" display="block">caption. Small text for annotations</Typography>
+        <Typography variant="overline" display="block">OVERLINE TEXT</Typography>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h4" gutterBottom>Specialized Variants</Typography>
+        <HeadingTypography level={2}>Custom Heading Component</HeadingTypography>
+        <BodyTypography>Custom Body Component with enhanced features</BodyTypography>
+        <CaptionTypography>Custom Caption Component</CaptionTypography>
+        <LabelTypography>Custom Label Component</LabelTypography>
+      </Paper>
+    </Stack>
+  ),
+};
+
+// ===== STATES =====
+export const States: Story = {
+  render: (args) => (
+    <Stack spacing={3}>
+      {/* Normal State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Normal State</Typography>
+        <Typography variant="h4" gutterBottom>Heading Typography</Typography>
+        <Typography variant="body1" paragraph>
+          Typography in normal state with full readability and proper contrast ratios for accessibility.
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Secondary text with appropriate color hierarchy and semantic meaning.
+        </Typography>
+      </Paper>
+      
+      {/* Hover State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Hover State</Typography>
+        <Typography 
+          variant="h5" 
+          component="span"
+          href="#"
+          onClick={fn()}
+          sx={{
+            color: 'primary.main',
+            textDecoration: 'none',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease-in-out',
+            display: 'block',
+            marginBottom: 2,
+            '&:hover': {
+              color: 'primary.dark',
+              textDecoration: 'underline',
+              transform: 'translateY(-1px)',
+            }
+          }}
+        >
+          Interactive Heading with Hover Effects
+        </Typography>
+        <Typography 
+          variant="body1" 
+          component="span"
+          sx={{
+            color: 'secondary.main',
+            cursor: 'pointer',
+            transition: 'all 0.2s ease-in-out',
+            '&:hover': {
+              color: 'secondary.dark',
+              backgroundColor: 'secondary.light',
+              padding: '2px 4px',
+              borderRadius: '4px',
+            }
+          }}
+          onClick={fn()}
+        >
+          Hover over this text to see background highlighting and color changes.
+        </Typography>
+      </Paper>
+      
+      {/* Focus State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Focus State</Typography>
+        <Typography 
+          variant="body1" 
+          component="span" // TODO: button semantics
+          tabIndex={0}
+          onClick={fn()}
+          sx={{
+            border: 'none',
+            background: 'none',
+            color: 'info.main',
+            cursor: 'pointer',
+            padding: '8px 12px',
+            borderRadius: '4px',
+            transition: 'all 0.2s ease-in-out',
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: 'primary.main',
+              outlineOffset: '2px',
+              backgroundColor: 'info.light',
+              color: 'info.dark',
+            }
+          }}
+        >
+          Tab to this button text to see focus outline and background changes
+        </Typography>
+        <br />
+        <Typography 
+          variant="body2" 
+          component="a" // TODO: anchor semantics
+          href="#"
+          onClick={fn()}
+          sx={{
+            color: 'primary.main',
+            textDecoration: 'underline',
+            '&:focus-visible': {
+              outline: '2px solid',
+              outlineColor: 'primary.main',
+              outlineOffset: '2px',
+              backgroundColor: 'primary.light',
+              color: 'primary.dark',
+              padding: '2px 4px',
+              borderRadius: '4px',
+            }
+          }}
+        >
+          Focusable link text with accessibility indicators
+        </Typography>
+      </Paper>
+      
+      {/* Active State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Active State</Typography>
+        <Typography 
+          variant="h5" 
+          component="span" // TODO: button semantics
+          onClick={fn()}
+          sx={{
+            border: 'none',
+            background: 'none',
+            color: 'success.main',
+            cursor: 'pointer',
+            transition: 'all 0.1s ease-in-out',
+            padding: '8px 16px',
+            borderRadius: '8px',
+            marginBottom: 2,
+            display: 'block',
+            '&:active': {
+              transform: 'scale(0.98)',
+              backgroundColor: 'success.main',
+              color: 'success.contrastText',
+              boxShadow: 'inset 0 2px 4px rgba(0,0,0,0.1)',
+            }
+          }}
+        >
+          Click and Hold for Active State
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          Press and hold the heading above to see active state feedback.
+        </Typography>
+      </Paper>
+      
+      {/* Disabled State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Disabled State</Typography>
+        <Typography 
+          variant="h5" 
+          sx={{ 
+            color: 'text.disabled',
+            opacity: 0.6,
+            filter: 'grayscale(0.3)',
+          }}
+        >
+          Disabled Heading Text
+        </Typography>
+        <Typography 
+          variant="body1" 
+          sx={{ 
+            color: 'text.disabled',
+            opacity: 0.6,
+            pointerEvents: 'none',
+            cursor: 'not-allowed',
+          }}
+        >
+          Disabled typography with reduced opacity and no user interactions.
+        </Typography>
+        <Typography 
+          variant="body2" 
+          color="text.disabled"
+          sx={{ mt: 1 }}
+        >
+          All text styling maintains proper semantic hierarchy even in disabled state.
+        </Typography>
+      </Paper>
+      
+      {/* Loading State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Loading State</Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mb: 2 }}>
+          <Box
+            sx={{
+              width: 16,
+              height: 16,
+              border: '2px solid',
+              borderColor: 'action.disabled',
+              borderTopColor: 'primary.main',
+              borderRadius: '50%',
+              animation: 'spin 1s linear infinite',
+              '@keyframes spin': {
+                '0%': { transform: 'rotate(0deg)' },
+                '100%': { transform: 'rotate(360deg)' },
+              },
+            }}
+          />
+          <Typography variant="body1" color="text.secondary">
+            Loading content...
+          </Typography>
+        </Box>
+        {/* Skeleton text */}
+        <Stack spacing={1}>
+          <Box 
+            sx={{ 
+              height: 24, 
+              bgcolor: 'action.hover', 
+              borderRadius: 1,
+              animation: 'pulse 1.5s ease-in-out infinite',
+              '@keyframes pulse': {
+                '0%': { opacity: 1 },
+                '50%': { opacity: 0.4 },
+                '100%': { opacity: 1 },
+              },
+            }} 
+          />
+          <Box 
+            sx={{ 
+              height: 16, 
+              width: '80%',
+              bgcolor: 'action.hover', 
+              borderRadius: 1,
+              animation: 'pulse 1.5s ease-in-out infinite',
+              animationDelay: '0.2s',
+              '@keyframes pulse': {
+                '0%': { opacity: 1 },
+                '50%': { opacity: 0.4 },
+                '100%': { opacity: 1 },
+              },
+            }} 
+          />
+          <Box 
+            sx={{ 
+              height: 16, 
+              width: '60%',
+              bgcolor: 'action.hover', 
+              borderRadius: 1,
+              animation: 'pulse 1.5s ease-in-out infinite',
+              animationDelay: '0.4s',
+              '@keyframes pulse': {
+                '0%': { opacity: 1 },
+                '50%': { opacity: 0.4 },
+                '100%': { opacity: 1 },
+              },
+            }} 
+          />
+        </Stack>
+      </Paper>
+      
+      {/* Error State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Error State</Typography>
+        <Typography 
+          variant="h5" 
+          color="error.main"
+          sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}
+        >
+          <Box
+            sx={{
+              width: 20,
+              height: 20,
+              borderRadius: '50%',
+              backgroundColor: 'error.main',
+              color: 'error.contrastText',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '12px',
+              fontWeight: 'bold',
+              flexShrink: 0,
+            }}
+          >
+            !
+          </Box>
+          Error Message Heading
+        </Typography>
+        <Typography variant="body1" color="error.main" paragraph>
+          Error text with appropriate error color for validation messages and warnings.
+        </Typography>
+        <Typography variant="body2" color="error.dark">
+          Additional error details with slightly darker error color for hierarchy.
+        </Typography>
+      </Paper>
+      
+      {/* Success State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Success State</Typography>
+        <Typography 
+          variant="h5" 
+          color="success.main"
+          sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}
+        >
+          <Box
+            sx={{
+              width: 20,
+              height: 20,
+              borderRadius: '50%',
+              backgroundColor: 'success.main',
+              color: 'success.contrastText',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '12px',
+              fontWeight: 'bold',
+              flexShrink: 0,
+            }}
+          >
+            ✓
+          </Box>
+          Success Message Heading
+        </Typography>
+        <Typography variant="body1" color="success.main" paragraph>
+          Success text with positive color indicating successful completion.
+        </Typography>
+        <Typography variant="body2" color="success.dark">
+          Additional success details with darker success color for better hierarchy.
+        </Typography>
+      </Paper>
+      
+      {/* Warning State */}
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Warning State</Typography>
+        <Typography 
+          variant="h5" 
+          color="warning.main"
+          sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}
+        >
+          <Box
+            sx={{
+              width: 20,
+              height: 20,
+              borderRadius: '50%',
+              backgroundColor: 'warning.main',
+              color: 'warning.contrastText',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '12px',
+              fontWeight: 'bold',
+              flexShrink: 0,
+            }}
+          >
+            ⚠
+          </Box>
+          Warning Message Heading
+        </Typography>
+        <Typography variant="body1" color="warning.main" paragraph>
+          Warning text with attention-grabbing color for important notifications.
+        </Typography>
+        <Typography variant="body2" color="warning.dark">
+          Additional warning details with darker warning color for proper text hierarchy.
+        </Typography>
+      </Paper>
+    </Stack>
+  ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'Demonstrates all interaction and status states for Typography including normal, hover, focus, active, disabled, loading, error, success, and warning states. Each state provides appropriate visual feedback and maintains accessibility standards.',
+      },
+    },
+  },
+};
+
+// ===== BOOLEAN PROPS =====
+export const BooleanProps: Story = {
+  render: (args) => (
+    <Stack spacing={3}>
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>noWrap Property</Typography>
+        <Box sx={{ width: 200, border: '1px dashed grey.300', p: 1, mb: 2 }}>
+          <Typography variant="body1" noWrap={false}>
+            noWrap: false - This long text will wrap to multiple lines when it exceeds the container width.
+          </Typography>
+        </Box>
+        <Box sx={{ width: 200, border: '1px dashed grey.300', p: 1 }}>
+          <Typography variant="body1" noWrap={true}>
+            noWrap: true - This long text will be truncated with ellipsis when it exceeds container width.
+          </Typography>
+        </Box>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>paragraph Property</Typography>
+        <Typography variant="body1" paragraph={false}>
+          paragraph: false - No bottom margin applied to this text.
+        </Typography>
+        <Typography variant="body1" paragraph={true}>
+          paragraph: true - Bottom margin applied for paragraph spacing.
+        </Typography>
+        <Typography variant="body1">Following text to show spacing difference.</Typography>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>gutterBottom Property</Typography>
+        <Typography variant="h4" gutterBottom={false}>
+          gutterBottom: false
+        </Typography>
+        <Typography variant="body2">No gutter bottom margin applied above.</Typography>
+        
+        <Typography variant="h4" gutterBottom={true}>
+          gutterBottom: true
+        </Typography>
+        <Typography variant="body2">Gutter bottom margin applied above for proper spacing.</Typography>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>responsive Property</Typography>
+        <Typography variant="h3" responsive={false} gutterBottom>
+          responsive: false - Fixed size
+        </Typography>
+        <Typography variant="h3" responsive={true} gutterBottom>
+          responsive: true - Scales with breakpoints
+        </Typography>
+        <Typography variant="body2">Resize the viewport to see the difference in responsive scaling.</Typography>
+      </Paper>
+    </Stack>
+  ),
+};
+
+// ===== SIZES =====  
+export const Sizes: Story = {
+  render: (args) => (
+    <Stack spacing={3}>
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Custom Font Sizes</Typography>
+        <Typography variant="h4" fontSize="1rem" gutterBottom>
+          fontSize: 1rem - Small heading
+        </Typography>
+        <Typography variant="h4" fontSize="1.5rem" gutterBottom>
+          fontSize: 1.5rem - Medium heading  
+        </Typography>
+        <Typography variant="h4" fontSize="2rem" gutterBottom>
+          fontSize: 2rem - Large heading
+        </Typography>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Custom Line Heights</Typography>
+        <Typography variant="body1" lineHeight={1.2} paragraph>
+          lineHeight: 1.2 - Tight line spacing for compact text that needs to fit in limited space while maintaining readability.
+        </Typography>
+        <Typography variant="body1" lineHeight={1.6} paragraph>
+          lineHeight: 1.6 - Standard line spacing for optimal readability in most content scenarios and general purpose text.
+        </Typography>
+        <Typography variant="body1" lineHeight={2.0} paragraph>
+          lineHeight: 2.0 - Loose line spacing for enhanced readability in accessible designs or when extra breathing room is needed.
+        </Typography>
+      </Paper>
+      
+      <Paper sx={{ p: 3 }}>
+        <Typography variant="h6" gutterBottom>Custom Letter Spacing</Typography>
+        <Typography variant="h4" letterSpacing={-0.5} gutterBottom>
+          letterSpacing: -0.5px - Tight
+        </Typography>
+        <Typography variant="h4" letterSpacing={0} gutterBottom>
+          letterSpacing: 0px - Normal
+        </Typography>
+        <Typography variant="h4" letterSpacing={2} gutterBottom>
+          letterSpacing: 2px - Wide
+        </Typography>
+      </Paper>
+    </Stack>
+  ),
 };

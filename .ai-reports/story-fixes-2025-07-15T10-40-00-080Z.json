@@ -1,0 +1,393 @@
+{
+  "timestamp": "2025-07-15T10:40:00.081Z",
+  "duration": 43,
+  "fixes": [
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/core/Button/Button.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/core/Chip/Chip.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/core/Icon/Icon.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/core/IconButton/IconButton.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Avatar/Avatar.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Badge/Badge.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Card/Card.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Card/CardActions.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Card/CardContent.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Card/CardHeader.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Card/CardMedia.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Divider/Divider.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/data-display/Typography/Typography.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/feedback/Alert/Alert.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/feedback/Loading/Loading.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/feedback/Loading/Skeleton.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/feedback/Progress/CircularProgress.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/feedback/Progress/LinearProgress.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/feedback/Snackbar/Snackbar.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/forms/Autocomplete/Autocomplete.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/forms/DatePicker/DatePicker.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/forms/Radio/Radio.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/forms/Switch/Switch.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/layout/Box/Box.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/layout/Container/Container.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/layout/Grid/Grid.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/layout/Stack/Stack.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/navigation/AppBar/AppBar.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/navigation/Menu/Menu.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/navigation/Tabs/Tabs.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/surfaces/Dialog/Dialog.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/surfaces/Drawer/Drawer.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/surfaces/List/List.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/surfaces/ListItem/ListItem.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/surfaces/Modal/Modal.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "REACT_IMPORT",
+      "file": "src/components/surfaces/Paper/Paper.stories.tsx",
+      "description": "Added missing React import for JSX usage"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/Button/Button.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/Chip/Chip.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/Icon/Icon.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/IconButton/IconButton.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Avatar/Avatar.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Badge/Badge.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Card/Card.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Divider/Divider.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Tooltip/Tooltip.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Typography/Typography.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Alert/Alert.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Loading/Loading.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Progress/Progress.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Snackbar/Snackbar.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Autocomplete/Autocomplete.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Checkbox/Checkbox.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/DatePicker/DatePicker.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/FormControl/FormControl.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/FormLabel/FormLabel.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Radio/Radio.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/RadioGroup/RadioGroup.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Select/Select.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Slider/Slider.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Switch/Switch.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/TextField/TextField.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Box/Box.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Container/Container.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Grid/Grid.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Stack/Stack.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/AppBar/AppBar.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/Menu/Menu.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/Tabs/Tabs.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Accordion/Accordion.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Dialog/Dialog.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Drawer/Drawer.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/List/List.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/ListItem/ListItem.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Modal/Modal.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Paper/Paper.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    }
+  ],
+  "errors": [],
+  "status": "SUCCESS"
+}

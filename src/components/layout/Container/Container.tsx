@@ -1,12 +1,13 @@
 import { forwardRef, memo } from 'react';
-import { ContainerProps } from './Container.types';
-import { StyledContainer } from './Container.styles';
+
 import {
   CONTAINER_VARIANTS,
   CONTAINER_MAX_WIDTHS,
   DEFAULT_CONTAINER_PROPS,
   ACCESSIBILITY_CONSTANTS,
 } from './Container.constants';
+import { StyledContainer } from './Container.styles';
+import type { ContainerProps } from './Container.types';
 
 /**
  * Enhanced Container component with responsive breakpoint support and flexible styling
@@ -20,7 +21,7 @@ import {
  * - TypeScript support with strict typing
  * - Dark theme support via enhanced theme system
  */
-export const Container = forwardRef<HTMLDivElement, ContainerProps>((
+export const Container = memo(forwardRef<HTMLDivElement, ContainerProps>((
   {
     children,
     variant = DEFAULT_CONTAINER_PROPS.variant,
@@ -83,6 +84,6 @@ export const Container = forwardRef<HTMLDivElement, ContainerProps>((
       {children}
     </StyledContainer>
   );
-});
+}));
 
 Container.displayName = 'Container';

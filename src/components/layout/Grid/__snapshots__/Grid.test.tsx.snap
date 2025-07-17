@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Grid Component > Snapshots > matches snapshot for all variants > variant-container 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-direction-xs-row css-38ek44-MuiGrid-root"
+  data-testid="grid"
+  role="gridcell"
+  variant="container"
+>
+  container
+   Grid
+</div>
+`;
+
+exports[`Grid Component > Snapshots > matches snapshot for all variants > variant-item 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-direction-xs-row css-38ek44-MuiGrid-root"
+  data-testid="grid"
+  role="gridcell"
+  variant="item"
+>
+  item
+   Grid
+</div>
+`;
+
+exports[`Grid Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  class="MuiGrid-root MuiGrid-direction-xs-row css-38ek44-MuiGrid-root"
+  data-testid="grid"
+  role="gridcell"
+>
+  Default Grid
+</div>
+`;

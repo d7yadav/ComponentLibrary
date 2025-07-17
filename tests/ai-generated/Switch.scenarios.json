@@ -1,0 +1,27 @@
+{
+  "component": "Switch",
+  "generated": "2025-07-14T08:19:00.480Z",
+  "scenarios": [
+    {
+      "id": "Switch-smoke",
+      "name": "Switch Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Switch",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Switch-interaction",
+      "name": "Switch Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Switch",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Switch-accessibility",
+      "name": "Switch Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Switch",
+      "estimatedDuration": 1200
+    }
+  ]
+}

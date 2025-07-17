@@ -89,6 +89,15 @@ class AICodeValidator {
       severity: 'warning',
       category: 'documentation',
     });
+
+    // Test file requirements
+    this.validationRules.set('test-coverage', {
+      name: 'Test File Requirements',
+      pattern: /\.tsx$/,
+      validator: this.validateTestCoverage.bind(this),
+      severity: 'error',
+      category: 'testing',
+    });
   }
 
   /**
@@ -420,6 +429,98 @@ class AICodeValidator {
   }
 
   /**
+   * Validate test file coverage for components
+   */
+  async validateTestCoverage(content, filePath, relativePath) {
+    const issues = [];
+    
+    // Only validate component files (not test files, stories, etc.)
+    if (relativePath.includes('.test.') || relativePath.includes('.stories.') || 
+        relativePath.includes('index.ts') || !relativePath.includes('/components/')) {
+      return issues;
+    }
+    
+    const componentName = path.basename(filePath, '.tsx');
+    const componentDir = path.dirname(filePath);
+    const testFilePath = path.join(componentDir, `${componentName}.test.tsx`);
+    
+    try {
+      const dirItems = await fs.readdir(componentDir);
+      const testFileExists = dirItems.includes(`${componentName}.test.tsx`);
+      
+      if (!testFileExists) {
+        issues.push({
+          message: `Missing required test file: ${componentName}.test.tsx`,
+          line: 1,
+          type: 'test-missing',
+          severity: 'error',
+          category: 'testing',
+        });
+      } else {
+        // Validate test file quality
+        try {
+          const testContent = await fs.readFile(testFilePath, 'utf8');
+          
+          // Check for basic test structure
+          const requiredTestSections = [
+            'Rendering',
+            'Props', 
+            'Accessibility',
+            'Theme Integration'
+          ];
+          
+          for (const section of requiredTestSections) {
+            if (!testContent.includes(`describe('${section}'`)) {
+              issues.push({
+                message: `Test file missing '${section}' test section`,
+                line: 1,
+                type: 'test-incomplete',
+                severity: 'warning',
+                category: 'testing',
+              });
+            }
+          }
+          
+          // Check for accessibility testing
+          if (!testContent.includes('axe(container)')) {
+            issues.push({
+              message: 'Test file missing automated accessibility testing with axe',
+              line: 1,
+              type: 'test-accessibility',
+              severity: 'warning',
+              category: 'testing',
+            });
+          }
+          
+          // Check for user interaction testing
+          if (!testContent.includes('userEvent.')) {
+            issues.push({
+              message: 'Test file missing user interaction testing',
+              line: 1,
+              type: 'test-interaction',
+              severity: 'warning',
+              category: 'testing',
+            });
+          }
+          
+        } catch (error) {
+          issues.push({
+            message: `Cannot read test file: ${error.message}`,
+            line: 1,
+            type: 'test-error',
+            severity: 'error',
+            category: 'testing',
+          });
+        }
+      }
+    } catch (error) {
+      // Cannot read directory - skip validation
+    }
+    
+    return issues;
+  }
+
+  /**
    * Calculate score for individual file
    */
   calculateFileScore(issues) {
@@ -671,6 +772,7 @@ class AICodeValidator {
       'accessibility': '♿',
       'performance': '⚡',
       'documentation': '📚',
+      'testing': '🧪',
     };
     return emojis[category] || '📋';
   }

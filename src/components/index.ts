@@ -1,7 +1,3 @@
-/**
- * @fileoverview Component library barrel exports
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 // Core components
 export * from './core';

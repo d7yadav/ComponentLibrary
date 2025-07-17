@@ -1,8 +1,5 @@
-import { ModalVariant, ModalPosition, ModalBackdrop, ModalAnimation, ModalSize } from './Modal.types';
+import type { ModalVariant, ModalPosition, ModalBackdrop, ModalAnimation, ModalSize } from './Modal.types';
 
-/**
- * MODAL_VARIANTS constants
- */
 export const MODAL_VARIANTS: Record<ModalVariant, ModalVariant> = {
   basic: 'basic',
   centered: 'centered',
@@ -11,9 +8,6 @@ export const MODAL_VARIANTS: Record<ModalVariant, ModalVariant> = {
   popover: 'popover',
 } as const;
 
-/**
- * MODAL_POSITIONS constants
- */
 export const MODAL_POSITIONS: Record<ModalPosition, ModalPosition> = {
   center: 'center',
   top: 'top',
@@ -27,9 +21,6 @@ export const MODAL_POSITIONS: Record<ModalPosition, ModalPosition> = {
   custom: 'custom',
 } as const;
 
-/**
- * MODAL_BACKDROPS constants
- */
 export const MODAL_BACKDROPS: Record<ModalBackdrop, ModalBackdrop> = {
   blur: 'blur',
   solid: 'solid',
@@ -37,9 +28,6 @@ export const MODAL_BACKDROPS: Record<ModalBackdrop, ModalBackdrop> = {
   none: 'none',
 } as const;
 
-/**
- * MODAL_ANIMATIONS constants
- */
 export const MODAL_ANIMATIONS: Record<ModalAnimation, ModalAnimation> = {
   fade: 'fade',
   slide: 'slide',
@@ -49,9 +37,6 @@ export const MODAL_ANIMATIONS: Record<ModalAnimation, ModalAnimation> = {
   none: 'none',
 } as const;
 
-/**
- * MODAL_SIZES constants
- */
 export const MODAL_SIZES: Record<ModalSize, ModalSize> = {
   xs: 'xs',
   sm: 'sm',
@@ -61,9 +46,6 @@ export const MODAL_SIZES: Record<ModalSize, ModalSize> = {
   fullscreen: 'fullscreen',
 } as const;
 
-/**
- * MODAL_SIZE_CONFIGS constants
- */
 export const MODAL_SIZE_CONFIGS = {
   xs: {
     maxWidth: '320px',
@@ -97,9 +79,6 @@ export const MODAL_SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * ANIMATION_DURATIONS constants
- */
 export const ANIMATION_DURATIONS = {
   fast: 200,
   normal: 300,
@@ -107,9 +86,6 @@ export const ANIMATION_DURATIONS = {
   drawer: 400,
 } as const;
 
-/**
- * ANIMATION_EASINGS constants
- */
 export const ANIMATION_EASINGS = {
   easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
   easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
@@ -119,9 +95,6 @@ export const ANIMATION_EASINGS = {
   bounce: 'cubic-bezier(0.68, -0.55, 0.265, 1.55)',
 } as const;
 
-/**
- * BACKDROP_CONFIGS constants
- */
 export const BACKDROP_CONFIGS = {
   blur: {
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -141,9 +114,6 @@ export const BACKDROP_CONFIGS = {
   },
 } as const;
 
-/**
- * Z_INDEX_LEVELS constants
- */
 export const Z_INDEX_LEVELS = {
   modal: 1300,
   drawer: 1200,
@@ -151,9 +121,6 @@ export const Z_INDEX_LEVELS = {
   fullscreen: 1500,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS constants
- */
 export const ACCESSIBILITY_CONSTANTS = {
   closeButtonAriaLabel: 'Close modal',
   modalRole: 'dialog',
@@ -163,14 +130,8 @@ export const ACCESSIBILITY_CONSTANTS = {
   firstFocusableSelector: 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
 } as const;
 
-/**
- * MOBILE_BREAKPOINT constants
- */
 export const MOBILE_BREAKPOINT = '(max-width: 767px)' as const;
 
-/**
- * POSITION_CONFIGS constants
- */
 export const POSITION_CONFIGS = {
   center: {
     top: '50%',
@@ -222,9 +183,6 @@ export const POSITION_CONFIGS = {
   },
 } as const;
 
-/**
- * DRAWER_CONFIGS constants
- */
 export const DRAWER_CONFIGS = {
   left: {
     width: '400px',

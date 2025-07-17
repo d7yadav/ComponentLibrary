@@ -1,8 +1,3 @@
-/**
- * @fileoverview Alert component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Alert } from './Alert';
 export type { 
   AlertProps, 

@@ -1,10 +1,3 @@
-/**
- * @fileoverview Tabs Component Constants
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * Constants and configuration values for the Tabs component including
- * default values, styling constants, and accessibility settings.
- */
 
 import type { 
   TabsDefaultProps,
@@ -14,9 +7,6 @@ import type {
   TabsScrollButtons 
 } from './Tabs.types';
 
-/**
- * Component default props
- */
 export const TABS_DEFAULTS: TabsDefaultProps = {
   orientation: 'horizontal',
   variant: 'standard',
@@ -27,37 +17,25 @@ export const TABS_DEFAULTS: TabsDefaultProps = {
   allowScrollButtonsMobile: false,
   showPanels: true,
   disabled: false,
-  loading: false,
+  loading: false
 };
 
-/**
- * Available orientation options
- */
 export const TABS_ORIENTATIONS: readonly TabsOrientation[] = [
   'horizontal',
   'vertical',
 ] as const;
 
-/**
- * Available variant options
- */
 export const TABS_VARIANTS: readonly TabsVariant[] = [
   'standard',
   'scrollable',
   'fullWidth',
 ] as const;
 
-/**
- * Available indicator color options
- */
 export const TABS_INDICATOR_COLORS: readonly TabsIndicatorColor[] = [
   'primary',
   'secondary',
 ] as const;
 
-/**
- * Available scroll button options
- */
 export const TABS_SCROLL_BUTTONS: readonly TabsScrollButtons[] = [
   'auto',
   'desktop',
@@ -65,9 +43,6 @@ export const TABS_SCROLL_BUTTONS: readonly TabsScrollButtons[] = [
   'off',
 ] as const;
 
-/**
- * Accessibility constants
- */
 export const TABS_ACCESSIBILITY = {
   /** Default aria-label for tabs container */
   defaultAriaLabel: 'Tabs navigation',
@@ -87,9 +62,6 @@ export const TABS_ACCESSIBILITY = {
   ariaDisabled: 'aria-disabled',
 } as const;
 
-/**
- * Animation and timing constants
- */
 export const TABS_ANIMATIONS = {
   /** Tab transition duration (ms) */
   transitionDuration: 300,
@@ -103,9 +75,6 @@ export const TABS_ANIMATIONS = {
   loadingDuration: 1000,
 } as const;
 
-/**
- * Styling constants
- */
 export const TABS_STYLES = {
   /** Default tab height */
   tabHeight: 48,
@@ -127,9 +96,6 @@ export const TABS_STYLES = {
   panelPadding: 24,
 } as const;
 
-/**
- * Keyboard navigation constants
- */
 export const TABS_KEYBOARD = {
   /** Arrow keys for navigation */
   arrowLeft: 'ArrowLeft',
@@ -146,9 +112,6 @@ export const TABS_KEYBOARD = {
   tab: 'Tab',
 } as const;
 
-/**
- * Breakpoint constants for responsive behavior
- */
 export const TABS_BREAKPOINTS = {
   /** Mobile breakpoint */
   mobile: 600,
@@ -158,9 +121,6 @@ export const TABS_BREAKPOINTS = {
   desktop: 1280,
 } as const;
 
-/**
- * Z-index constants for layering
- */
 export const TABS_Z_INDEX = {
   /** Tab indicator layer */
   indicator: 1,
@@ -170,9 +130,6 @@ export const TABS_Z_INDEX = {
   loading: 1000,
 } as const;
 
-/**
- * Data attribute constants for testing and selection
- */
 export const TABS_DATA_ATTRIBUTES = {
   /** Tab element identifier */
   tab: 'data-tab',
@@ -186,9 +143,6 @@ export const TABS_DATA_ATTRIBUTES = {
   loading: 'data-loading',
 } as const;
 
-/**
- * Error messages for development
- */
 export const TABS_ERRORS = {
   /** Empty tabs array */
   emptyTabs: 'Tabs component requires at least one tab',

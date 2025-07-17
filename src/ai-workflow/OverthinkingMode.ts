@@ -1,161 +1,123 @@
-/**
- * @fileoverview Overthinking Mode - Deep Analysis Framework
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * This module implements an advanced analysis system that provides
- * comprehensive multi-framework analysis with decision confidence scoring
- * for complex development decisions.
- */
 
 import type { TaskContext, TechnicalChallenge, RiskAssessment } from './TaskAnalyzer';
 
-/**
- * Decision analysis with confidence scoring
- */
 export interface DecisionAnalysis {
-  decision: string;
-  description: string;
+  decision: string,
+  description: string,
   confidenceScore: number; // 0-100
-  certaintyLevel: 'very-low' | 'low' | 'medium' | 'high' | 'very-high';
-  alternatives: Alternative[];
-  recommendation: string;
-  reasoning: string[];
-  assumptions: string[];
-  risksConsidered: string[];
-  evidenceSupporting: string[];
-  evidenceAgainst: string[];
-  contextFactors: string[];
+  certaintyLevel: 'very-low' | 'low' | 'medium' | 'high' | 'very-high',
+  alternatives: Alternative[],
+  recommendation: string,
+  reasoning: string[],
+  assumptions: string[],
+  risksConsidered: string[],
+  evidenceSupporting: string[],
+  evidenceAgainst: string[],
+  contextFactors: string[],
 }
 
-/**
- * Alternative solution analysis
- */
 export interface Alternative {
-  id: string;
-  name: string;
-  description: string;
-  pros: string[];
-  cons: string[];
-  effort: 'low' | 'medium' | 'high' | 'very-high';
-  complexity: 'low' | 'medium' | 'high' | 'very-high';
-  risk: 'low' | 'medium' | 'high' | 'critical';
-  timeline: string;
-  confidence: number;
+  id: string,
+  name: string,
+  description: string,
+  pros: string[],
+  cons: string[],
+  effort: 'low' | 'medium' | 'high' | 'very-high',
+  complexity: 'low' | 'medium' | 'high' | 'very-high',
+  risk: 'low' | 'medium' | 'high' | 'critical',
+  timeline: string,
+  confidence: number,
   viability: number; // 0-100
   strategicAlignment: number; // 0-100
 }
 
-/**
- * Multi-framework analysis structure
- */
 export interface MultiFrameworkAnalysis {
-  technicalFeasibility: FrameworkAnalysis;
-  businessImpact: FrameworkAnalysis;
-  userExperience: FrameworkAnalysis;
-  performance: FrameworkAnalysis;
-  security: FrameworkAnalysis;
-  maintainability: FrameworkAnalysis;
-  scalability: FrameworkAnalysis;
-  costAnalysis: FrameworkAnalysis;
-  riskAssessment: FrameworkAnalysis;
-  complianceAnalysis: FrameworkAnalysis;
-  strategicAlignment: FrameworkAnalysis;
-  innovationPotential: FrameworkAnalysis;
+  technicalFeasibility: FrameworkAnalysis,
+  businessImpact: FrameworkAnalysis,
+  userExperience: FrameworkAnalysis,
+  performance: FrameworkAnalysis,
+  security: FrameworkAnalysis,
+  maintainability: FrameworkAnalysis,
+  scalability: FrameworkAnalysis,
+  costAnalysis: FrameworkAnalysis,
+  riskAssessment: FrameworkAnalysis,
+  complianceAnalysis: FrameworkAnalysis,
+  strategicAlignment: FrameworkAnalysis,
+  innovationPotential: FrameworkAnalysis,
 }
 
-/**
- * Individual framework analysis
- */
 export interface FrameworkAnalysis {
-  framework: string;
+  framework: string,
   score: number; // 0-100
-  factors: AnalysisFactor[];
-  summary: string;
-  keyInsights: string[];
-  concerns: string[];
-  recommendations: string[];
-  confidence: number;
+  factors: AnalysisFactor[],
+  summary: string,
+  keyInsights: string[],
+  concerns: string[],
+  recommendations: string[],
+  confidence: number,
 }
 
-/**
- * Analysis factor within a framework
- */
 export interface AnalysisFactor {
-  name: string;
+  name: string,
   weight: number; // 0-1
   score: number; // 0-100
-  rationale: string;
-  evidence: string[];
-  assumptions: string[];
+  rationale: string,
+  evidence: string[],
+  assumptions: string[],
 }
 
-/**
- * Comprehensive decision context
- */
 export interface DecisionContext {
-  question: string;
-  background: string;
-  constraints: string[];
-  objectives: string[];
-  stakeholders: string[];
-  timeline: string;
-  budget?: string;
-  strategicImportance: 'low' | 'medium' | 'high' | 'critical';
-  reversibility: 'irreversible' | 'difficult' | 'moderate' | 'easy';
-  uncertainty: 'low' | 'medium' | 'high' | 'very-high';
+  question: string,
+  background: string,
+  constraints: string[],
+  objectives: string[],
+  stakeholders: string[],
+  timeline: string,
+  budget?: string,
+  strategicImportance: 'low' | 'medium' | 'high' | 'critical',
+  reversibility: 'irreversible' | 'difficult' | 'moderate' | 'easy',
+  uncertainty: 'low' | 'medium' | 'high' | 'very-high',
 }
 
-/**
- * Risk-reward calculation
- */
 export interface RiskRewardCalculation {
-  expectedValue: number;
-  bestCaseScenario: Scenario;
-  worstCaseScenario: Scenario;
-  mostLikelyScenario: Scenario;
-  riskAdjustedValue: number;
-  volatility: number;
-  downsideRisk: number;
-  upsidePotential: number;
+  expectedValue: number,
+  bestCaseScenario: Scenario,
+  worstCaseScenario: Scenario,
+  mostLikelyScenario: Scenario,
+  riskAdjustedValue: number,
+  volatility: number,
+  downsideRisk: number,
+  upsidePotential: number,
 }
 
 export interface Scenario {
-  name: string;
+  name: string,
   probability: number; // 0-1
-  outcome: string;
+  outcome: string,
   impact: number; // -100 to 100
-  timeframe: string;
-  triggers: string[];
-  mitigation: string[];
+  timeframe: string,
+  triggers: string[],
+  mitigation: string[],
 }
 
-/**
- * Implementation complexity assessment
- */
 export interface ComplexityAssessment {
-  overall: ComplexityDimension;
-  technical: ComplexityDimension;
-  organizational: ComplexityDimension;
-  temporal: ComplexityDimension;
-  cognitive: ComplexityDimension;
-  integration: ComplexityDimension;
-  dependencies: ComplexityDimension;
+  overall: ComplexityDimension,
+  technical: ComplexityDimension,
+  organizational: ComplexityDimension,
+  temporal: ComplexityDimension,
+  cognitive: ComplexityDimension,
+  integration: ComplexityDimension,
+  dependencies: ComplexityDimension,
 }
 
 export interface ComplexityDimension {
-  level: 'trivial' | 'simple' | 'moderate' | 'complex' | 'chaotic';
+  level: 'trivial' | 'simple' | 'moderate' | 'complex' | 'chaotic',
   score: number; // 0-100
-  factors: string[];
-  mitigations: string[];
-  indicators: string[];
+  factors: string[],
+  mitigations: string[],
+  indicators: string[],
 }
 
-/**
- * Deep Analysis and Overthinking Mode Engine
- * 
- * Provides comprehensive analysis using multiple frameworks and perspectives
- * with quantified confidence scoring for complex decisions.
- */
 export class OverthinkingMode {
   private readonly analysisFrameworks = [
     'technical-feasibility',
@@ -170,16 +132,13 @@ export class OverthinkingMode {
     'compliance-analysis',
     'strategic-alignment',
     'innovation-potential'
-  ];
+  ],
 
-  /**
-   * Perform comprehensive decision analysis with confidence scoring
-   */
   public analyzeDecision(context: DecisionContext): DecisionAnalysis {
-    const alternatives = this.generateAlternatives(context);
-    const frameworkAnalysis = this.performMultiFrameworkAnalysis(context, alternatives);
-    const confidenceScore = this.calculateOverallConfidence(frameworkAnalysis);
-    const recommendation = this.synthesizeRecommendation(alternatives, frameworkAnalysis);
+    const alternatives = this.generateAlternatives(context),
+    const frameworkAnalysis = this.performMultiFrameworkAnalysis(context, alternatives),
+    const confidenceScore = this.calculateOverallConfidence(frameworkAnalysis),
+    const recommendation = this.synthesizeRecommendation(alternatives, frameworkAnalysis),
     
     return {
       decision: context.question,
@@ -194,40 +153,34 @@ export class OverthinkingMode {
       evidenceSupporting: recommendation.supportingEvidence,
       evidenceAgainst: recommendation.contraEvidence,
       contextFactors: this.identifyContextFactors(context)
-    };
+    },
   }
 
-  /**
-   * Generate alternative solutions systematically
-   */
   public generateAlternatives(context: DecisionContext): Alternative[] {
-    const alternatives: Alternative[] = [];
+    const alternatives: Alternative[] = [],
 
     // Generate conservative approach
-    alternatives.push(this.generateConservativeAlternative(context));
+    alternatives.push(this.generateConservativeAlternative(context)),
     
     // Generate innovative approach
-    alternatives.push(this.generateInnovativeAlternative(context));
+    alternatives.push(this.generateInnovativeAlternative(context)),
     
     // Generate hybrid approach
-    alternatives.push(this.generateHybridAlternative(context));
+    alternatives.push(this.generateHybridAlternative(context)),
     
     // Generate minimal viable approach
-    alternatives.push(this.generateMinimalViableAlternative(context));
+    alternatives.push(this.generateMinimalViableAlternative(context)),
 
     // Generate custom alternatives based on context
-    alternatives.push(...this.generateContextSpecificAlternatives(context));
+    alternatives.push(...this.generateContextSpecificAlternatives(context)),
 
     return alternatives.map(alt => ({
       ...alt,
       viability: this.calculateViability(alt, context),
       strategicAlignment: this.calculateStrategicAlignment(alt, context)
-    }));
+    })),
   }
 
-  /**
-   * Perform comprehensive multi-framework analysis
-   */
   public performMultiFrameworkAnalysis(
     context: DecisionContext, 
     alternatives: Alternative[]
@@ -245,16 +198,13 @@ export class OverthinkingMode {
       complianceAnalysis: this.analyzeCompliance(context, alternatives),
       strategicAlignment: this.analyzeStrategicAlignment(context, alternatives),
       innovationPotential: this.analyzeInnovationPotential(context, alternatives)
-    };
+    },
   }
 
-  /**
-   * Calculate risk-reward for each alternative
-   */
   public calculateRiskReward(alternative: Alternative, context: DecisionContext): RiskRewardCalculation {
-    const scenarios = this.generateScenarios(alternative, context);
-    const expectedValue = this.calculateExpectedValue(scenarios);
-    const riskAdjustedValue = this.adjustForRisk(expectedValue, scenarios);
+    const scenarios = this.generateScenarios(alternative, context),
+    const expectedValue = this.calculateExpectedValue(scenarios),
+    const riskAdjustedValue = this.adjustForRisk(expectedValue, scenarios),
     
     return {
       expectedValue,
@@ -265,23 +215,20 @@ export class OverthinkingMode {
       volatility: this.calculateVolatility(scenarios),
       downsideRisk: this.calculateDownsideRisk(scenarios),
       upsidePotential: this.calculateUpsidePotential(scenarios)
-    };
+    },
   }
 
-  /**
-   * Assess implementation complexity across multiple dimensions
-   */
   public assessComplexity(alternative: Alternative, context: DecisionContext): ComplexityAssessment {
-    const technical = this.assessTechnicalComplexity(alternative, context);
-    const organizational = this.assessOrganizationalComplexity(alternative, context);
-    const temporal = this.assessTemporalComplexity(alternative, context);
-    const cognitive = this.assessCognitiveComplexity(alternative, context);
-    const integration = this.assessIntegrationComplexity(alternative, context);
-    const dependencies = this.assessDependencyComplexity(alternative, context);
+    const technical = this.assessTechnicalComplexity(alternative, context),
+    const organizational = this.assessOrganizationalComplexity(alternative, context),
+    const temporal = this.assessTemporalComplexity(alternative, context),
+    const cognitive = this.assessCognitiveComplexity(alternative, context),
+    const integration = this.assessIntegrationComplexity(alternative, context),
+    const dependencies = this.assessDependencyComplexity(alternative, context),
     
     const overall = this.synthesizeOverallComplexity([
       technical, organizational, temporal, cognitive, integration, dependencies
-    ]);
+    ]),
 
     return {
       overall,
@@ -291,7 +238,7 @@ export class OverthinkingMode {
       cognitive,
       integration,
       dependencies
-    };
+    },
   }
 
   // Private methods for alternative generation
@@ -318,7 +265,7 @@ export class OverthinkingMode {
       risk: 'low',
       timeline: 'Shorter term',
       confidence: 85
-    };
+    },
   }
 
   private generateInnovativeAlternative(context: DecisionContext): Alternative {
@@ -343,7 +290,7 @@ export class OverthinkingMode {
       risk: 'high',
       timeline: 'Longer term',
       confidence: 60
-    };
+    },
   }
 
   private generateHybridAlternative(context: DecisionContext): Alternative {
@@ -368,7 +315,7 @@ export class OverthinkingMode {
       risk: 'medium',
       timeline: 'Medium term',
       confidence: 75
-    };
+    },
   }
 
   private generateMinimalViableAlternative(context: DecisionContext): Alternative {
@@ -393,11 +340,11 @@ export class OverthinkingMode {
       risk: 'medium',
       timeline: 'Short term',
       confidence: 90
-    };
+    },
   }
 
   private generateContextSpecificAlternatives(context: DecisionContext): Alternative[] {
-    const alternatives: Alternative[] = [];
+    const alternatives: Alternative[] = [],
 
     // Generate based on strategic importance
     if (context.strategicImportance === 'critical') {
@@ -412,7 +359,7 @@ export class OverthinkingMode {
         risk: 'medium',
         timeline: 'Long term',
         confidence: 70
-      });
+      }),
     }
 
     // Generate based on reversibility
@@ -428,10 +375,10 @@ export class OverthinkingMode {
         risk: 'low',
         timeline: 'Medium term',
         confidence: 80
-      });
+      }),
     }
 
-    return alternatives;
+    return alternatives,
   }
 
   // Framework analysis methods
@@ -470,9 +417,9 @@ export class OverthinkingMode {
         evidence: ['Bundle size targets', 'Performance benchmarks'],
         assumptions: ['Optimization techniques will be effective']
       }
-    ];
+    ],
 
-    const score = this.calculateWeightedScore(factors);
+    const score = this.calculateWeightedScore(factors),
 
     return {
       framework: 'Technical Feasibility',
@@ -495,7 +442,7 @@ export class OverthinkingMode {
         'Set up performance monitoring from start'
       ],
       confidence: 80
-    };
+    },
   }
 
   private analyzeBusinessImpact(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -532,9 +479,9 @@ export class OverthinkingMode {
         evidence: ['Unique AI integration', 'Developer productivity gains'],
         assumptions: ['AI features are valued by market']
       }
-    ];
+    ],
 
-    const score = this.calculateWeightedScore(factors);
+    const score = this.calculateWeightedScore(factors),
 
     return {
       framework: 'Business Impact',
@@ -557,7 +504,7 @@ export class OverthinkingMode {
         'Establish dedicated maintenance team'
       ],
       confidence: 85
-    };
+    },
   }
 
   private analyzeUserExperience(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -573,7 +520,7 @@ export class OverthinkingMode {
       ['WCAG 2.1 AA compliance', 'Consistent design language', 'Responsive design'],
       ['Performance optimization complexity'],
       ['Implement accessibility testing', 'Create UX guidelines']
-    );
+    ),
   }
 
   private analyzePerformance(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -589,7 +536,7 @@ export class OverthinkingMode {
       ['Tree shaking support', 'React optimization patterns', 'CSS-in-JS efficiency'],
       ['Bundle size monitoring needed', 'Complex animations may impact performance'],
       ['Implement bundle analysis', 'Set performance budgets', 'Use React Profiler']
-    );
+    ),
   }
 
   private analyzeSecurity(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -605,7 +552,7 @@ export class OverthinkingMode {
       ['React XSS protection', 'Material-UI security practices'],
       ['Dependency vulnerabilities', 'Custom code security'],
       ['Regular security audits', 'Automated vulnerability scanning']
-    );
+    ),
   }
 
   private analyzeMaintainability(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -621,7 +568,7 @@ export class OverthinkingMode {
       ['TypeScript strict mode', 'Comprehensive AI documentation', 'Modular architecture'],
       ['Test coverage gaps', 'Complex AI workflow maintenance'],
       ['Maintain test coverage standards', 'Regular code reviews']
-    );
+    ),
   }
 
   private analyzeScalability(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -637,7 +584,7 @@ export class OverthinkingMode {
       ['Modular component structure', 'AI-enhanced development', 'TypeScript support'],
       ['Performance at scale', 'Team coordination complexity'],
       ['Establish scalability guidelines', 'Monitor performance metrics']
-    );
+    ),
   }
 
   private analyzeCosts(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -653,7 +600,7 @@ export class OverthinkingMode {
       ['Reduced long-term development costs', 'Low infrastructure overhead'],
       ['Initial development investment', 'Team training requirements'],
       ['Track ROI metrics', 'Optimize development process']
-    );
+    ),
   }
 
   private analyzeRisks(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -669,7 +616,7 @@ export class OverthinkingMode {
       ['Proven technology stack', 'Strong documentation approach'],
       ['Timeline pressure', 'Team adoption curve'],
       ['Implement risk monitoring', 'Create contingency plans']
-    );
+    ),
   }
 
   private analyzeCompliance(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -685,7 +632,7 @@ export class OverthinkingMode {
       ['Built-in accessibility features', 'Material Design compliance'],
       ['Ongoing compliance monitoring needed'],
       ['Regular compliance audits', 'Automated testing']
-    );
+    ),
   }
 
   private analyzeStrategicAlignment(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -701,7 +648,7 @@ export class OverthinkingMode {
       ['AI-first approach', 'React ecosystem alignment', 'Innovation leadership'],
       ['Resource allocation priorities'],
       ['Regular strategy review', 'Stakeholder alignment sessions']
-    );
+    ),
   }
 
   private analyzeInnovationPotential(context: DecisionContext, alternatives: Alternative[]): FrameworkAnalysis {
@@ -717,7 +664,7 @@ export class OverthinkingMode {
       ['First-class AI integration', 'Novel development patterns', 'Learning opportunities'],
       ['Innovation complexity', 'Market readiness'],
       ['Continue AI research', 'Share learnings with community']
-    );
+    ),
   }
 
   // Utility methods
@@ -735,7 +682,7 @@ export class OverthinkingMode {
       rationale: `Analysis based on ${framework.toLowerCase()} principles`,
       evidence: [`${f.name} assessment`],
       assumptions: [`Standard ${f.name.toLowerCase()} practices apply`]
-    }));
+    })),
 
     return {
       framework,
@@ -746,39 +693,39 @@ export class OverthinkingMode {
       concerns,
       recommendations,
       confidence: 80
-    };
+    },
   }
 
   private calculateWeightedScore(factors: AnalysisFactor[]): number {
-    return factors.reduce((sum, factor) => sum + (factor.score * factor.weight), 0);
+    return factors.reduce((sum, factor) => sum + (factor.score * factor.weight), 0),
   }
 
   private calculateOverallConfidence(analysis: MultiFrameworkAnalysis): number {
-    const frameworks = Object.values(analysis);
+    const frameworks = Object.values(analysis),
     const weightedConfidence = frameworks.reduce((sum, framework) => 
-      sum + framework.confidence, 0) / frameworks.length;
+      sum + framework.confidence, 0) / frameworks.length,
     
-    return Math.round(weightedConfidence);
+    return Math.round(weightedConfidence),
   }
 
   private mapConfidenceToLevel(score: number): 'very-low' | 'low' | 'medium' | 'high' | 'very-high' {
-    if (score >= 90) return 'very-high';
-    if (score >= 75) return 'high';
-    if (score >= 60) return 'medium';
-    if (score >= 40) return 'low';
-    return 'very-low';
+    if (score >= 90) return 'very-high',
+    if (score >= 75) return 'high',
+    if (score >= 60) return 'medium',
+    if (score >= 40) return 'low',
+    return 'very-low',
   }
 
   private synthesizeRecommendation(alternatives: Alternative[], analysis: MultiFrameworkAnalysis): {
-    choice: string;
-    reasoning: string[];
-    supportingEvidence: string[];
-    contraEvidence: string[];
+    choice: string,
+    reasoning: string[],
+    supportingEvidence: string[],
+    contraEvidence: string[],
   } {
     // Find highest scoring alternative
     const bestAlternative = alternatives.reduce((best, current) => 
       current.confidence > best.confidence ? current : best
-    );
+    ),
 
     return {
       choice: `Recommend ${bestAlternative.name}`,
@@ -798,27 +745,27 @@ export class OverthinkingMode {
         `Timeline risk factors`,
         `Potential adoption challenges`
       ]
-    };
+    },
   }
 
   private extractAssumptions(context: DecisionContext, analysis: MultiFrameworkAnalysis): string[] {
-    const assumptions = new Set<string>();
+    const assumptions = new Set<string>(),
     
     Object.values(analysis).forEach(framework => {
       framework.factors.forEach(factor => {
-        factor.assumptions.forEach(assumption => assumptions.add(assumption));
-      });
-    });
+        factor.assumptions.forEach(assumption => assumptions.add(assumption)),
+      }),
+    }),
 
     return Array.from(assumptions);
   }
 
   private extractRisks(analysis: MultiFrameworkAnalysis): string[] {
-    const risks = new Set<string>();
+    const risks = new Set<string>(),
     
     Object.values(analysis).forEach(framework => {
-      framework.concerns.forEach(concern => risks.add(concern));
-    });
+      framework.concerns.forEach(concern => risks.add(concern)),
+    }),
 
     return Array.from(risks);
   }
@@ -831,7 +778,7 @@ export class OverthinkingMode {
       `Uncertainty level: ${context.uncertainty}`,
       `Number of stakeholders: ${context.stakeholders.length}`,
       `Number of constraints: ${context.constraints.length}`
-    ];
+    ],
   }
 
   // Complexity assessment methods
@@ -856,7 +803,7 @@ export class OverthinkingMode {
         'API surface area',
         'Integration points'
       ]
-    };
+    },
   }
 
   private assessOrganizationalComplexity(alternative: Alternative, context: DecisionContext): ComplexityDimension {
@@ -878,7 +825,7 @@ export class OverthinkingMode {
         'Decision-making layers',
         'Approval processes'
       ]
-    };
+    },
   }
 
   private assessTemporalComplexity(alternative: Alternative, context: DecisionContext): ComplexityDimension {
@@ -900,7 +847,7 @@ export class OverthinkingMode {
         'Number of dependencies',
         'Integration points'
       ]
-    };
+    },
   }
 
   private assessCognitiveComplexity(alternative: Alternative, context: DecisionContext): ComplexityDimension {
@@ -922,7 +869,7 @@ export class OverthinkingMode {
         'Abstraction levels',
         'Domain complexity'
       ]
-    };
+    },
   }
 
   private assessIntegrationComplexity(alternative: Alternative, context: DecisionContext): ComplexityDimension {
@@ -944,7 +891,7 @@ export class OverthinkingMode {
         'Protocol complexity',
         'Data transformation needs'
       ]
-    };
+    },
   }
 
   private assessDependencyComplexity(alternative: Alternative, context: DecisionContext): ComplexityDimension {
@@ -966,11 +913,11 @@ export class OverthinkingMode {
         'Update frequency',
         'Compatibility matrices'
       ]
-    };
+    },
   }
 
   private synthesizeOverallComplexity(dimensions: ComplexityDimension[]): ComplexityDimension {
-    const averageScore = dimensions.reduce((sum, dim) => sum + dim.score, 0) / dimensions.length;
+    const averageScore = dimensions.reduce((sum, dim) => sum + dim.score, 0) / dimensions.length,
     
     return {
       level: this.mapScoreToComplexity(averageScore),
@@ -978,7 +925,7 @@ export class OverthinkingMode {
       factors: dimensions.flatMap(d => d.factors).slice(0, 5), // Top 5 factors
       mitigations: dimensions.flatMap(d => d.mitigations).slice(0, 5), // Top 5 mitigations
       indicators: dimensions.flatMap(d => d.indicators).slice(0, 5) // Top 5 indicators
-    };
+    },
   }
 
   // Scenario and calculation methods
@@ -1012,91 +959,85 @@ export class OverthinkingMode {
         triggers: ['Major technical issues', 'Team changes', 'Low adoption'],
         mitigation: ['Scope reduction', 'Additional resources', 'Timeline extension']
       }
-    ];
+    ],
   }
 
   private calculateExpectedValue(scenarios: Scenario[]): number {
     return scenarios.reduce((sum, scenario) => 
-      sum + (scenario.probability * scenario.impact), 0);
+      sum + (scenario.probability * scenario.impact), 0),
   }
 
   private adjustForRisk(expectedValue: number, scenarios: Scenario[]): number {
-    const volatility = this.calculateVolatility(scenarios);
+    const volatility = this.calculateVolatility(scenarios),
     const riskAdjustment = volatility * 0.1; // 10% penalty per volatility unit
-    return expectedValue * (1 - riskAdjustment);
+    return expectedValue * (1 - riskAdjustment),
   }
 
   private calculateVolatility(scenarios: Scenario[]): number {
-    const expectedValue = this.calculateExpectedValue(scenarios);
+    const expectedValue = this.calculateExpectedValue(scenarios),
     const variance = scenarios.reduce((sum, scenario) => 
-      sum + scenario.probability * Math.pow(scenario.impact - expectedValue, 2), 0);
+      sum + scenario.probability * Math.pow(scenario.impact - expectedValue, 2), 0),
     return Math.sqrt(variance) / 100; // Normalize to 0-1 scale
   }
 
   private calculateDownsideRisk(scenarios: Scenario[]): number {
-    const worstCase = Math.min(...scenarios.map(s => s.impact));
-    const worstProbability = scenarios.find(s => s.impact === worstCase)?.probability || 0;
-    return worstCase * worstProbability;
+    const worstCase = Math.min(...scenarios.map(s => s.impact)),
+    const worstProbability = scenarios.find(s => s.impact === worstCase)?.probability || 0,
+    return worstCase * worstProbability,
   }
 
   private calculateUpsidePotential(scenarios: Scenario[]): number {
-    const bestCase = Math.max(...scenarios.map(s => s.impact));
-    const bestProbability = scenarios.find(s => s.impact === bestCase)?.probability || 0;
-    return bestCase * bestProbability;
+    const bestCase = Math.max(...scenarios.map(s => s.impact)),
+    const bestProbability = scenarios.find(s => s.impact === bestCase)?.probability || 0,
+    return bestCase * bestProbability,
   }
 
   private calculateViability(alternative: Alternative, context: DecisionContext): number {
     // Simple viability calculation based on effort, complexity, and risk
-    const effortScore = this.mapEffortToScore(alternative.effort);
-    const complexityScore = this.mapComplexityToScore(alternative.complexity);
-    const riskScore = this.mapRiskToScore(alternative.risk);
+    const effortScore = this.mapEffortToScore(alternative.effort),
+    const complexityScore = this.mapComplexityToScore(alternative.complexity),
+    const riskScore = this.mapRiskToScore(alternative.risk),
     
-    return Math.round((effortScore + complexityScore + riskScore) / 3);
+    return Math.round((effortScore + complexityScore + riskScore) / 3),
   }
 
   private calculateStrategicAlignment(alternative: Alternative, context: DecisionContext): number {
     // Strategic alignment based on context importance and alternative characteristics
     let score = 50; // Base score
     
-    if (context.strategicImportance === 'critical') score += 20;
-    if (alternative.risk === 'low') score += 15;
-    if (alternative.effort === 'low' || alternative.effort === 'medium') score += 10;
+    if (context.strategicImportance === 'critical') score += 20,
+    if (alternative.risk === 'low') score += 15,
+    if (alternative.effort === 'low' || alternative.effort === 'medium') score += 10,
     
-    return Math.min(100, score);
+    return Math.min(100, score),
   }
 
   private mapEffortToScore(effort: string): number {
-    const scores = { low: 90, medium: 70, high: 50, 'very-high': 30 };
-    return scores[effort as keyof typeof scores] || 50;
+    const scores = { low: 90, medium: 70, high: 50, 'very-high': 30 },
+    return scores[effort as keyof typeof scores] || 50,
   }
 
   private mapComplexityToScore(complexity: string): number {
-    const scores = { low: 90, medium: 70, high: 50, 'very-high': 30 };
-    return scores[complexity as keyof typeof scores] || 50;
+    const scores = { low: 90, medium: 70, high: 50, 'very-high': 30 },
+    return scores[complexity as keyof typeof scores] || 50,
   }
 
   private mapRiskToScore(risk: string): number {
-    const scores = { low: 90, medium: 70, high: 50, critical: 20 };
-    return scores[risk as keyof typeof scores] || 50;
+    const scores = { low: 90, medium: 70, high: 50, critical: 20 },
+    return scores[risk as keyof typeof scores] || 50,
   }
 
   private mapScoreToComplexity(score: number): ComplexityDimension['level'] {
-    if (score <= 20) return 'trivial';
-    if (score <= 40) return 'simple';
-    if (score <= 60) return 'moderate';
-    if (score <= 80) return 'complex';
-    return 'chaotic';
+    if (score <= 20) return 'trivial',
+    if (score <= 40) return 'simple',
+    if (score <= 60) return 'moderate',
+    if (score <= 80) return 'complex',
+    return 'chaotic',
   }
 }
 
-/**
- * Factory function to create an OverthinkingMode instance
- */
 export const createOverthinkingMode = (): OverthinkingMode => {
-  return new OverthinkingMode();
-};
+  return new OverthinkingMode(),
+},
 
-/**
- * Default export for convenience
- */
-export default OverthinkingMode;
+export default OverthinkingMode,

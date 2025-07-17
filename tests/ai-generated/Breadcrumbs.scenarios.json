@@ -1,0 +1,27 @@
+{
+  "component": "Breadcrumbs",
+  "generated": "2025-07-14T08:19:00.480Z",
+  "scenarios": [
+    {
+      "id": "Breadcrumbs-smoke",
+      "name": "Breadcrumbs Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Breadcrumbs",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Breadcrumbs-interaction",
+      "name": "Breadcrumbs Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Breadcrumbs",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Breadcrumbs-accessibility",
+      "name": "Breadcrumbs Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Breadcrumbs",
+      "estimatedDuration": 1200
+    }
+  ]
+}

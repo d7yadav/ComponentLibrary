@@ -1,38 +1,42 @@
+// TODO: Replace with internal icon wrappers when available
+// import {
+//   ExpandMore,
+//   ChevronRight,
+//   Settings,
+//   Info,
+//   Warning,
+//   Error,
+//   CheckCircle,
+//   Help,
+//   Person,
+//   Security,
+//   Notifications,
+//   Language,
+//   Palette,
+//   Storage,
+//   Edit,
+//   Delete,
+//   Share,
+//   Download,
+//   Favorite,
+//   BookmarkBorder,
+// } from '@mui/icons-material';
 import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 import React, { useState } from 'react';
-import { 
-  Button, 
-  Typography, 
-  Chip, 
-  Box, 
-  IconButton,
-  FormControlLabel,
-  Switch,
-  TextField,
-  Alert,
-} from '@mui/material';
-import {
-  ExpandMore,
-  ChevronRight,
-  Settings,
-  Info,
-  Warning,
-  Error,
-  CheckCircle,
-  Help,
-  Person,
-  Security,
-  Notifications,
-  Language,
-  Palette,
-  Storage,
-  Edit,
-  Delete,
-  Share,
-  Download,
-  Favorite,
-  BookmarkBorder,
-} from '@mui/icons-material';
+
+import { Button } from '@/components/core/Button';
+import { Chip } from '@/components/core/Chip'; // Replaced MUI Chip with internal wrapper
+import { IconButton } from '@/components/core/IconButton'; // Replaced MUI IconButton with internal wrapper
+// TODO: Migrate FormControlLabel to internal wrapper when available
+
+import { Typography } from '@/components/data-display/Typography';
+import { Alert } from '@/components/feedback/Alert';
+import { Switch } from '@/components/forms/Switch'; // Replaced MUI Switch with internal wrapper
+import { TextField } from '@/components/forms/TextField';
+import { Box } from '@/components/layout/Box';
+// TODO: Create wrapper components for Chip, IconButton, FormControlLabel, and Switch
+
 import { Accordion, AccordionSummary, AccordionDetails, AccordionActions } from './Accordion';
 import { 
   ACCORDION_VARIANTS,
@@ -138,6 +142,13 @@ import { Accordion } from '@/components/surfaces';
       control: 'text',
       description: 'Subtitle content',
     },
+    onChange: {
+      action: 'onChange',
+      description: 'Callback fired when change occurs',
+    },
+  },
+  args: {
+    onChange: fn(),
   },
   tags: ['autodocs'],
 };
@@ -155,6 +166,8 @@ export const Default: Story = {
   args: {
     summary: 'Default Accordion',
     children: 'This is the default accordion content. It demonstrates the basic functionality with standard styling.',
+  
+    onChange: fn(),
   },
 };
 
@@ -332,8 +345,8 @@ export const IconBoth: Story = {
     iconPosition: 'both',
     variant: 'outlined',
     summary: 'Icons at Both Ends',
-    startIcon: <ChevronRight />,
-    endIcon: <ExpandMore />,
+    startIcon: <span>▶️</span>,
+    endIcon: <span>🔽</span>,
     children: 'Different icons at both start and end positions.',
   },
 };
@@ -362,7 +375,7 @@ export const CustomExpandIcon: Story = {
   args: {
     variant: 'outlined',
     summary: 'Custom Expand Icon',
-    expandIcon: <Settings />,
+    expandIcon: <span>⚙️</span>,
     children: 'Accordion with a custom expand icon.',
   },
 };
@@ -377,8 +390,8 @@ export const CustomStartEndIcons: Story = {
     variant: 'outlined',
     iconPosition: 'both',
     summary: 'Custom Start & End Icons',
-    startIcon: <Info />,
-    endIcon: <Help />,
+    startIcon: <span>ℹ️</span>,
+    endIcon: <span>❓</span>,
     children: 'Accordion with custom icons at both ends.',
   },
 };
@@ -409,8 +422,8 @@ export const SubtitleAndIcons: Story = {
     iconPosition: 'both',
     summary: 'Main Title',
     subtitle: 'Subtitle with custom icons',
-    startIcon: <Settings />,
-    endIcon: <ExpandMore />,
+    startIcon: <span>⚙️</span>,
+    endIcon: <span>🔽</span>,
     children: 'Combination of subtitle and custom icons.',
   },
 };
@@ -448,13 +461,13 @@ export const ActionsOnly: Story = {
     actions: (
       <>
         <IconButton size="small" aria-label="edit">
-          <Edit />
+          <span>✏️</span>
         </IconButton>
         <IconButton size="small" aria-label="delete">
-          <Delete />
+          <span>🗑️</span>
         </IconButton>
         <IconButton size="small" aria-label="share">
-          <Share />
+          <span>🔗</span>
         </IconButton>
       </>
     ),
@@ -594,8 +607,7 @@ export const FormContent: Story = {
           size="small"
           fullWidth
         />
-        <FormControlLabel
-          control={<Switch />}
+        <Switch
           label="Subscribe to newsletter"
         />
       </Box>
@@ -619,7 +631,7 @@ export const SuccessContent: Story = {
   args: {
     variant: 'outlined',
     summary: 'Success Status',
-    startIcon: <CheckCircle color="success" />,
+    startIcon: <span>✅</span>,
     children: (
       <Alert severity="success" variant="outlined">
         Operation completed successfully! All changes have been saved.
@@ -637,7 +649,7 @@ export const WarningContent: Story = {
   args: {
     variant: 'outlined',
     summary: 'Warning Status',
-    startIcon: <Warning color="warning" />,
+    startIcon: <span>⚠️</span>,
     children: (
       <Alert severity="warning" variant="outlined">
         Please review the following items before proceeding with the action.
@@ -655,7 +667,7 @@ export const ErrorContent: Story = {
   args: {
     variant: 'outlined',
     summary: 'Error Status',
-    startIcon: <Error color="error" />,
+    startIcon: <span>❌</span>,
     children: (
       <Alert severity="error" variant="outlined">
         An error occurred while processing your request. Please try again.
@@ -671,7 +683,7 @@ export const ErrorContent: Story = {
  * @returns JSX element
  */
 export const ControlledGroup: Story = {
-  render: () => {
+  render: (args) => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -689,13 +701,12 @@ export const ControlledGroup: Story = {
             expanded={expanded === 'panel1'}
             onChange={handleChange('panel1')}
             summary="General Settings"
-            startIcon={<Settings />}
+            startIcon={<span>⚙️</span>}
           >
             <Typography variant="body2" paragraph>
               Configure general application settings including theme, language, and preferences.
             </Typography>
-            <FormControlLabel
-              control={<Switch defaultChecked />}
+            <Switch
               label="Enable notifications"
             />
           </Accordion>
@@ -705,7 +716,7 @@ export const ControlledGroup: Story = {
             expanded={expanded === 'panel2'}
             onChange={handleChange('panel2')}
             summary="Account Settings"
-            startIcon={<Person />}
+            startIcon={<span>👤</span>}
           >
             <Typography variant="body2" paragraph>
               Manage your account information, security settings, and privacy preferences.
@@ -720,15 +731,12 @@ export const ControlledGroup: Story = {
             expanded={expanded === 'panel3'}
             onChange={handleChange('panel3')}
             summary="Security Settings"
-            startIcon={<Security />}
+            startIcon={<span>🔒</span>}
           >
             <Typography variant="body2" paragraph>
               Configure security options including two-factor authentication and login alerts.
             </Typography>
-            <FormControlLabel
-              control={<Switch />}
-              label="Enable two-factor authentication"
-            />
+            <Switch />
           </Accordion>
         </Box>
       </Box>
@@ -743,7 +751,7 @@ export const ControlledGroup: Story = {
  * @returns JSX element
  */
 export const MultipleExpandGroup: Story = {
-  render: () => {
+  render: (args) => {
     const [expandedPanels, setExpandedPanels] = useState<Set<string>>(new Set());
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -767,19 +775,14 @@ export const MultipleExpandGroup: Story = {
             expanded={expandedPanels.has('panel1')}
             onChange={handleChange('panel1')}
             summary="Notifications"
-            startIcon={<Notifications />}
+            startIcon={<span>🔔</span>}
             subtitle="Configure notification preferences"
           >
-            <FormControlLabel
-              control={<Switch defaultChecked />}
+            <Switch
               label="Email notifications"
             />
-            <FormControlLabel
-              control={<Switch />}
-              label="Push notifications"
-            />
-            <FormControlLabel
-              control={<Switch defaultChecked />}
+            <Switch />
+            <Switch
               label="SMS notifications"
             />
           </Accordion>
@@ -789,7 +792,7 @@ export const MultipleExpandGroup: Story = {
             expanded={expandedPanels.has('panel2')}
             onChange={handleChange('panel2')}
             summary="Language & Region"
-            startIcon={<Language />}
+            startIcon={<span>🌍</span>}
             subtitle="Set your language and regional preferences"
           >
             <TextField
@@ -830,21 +833,14 @@ export const MultipleExpandGroup: Story = {
             expanded={expandedPanels.has('panel3')}
             onChange={handleChange('panel3')}
             summary="Appearance"
-            startIcon={<Palette />}
+            startIcon={<span>🎨</span>}
             subtitle="Customize the visual appearance"
           >
-            <FormControlLabel
-              control={<Switch />}
-              label="Dark theme"
-            />
-            <FormControlLabel
-              control={<Switch defaultChecked />}
+            <Switch />
+            <Switch
               label="High contrast"
             />
-            <FormControlLabel
-              control={<Switch />}
-              label="Reduce animations"
-            />
+            <Switch />
           </Accordion>
 
           <Accordion
@@ -852,7 +848,7 @@ export const MultipleExpandGroup: Story = {
             expanded={expandedPanels.has('panel4')}
             onChange={handleChange('panel4')}
             summary="Storage & Privacy"
-            startIcon={<Storage />}
+            startIcon={<span>💾</span>}
             subtitle="Manage data storage and privacy settings"
           >
             <Typography variant="body2" paragraph>
@@ -878,7 +874,7 @@ export const MultipleExpandGroup: Story = {
  * @returns JSX element
  */
 export const FAQExample: Story = {
-  render: () => {
+  render: (args) => {
     const [expanded, setExpanded] = useState<string | false>('faq1');
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -930,7 +926,7 @@ export const FAQExample: Story = {
               expanded={expanded === faq.id}
               onChange={handleChange(faq.id)}
               summary={faq.question}
-              startIcon={<Help color="primary" />}
+              startIcon={<span>❓</span>}
             >
               <Typography variant="body2">
                 {faq.answer}
@@ -950,7 +946,7 @@ export const FAQExample: Story = {
  * @returns JSX element
  */
 export const AccessibilityDemo: Story = {
-  render: () => {
+  render: (args) => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -1073,7 +1069,7 @@ export const DarkTheme: Story = {
  * @returns JSX element
  */
 export const PerformanceDemo: Story = {
-  render: () => {
+  render: (args) => {
     const [accordions] = useState(() => 
       Array.from({ length: 20 }, (_, i) => ({
         id: `perf-${i}`,

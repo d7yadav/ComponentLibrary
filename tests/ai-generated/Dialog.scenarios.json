@@ -1,0 +1,27 @@
+{
+  "component": "Dialog",
+  "generated": "2025-07-14T08:19:00.481Z",
+  "scenarios": [
+    {
+      "id": "Dialog-smoke",
+      "name": "Dialog Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for Dialog",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "Dialog-interaction",
+      "name": "Dialog Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for Dialog",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "Dialog-accessibility",
+      "name": "Dialog Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for Dialog",
+      "estimatedDuration": 1200
+    }
+  ]
+}

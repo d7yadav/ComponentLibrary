@@ -1,13 +1,6 @@
-/**
- * @fileoverview Component theme overrides
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
 
 import type { Components, Theme } from '@mui/material/styles';
 
-/**
- * Global component style overrides
- */
 export const components: Components<Omit<Theme, 'components'>> = {
   MuiCssBaseline: {
     styleOverrides: {

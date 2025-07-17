@@ -88,6 +88,8 @@
       "@/ai-context/*": ["src/ai-context/*"],
       "@/ai-workflow": ["src/ai-workflow/index"],
       "@/ai-workflow/*": ["src/ai-workflow/*"],
+      "@/forms": ["src/forms/index"],
+      "@/forms/*": ["src/forms/*"],
       "@/test-utils": ["tests/test-utils"]
     }
   },

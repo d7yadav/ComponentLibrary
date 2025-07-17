@@ -26,3 +26,8 @@ export type {
   TypographyStyleProps,
   ResponsiveTypographyConfig
 } from './Typography';
+
+export * from './Divider';
+export * from './Avatar';
+export * from './Badge';
+export * from './Tooltip';

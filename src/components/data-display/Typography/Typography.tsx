@@ -1,11 +1,5 @@
 import React, { forwardRef, memo } from 'react';
-import { TypographyProps } from './Typography.types';
-import { 
-  StyledTypography, 
-  InteractiveTypography, 
-  GradientTypography, 
-  AccessibleTypography 
-} from './Typography.styles';
+
 import { 
   TYPOGRAPHY_VARIANTS,
   TYPOGRAPHY_COLORS,
@@ -18,6 +12,13 @@ import {
   ACCESSIBILITY_CONSTANTS,
   FONT_FEATURE_SETTINGS
 } from './Typography.constants';
+import { 
+  StyledTypography, 
+  InteractiveTypography, 
+  GradientTypography, 
+  AccessibleTypography 
+} from './Typography.styles';
+import type { TypographyProps } from './Typography.types';
 
 /**
  * Enhanced Typography component with comprehensive variant support and accessibility features

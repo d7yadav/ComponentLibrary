@@ -1,10 +1,6 @@
-import { SnackbarSeverity, SnackbarVariant, SnackbarTransition, SnackbarOrigin } from './Snackbar.types';
+import type { SnackbarSeverity, SnackbarVariant, SnackbarTransition} from './Snackbar.types';
+import { SnackbarOrigin } from './Snackbar.types';
 
-/**
- * SNACKBAR_SEVERITIES component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_SEVERITIES: Record<SnackbarSeverity, SnackbarSeverity> = {
   error: 'error',
   warning: 'warning',
@@ -12,22 +8,12 @@ export const SNACKBAR_SEVERITIES: Record<SnackbarSeverity, SnackbarSeverity> = {
   success: 'success',
 } as const;
 
-/**
- * SNACKBAR_VARIANTS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_VARIANTS: Record<SnackbarVariant, SnackbarVariant> = {
   filled: 'filled',
   outlined: 'outlined',
   standard: 'standard',
 } as const;
 
-/**
- * SNACKBAR_TRANSITIONS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_TRANSITIONS: Record<SnackbarTransition, SnackbarTransition> = {
   slide: 'slide',
   fade: 'fade',
@@ -35,11 +21,6 @@ export const SNACKBAR_TRANSITIONS: Record<SnackbarTransition, SnackbarTransition
   collapse: 'collapse',
 } as const;
 
-/**
- * SNACKBAR_POSITIONS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_POSITIONS = {
   topLeft: { vertical: 'top' as const, horizontal: 'left' as const },
   topCenter: { vertical: 'top' as const, horizontal: 'center' as const },
@@ -49,11 +30,6 @@ export const SNACKBAR_POSITIONS = {
   bottomRight: { vertical: 'bottom' as const, horizontal: 'right' as const },
 } as const;
 
-/**
- * SNACKBAR_COLORS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_COLORS = {
   error: {
     main: '#d32f2f',
@@ -89,11 +65,6 @@ export const SNACKBAR_COLORS = {
   },
 } as const;
 
-/**
- * SNACKBAR_AUTO_HIDE_DURATIONS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_AUTO_HIDE_DURATIONS = {
   short: 3000,
   medium: 5000,
@@ -101,22 +72,12 @@ export const SNACKBAR_AUTO_HIDE_DURATIONS = {
   persistent: null, // Never auto-hide
 } as const;
 
-/**
- * SNACKBAR_TRANSITION_DURATIONS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_TRANSITION_DURATIONS = {
   fast: 200,
   normal: 300,
   slow: 500,
 } as const;
 
-/**
- * SNACKBAR_Z_INDEX component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_Z_INDEX = {
   snackbar: 1400,
   tooltip: 1500,
@@ -124,11 +85,6 @@ export const SNACKBAR_Z_INDEX = {
   drawer: 1200,
 } as const;
 
-/**
- * SNACKBAR_ELEVATION_VALUES component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_ELEVATION_VALUES = {
   none: 0,
   subtle: 2,
@@ -139,11 +95,6 @@ export const SNACKBAR_ELEVATION_VALUES = {
   highest: 24,
 } as const;
 
-/**
- * SNACKBAR_MAX_WIDTH component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_MAX_WIDTH = {
   small: 300,
   medium: 400,
@@ -151,11 +102,6 @@ export const SNACKBAR_MAX_WIDTH = {
   xlarge: 600,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   alertRole: 'alert',
   statusRole: 'status',
@@ -167,22 +113,12 @@ export const ACCESSIBILITY_CONSTANTS = {
   liveRegionAssertive: 'assertive',
 } as const;
 
-/**
- * SNACKBAR_SPACING component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_SPACING = {
   stack: 8, // Spacing between stacked snackbars
   margin: 16, // Margin from screen edges
   padding: 16, // Internal padding
 } as const;
 
-/**
- * SNACKBAR_ICON_MAPPINGS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_ICON_MAPPINGS = {
   error: 'ErrorIcon',
   warning: 'WarningIcon',
@@ -190,11 +126,6 @@ export const SNACKBAR_ICON_MAPPINGS = {
   success: 'CheckCircleIcon',
 } as const;
 
-/**
- * SNACKBAR_MESSAGE_TEMPLATES component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_MESSAGE_TEMPLATES = {
   error: {
     generic: 'An error occurred',
@@ -226,11 +157,6 @@ export const SNACKBAR_MESSAGE_TEMPLATES = {
   },
 } as const;
 
-/**
- * SNACKBAR_PATTERNS component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_PATTERNS = {
   // Form feedback
   form: {
@@ -286,22 +212,12 @@ export const SNACKBAR_PATTERNS = {
   },
 } as const;
 
-/**
- * SNACKBAR_QUEUE_CONFIG component
- * 
- * @returns JSX element
- */
 export const SNACKBAR_QUEUE_CONFIG = {
   maxSnackbars: 3,
   stackDirection: 'up', // New snackbars appear above existing ones
   removeOldest: true, // Remove oldest when max is reached
 } as const;
 
-/**
- * DEFAULT_SNACKBAR_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_SNACKBAR_PROPS = {
   variant: SNACKBAR_VARIANTS.standard,
   anchorOrigin: SNACKBAR_POSITIONS.bottomLeft,

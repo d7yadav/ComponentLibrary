@@ -1,70 +1,66 @@
-import { styled, keyframes } from '@mui/material/styles';
 import { Alert as MuiAlert } from '@mui/material';
+import { styled, keyframes } from '@mui/material/styles';
+import React from 'react';
+
 import { 
   ALERT_SIZE_CONFIGS, 
   ALERT_COLORS, 
   ALERT_ANIMATION_DURATIONS,
   ALERT_ANIMATION_EASINGS 
 } from './Alert.constants';
-
 // Animation keyframes
 const slideIn = keyframes`
   from {
-    transform: translateY(-100%);
-    opacity: 0;
+    transform: translateY(-100%),
+    opacity: 0,
   }
   to {
-    transform: translateY(0);
-    opacity: 1;
+    transform: translateY(0),
+    opacity: 1,
   }
 `;
 
 const fadeIn = keyframes`
   from {
-    opacity: 0;
+    opacity: 0,
   }
   to {
-    opacity: 1;
+    opacity: 1,
   }
 `;
 
 const scaleIn = keyframes`
   from {
-    transform: scale(0.8);
-    opacity: 0;
+    transform: scale(0.8),
+    opacity: 0,
   }
   to {
-    transform: scale(1);
-    opacity: 1;
+    transform: scale(1),
+    opacity: 1,
   }
 `;
 
 const bounceIn = keyframes`
   0% {
-    transform: scale(0.3);
-    opacity: 0;
+    transform: scale(0.3),
+    opacity: 0,
   }
   50% {
-    transform: scale(1.05);
-    opacity: 0.8;
+    transform: scale(1.05),
+    opacity: 0.8,
   }
   70% {
-    transform: scale(0.9);
-    opacity: 0.9;
+    transform: scale(0.9),
+    opacity: 0.9,
   }
   100% {
-    transform: scale(1);
-    opacity: 1;
+    transform: scale(1),
+    opacity: 1,
   }
 `;
 
-/**
- * StyledAlert component
- * 
- * @returns JSX element
- */
-export const StyledAlert = styled(MuiAlert, {
-  shouldForwardProp: (prop) => !['customSize', 'customFullWidth', 'customElevated', 'customElevation', 'customRounded', 'customBorderRadius', 'customCentered', 'customBgcolor', 'customColor', 'customAnimated', 'customAnimationDuration'].includes(prop as string),
+export const StyledAlert: React.ComponentType<any> = styled(MuiAlert, {
+  shouldForwardProp: (prop) => !['customSize', 'customFullWidth', 'customElevated', 'customElevation', 'customRounded', 'customBorderRadius', 'customCentered', 'customBgcolor', 'customColor', 'customAnimated', 'customAnimationDuration', 'startIcon', 'endIcon'].includes(prop as string),
 })<any>((props: any) => {
   const { 
     theme, 
@@ -88,123 +84,123 @@ export const StyledAlert = styled(MuiAlert, {
   
   return {
     // Size configuration
-    padding: sizeConfig.padding,
-    fontSize: sizeConfig.fontSize,
-    minHeight: sizeConfig.minHeight,
+    'padding': sizeConfig.padding,
+    'fontSize': sizeConfig.fontSize,
+    'minHeight': sizeConfig.minHeight,
     
     // Full width
     ...(customFullWidth && {
-      width: '100%',
+      'width': '100%',
     }),
     
     // Elevation
     ...(customElevated && {
-      boxShadow: theme.shadows[customElevation || 2],
+      'boxShadow': theme.shadows[customElevation || 2],
     }),
     
     // Border radius
     ...(customRounded && {
-      borderRadius: customBorderRadius 
+      'borderRadius': customBorderRadius 
         ? (typeof customBorderRadius === 'number' ? customBorderRadius : customBorderRadius)
         : sizeConfig.borderRadius,
     }),
     
     // Centered alignment
     ...(customCentered && {
-      margin: '0 auto',
-      textAlign: 'center',
+      'margin': '0 auto',
+      'textAlign': 'center',
     }),
     
     // Custom background color
     ...(customBgcolor && {
-      backgroundColor: customBgcolor.includes('.') 
+      'backgroundColor': customBgcolor.includes('.') 
         ? theme.palette[customBgcolor.split('.')[0] as keyof typeof theme.palette]?.main || customBgcolor
         : customBgcolor,
     }),
     
     // Custom text color
     ...(customColor && {
-      color: customColor.includes('.') 
+      'color': customColor.includes('.') 
         ? theme.palette[customColor.split('.')[0] as keyof typeof theme.palette]?.main || customColor
         : customColor,
     }),
     
     // Animation
     ...(customAnimated && {
-      animation: `${fadeIn} ${customAnimationDuration || ALERT_ANIMATION_DURATIONS.normal}ms ${ALERT_ANIMATION_EASINGS.easeInOut}`,
+      'animation': `${fadeIn} ${customAnimationDuration || ALERT_ANIMATION_DURATIONS.normal}ms ${ALERT_ANIMATION_EASINGS.easeInOut}`,
     }),
     
     // Icon styling
     '& .MuiAlert-icon': {
-      fontSize: sizeConfig.iconSize,
-      alignItems: 'center',
-      padding: 0,
-      marginRight: theme.spacing(1),
+      'fontSize': sizeConfig.iconSize,
+      'alignItems': 'center',
+      'padding': 0,
+      'marginRight': theme.spacing(1),
     },
     
     // Action styling
     '& .MuiAlert-action': {
-      alignItems: 'flex-start',
-      paddingTop: 0,
-      marginRight: 0,
-      marginLeft: theme.spacing(1),
+      'alignItems': 'flex-start',
+      'paddingTop': 0,
+      'marginRight': 0,
+      'marginLeft': theme.spacing(1),
     },
     
     // Message styling
     '& .MuiAlert-message': {
-      padding: 0,
-      fontSize: 'inherit',
-      lineHeight: 1.5,
-      alignItems: 'center',
+      'padding': 0,
+      'fontSize': 'inherit',
+      'lineHeight': 1.5,
+      'alignItems': 'center',
       
       // Title styling when present
       '& .alert-title': {
-        fontSize: sizeConfig.titleFontSize,
-        fontWeight: theme.typography.fontWeightMedium,
-        marginBottom: theme.spacing(0.5),
-        lineHeight: 1.2,
+        'fontSize': sizeConfig.titleFontSize,
+        'fontWeight': theme.typography.fontWeightMedium,
+        'marginBottom': theme.spacing(0.5),
+        'lineHeight': 1.2,
       },
       
       // Content styling
       '& .alert-content': {
-        fontSize: 'inherit',
-        lineHeight: 'inherit',
+        'fontSize': 'inherit',
+        'lineHeight': 'inherit',
       },
     },
     
     // Variant-specific styles
     ...(variant === 'filled' && {
-      backgroundColor: colorConfig.main,
-      color: colorConfig.contrast,
+      'backgroundColor': colorConfig.main,
+      'color': colorConfig.contrast,
       
       '& .MuiAlert-icon': {
-        color: colorConfig.contrast,
+        'color': colorConfig.contrast,
       },
     }),
     
     ...(variant === 'outlined' && {
-      backgroundColor: 'transparent',
-      color: colorConfig.main,
-      border: `1px solid ${colorConfig.border}`,
+      'backgroundColor': 'transparent',
+      'color': colorConfig.main,
+      'border': `1px solid ${colorConfig.main}`,
       
       '& .MuiAlert-icon': {
-        color: colorConfig.main,
+        'color': colorConfig.main,
       },
     }),
     
     ...(variant === 'standard' && {
-      backgroundColor: colorConfig.background,
-      color: colorConfig.dark,
+      'backgroundColor': colorConfig.background,
+      'color': colorConfig.dark,
       
       '& .MuiAlert-icon': {
-        color: colorConfig.main,
+        'color': colorConfig.main,
       },
     }),
     
     // Enhanced hover effects for interactive alerts
     '&.interactive': {
-      cursor: 'pointer',
-      transition: theme.transitions.create(
+      'cursor': 'pointer',
+      'transition': theme.transitions.create(
         ['background-color', 'box-shadow', 'transform'],
         {
           duration: theme.transitions.duration.short,
@@ -213,214 +209,149 @@ export const StyledAlert = styled(MuiAlert, {
       ),
       
       '&:hover': {
-        transform: 'translateY(-1px)',
-        boxShadow: theme.shadows[4],
+        'transform': 'translateY(-1px)',
+        'boxShadow': theme.shadows[4],
       },
     },
     
     // Responsive design
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1, 2),
-      fontSize: '0.875rem',
+      'padding': theme.spacing(1, 2),
+      'fontSize': '0.875rem',
       
       '& .MuiAlert-icon': {
-        fontSize: 18,
+        'fontSize': 18,
       },
       
       '& .alert-title': {
-        fontSize: '1rem',
+        'fontSize': '1rem',
       },
     },
   };
 });
 
 // Alert title component
-/**
- * AlertTitle component
- * 
- * @returns JSX element
- */
-export const AlertTitle = styled('div')<any>((props: any) => {
+export const AlertTitle: React.ComponentType<any> = styled('div')<any>((props: any) => {
   const { theme, customSize = 'medium' } = props;
   const sizeConfig = ALERT_SIZE_CONFIGS[customSize as keyof typeof ALERT_SIZE_CONFIGS];
   
   return {
-    fontSize: sizeConfig.titleFontSize,
-    fontWeight: theme.typography.fontWeightMedium,
-    marginBottom: theme.spacing(0.5),
-    lineHeight: 1.2,
-    color: 'inherit',
+    'fontSize': sizeConfig.titleFontSize,
+    'fontWeight': theme.typography.fontWeightMedium,
+    'marginBottom': theme.spacing(0.5),
+    'lineHeight': 1.2,
+    'color': 'inherit',
   };
 });
 
 // Alert content wrapper
-/**
- * AlertContent component
- * 
- * @returns JSX element
- */
-export const AlertContent = styled('div')(() => ({
-  fontSize: 'inherit',
-  lineHeight: 1.5,
-  color: 'inherit',
+export const AlertContent: any = styled('div')(() => ({
+  'fontSize': 'inherit',
+  'lineHeight': 1.5,
+  'color': 'inherit',
 }));
 
 // Alert actions container
-/**
- * AlertActions component
- * 
- * @returns JSX element
- */
-export const AlertActions = styled('div')<any>((props: any) => {
+export const AlertActions: React.ComponentType<any> = styled('div')<any>((props: any) => {
   const { theme } = props;
   return {
-    display: 'flex',
-    alignItems: 'center',
-    gap: theme.spacing(1),
-    marginTop: theme.spacing(1),
+    'display': 'flex',
+    'alignItems': 'center',
+    'gap': theme.spacing(1),
+    'marginTop': theme.spacing(1),
     
     '& .MuiButton-root': {
-      minHeight: 'auto',
-      padding: theme.spacing(0.5, 1),
-      fontSize: '0.75rem',
+      'minHeight': 'auto',
+      'padding': theme.spacing(0.5, 1),
+      'fontSize': '0.75rem',
     },
   };
 });
 
 // Animated alert variants
-/**
- * SlideInAlert component
- * 
- * @returns JSX element
- */
-export const SlideInAlert = styled(StyledAlert)<any>((props: any) => {
+export const SlideInAlert: React.ComponentType<any> = styled(StyledAlert)<any>((props: any) => {
   const { customAnimationDuration = ALERT_ANIMATION_DURATIONS.normal } = props;
   return {
-    animation: `${slideIn} ${customAnimationDuration}ms ${ALERT_ANIMATION_EASINGS.spring}`,
+    'animation': `${slideIn} ${customAnimationDuration}ms ${ALERT_ANIMATION_EASINGS.spring}`,
   };
 });
 
-/**
- * ScaleInAlert component
- * 
- * @returns JSX element
- */
-export const ScaleInAlert = styled(StyledAlert)<any>((props: any) => {
+export const ScaleInAlert: React.ComponentType<any> = styled(StyledAlert)<any>((props: any) => {
   const { customAnimationDuration = ALERT_ANIMATION_DURATIONS.normal } = props;
   return {
-    animation: `${scaleIn} ${customAnimationDuration}ms ${ALERT_ANIMATION_EASINGS.easeOut}`,
+    'animation': `${scaleIn} ${customAnimationDuration}ms ${ALERT_ANIMATION_EASINGS.easeOut}`,
   };
 });
 
-/**
- * BounceInAlert component
- * 
- * @returns JSX element
- */
-export const BounceInAlert = styled(StyledAlert)<any>((props: any) => {
+export const BounceInAlert: React.ComponentType<any> = styled(StyledAlert)<any>((props: any) => {
   const { customAnimationDuration = ALERT_ANIMATION_DURATIONS.slow } = props;
   return {
-    animation: `${bounceIn} ${customAnimationDuration}ms ${ALERT_ANIMATION_EASINGS.bounce}`,
+    'animation': `${bounceIn} ${customAnimationDuration}ms ${ALERT_ANIMATION_EASINGS.bounce}`,
   };
 });
 
 // Specialized alert components
-/**
- * SuccessAlert component
- * 
- * @returns JSX element
- */
-export const SuccessAlert = styled(StyledAlert)<any>(() => ({
+export const SuccessAlert: React.ComponentType<any> = styled(StyledAlert)<any>(() => ({
   // Success-specific styling can be added here
 }));
 
-/**
- * ErrorAlert component
- * 
- * @returns JSX element
- */
-export const ErrorAlert = styled(StyledAlert)<any>(() => ({
+export const ErrorAlert: React.ComponentType<any> = styled(StyledAlert)<any>(() => ({
   // Error-specific styling can be added here
 }));
 
-/**
- * WarningAlert component
- * 
- * @returns JSX element
- */
-export const WarningAlert = styled(StyledAlert)<any>(() => ({
+export const WarningAlert: React.ComponentType<any> = styled(StyledAlert)<any>(() => ({
   // Warning-specific styling can be added here
 }));
 
-/**
- * InfoAlert component
- * 
- * @returns JSX element
- */
-export const InfoAlert = styled(StyledAlert)<any>(() => ({
+export const InfoAlert: React.ComponentType<any> = styled(StyledAlert)<any>(() => ({
   // Info-specific styling can be added here
 }));
 
 // Compact alert for dense layouts
-/**
- * CompactAlert component
- * 
- * @returns JSX element
- */
-export const CompactAlert = styled(StyledAlert)<any>((props: any) => {
+export const CompactAlert: React.ComponentType<any> = styled(StyledAlert)<any>((props: any) => {
   const { theme } = props;
   return {
-    padding: theme.spacing(0.5, 1),
-    minHeight: 32,
-    fontSize: '0.75rem',
+    'padding': theme.spacing(0.5, 1),
+    'minHeight': 32,
+    'fontSize': '0.75rem',
     
     '& .MuiAlert-icon': {
-      fontSize: 16,
-      marginRight: theme.spacing(0.5),
+      'fontSize': 16,
+      'marginRight': theme.spacing(0.5),
     },
     
     '& .alert-title': {
-      fontSize: '0.8125rem',
-      marginBottom: theme.spacing(0.25),
+      'fontSize': '0.8125rem',
+      'marginBottom': theme.spacing(0.25),
     },
   };
 });
 
 // Banner alert for full-width notifications
-/**
- * BannerAlert component
- * 
- * @returns JSX element
- */
-export const BannerAlert = styled(StyledAlert)<any>((props: any) => {
+export const BannerAlert: React.ComponentType<any> = styled(StyledAlert)<any>((props: any) => {
   const { theme } = props;
   return {
-    borderRadius: 0,
-    width: '100%',
-    padding: theme.spacing(1.5, 3),
+    'borderRadius': 0,
+    'width': '100%',
+    'padding': theme.spacing(1.5, 3),
     
     [theme.breakpoints.down('sm')]: {
-      padding: theme.spacing(1, 2),
+      'padding': theme.spacing(1, 2),
     },
   };
 });
 
 // Toast-style alert
-/**
- * ToastAlert component
- * 
- * @returns JSX element
- */
-export const ToastAlert = styled(StyledAlert)<any>((props: any) => {
+export const ToastAlert: React.ComponentType<any> = styled(StyledAlert)<any>((props: any) => {
   const { theme } = props;
   return {
-    borderRadius: theme.spacing(1),
-    boxShadow: theme.shadows[8],
-    maxWidth: 400,
-    margin: theme.spacing(1),
+    'borderRadius': theme.spacing(1),
+    'boxShadow': theme.shadows[8],
+    'maxWidth': 400,
+    'margin': theme.spacing(1),
     
     '& .MuiAlert-action': {
-      paddingTop: theme.spacing(0.25),
+      'paddingTop': theme.spacing(0.25),
     },
   };
 });

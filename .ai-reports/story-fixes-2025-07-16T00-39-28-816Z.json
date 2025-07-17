@@ -1,0 +1,278 @@
+{
+  "timestamp": "2025-07-16T00:39:28.817Z",
+  "duration": 38,
+  "fixes": [
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/builder/FormBuilder.stories.tsx",
+      "description": "Converted relative import: ../validation/ValidationEngine → @/forms/validation/ValidationEngine"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/components/fields/SmartTextField.stories.tsx",
+      "description": "Converted relative import: ../../core/providers/FormProvider → @/forms/core/providers/FormProvider"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/components/fields/SmartTextField.stories.tsx",
+      "description": "Converted relative import: ../../core/hooks/useAdvancedForm → @/forms/core/hooks/useAdvancedForm"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/components/fields/SmartTextField.stories.tsx",
+      "description": "Converted relative import: ../../validation/ValidationEngine → @/forms/validation/ValidationEngine"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/core/providers/FormProvider.stories.tsx",
+      "description": "Converted relative import: ../hooks/useAdvancedForm → @/forms/core/hooks/useAdvancedForm"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/core/providers/FormProvider.stories.tsx",
+      "description": "Converted relative import: ../../components/fields/SmartTextField → @/forms/components/fields/SmartTextField"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/core/providers/FormProvider.stories.tsx",
+      "description": "Converted relative import: ../../validation/ValidationEngine → @/forms/validation/ValidationEngine"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/examples/ComprehensiveFormExamples.stories.tsx",
+      "description": "Converted relative import: ../builder/FormBuilder → @/forms/builder/FormBuilder"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/examples/ComprehensiveFormExamples.stories.tsx",
+      "description": "Converted relative import: ../patterns/FormWizard → @/forms/patterns/FormWizard"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/examples/ComprehensiveFormExamples.stories.tsx",
+      "description": "Converted relative import: ../core/providers/FormProvider → @/forms/core/providers/FormProvider"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/examples/ComprehensiveFormExamples.stories.tsx",
+      "description": "Converted relative import: ../core/hooks/useAdvancedForm → @/forms/core/hooks/useAdvancedForm"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/examples/ComprehensiveFormExamples.stories.tsx",
+      "description": "Converted relative import: ../components/fields/SmartTextField → @/forms/components/fields/SmartTextField"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/examples/ComprehensiveFormExamples.stories.tsx",
+      "description": "Converted relative import: ../validation/ValidationEngine → @/forms/validation/ValidationEngine"
+    },
+    {
+      "type": "IMPORT_PATH",
+      "file": "src/forms/patterns/FormWizard.stories.tsx",
+      "description": "Converted relative import: ../validation/ValidationEngine → @/forms/validation/ValidationEngine"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/Button/Button.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/Chip/Chip.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/Icon/Icon.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/core/IconButton/IconButton.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Avatar/Avatar.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Badge/Badge.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Card/Card.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Divider/Divider.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Tooltip/Tooltip.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/data-display/Typography/Typography.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Alert/Alert.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Loading/Loading.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Progress/Progress.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/feedback/Snackbar/Snackbar.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Autocomplete/Autocomplete.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Checkbox/Checkbox.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/DatePicker/DatePicker.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/FormControl/FormControl.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/FormLabel/FormLabel.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Radio/Radio.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/RadioGroup/RadioGroup.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Select/Select.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Slider/Slider.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/Switch/Switch.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/forms/TextField/TextField.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Box/Box.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Container/Container.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Grid/Grid.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/layout/Stack/Stack.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/AppBar/AppBar.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/Breadcrumbs/Breadcrumbs.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/Menu/Menu.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/navigation/Tabs/Tabs.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Accordion/Accordion.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Dialog/Dialog.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Drawer/Drawer.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/List/List.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/ListItem/ListItem.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Modal/Modal.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    },
+    {
+      "type": "CSS_IN_JS",
+      "file": "src/components/surfaces/Paper/Paper.styles.ts",
+      "description": "Fixed CSS-in-JS syntax (quoted selectors, commas)"
+    }
+  ],
+  "errors": [],
+  "status": "SUCCESS"
+}

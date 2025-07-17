@@ -1,21 +1,11 @@
-/**
- * @fileoverview Breadcrumbs Component Constants
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- * 
- * Constants for the Breadcrumbs component including default values,
- * configuration options, accessibility settings, and animation parameters.
- */
 
 import type {
   BreadcrumbSeparator,
   BreadcrumbSize,
   BreadcrumbVariant,
   BreadcrumbsDefaultProps,
-} from './Breadcrumbs.types';
+} from './${file##*/}';
 
-/**
- * Default component configuration
- */
 export const BREADCRUMBS_DEFAULTS: BreadcrumbsDefaultProps = {
   separator: 'slash',
   maxItems: 8,
@@ -27,9 +17,6 @@ export const BREADCRUMBS_DEFAULTS: BreadcrumbsDefaultProps = {
   disabled: false,
 } as const;
 
-/**
- * Available separator types
- */
 export const BREADCRUMB_SEPARATORS: readonly BreadcrumbSeparator[] = [
   'slash',
   'chevron',
@@ -38,27 +25,18 @@ export const BREADCRUMB_SEPARATORS: readonly BreadcrumbSeparator[] = [
   'custom',
 ] as const;
 
-/**
- * Available sizes
- */
 export const BREADCRUMB_SIZES: readonly BreadcrumbSize[] = [
   'small',
   'medium',
   'large',
 ] as const;
 
-/**
- * Available variants
- */
 export const BREADCRUMB_VARIANTS: readonly BreadcrumbVariant[] = [
   'standard',
   'text',
   'contained',
 ] as const;
 
-/**
- * Separator configurations
- */
 export const SEPARATOR_CONFIGS = {
   slash: {
     content: '/',
@@ -82,9 +60,6 @@ export const SEPARATOR_CONFIGS = {
   },
 } as const;
 
-/**
- * Size configurations
- */
 export const SIZE_CONFIGS = {
   small: {
     fontSize: '0.75rem',
@@ -106,9 +81,6 @@ export const SIZE_CONFIGS = {
   },
 } as const;
 
-/**
- * Accessibility constants
- */
 export const BREADCRUMBS_ACCESSIBILITY = {
   /** Default aria-label for breadcrumbs container */
   defaultAriaLabel: 'Breadcrumb navigation',
@@ -130,9 +102,6 @@ export const BREADCRUMBS_ACCESSIBILITY = {
   collapseIndicatorLabel: 'More breadcrumbs available',
 } as const;
 
-/**
- * Animation constants
- */
 export const BREADCRUMBS_ANIMATIONS = {
   /** Transition duration for expand/collapse */
   expandDuration: 300,
@@ -146,9 +115,6 @@ export const BREADCRUMBS_ANIMATIONS = {
   scaleActive: 1.05,
 } as const;
 
-/**
- * Style constants
- */
 export const BREADCRUMBS_STYLES = {
   /** Maximum width before truncation */
   maxItemWidth: '200px',
@@ -166,9 +132,6 @@ export const BREADCRUMBS_STYLES = {
   collapseIndicatorWidth: '32px',
 } as const;
 
-/**
- * Keyboard navigation constants
- */
 export const BREADCRUMBS_KEYBOARD = {
   /** Keys that trigger click */
   clickKeys: ['Enter', ' '],
@@ -178,9 +141,6 @@ export const BREADCRUMBS_KEYBOARD = {
   expandKey: 'Enter',
 } as const;
 
-/**
- * Error messages
- */
 export const BREADCRUMBS_ERRORS = {
   invalidSeparator: 'Invalid separator type provided',
   invalidSize: 'Invalid size provided',

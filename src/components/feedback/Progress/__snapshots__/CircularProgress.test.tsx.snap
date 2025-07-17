@@ -1,0 +1,89 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CircularProgress Component > Snapshots > matches snapshot for all variants > variant-determinate 1`] = `
+<div
+  style="position: relative; display: inline-flex;"
+>
+  <span
+    aria-label="Progress"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="MuiCircularProgress-root MuiCircularProgress-determinate MuiCircularProgress-colorPrimary css-wslgjv-MuiCircularProgress-root"
+    role="progressbar"
+    style="width: 40px; height: 40px; transform: rotate(-90deg);"
+  >
+    <svg
+      class="MuiCircularProgress-svg css-54pwck-MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="MuiCircularProgress-circle MuiCircularProgress-circleDeterminate css-eorpq6-MuiCircularProgress-circle"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20.2"
+        stroke-width="3.6"
+        style="stroke-dasharray: 126.920; stroke-dashoffset: 126.920px;"
+      />
+    </svg>
+  </span>
+</div>
+`;
+
+exports[`CircularProgress Component > Snapshots > matches snapshot for all variants > variant-indeterminate 1`] = `
+<div
+  style="position: relative; display: inline-flex;"
+>
+  <span
+    aria-label="Progress"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1q5ouwo-MuiCircularProgress-root"
+    role="progressbar"
+    style="width: 40px; height: 40px;"
+  >
+    <svg
+      class="MuiCircularProgress-svg css-54pwck-MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-19t5dcl-MuiCircularProgress-circle"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20.2"
+        stroke-width="3.6"
+      />
+    </svg>
+  </span>
+</div>
+`;
+
+exports[`CircularProgress Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  style="position: relative; display: inline-flex;"
+>
+  <span
+    aria-label="Progress"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-1q5ouwo-MuiCircularProgress-root"
+    role="progressbar"
+    style="width: 40px; height: 40px;"
+  >
+    <svg
+      class="MuiCircularProgress-svg css-54pwck-MuiCircularProgress-svg"
+      viewBox="22 22 44 44"
+    >
+      <circle
+        class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-19t5dcl-MuiCircularProgress-circle"
+        cx="44"
+        cy="44"
+        fill="none"
+        r="20.2"
+        stroke-width="3.6"
+      />
+    </svg>
+  </span>
+</div>
+`;

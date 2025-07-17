@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardMedia Component > Snapshots > matches snapshot for all variants > variant-default 1`] = `
+<div
+  class="css-1mfx3ea"
+  height="200"
+>
+  default
+   CardMedia
+</div>
+`;
+
+exports[`CardMedia Component > Snapshots > matches snapshot for default props 1`] = `
+<div
+  class="css-1mfx3ea"
+  height="200"
+>
+  Default CardMedia
+</div>
+`;

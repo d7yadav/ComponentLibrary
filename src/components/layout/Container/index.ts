@@ -1,8 +1,3 @@
-/**
- * @fileoverview Container component barrel export
- * @author Dilip Yadav <dilip.sm.yadav@gmail.com>
- */
-
 export { Container } from './Container';
 export type { 
   ContainerProps, 

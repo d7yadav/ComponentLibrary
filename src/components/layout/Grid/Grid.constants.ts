@@ -1,10 +1,5 @@
-import { GridSize, GridDirection, GridWrap, GridJustify, GridAlign, GridSpacing } from './Grid.types';
+import type { GridSize, GridDirection, GridWrap, GridJustify, GridAlign, GridSpacing } from './Grid.types';
 
-/**
- * GRID_SIZES component
- * 
- * @returns JSX element
- */
 export const GRID_SIZES: Record<string, GridSize> = {
   1: 1,
   2: 2,
@@ -22,11 +17,6 @@ export const GRID_SIZES: Record<string, GridSize> = {
   true: true,
 } as const;
 
-/**
- * GRID_DIRECTIONS component
- * 
- * @returns JSX element
- */
 export const GRID_DIRECTIONS: Record<GridDirection, GridDirection> = {
   row: 'row',
   'row-reverse': 'row-reverse',
@@ -34,22 +24,12 @@ export const GRID_DIRECTIONS: Record<GridDirection, GridDirection> = {
   'column-reverse': 'column-reverse',
 } as const;
 
-/**
- * GRID_WRAPS component
- * 
- * @returns JSX element
- */
 export const GRID_WRAPS: Record<GridWrap, GridWrap> = {
   nowrap: 'nowrap',
   wrap: 'wrap',
   'wrap-reverse': 'wrap-reverse',
 } as const;
 
-/**
- * GRID_JUSTIFY_CONTENT component
- * 
- * @returns JSX element
- */
 export const GRID_JUSTIFY_CONTENT: Record<GridJustify, GridJustify> = {
   'flex-start': 'flex-start',
   center: 'center',
@@ -59,11 +39,6 @@ export const GRID_JUSTIFY_CONTENT: Record<GridJustify, GridJustify> = {
   'space-evenly': 'space-evenly',
 } as const;
 
-/**
- * GRID_ALIGN_ITEMS component
- * 
- * @returns JSX element
- */
 export const GRID_ALIGN_ITEMS: Record<GridAlign, GridAlign> = {
   'flex-start': 'flex-start',
   center: 'center',
@@ -72,11 +47,6 @@ export const GRID_ALIGN_ITEMS: Record<GridAlign, GridAlign> = {
   baseline: 'baseline',
 } as const;
 
-/**
- * GRID_SPACING_VALUES component
- * 
- * @returns JSX element
- */
 export const GRID_SPACING_VALUES: Record<GridSpacing, GridSpacing> = {
   0: 0,
   1: 1,
@@ -93,11 +63,6 @@ export const GRID_SPACING_VALUES: Record<GridSpacing, GridSpacing> = {
   12: 12,
 } as const;
 
-/**
- * GRID_BREAKPOINTS component
- * 
- * @returns JSX element
- */
 export const GRID_BREAKPOINTS = {
   xs: 0,
   sm: 600,
@@ -106,25 +71,10 @@ export const GRID_BREAKPOINTS = {
   xl: 1536,
 } as const;
 
-/**
- * GRID_COLUMN_COUNT component
- * 
- * @returns JSX element
- */
 export const GRID_COLUMN_COUNT = 12;
 
-/**
- * GRID_GUTTER_WIDTH component
- * 
- * @returns JSX element
- */
 export const GRID_GUTTER_WIDTH = 24; // Default gutter width in pixels
 
-/**
- * AUTO_LAYOUT_CONFIGS component
- * 
- * @returns JSX element
- */
 export const AUTO_LAYOUT_CONFIGS = {
   cards: {
     minWidth: 280,
@@ -152,11 +102,6 @@ export const AUTO_LAYOUT_CONFIGS = {
   },
 } as const;
 
-/**
- * CSS_GRID_TEMPLATES component
- * 
- * @returns JSX element
- */
 export const CSS_GRID_TEMPLATES = {
   // Common layout patterns
   twoColumn: 'repeat(2, 1fr)',
@@ -187,11 +132,6 @@ export const CSS_GRID_TEMPLATES = {
   `,
 } as const;
 
-/**
- * ACCESSIBILITY_CONSTANTS component
- * 
- * @returns JSX element
- */
 export const ACCESSIBILITY_CONSTANTS = {
   containerRole: 'grid',
   itemRole: 'gridcell',
@@ -201,11 +141,6 @@ export const ACCESSIBILITY_CONSTANTS = {
   defaultLabel: 'Grid layout',
 } as const;
 
-/**
- * RESPONSIVE_GRID_PATTERNS component
- * 
- * @returns JSX element
- */
 export const RESPONSIVE_GRID_PATTERNS = {
   // Mobile-first responsive patterns
   mobileFirst: {
@@ -253,11 +188,6 @@ export const RESPONSIVE_GRID_PATTERNS = {
   },
 } as const;
 
-/**
- * DEFAULT_GRID_PROPS component
- * 
- * @returns JSX element
- */
 export const DEFAULT_GRID_PROPS = {
   container: false,
   item: false,

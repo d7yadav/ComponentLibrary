@@ -1,38 +1,42 @@
+// TODO: Replace with internal icon wrappers when available
+// import {
+//   Home,
+//   Settings,
+//   Person,
+//   Dashboard,
+//   Analytics,
+//   Notifications,
+//   Help,
+//   Logout,
+//   Menu,
+//   Close,
+//   ChevronLeft,
+//   Inbox,
+//   Drafts,
+//   Send,
+//   ExpandLess,
+//   ExpandMore,
+//   StarBorder,
+// } from '@mui/icons-material';
+import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+
+// TODO: Migrate ListItemButton, ListItemIcon, ListItemText to internal wrappers when available
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
-import { 
-  List, 
-  ListItem, 
-  ListItemButton, 
-  ListItemIcon, 
-  ListItemText,
-  Typography,
-  Box,
-  Button,
-  Divider,
-  Avatar,
-  Chip,
-  IconButton,
-} from '@mui/material';
-import {
-  Home,
-  Settings,
-  Person,
-  Dashboard,
-  Analytics,
-  Notifications,
-  Help,
-  Logout,
-  Menu,
-  Close,
-  ChevronLeft,
-  Inbox,
-  Drafts,
-  Send,
-  ExpandLess,
-  ExpandMore,
-  StarBorder,
-} from '@mui/icons-material';
+import { fn } from '@storybook/test';
+import React, { useState } from 'react';
+
+import { Button } from '@/components/core/Button';
+import { Chip } from '@/components/core/Chip'; // Replaced MUI Chip with internal wrapper
+import { IconButton } from '@/components/core/IconButton'; // Replaced MUI IconButton with internal wrapper
+import { Avatar } from '@/components/data-display/Avatar'; // Replaced MUI Avatar with internal wrapper
+import { Divider } from '@/components/data-display/Divider'; // Replaced MUI Divider with internal wrapper
+import { Typography } from '@/components/data-display/Typography';
+import { Box } from '@/components/layout/Box';
+import { List } from '@/components/surfaces/List'; // Replaced MUI List with internal wrapper
+import { ListItem } from '@/components/surfaces/ListItem'; // Replaced MUI ListItem with internal wrapper
+
+// TODO: Create wrapper components for List, Avatar, Chip, IconButton, and Divider
+
 import { Drawer } from './Drawer';
 import { DRAWER_VARIANTS, DRAWER_ANCHORS, DRAWER_SIZES, DRAWER_BEHAVIORS, DRAWER_ANIMATIONS } from './Drawer.constants';
 
@@ -100,6 +104,28 @@ const meta: Meta<typeof Drawer> = {
       step: 1,
       description: 'Elevation level (0-24)',
     },
+    onClose: {
+      action: 'onClose',
+      description: 'Callback fired when the drawer requests to be closed',
+    },
+    onCollapseChange: {
+      action: 'onCollapseChange',
+      description: 'Callback fired when the drawer collapse state changes',
+    },
+    onOpened: {
+      action: 'onOpened',
+      description: 'Callback fired when the drawer has opened',
+    },
+    onClosed: {
+      action: 'onClosed',
+      description: 'Callback fired when the drawer has closed',
+    },
+  },
+  args: {
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
   tags: ['autodocs'],
 };
@@ -109,33 +135,59 @@ type Story = StoryObj<typeof Drawer>;
 
 // Sample navigation items
 const navigationItems = [
-  { icon: <Home />, text: 'Home', href: '/' },
-  { icon: <Dashboard />, text: 'Dashboard', href: '/dashboard' },
-  { icon: <Analytics />, text: 'Analytics', href: '/analytics' },
-  { icon: <Person />, text: 'Profile', href: '/profile' },
-  { icon: <Settings />, text: 'Settings', href: '/settings' },
-  { icon: <Notifications />, text: 'Notifications', href: '/notifications' },
-  { icon: <Help />, text: 'Help', href: '/help' },
+  { icon: <span>🏠</span>, text: 'Home', href: '/' },
+  { icon: <span>📊</span>, text: 'Dashboard', href: '/dashboard' },
+  { icon: <span>📈</span>, text: 'Analytics', href: '/analytics' },
+  { icon: <span>👤</span>, text: 'Profile', href: '/profile' },
+  { icon: <span>⚙️</span>, text: 'Settings', href: '/settings' },
+  { icon: <span>🔔</span>, text: 'Notifications', href: '/notifications' },
+  { icon: <span>❓</span>, text: 'Help', href: '/help' },
 ];
 
 const mailItems = [
-  { icon: <Inbox />, text: 'Inbox', count: 4 },
-  { icon: <Send />, text: 'Sent' },
-  { icon: <Drafts />, text: 'Drafts', count: 2 },
-  { icon: <StarBorder />, text: 'Starred' },
+  { icon: <span>📥</span>, text: 'Inbox', count: 4 },
+  { icon: <span>📤</span>, text: 'Sent' },
+  { icon: <span>📋</span>, text: 'Drafts', count: 2 },
+  { icon: <span>⭐</span>, text: 'Starred' },
 ];
 
 // Interactive wrapper for controlled stories
 const DrawerWrapper = ({ children, ...props }: any) => {
   const [open, setOpen] = useState(props.open || false);
   const [collapsed, setCollapsed] = useState(props.collapsed || false);
+  const handleClick = (...args: any[]) => {
+    props.onClick?.(...args);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    props.onClose?.();
+  };
+
+  const handleCollapseChange = (newCollapsed: boolean) => {
+    setCollapsed(newCollapsed);
+    props.onCollapseChange?.(newCollapsed);
+  };
 
   return (
-    <Box data-testid="drawer.stories" sx={{ display: 'flex', minHeight: '100vh' }}>
+    <Box data-testid="drawer.stories" sx={{ display: 'flex', minHeight: '100vh', position: 'relative' }}>
       <Button
         variant="contained"
         onClick={() => setOpen(!open)}
-        sx={{ position: 'fixed', top: 16, left: 16, zIndex: 2000 }}
+        sx={{ 
+          position: 'fixed', 
+          top: 16, 
+          right: 16, // Move to right to avoid overlap
+          zIndex: 2000,
+          ...(open && props.anchor === 'right' && {
+            right: props.size === 'compact' ? '260px' : 
+                   props.size === 'wide' ? '340px' : '300px'
+          }),
+          ...(open && props.anchor === 'left' && {
+            left: props.size === 'compact' ? '260px' : 
+                  props.size === 'wide' ? '340px' : '300px'
+          })
+        }}
       >
         {open ? 'Close' : 'Open'} Drawer
       </Button>
@@ -143,8 +195,8 @@ const DrawerWrapper = ({ children, ...props }: any) => {
         {...props}
         open={open}
         collapsed={collapsed}
-        onClose={() => setOpen(false)}
-        onCollapseChange={setCollapsed}
+        onClose={handleClose}
+        onCollapseChange={handleCollapseChange}
       >
         {children}
       </Drawer>
@@ -193,6 +245,12 @@ export const Default: Story = {
     anchor: 'left',
     size: 'standard',
     open: false,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
+  
+    onClick: fn(),
   },
 };
 
@@ -222,6 +280,10 @@ export const TemporaryLeft: Story = {
     anchor: 'left',
     size: 'standard',
     open: false,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -296,7 +358,11 @@ export const Persistent: Story = {
     variant: 'persistent',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -340,7 +406,11 @@ export const Permanent: Story = {
     variant: 'permanent',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -354,12 +424,17 @@ export const Mini: Story = {
   render: (args) => {
     const [collapsed, setCollapsed] = useState(false);
     
+    const handleCollapseChange = (newCollapsed: boolean) => {
+      setCollapsed(newCollapsed);
+      args.onCollapseChange?.(newCollapsed);
+    };
+    
     return (
       <Box data-testid="drawer.stories" sx={{ display: 'flex', minHeight: '100vh' }}>
         <Drawer
           {...args}
           collapsed={collapsed}
-          onCollapseChange={setCollapsed}
+          onCollapseChange={handleCollapseChange}
           header={
             <Box data-testid="drawer.stories" sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <Avatar sx={{ width: 32, height: 32 }}>A</Avatar>
@@ -394,8 +469,12 @@ export const Mini: Story = {
     variant: 'mini',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
     showToggleButton: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -410,7 +489,7 @@ export const SizeCompact: Story = {
   args: {
     ...Default.args,
     size: 'compact',
-    open: true,
+    open: false,
   },
 };
 
@@ -424,7 +503,7 @@ export const SizeStandard: Story = {
   args: {
     ...Default.args,
     size: 'standard',
-    open: true,
+    open: false,
   },
 };
 
@@ -438,7 +517,7 @@ export const SizeWide: Story = {
   args: {
     ...Default.args,
     size: 'wide',
-    open: true,
+    open: false,
   },
 };
 
@@ -461,7 +540,7 @@ export const SizeAuto: Story = {
   args: {
     ...Default.args,
     size: 'auto',
-    open: true,
+    open: false,
   },
 };
 
@@ -476,7 +555,7 @@ export const AnimationSlide: Story = {
   args: {
     ...Default.args,
     animation: 'slide',
-    open: true,
+    open: false,
   },
 };
 
@@ -490,7 +569,7 @@ export const AnimationFade: Story = {
   args: {
     ...Default.args,
     animation: 'fade',
-    open: true,
+    open: false,
   },
 };
 
@@ -504,7 +583,7 @@ export const AnimationScale: Story = {
   args: {
     ...Default.args,
     animation: 'scale',
-    open: true,
+    open: false,
   },
 };
 
@@ -518,7 +597,7 @@ export const AnimationNone: Story = {
   args: {
     ...Default.args,
     animation: 'none',
-    open: true,
+    open: false,
   },
 };
 
@@ -578,7 +657,7 @@ export const ComplexDrawer: Story = {
         <Box data-testid="drawer.stories" sx={{ p: 2, borderTop: 1, borderColor: 'divider' }}>
           <ListItem disablePadding>
             <ListItemButton>
-              <ListItemIcon><Logout /></ListItemIcon>
+              <ListItemIcon><span>💪</span></ListItemIcon>
               <ListItemText primary="Logout" />
             </ListItemButton>
           </ListItem>
@@ -591,6 +670,10 @@ export const ComplexDrawer: Story = {
     anchor: 'left',
     size: 'standard',
     open: false,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -622,7 +705,7 @@ export const MailDrawer: Story = {
           <ListItem disablePadding>
             <ListItemButton onClick={() => handleToggleSection('main')}>
               <ListItemIcon>
-                {expandedSections.main ? <ExpandLess /> : <ExpandMore />}
+                {expandedSections.main ? <span>🔼</span> : <span>🔽</span>}
               </ListItemIcon>
               <ListItemText primary="Mail" />
             </ListItemButton>
@@ -654,7 +737,7 @@ export const MailDrawer: Story = {
           <ListItem disablePadding>
             <ListItemButton onClick={() => handleToggleSection('labels')}>
               <ListItemIcon>
-                {expandedSections.labels ? <ExpandLess /> : <ExpandMore />}
+                {expandedSections.labels ? <span>🔼</span> : <span>🔽</span>}
               </ListItemIcon>
               <ListItemText primary="Labels" />
             </ListItemButton>
@@ -689,7 +772,11 @@ export const MailDrawer: Story = {
     variant: 'persistent',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -726,10 +813,12 @@ export const ResponsiveDrawer: Story = {
     variant: 'persistent',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
     responsive: true,
     responsiveBreakpoint: 'md',
     mobileVariant: 'temporary',
+    onClose: fn(),
+    onCollapseChange: fn(),
   },
 };
 
@@ -773,6 +862,10 @@ export const SwipeGestures: Story = {
     size: 'standard',
     open: false,
     swipeEnabled: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -805,7 +898,7 @@ export const FixedHeaderFooter: Story = {
     variant: 'persistent',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
     fixedHeader: true,
     fixedFooter: true,
     header: (
@@ -819,6 +912,10 @@ export const FixedHeaderFooter: Story = {
         <Typography variant="caption">Fixed Footer</Typography>
       </Box>
     ),
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -873,6 +970,193 @@ export const AccessibilityFeatures: Story = {
     size: 'standard',
     open: false,
     'aria-label': 'Main navigation drawer',
+    onClose: fn(),
+    onCollapseChange: fn(),
+  },
+};
+
+// Clean scrollbar-free drawer
+/**
+ * CleanNoScrollbar component
+ * 
+ * @returns JSX element
+ */
+export const CleanNoScrollbar: Story = {
+  render: (args) => (
+    <DrawerWrapper {...args}>
+      <Box data-testid="drawer.stories" sx={{ p: 2 }}>
+        <Typography variant="h6" gutterBottom>
+          Clean Drawer (No Scrollbar)
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          This drawer hides scrollbars for a cleaner appearance while maintaining scrolling functionality.
+        </Typography>
+        <List>
+          {navigationItems.map((item, index) => (
+            <ListItem key={index} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>{item.icon}</ListItemIcon>
+                <ListItemText primary={item.text} />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+        {/* Add extra content to test scrolling */}
+        {Array.from({ length: 10 }, (_, i) => (
+          <Typography key={i} variant="body2" sx={{ mb: 1 }}>
+            Additional content item {i + 1} to test scrolling behavior.
+          </Typography>
+        ))}
+      </Box>
+    </DrawerWrapper>
+  ),
+  args: {
+    variant: 'persistent',
+    anchor: 'left',
+    size: 'standard',
+    open: false,
+    hideScrollbar: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
+  },
+};
+
+// Primary header variant
+/**
+ * PrimaryHeader component
+ * 
+ * @returns JSX element
+ */
+export const PrimaryHeader: Story = {
+  render: (args) => (
+    <DrawerWrapper {...args}>
+      <Typography variant="h6" sx={{ color: 'inherit' }}>
+        Dashboard
+      </Typography>
+      <Typography variant="body2" sx={{ color: 'inherit', opacity: 0.8 }}>
+        Welcome back, John!
+      </Typography>
+      <List sx={{ mt: 2 }}>
+        {navigationItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </DrawerWrapper>
+  ),
+  args: {
+    variant: 'persistent',
+    anchor: 'left',
+    size: 'standard',
+    open: false,
+    headerVariant: 'primary',
+    header: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
+  },
+};
+
+// Gradient header variant
+/**
+ * GradientHeader component
+ * 
+ * @returns JSX element
+ */
+export const GradientHeader: Story = {
+  render: (args) => (
+    <DrawerWrapper {...args}>
+      <Box data-testid="drawer.stories" sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+        <Avatar sx={{ bgcolor: 'rgba(255, 255, 255, 0.2)' }}>A</Avatar>
+        <Box data-testid="drawer.stories">
+          <Typography variant="h6" sx={{ color: 'inherit', fontWeight: 600 }}>
+            Modern App
+          </Typography>
+          <Typography variant="body2" sx={{ color: 'inherit', opacity: 0.9 }}>
+            Premium Experience
+          </Typography>
+        </Box>
+      </Box>
+      <List sx={{ mt: 2 }}>
+        {navigationItems.map((item, index) => (
+          <ListItem key={index} disablePadding>
+            <ListItemButton>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.text} />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </DrawerWrapper>
+  ),
+  args: {
+    variant: 'persistent',
+    anchor: 'left',
+    size: 'standard',
+    open: false,
+    headerVariant: 'gradient',
+    header: true,
+    hideScrollbar: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
+  },
+};
+
+// No scroll variant
+/**
+ * NoScroll component
+ * 
+ * @returns JSX element
+ */
+export const NoScroll: Story = {
+  render: (args) => (
+    <DrawerWrapper {...args}>
+      <Box data-testid="drawer.stories" sx={{ p: 2, height: '100%', display: 'flex', flexDirection: 'column' }}>
+        <Typography variant="h6" gutterBottom>
+          Fixed Height Drawer
+        </Typography>
+        <Typography variant="body2" sx={{ mb: 2 }}>
+          This drawer has no scrolling - content is fixed within the available space.
+        </Typography>
+        <Box data-testid="drawer.stories" sx={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+          <List>
+            {navigationItems.slice(0, 4).map((item, index) => (
+              <ListItem key={index} disablePadding>
+                <ListItemButton>
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.text} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+          <Box data-testid="drawer.stories" sx={{ mt: 'auto', p: 1, textAlign: 'center' }}>
+            <Typography variant="caption" color="text.secondary">
+              Fixed layout content
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+    </DrawerWrapper>
+  ),
+  args: {
+    variant: 'persistent',
+    anchor: 'left',
+    size: 'standard',
+    open: false,
+    disableScroll: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };
 
@@ -912,6 +1196,11 @@ export const DarkMode: Story = {
     variant: 'persistent',
     anchor: 'left',
     size: 'standard',
-    open: true,
+    open: false,
+    hideScrollbar: true,
+    onClose: fn(),
+    onCollapseChange: fn(),
+    onOpened: fn(),
+    onClosed: fn(),
   },
 };

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "renders basic ListItem",
+    "props": { "children": "Simple List Item" }
+  },
+  {
+    "name": "renders selected ListItem",
+    "props": { "children": "Selected List Item", "selected": true }
+  },
+  {
+    "name": "renders disabled ListItem",
+    "props": { "children": "Disabled List Item", "disabled": true }
+  },
+  {
+    "name": "renders ListItem with icon",
+    "props": { "children": "<ListItemIcon><HomeIcon /></ListItemIcon> Home" }
+  },
+  {
+    "name": "renders ListItem with secondary action",
+    "props": { "children": "List Item with Action <ListItemSecondaryAction><IconButton edge=\"end\" aria-label=\"delete\"><DeleteIcon /></IconButton></ListItemSecondaryAction>" }
+  },
+  {
+    "name": "renders ListItem with custom content",
+    "props": { "children": "<ListItemText primary=\"Primary Text\" secondary=\"Secondary Text\" />" }
+  }
+] 

@@ -1,0 +1,168 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-body1 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-body1 css-14n44wn-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="body1"
+>
+  body1
+   Typography
+</p>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-body2 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-body2 css-1gwjj97-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="body2"
+>
+  body2
+   Typography
+</p>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-button 1`] = `
+<span
+  class="MuiTypography-root MuiTypography-button css-whzwq7-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="button"
+>
+  button
+   Typography
+</span>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-caption 1`] = `
+<span
+  class="MuiTypography-root MuiTypography-caption css-nswiet-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="caption"
+>
+  caption
+   Typography
+</span>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-h1 1`] = `
+<h1
+  class="MuiTypography-root MuiTypography-h1 css-13bxxjs-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="h1"
+>
+  h1
+   Typography
+</h1>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-h2 1`] = `
+<h2
+  class="MuiTypography-root MuiTypography-h2 css-1my1ga1-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="h2"
+>
+  h2
+   Typography
+</h2>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-h3 1`] = `
+<h3
+  class="MuiTypography-root MuiTypography-h3 css-1wsxnxh-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="h3"
+>
+  h3
+   Typography
+</h3>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-h4 1`] = `
+<h4
+  class="MuiTypography-root MuiTypography-h4 css-gwdu49-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="h4"
+>
+  h4
+   Typography
+</h4>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-h5 1`] = `
+<h5
+  class="MuiTypography-root MuiTypography-h5 css-5akx2e-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="h5"
+>
+  h5
+   Typography
+</h5>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-h6 1`] = `
+<h6
+  class="MuiTypography-root MuiTypography-h6 css-ru79qb-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="h6"
+>
+  h6
+   Typography
+</h6>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-overline 1`] = `
+<span
+  class="MuiTypography-root MuiTypography-overline css-1s2pfyc-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="overline"
+>
+  overline
+   Typography
+</span>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-subtitle1 1`] = `
+<h6
+  class="MuiTypography-root MuiTypography-subtitle1 css-coy9ar-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="subtitle1"
+>
+  subtitle1
+   Typography
+</h6>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for all variants > variant-subtitle2 1`] = `
+<h6
+  class="MuiTypography-root MuiTypography-subtitle2 css-1wc4vlz-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="subtitle2"
+>
+  subtitle2
+   Typography
+</h6>
+`;
+
+exports[`Typography Component > Snapshots > matches snapshot for default props 1`] = `
+<p
+  class="MuiTypography-root MuiTypography-body1 css-14n44wn-MuiTypography-root"
+  customalign="inherit"
+  customcolor="text.primary"
+  customvariant="body1"
+>
+  Default Typography
+</p>
+`;

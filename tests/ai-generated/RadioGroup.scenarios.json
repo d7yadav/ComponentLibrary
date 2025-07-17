@@ -1,0 +1,27 @@
+{
+  "component": "RadioGroup",
+  "generated": "2025-07-14T08:19:00.480Z",
+  "scenarios": [
+    {
+      "id": "RadioGroup-smoke",
+      "name": "RadioGroup Smoke Test",
+      "type": "smoke",
+      "description": "Basic rendering test for RadioGroup",
+      "estimatedDuration": 500
+    },
+    {
+      "id": "RadioGroup-interaction",
+      "name": "RadioGroup Interaction Test",
+      "type": "interaction",
+      "description": "User interaction test for RadioGroup",
+      "estimatedDuration": 800
+    },
+    {
+      "id": "RadioGroup-accessibility",
+      "name": "RadioGroup Accessibility Test",
+      "type": "accessibility",
+      "description": "WCAG compliance test for RadioGroup",
+      "estimatedDuration": 1200
+    }
+  ]
+}
